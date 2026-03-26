@@ -1,26 +1,44 @@
 # Step 1 — Create BPMN Process
 
-**Design the IXP-enhanced workflow**
+**Model the IXP-enhanced invoice matching workflow**
 
 ---
 
 ## Goal
 
-Create the BPMN diagram for the IXP-based invoice matching process. This version differs from the standard process by including the IXP extraction step and the confidence-based branching logic.
+Design the BPMN diagram for the IXP-based invoice matching process. The process is structurally similar to the standard version, with one key difference: the robot retrieves a **PDF document** (not pre-structured JSON), and the agent extracts structured data from it using **IXP (Intelligent eXtraction & Processing)**.
 
-## Key Differences from Standard Process
+## Matching Variants
 
-The IXP process adds:
+This exercise uses **2-way matching** — comparing an invoice against a Purchase Order. For reference, more advanced variants exist:
 
-- An explicit **extraction step** after the robot delivers the invoice PDF
-- A **confidence gate**: high-confidence results flow to automated matching, low-confidence results route to human review
-- A **human review task** specifically for validating extracted data (not just matching decisions)
+| Variant | Documents Compared |
+|---------|--------------------|
+| **2-way** | Invoice + Purchase Order |
+| **3-way** | Invoice + Purchase Order + Goods Receipt Note |
+| **4-way** | Invoice + Purchase Order + Goods Receipt Note + Inspection Report |
+
+You're building the 2-way variant.
 
 ## Steps
 
-<!-- Add step-by-step instructions here as you migrate from the original site -->
+1. Open **[bpmn.uipath.com](https://bpmn.uipath.com/)** in your browser.
 
-!!! note "Content migration in progress"
-    Detailed steps and screenshots will be added here. In the meantime, refer to the [original training site](https://sites.google.com/uipath.com/tpenlabs/home).
+2. Create a new diagram and model the invoice matching process:
+    - A **Start Event** triggers when a new invoice PDF arrives
+    - A **Robot task** retrieves the PDF from a Storage Bucket
+    - An **Agent task** extracts data using IXP, looks up the PO, and performs matching
+    - An **Exclusive Gateway** routes based on the agent's decision:
+        - Full match → update Data Service → End
+        - Mismatch → Human review → End
+        - Rejected → Send supplier notification → End
+
+    ![BPMN diagram for IXP invoice matching process](images/ixp-bpmn-01.png){ .screenshot }
+
+3. Review all paths and confirm each has an End Event.
+
+4. Export the diagram as a `.bpmn` file. Save it as **2-Way Matching IXP Process.bpmn**.
+
+    ![Completed BPMN diagram ready for export](images/ixp-bpmn-02.png){ .screenshot }
 
 [← Back to Overview](index.md) | [Next: Configure a Robot →](configure-robot.md)

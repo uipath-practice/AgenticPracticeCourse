@@ -1,36 +1,50 @@
 # Step 1 — Create BPMN Diagram
 
-**Design your end-to-end process flow**
+**Model the invoice matching process before building it**
 
 ---
 
 ## Goal
 
-Before building anything in Maestro, model the process visually using **BPMN (Business Process Model and Notation)**. The diagram becomes the blueprint for everything you'll implement in subsequent steps.
+Design the invoice matching workflow as a BPMN diagram. This diagram becomes the blueprint you'll import into **Maestro** in the next step.
 
-## What is BPMN?
+## The Process You're Modeling
 
-BPMN is a standardized visual language for documenting business processes. It lets you represent:
+A supplier sends an invoice containing a header, line items, and footer. Your automation compares this invoice against the associated **Purchase Order (PO)**.
 
-- Sequence of activities (who does what, and when)
-- Decision points (gateways)
-- Participants (swimlanes for humans, robots, agents, systems)
-- Events (start, end, exceptions)
+Three outcomes are possible:
 
-## Your Process Diagram
+| Outcome | Next Action |
+|---------|-------------|
+| **Full match** | Update UiPath Data Service and proceed to payment |
+| **Partial match / mismatch** | Route to Accounting Team for manual review |
+| **No match / rejected** | Send notification email to supplier |
 
-The invoice matching process involves these participants:
+## BPMN Diagramming Tool
 
-- **Robot** — retrieves invoices and documents
-- **AI Agent** — validates and matches invoice data against purchase orders
-- **Human** — reviews exceptions and approves edge cases
-- **External System** — ERP / PO database queried via API
+Build your diagram at **[bpmn.uipath.com](https://bpmn.uipath.com/)**. When finished, export it as a `.bpmn` file — you'll import it into Maestro in Step 2.
 
 ## Steps
 
-<!-- Add step-by-step instructions here as you migrate from the original site -->
+1. Open **[bpmn.uipath.com](https://bpmn.uipath.com/)** in your browser.
 
-!!! note "Content migration in progress"
-    Detailed steps and screenshots will be added here. In the meantime, refer to the [original training site](https://sites.google.com/uipath.com/tpenlabs/home).
+2. Create a new diagram and model the invoice matching process:
+    - A **Start Event** triggers when a new invoice arrives
+    - A **Robot task** retrieves the invoice and associated PO data
+    - An **Agent task** compares invoice against PO
+    - An **Exclusive Gateway** routes based on the comparison result:
+        - Full match → update Data Service → End
+        - Mismatch → Accounting Team review → End
+        - Rejected → send supplier notification email → End
+
+    ![Sample BPMN diagram for invoice matching process](images/bpmn-01.png){ .screenshot }
+
+3. Review the process flow to make sure all paths have an End Event.
+
+4. Export the diagram as a `.bpmn` file. Save it as **2-Way Matching Process.bpmn**.
+
+    ![Completed BPMN diagram exported as .bpmn file](images/bpmn-02.png){ .screenshot }
+
+You now have a complete process blueprint ready to import into Maestro.
 
 [← Back to Overview](index.md) | [Next: Add a Robot →](add-robot.md)
