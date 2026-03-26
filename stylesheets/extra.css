@@ -26,6 +26,39 @@
   width: auto;
 }
 
+/* ── Mobile drawer (hamburger menu) ─────────────────────────────────────── */
+@media screen and (max-width: 76.1875em) {
+
+  /* White background for the drawer header area (was orange) */
+  .md-nav--primary > .md-nav__title {
+    background-color: #ffffff;
+    color: #1a1a1a;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+    /* Allow the site title to wrap instead of truncating */
+    white-space: normal;
+    height: auto;
+    min-height: 3.4rem;
+    line-height: 1.3;
+    padding-bottom: 1rem;
+  }
+
+  /* Back-arrow / logo button colour inside the drawer title */
+  .md-nav--primary > .md-nav__title .md-nav__button {
+    color: #1a1a1a;
+  }
+
+  /* Logo size inside the drawer */
+  .md-nav--primary > .md-nav__title .md-logo img {
+    height: 1.6rem;
+    width: auto;
+  }
+
+  /* Nav item links — 20% larger than default */
+  .md-nav--primary .md-nav__link {
+    font-size: 1.2rem;
+  }
+}
+
 /* Image utilities */
 
 /* Center an image: ![alt](img.png){ .center } */
