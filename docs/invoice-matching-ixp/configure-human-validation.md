@@ -94,4 +94,18 @@ The IXP template is adapted to work with data extracted from PDFs via IXP.
 
     ![Process resumed after human decision](images/ixp-human-11.png){ .screenshot }
 
+18. Review the execution trace in Maestro to verify the correct path was taken.
+
+    ![Execution trace showing approved or rejected path](images/ixp-human-12.png){ .screenshot }
+
+19. Run additional test scenarios — one Approve and one Reject — to confirm both paths work.
+
+    ![Second test run with different decision outcome](images/ixp-human-13.png){ .screenshot }
+
+    ![Process execution summary after both test runs](images/ixp-human-14.png){ .screenshot }
+
+20. Review the end-to-end process flow animation.
+
+    ![End-to-end process flow](images/ixp-human-15.gif){ .screenshot }
+
 [← Step 3: Configure an Agent](configure-agent.md) | [Next: Configure API Integration →](configure-api.md)

@@ -62,6 +62,14 @@ Create the Maestro Agentic Process, import your BPMN diagram, and connect the fi
 
     ![Debug output showing PDF filename returned by robot](images/ixp-robot-08.png){ .screenshot }
 
+12. Review the output variable mapping to verify the filename is accessible for the next step.
+
+    ![Output variable panel showing PDF filename mapped correctly](images/ixp-robot-09.png){ .screenshot }
+
+13. Close debug mode and save the process.
+
+    ![Process saved and ready for agent configuration](images/ixp-robot-10.png){ .screenshot }
+
 The robot is now retrieving invoices as PDFs. In the next step, you'll configure the agent to extract structured data from those PDFs using IXP.
 
 [← Step 1: Create BPMN Process](create-bpmn.md) | [Next: Configure an Agent →](configure-agent.md)

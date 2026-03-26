@@ -113,6 +113,8 @@ Escalation is not a failure — it is a design choice. Use it whenever the agent
 
     The agent should recognize it cannot categorize this incident and trigger the escalation, creating a task in **Action Center** for a human reviewer.
 
+    ![Action Center task created for the escalated incident](images/tools-09.png){ .screenshot }
+
 Your agent is now complete. It retrieves incident details from ServiceNow, categorizes them using grounded context, updates the ticket, and escalates when it cannot determine a clear category.
 
 [← Back to Overview](index.md)
