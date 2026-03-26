@@ -904,10 +904,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#key-differences-from-standard-process" class="md-nav__link">
+  <a href="#matching-variants" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Key Differences from Standard Process
+        Matching Variants
       
     </span>
   </a>
@@ -1118,10 +1118,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#key-differences-from-standard-process" class="md-nav__link">
+  <a href="#matching-variants" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Key Differences from Standard Process
+        Matching Variants
       
     </span>
   </a>
@@ -1157,24 +1157,63 @@
 
 
 <h1 id="step-1-create-bpmn-process">Step 1 — Create BPMN Process<a class="headerlink" href="#step-1-create-bpmn-process" title="Permanent link">&para;</a></h1>
-<p><strong>Design the IXP-enhanced workflow</strong></p>
+<p><strong>Model the IXP-enhanced invoice matching workflow</strong></p>
 <hr />
 <h2 id="goal">Goal<a class="headerlink" href="#goal" title="Permanent link">&para;</a></h2>
-<p>Create the BPMN diagram for the IXP-based invoice matching process. This version differs from the standard process by including the IXP extraction step and the confidence-based branching logic.</p>
-<h2 id="key-differences-from-standard-process">Key Differences from Standard Process<a class="headerlink" href="#key-differences-from-standard-process" title="Permanent link">&para;</a></h2>
-<p>The IXP process adds:</p>
-<ul>
-<li>An explicit <strong>extraction step</strong> after the robot delivers the invoice PDF</li>
-<li>A <strong>confidence gate</strong>: high-confidence results flow to automated matching, low-confidence results route to human review</li>
-<li>A <strong>human review task</strong> specifically for validating extracted data (not just matching decisions)</li>
-</ul>
+<p>Design the BPMN diagram for the IXP-based invoice matching process. The process is structurally similar to the standard version, with one key difference: the robot retrieves a <strong>PDF document</strong> (not pre-structured JSON), and the agent extracts structured data from it using <strong>IXP (Intelligent eXtraction &amp; Processing)</strong>.</p>
+<h2 id="matching-variants">Matching Variants<a class="headerlink" href="#matching-variants" title="Permanent link">&para;</a></h2>
+<p>This exercise uses <strong>2-way matching</strong> — comparing an invoice against a Purchase Order. For reference, more advanced variants exist:</p>
+<table>
+<thead>
+<tr>
+<th>Variant</th>
+<th>Documents Compared</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>2-way</strong></td>
+<td>Invoice + Purchase Order</td>
+</tr>
+<tr>
+<td><strong>3-way</strong></td>
+<td>Invoice + Purchase Order + Goods Receipt Note</td>
+</tr>
+<tr>
+<td><strong>4-way</strong></td>
+<td>Invoice + Purchase Order + Goods Receipt Note + Inspection Report</td>
+</tr>
+</tbody>
+</table>
+<p>You're building the 2-way variant.</p>
 <h2 id="steps">Steps<a class="headerlink" href="#steps" title="Permanent link">&para;</a></h2>
-<!-- Add step-by-step instructions here as you migrate from the original site -->
-
-<div class="admonition note">
-<p class="admonition-title">Content migration in progress</p>
-<p>Detailed steps and screenshots will be added here. In the meantime, refer to the <a href="https://sites.google.com/uipath.com/tpenlabs/home">original training site</a>.</p>
-</div>
+<ol>
+<li>
+<p>Open <strong><a href="https://bpmn.uipath.com/">bpmn.uipath.com</a></strong> in your browser.</p>
+</li>
+<li>
+<p>Create a new diagram and model the invoice matching process:</p>
+<ul>
+<li>A <strong>Start Event</strong> triggers when a new invoice PDF arrives</li>
+<li>A <strong>Robot task</strong> retrieves the PDF from a Storage Bucket</li>
+<li>An <strong>Agent task</strong> extracts data using IXP, looks up the PO, and performs matching</li>
+<li>An <strong>Exclusive Gateway</strong> routes based on the agent's decision:<ul>
+<li>Full match → update Data Service → End</li>
+<li>Mismatch → Human review → End</li>
+<li>Rejected → Send supplier notification → End</li>
+</ul>
+</li>
+</ul>
+<p><img alt="BPMN diagram for IXP invoice matching process" class="screenshot" src="images/ixp-bpmn-01.png" /></p>
+</li>
+<li>
+<p>Review all paths and confirm each has an End Event.</p>
+</li>
+<li>
+<p>Export the diagram as a <code>.bpmn</code> file. Save it as <strong>2-Way Matching IXP Process.bpmn</strong>.</p>
+<p><img alt="Completed BPMN diagram ready for export" class="screenshot" src="images/ixp-bpmn-02.png" /></p>
+</li>
+</ol>
 <p><a href="../">← Back to Overview</a> | <a href="../configure-robot/">Next: Configure a Robot →</a></p>
 
 

@@ -705,10 +705,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#what-the-robot-does" class="md-nav__link">
+  <a href="#why-a-robot-here" class="md-nav__link">
     <span class="md-ellipsis">
       
-        What the Robot Does
+        Why a Robot Here
       
     </span>
   </a>
@@ -723,6 +723,45 @@
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Steps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-the-maestro-agentic-process" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Create the Maestro Agentic Process
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configure-the-robot-task" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configure the robot task
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test-the-process" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Test the process
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1118,10 +1157,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#what-the-robot-does" class="md-nav__link">
+  <a href="#why-a-robot-here" class="md-nav__link">
     <span class="md-ellipsis">
       
-        What the Robot Does
+        Why a Robot Here
       
     </span>
   </a>
@@ -1136,6 +1175,45 @@
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Steps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-the-maestro-agentic-process" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Create the Maestro Agentic Process
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configure-the-robot-task" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configure the robot task
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test-the-process" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Test the process
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1157,24 +1235,89 @@
 
 
 <h1 id="step-2-add-a-robot">Step 2 — Add a Robot<a class="headerlink" href="#step-2-add-a-robot" title="Permanent link">&para;</a></h1>
-<p><strong>Automate structured task execution</strong></p>
+<p><strong>Import your BPMN diagram and connect it to an RPA process</strong></p>
 <hr />
 <h2 id="goal">Goal<a class="headerlink" href="#goal" title="Permanent link">&para;</a></h2>
-<p>Add a robotic process automation component to handle the structured, rule-based parts of the workflow — tasks that are deterministic and don't require intelligent judgment.</p>
-<h2 id="what-the-robot-does">What the Robot Does<a class="headerlink" href="#what-the-robot-does" title="Permanent link">&para;</a></h2>
-<p>In the invoice matching process, the robot handles document retrieval and preparation:</p>
-<ul>
-<li>Connects to the source system</li>
-<li>Fetches invoice documents</li>
-<li>Prepares them for processing by subsequent workflow participants</li>
-</ul>
+<p>Create an Agentic Process in <strong>Maestro</strong>, import the BPMN diagram you built in Step 1, and connect the first workflow task to the <strong>Retrieve.Invoice</strong> RPA process. By the end of this step, your process will retrieve simulated invoice and PO data and you'll be able to run it end to end in debug mode.</p>
+<h2 id="why-a-robot-here">Why a Robot Here<a class="headerlink" href="#why-a-robot-here" title="Permanent link">&para;</a></h2>
+<p>Hundreds of invoices arrive daily, extracted from ERP and billing systems via RPA — without API access. The <strong>Retrieve.Invoice</strong> process simulates this retrieval and generates sample Invoice and PO documents as JSON, providing structured input for the agent in the next step.</p>
 <h2 id="steps">Steps<a class="headerlink" href="#steps" title="Permanent link">&para;</a></h2>
-<!-- Add step-by-step instructions here as you migrate from the original site -->
-
-<div class="admonition note">
-<p class="admonition-title">Content migration in progress</p>
-<p>Detailed steps and screenshots will be added here. In the meantime, refer to the <a href="https://sites.google.com/uipath.com/tpenlabs/home">original training site</a>.</p>
-</div>
+<h3 id="create-the-maestro-agentic-process">Create the Maestro Agentic Process<a class="headerlink" href="#create-the-maestro-agentic-process" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p>In <strong>Studio Web</strong>, create a new <strong>Agentic Process</strong>.</p>
+<p><img alt="New Agentic Process created in Studio Web" class="screenshot" src="images/robot-01.png" /></p>
+</li>
+<li>
+<p>Import your BPMN diagram. Select the <strong>2-Way Matching Process.bpmn</strong> file you exported in Step 1.</p>
+<p><img alt="BPMN diagram imported into Maestro" class="screenshot" src="images/robot-02.png" /></p>
+</li>
+<li>
+<p>Delete the auto-generated empty process placeholder that appears after import.</p>
+</li>
+<li>
+<p>Rename the process to <strong>2-Way Matching Process</strong>.</p>
+</li>
+<li>
+<p>Rename the project to <strong>2-Way Matching Project</strong>.</p>
+<p><img alt="Process and project renamed" class="screenshot" src="images/robot-03.png" /></p>
+</li>
+</ol>
+<h3 id="configure-the-robot-task">Configure the robot task<a class="headerlink" href="#configure-the-robot-task" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p>Select the robot task node in your BPMN canvas.</p>
+</li>
+<li>
+<p>Open the properties panel and select <strong>Start and wait for RPA workflow</strong> as the action type.</p>
+<p><img alt="Properties panel with Start and wait for RPA workflow selected" class="screenshot" src="images/robot-04.png" /></p>
+</li>
+<li>
+<p>Search for and select the <strong>Retrieve.Invoice</strong> process from the <strong>2-Way Matching</strong> folder.</p>
+<p><img alt="Retrieve.Invoice process selected from 2-Way Matching folder" class="screenshot" src="images/robot-05.png" /></p>
+</li>
+<li>
+<p>Set the <code>in_FailureProbability</code> input argument to <strong>90</strong> (percent). This simulates realistic retrieval conditions during testing.</p>
+<p><img alt="in_FailureProbability set to 90" class="screenshot" src="images/robot-06.png" /></p>
+</li>
+</ol>
+<h3 id="test-the-process">Test the process<a class="headerlink" href="#test-the-process" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p>Click <strong>Debug</strong> to launch the process.</p>
+<p><img alt="Debug button in Maestro process editor" class="screenshot" src="images/robot-07.png" /></p>
+</li>
+<li>
+<p>Wait for the process to complete and review the output. The <strong>Retrieve.Invoice</strong> process produces JSON with the following structure:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="p">{</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="nt">&quot;Header&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="nt">&quot;CompanyName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;...&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="nt">&quot;Address&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;...&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="nt">&quot;RegistrationCode&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;...&quot;</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="p">},</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="nt">&quot;Lines&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">      </span><span class="nt">&quot;ID&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">      </span><span class="nt">&quot;ProductName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;...&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">      </span><span class="nt">&quot;UnitPrice&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;...&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">      </span><span class="nt">&quot;Quantity&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;...&quot;</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">  </span><span class="p">],</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">  </span><span class="nt">&quot;Details&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">    </span><span class="nt">&quot;Subtotal&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;...&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="w">    </span><span class="nt">&quot;Tax&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;...&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="w">    </span><span class="nt">&quot;Total&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;...&quot;</span>
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="p">}</span>
+</code></pre></div>
+<p><img alt="Process execution output showing Invoice and PO JSON" class="screenshot" src="images/robot-08.png" /></p>
+</li>
+<li>
+<p>Confirm that both invoice and PO data were generated in the output.</p>
+<p><img alt="Output variables showing out_InvoiceData and out_PurchaseOrderData" class="screenshot" src="images/robot-09.png" /></p>
+</li>
+</ol>
+<p>The robot is now connected and returning structured data. In the next step, you'll add an agent that compares the two documents.</p>
 <p><a href="../create-bpmn/">← Step 1: Create BPMN Diagram</a> | <a href="../add-agent/">Next: Add an Agent →</a></p>
 
 

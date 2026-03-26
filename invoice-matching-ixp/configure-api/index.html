@@ -1016,17 +1016,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#api-connections-in-this-process" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        API Connections in This Process
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#steps" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1035,16 +1024,44 @@
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#what-youve-built" class="md-nav__link">
+    <nav class="md-nav" aria-label="Steps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#part-1-configure-the-rejection-email" class="md-nav__link">
     <span class="md-ellipsis">
       
-        What You've Built
+        Part 1: Configure the rejection email
       
     </span>
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#part-2-store-approved-invoice-data-in-data-fabric" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 2: Store approved invoice data in Data Fabric
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#part-3-test-the-complete-process" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 3: Test the complete process
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1129,17 +1146,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#api-connections-in-this-process" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        API Connections in This Process
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#steps" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1148,16 +1154,44 @@
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#what-youve-built" class="md-nav__link">
+    <nav class="md-nav" aria-label="Steps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#part-1-configure-the-rejection-email" class="md-nav__link">
     <span class="md-ellipsis">
       
-        What You've Built
+        Part 1: Configure the rejection email
       
     </span>
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#part-2-store-approved-invoice-data-in-data-fabric" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 2: Store approved invoice data in Data Fabric
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#part-3-test-the-complete-process" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 3: Test the complete process
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1179,49 +1213,62 @@
 
 
 <h1 id="step-5-configure-api-integration">Step 5 — Configure API Integration<a class="headerlink" href="#step-5-configure-api-integration" title="Permanent link">&para;</a></h1>
-<p><strong>Connect to external systems</strong></p>
+<p><strong>Connect Gmail and Data Fabric to complete the IXP process</strong></p>
 <hr />
 <h2 id="goal">Goal<a class="headerlink" href="#goal" title="Permanent link">&para;</a></h2>
-<p>Complete the IXP-enhanced process by adding API integrations that connect Maestro to the external systems needed to retrieve PO data and post matching results.</p>
-<h2 id="api-connections-in-this-process">API Connections in This Process<a class="headerlink" href="#api-connections-in-this-process" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>Integration</th>
-<th>Purpose</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>ERP / PO system</td>
-<td>Read Purchase Order details for matching</td>
-</tr>
-<tr>
-<td>Invoice system</td>
-<td>Post matching decisions (approved/rejected)</td>
-</tr>
-<tr>
-<td>Notification system</td>
-<td>(Optional) Alert stakeholders of exceptions</td>
-</tr>
-</tbody>
-</table>
+<p>Add the same two API integrations as the standard exercise: <strong>Gmail</strong> for rejection emails and <strong>Data Fabric</strong> for storing approved invoice records. Both use <strong>Integration Service</strong> connectors already configured in your tenant.</p>
 <h2 id="steps">Steps<a class="headerlink" href="#steps" title="Permanent link">&para;</a></h2>
-<!-- Add step-by-step instructions here as you migrate from the original site -->
-
-<div class="admonition note">
-<p class="admonition-title">Content migration in progress</p>
-<p>Detailed steps and screenshots will be added here. In the meantime, refer to the <a href="https://sites.google.com/uipath.com/tpenlabs/home">original training site</a>.</p>
-</div>
-<h2 id="what-youve-built">What You've Built<a class="headerlink" href="#what-youve-built" title="Permanent link">&para;</a></h2>
-<p>After completing all five steps, your IXP-enhanced process:</p>
+<h3 id="part-1-configure-the-rejection-email">Part 1: Configure the rejection email<a class="headerlink" href="#part-1-configure-the-rejection-email" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p>In your <strong>2-Way Matching IXP Process</strong> in Maestro, select the task on the <strong>Reject</strong> path.</p>
+</li>
+<li>
+<p>Set the action type to <strong>Execute Connector Activity</strong>.</p>
+<p><img alt="Execute Connector Activity selected" class="screenshot" src="images/ixp-api-01.png" /></p>
+</li>
+<li>
+<p>Select the <strong>Gmail Connector</strong> and the shared Gmail connection.</p>
+<p><img alt="Gmail Connector and shared connection selected" class="screenshot" src="images/ixp-api-02.png" /></p>
+</li>
+<li>
+<p>Configure the <strong>Send Email</strong> activity:</p>
 <ul>
-<li><strong>Robot</strong> retrieves invoice PDFs from source</li>
-<li><strong>Agent + IXP</strong> extracts structured data with confidence scoring</li>
-<li><strong>Human validation</strong> corrects low-confidence extractions</li>
-<li><strong>Agent</strong> queries ERP, validates, and makes matching decisions</li>
-<li><strong>API calls</strong> post results and trigger downstream actions</li>
+<li><strong>To:</strong> the supplier's email address from the extracted invoice data</li>
+<li><strong>Body:</strong> use <code>out_SuggestedResponse</code> — the agent's formatted rejection email with specific discrepancy reasons</li>
 </ul>
+<p><img alt="Email configured with supplier address and rejection body" class="screenshot" src="images/ixp-api-03.png" /></p>
+</li>
+<li>
+<p>Save the task.</p>
+</li>
+</ol>
+<h3 id="part-2-store-approved-invoice-data-in-data-fabric">Part 2: Store approved invoice data in Data Fabric<a class="headerlink" href="#part-2-store-approved-invoice-data-in-data-fabric" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p>Select the task on the <strong>Approve</strong> path.</p>
+</li>
+<li>
+<p>Set the action type to <strong>Execute Connector Activity</strong>.</p>
+<p><img alt="Execute Connector Activity on Approve path" class="screenshot" src="images/ixp-api-04.png" /></p>
+</li>
+<li>
+<p>Select the <strong>Data Fabric connector</strong> and configure it to write the approved invoice record for payment processing.</p>
+<p><img alt="Data Fabric connector configured" class="screenshot" src="images/ixp-api-05.png" /></p>
+</li>
+</ol>
+<h3 id="part-3-test-the-complete-process">Part 3: Test the complete process<a class="headerlink" href="#part-3-test-the-complete-process" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p>Run the process several times. After a few runs:</p>
+<ul>
+<li>Check <strong>Data Fabric</strong> — approved invoices accumulate as records</li>
+<li>Check the supplier inbox — formatted rejection emails arrive automatically</li>
+</ul>
+<p><img alt="Data Fabric records from multiple process runs" class="screenshot" src="images/ixp-api-06.png" /></p>
+</li>
+</ol>
+<p>Your IXP-enhanced process is complete. It retrieves invoice PDFs via robot, extracts and validates data using IXP, queries the PO database, routes exceptions to human review, sends rejection emails, and stores approved records — all orchestrated by Maestro.</p>
 <p><a href="../configure-human-validation/">← Step 4: Configure Human Validation</a> | <a href="../">Back to Overview</a></p>
 
 

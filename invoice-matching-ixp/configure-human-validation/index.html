@@ -988,21 +988,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#when-humans-are-needed" class="md-nav__link">
+  <a href="#the-ixp-validation-app" class="md-nav__link">
     <span class="md-ellipsis">
       
-        When Humans Are Needed
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#the-human-task" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        The Human Task
+        The IXP Validation App
       
     </span>
   </a>
@@ -1017,6 +1006,56 @@
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Steps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#part-1-import-the-validation-app" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 1: Import the validation app
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#part-2-configure-the-human-task-in-maestro" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 2: Configure the human task in Maestro
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#part-3-configure-the-gateway-decision-logic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 3: Configure the gateway decision logic
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#part-4-test-the-human-validation-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 4: Test the human validation flow
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1129,21 +1168,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#when-humans-are-needed" class="md-nav__link">
+  <a href="#the-ixp-validation-app" class="md-nav__link">
     <span class="md-ellipsis">
       
-        When Humans Are Needed
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#the-human-task" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        The Human Task
+        The IXP Validation App
       
     </span>
   </a>
@@ -1158,6 +1186,56 @@
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Steps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#part-1-import-the-validation-app" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 1: Import the validation app
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#part-2-configure-the-human-task-in-maestro" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 2: Configure the human task in Maestro
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#part-3-configure-the-gateway-decision-logic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 3: Configure the gateway decision logic
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#part-4-test-the-human-validation-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 4: Test the human validation flow
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1179,32 +1257,126 @@
 
 
 <h1 id="step-4-configure-human-validation">Step 4 — Configure Human Validation<a class="headerlink" href="#step-4-configure-human-validation" title="Permanent link">&para;</a></h1>
-<p><strong>Handle low-confidence escalations</strong></p>
+<p><strong>Import the IXP validation app and configure the human review task</strong></p>
 <hr />
 <h2 id="goal">Goal<a class="headerlink" href="#goal" title="Permanent link">&para;</a></h2>
-<p>Configure the human validation step that activates when IXP extraction confidence falls below your defined threshold.</p>
-<h2 id="when-humans-are-needed">When Humans Are Needed<a class="headerlink" href="#when-humans-are-needed" title="Permanent link">&para;</a></h2>
-<p>In the IXP workflow, human validation covers two scenarios:</p>
-<ol>
-<li><strong>Low-confidence extraction</strong> — one or more fields were extracted with low confidence; a human verifies or corrects the extracted data before matching proceeds</li>
-<li><strong>Matching exceptions</strong> — after extraction, the agent cannot make a clear match/reject decision</li>
-</ol>
-<h2 id="the-human-task">The Human Task<a class="headerlink" href="#the-human-task" title="Permanent link">&para;</a></h2>
-<p>In Action Center, the reviewer sees:</p>
-<ul>
-<li>The original PDF invoice (for reference)</li>
-<li>The IXP-extracted values with confidence scores highlighted</li>
-<li>Fields flagged for review</li>
-<li>Form fields to confirm or correct each value</li>
-</ul>
-<p>Once submitted, the corrected data flows back into the process and the agent proceeds with matching.</p>
+<p>Add a human validation step on the <strong>Failed Match</strong> path. When the agent flags a mismatch, a reviewer in <strong>Action Center</strong> sees the comparison and approves or rejects it. The workflow resumes based on their decision.</p>
+<h2 id="the-ixp-validation-app">The IXP Validation App<a class="headerlink" href="#the-ixp-validation-app" title="Permanent link">&para;</a></h2>
+<p>This exercise uses a different template than the standard exercise:</p>
+<table>
+<thead>
+<tr>
+<th>Exercise</th>
+<th>App Template</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Standard (JSON)</td>
+<td><code>2WM Validation App Template</code></td>
+</tr>
+<tr>
+<td>IXP (PDF)</td>
+<td><code>2WM Validation App IXP Template</code></td>
+</tr>
+</tbody>
+</table>
+<p>The IXP template is adapted to work with data extracted from PDFs via IXP.</p>
 <h2 id="steps">Steps<a class="headerlink" href="#steps" title="Permanent link">&para;</a></h2>
-<!-- Add step-by-step instructions here as you migrate from the original site -->
-
-<div class="admonition note">
-<p class="admonition-title">Content migration in progress</p>
-<p>Detailed steps and screenshots will be added here. In the meantime, refer to the <a href="https://sites.google.com/uipath.com/tpenlabs/home">original training site</a>.</p>
-</div>
+<h3 id="part-1-import-the-validation-app">Part 1: Import the validation app<a class="headerlink" href="#part-1-import-the-validation-app" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p>Navigate to <strong>Apps</strong> in your workspace.</p>
+</li>
+<li>
+<p>Import the <strong>2WM Validation App IXP Template</strong> from the shared templates library.</p>
+<p><img alt="2WM Validation App IXP Template selected" class="screenshot" src="images/ixp-human-01.png" /></p>
+</li>
+<li>
+<p>Review the imported app. It displays the agent's HTML comparison output and provides <strong>Approve</strong> and <strong>Reject</strong> buttons.</p>
+<p><img alt="2WM Validation App IXP interface" class="screenshot" src="images/ixp-human-02.png" /></p>
+</li>
+</ol>
+<h3 id="part-2-configure-the-human-task-in-maestro">Part 2: Configure the human task in Maestro<a class="headerlink" href="#part-2-configure-the-human-task-in-maestro" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p>In your <strong>2-Way Matching IXP Process</strong>, select the human task node on the <strong>Failed Match</strong> path.</p>
+</li>
+<li>
+<p>Set the action type to <strong>Action App Task</strong>.</p>
+<p><img alt="Action App Task selected" class="screenshot" src="images/ixp-human-03.png" /></p>
+</li>
+<li>
+<p>Select the <strong>2WM Validation App IXP</strong> you imported.</p>
+</li>
+<li>
+<p>Set the task title, for example: <strong>Invoice Review Required</strong>.</p>
+</li>
+<li>
+<p>Assign the task to yourself.</p>
+<p><img alt="Task configured with title and assignee" class="screenshot" src="images/ixp-human-04.png" /></p>
+</li>
+<li>
+<p>Map the agent outputs to the app inputs:</p>
+<table>
+<thead>
+<tr>
+<th>Agent Output</th>
+<th>App Input</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>out_DocumentsHTML</code></td>
+<td>Comparison display field</td>
+</tr>
+<tr>
+<td><code>out_SuggestedResponse</code></td>
+<td>Suggested rejection email field</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="Agent outputs mapped to app inputs" class="screenshot" src="images/ixp-human-05.png" /></p>
+</li>
+<li>
+<p>Save the task configuration.</p>
+<p><img alt="Completed task configuration" class="screenshot" src="images/ixp-human-06.png" /></p>
+</li>
+</ol>
+<h3 id="part-3-configure-the-gateway-decision-logic">Part 3: Configure the gateway decision logic<a class="headerlink" href="#part-3-configure-the-gateway-decision-logic" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p>Add an <strong>Exclusive Gateway</strong> after the human task.</p>
+<p><img alt="Exclusive Gateway added" class="screenshot" src="images/ixp-human-07.png" /></p>
+</li>
+<li>
+<p>Set <strong>Reject</strong> as the default path (it will be taken if the expression on the Approve path is not met).</p>
+</li>
+<li>
+<p>Configure the expression for the <strong>Approve</strong> path using the Expression Editor:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>vars.actionOutput == &quot;Approve&quot;
+</code></pre></div>
+<p><img alt="Expression Editor with Approve condition" class="screenshot" src="images/ixp-human-08.png" /></p>
+</li>
+<li>
+<p>Connect the <strong>Approve</strong> path to the payment task and the <strong>Reject</strong> path to the supplier notification task.</p>
+</li>
+</ol>
+<h3 id="part-4-test-the-human-validation-flow">Part 4: Test the human validation flow<a class="headerlink" href="#part-4-test-the-human-validation-flow" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p>Run the process in debug mode. Trigger a <strong>Failed Match</strong> so the human task activates.</p>
+<p><img alt="Process debug with human task triggered" class="screenshot" src="images/ixp-human-09.png" /></p>
+</li>
+<li>
+<p>Open <strong>Action Center</strong> and find your task. Review the comparison and click <strong>Approve</strong> or <strong>Reject</strong>.</p>
+<p><img alt="Action Center showing invoice review task" class="screenshot" src="images/ixp-human-10.png" /></p>
+</li>
+<li>
+<p>Confirm the process resumed and routed correctly.</p>
+<p><img alt="Process resumed after human decision" class="screenshot" src="images/ixp-human-11.png" /></p>
+</li>
+</ol>
 <p><a href="../configure-agent/">← Step 3: Configure an Agent</a> | <a href="../configure-api/">Next: Configure API Integration →</a></p>
 
 

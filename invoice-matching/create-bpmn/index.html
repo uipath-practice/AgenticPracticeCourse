@@ -677,10 +677,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#what-is-bpmn" class="md-nav__link">
+  <a href="#the-process-youre-modeling" class="md-nav__link">
     <span class="md-ellipsis">
       
-        What is BPMN?
+        The Process You're Modeling
       
     </span>
   </a>
@@ -688,10 +688,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#your-process-diagram" class="md-nav__link">
+  <a href="#bpmn-diagramming-tool" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Your Process Diagram
+        BPMN Diagramming Tool
       
     </span>
   </a>
@@ -1129,10 +1129,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#what-is-bpmn" class="md-nav__link">
+  <a href="#the-process-youre-modeling" class="md-nav__link">
     <span class="md-ellipsis">
       
-        What is BPMN?
+        The Process You're Modeling
       
     </span>
   </a>
@@ -1140,10 +1140,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#your-process-diagram" class="md-nav__link">
+  <a href="#bpmn-diagramming-tool" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Your Process Diagram
+        BPMN Diagramming Tool
       
     </span>
   </a>
@@ -1179,33 +1179,66 @@
 
 
 <h1 id="step-1-create-bpmn-diagram">Step 1 — Create BPMN Diagram<a class="headerlink" href="#step-1-create-bpmn-diagram" title="Permanent link">&para;</a></h1>
-<p><strong>Design your end-to-end process flow</strong></p>
+<p><strong>Model the invoice matching process before building it</strong></p>
 <hr />
 <h2 id="goal">Goal<a class="headerlink" href="#goal" title="Permanent link">&para;</a></h2>
-<p>Before building anything in Maestro, model the process visually using <strong>BPMN (Business Process Model and Notation)</strong>. The diagram becomes the blueprint for everything you'll implement in subsequent steps.</p>
-<h2 id="what-is-bpmn">What is BPMN?<a class="headerlink" href="#what-is-bpmn" title="Permanent link">&para;</a></h2>
-<p>BPMN is a standardized visual language for documenting business processes. It lets you represent:</p>
-<ul>
-<li>Sequence of activities (who does what, and when)</li>
-<li>Decision points (gateways)</li>
-<li>Participants (swimlanes for humans, robots, agents, systems)</li>
-<li>Events (start, end, exceptions)</li>
-</ul>
-<h2 id="your-process-diagram">Your Process Diagram<a class="headerlink" href="#your-process-diagram" title="Permanent link">&para;</a></h2>
-<p>The invoice matching process involves these participants:</p>
-<ul>
-<li><strong>Robot</strong> — retrieves invoices and documents</li>
-<li><strong>AI Agent</strong> — validates and matches invoice data against purchase orders</li>
-<li><strong>Human</strong> — reviews exceptions and approves edge cases</li>
-<li><strong>External System</strong> — ERP / PO database queried via API</li>
-</ul>
+<p>Design the invoice matching workflow as a BPMN diagram. This diagram becomes the blueprint you'll import into <strong>Maestro</strong> in the next step.</p>
+<h2 id="the-process-youre-modeling">The Process You're Modeling<a class="headerlink" href="#the-process-youre-modeling" title="Permanent link">&para;</a></h2>
+<p>A supplier sends an invoice containing a header, line items, and footer. Your automation compares this invoice against the associated <strong>Purchase Order (PO)</strong>.</p>
+<p>Three outcomes are possible:</p>
+<table>
+<thead>
+<tr>
+<th>Outcome</th>
+<th>Next Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Full match</strong></td>
+<td>Update UiPath Data Service and proceed to payment</td>
+</tr>
+<tr>
+<td><strong>Partial match / mismatch</strong></td>
+<td>Route to Accounting Team for manual review</td>
+</tr>
+<tr>
+<td><strong>No match / rejected</strong></td>
+<td>Send notification email to supplier</td>
+</tr>
+</tbody>
+</table>
+<h2 id="bpmn-diagramming-tool">BPMN Diagramming Tool<a class="headerlink" href="#bpmn-diagramming-tool" title="Permanent link">&para;</a></h2>
+<p>Build your diagram at <strong><a href="https://bpmn.uipath.com/">bpmn.uipath.com</a></strong>. When finished, export it as a <code>.bpmn</code> file — you'll import it into Maestro in Step 2.</p>
 <h2 id="steps">Steps<a class="headerlink" href="#steps" title="Permanent link">&para;</a></h2>
-<!-- Add step-by-step instructions here as you migrate from the original site -->
-
-<div class="admonition note">
-<p class="admonition-title">Content migration in progress</p>
-<p>Detailed steps and screenshots will be added here. In the meantime, refer to the <a href="https://sites.google.com/uipath.com/tpenlabs/home">original training site</a>.</p>
-</div>
+<ol>
+<li>
+<p>Open <strong><a href="https://bpmn.uipath.com/">bpmn.uipath.com</a></strong> in your browser.</p>
+</li>
+<li>
+<p>Create a new diagram and model the invoice matching process:</p>
+<ul>
+<li>A <strong>Start Event</strong> triggers when a new invoice arrives</li>
+<li>A <strong>Robot task</strong> retrieves the invoice and associated PO data</li>
+<li>An <strong>Agent task</strong> compares invoice against PO</li>
+<li>An <strong>Exclusive Gateway</strong> routes based on the comparison result:<ul>
+<li>Full match → update Data Service → End</li>
+<li>Mismatch → Accounting Team review → End</li>
+<li>Rejected → send supplier notification email → End</li>
+</ul>
+</li>
+</ul>
+<p><img alt="Sample BPMN diagram for invoice matching process" class="screenshot" src="images/bpmn-01.png" /></p>
+</li>
+<li>
+<p>Review the process flow to make sure all paths have an End Event.</p>
+</li>
+<li>
+<p>Export the diagram as a <code>.bpmn</code> file. Save it as <strong>2-Way Matching Process.bpmn</strong>.</p>
+<p><img alt="Completed BPMN diagram exported as .bpmn file" class="screenshot" src="images/bpmn-02.png" /></p>
+</li>
+</ol>
+<p>You now have a complete process blueprint ready to import into Maestro.</p>
 <p><a href="../">← Back to Overview</a> | <a href="../add-robot/">Next: Add a Robot →</a></p>
 
 

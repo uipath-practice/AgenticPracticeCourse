@@ -761,21 +761,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#when-humans-are-needed" class="md-nav__link">
+  <a href="#humans-in-the-loop" class="md-nav__link">
     <span class="md-ellipsis">
       
-        When Humans Are Needed
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#action-center-integration" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Action Center Integration
+        Humans in the Loop
       
     </span>
   </a>
@@ -790,6 +779,56 @@
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Steps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#part-1-import-the-validation-app" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 1: Import the validation app
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#part-2-configure-the-human-validation-task" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 2: Configure the human validation task
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#part-3-configure-the-gateway-decision-logic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 3: Configure the gateway decision logic
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#part-4-test-the-human-in-the-loop-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 4: Test the human-in-the-loop flow
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1129,21 +1168,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#when-humans-are-needed" class="md-nav__link">
+  <a href="#humans-in-the-loop" class="md-nav__link">
     <span class="md-ellipsis">
       
-        When Humans Are Needed
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#action-center-integration" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Action Center Integration
+        Humans in the Loop
       
     </span>
   </a>
@@ -1158,6 +1186,56 @@
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Steps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#part-1-import-the-validation-app" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 1: Import the validation app
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#part-2-configure-the-human-validation-task" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 2: Configure the human validation task
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#part-3-configure-the-gateway-decision-logic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 3: Configure the gateway decision logic
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#part-4-test-the-human-in-the-loop-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 4: Test the human-in-the-loop flow
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1179,34 +1257,113 @@
 
 
 <h1 id="step-4-add-a-human">Step 4 — Add a Human<a class="headerlink" href="#step-4-add-a-human" title="Permanent link">&para;</a></h1>
-<p><strong>Configure validation and escalation checkpoints</strong></p>
+<p><strong>Import a validation app and configure the human review task</strong></p>
 <hr />
 <h2 id="goal">Goal<a class="headerlink" href="#goal" title="Permanent link">&para;</a></h2>
-<p>Add human intervention points to handle cases the agent flags as exceptions — invoices where automatic matching confidence is low, amounts exceed approval thresholds, or discrepancies require review.</p>
-<h2 id="when-humans-are-needed">When Humans Are Needed<a class="headerlink" href="#when-humans-are-needed" title="Permanent link">&para;</a></h2>
-<p>Automate the routine; escalate the exceptions. Humans are brought in when:</p>
-<ul>
-<li>Invoice and PO data don't match cleanly</li>
-<li>The agent's confidence in a decision is below threshold</li>
-<li>Invoice amounts exceed an automatic approval limit</li>
-<li>The invoice references a PO that can't be found</li>
-</ul>
-<h2 id="action-center-integration">Action Center Integration<a class="headerlink" href="#action-center-integration" title="Permanent link">&para;</a></h2>
-<p>Human tasks appear in <strong>Action Center</strong>, where reviewers can:</p>
-<ul>
-<li>See the invoice and matched PO data side-by-side</li>
-<li>Approve or reject the match</li>
-<li>Add notes explaining the decision</li>
-<li>Route to additional approvers if needed</li>
-</ul>
-<p>The workflow resumes automatically once the human task is completed.</p>
+<p>Add a human validation step to the <strong>Failed Match</strong> path. When the agent flags a mismatch, a reviewer in <strong>Action Center</strong> sees the invoice and PO side by side and approves or rejects the match. The workflow resumes automatically based on the reviewer's decision.</p>
+<h2 id="humans-in-the-loop">Humans in the Loop<a class="headerlink" href="#humans-in-the-loop" title="Permanent link">&para;</a></h2>
+<p>Humans are most effective when they have all the information they need on one screen. In this step, you'll import a pre-built validation app that presents the agent's HTML comparison output to the reviewer — no switching between systems, no hunting for data.</p>
 <h2 id="steps">Steps<a class="headerlink" href="#steps" title="Permanent link">&para;</a></h2>
-<!-- Add step-by-step instructions here as you migrate from the original site -->
-
-<div class="admonition note">
-<p class="admonition-title">Content migration in progress</p>
-<p>Detailed steps and screenshots will be added here. In the meantime, refer to the <a href="https://sites.google.com/uipath.com/tpenlabs/home">original training site</a>.</p>
-</div>
+<h3 id="part-1-import-the-validation-app">Part 1: Import the validation app<a class="headerlink" href="#part-1-import-the-validation-app" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p>In your workspace, navigate to <strong>Apps</strong> (or <strong>Action Center Apps</strong>).</p>
+</li>
+<li>
+<p>Import the <strong>2WM Validation App Template</strong> from the shared templates library.</p>
+<p><img alt="Validation app template selected in shared templates" class="screenshot" src="images/human-01.png" /></p>
+</li>
+<li>
+<p>Review the imported app. It displays:</p>
+<ul>
+<li>The side-by-side HTML comparison generated by the agent</li>
+<li>The suggested rejection email</li>
+<li>Two action buttons: <strong>Approve</strong> and <strong>Reject</strong></li>
+</ul>
+<p><img alt="2WM Validation App interface" class="screenshot" src="images/human-02.png" /></p>
+</li>
+</ol>
+<h3 id="part-2-configure-the-human-validation-task">Part 2: Configure the human validation task<a class="headerlink" href="#part-2-configure-the-human-validation-task" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p>In your <strong>2-Way Matching Process</strong> in Maestro, select the human task node on the <strong>Failed Match</strong> path.</p>
+</li>
+<li>
+<p>Set the action type to <strong>Action App Task</strong>.</p>
+<p><img alt="Action App Task selected in task properties" class="screenshot" src="images/human-03.png" /></p>
+</li>
+<li>
+<p>Select the <strong>2WM Validation App</strong> you imported.</p>
+</li>
+<li>
+<p>Set a descriptive task title, for example: <strong>Invoice Review Required</strong>.</p>
+</li>
+<li>
+<p>Assign the task to yourself (or a specific user) so it appears in your Action Center queue.</p>
+<p><img alt="Task title set and user assigned" class="screenshot" src="images/human-04.png" /></p>
+</li>
+<li>
+<p>Map the agent outputs to the app inputs:</p>
+<table>
+<thead>
+<tr>
+<th>Agent Output</th>
+<th>App Input</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>out_DocumentsHTML</code></td>
+<td>Comparison HTML display field</td>
+</tr>
+<tr>
+<td><code>out_SuggestedResponse</code></td>
+<td>Suggested rejection email field</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="Agent outputs mapped to app inputs" class="screenshot" src="images/human-05.png" /></p>
+</li>
+<li>
+<p>Save the task configuration.</p>
+<p><img alt="Completed task configuration" class="screenshot" src="images/human-06.png" /></p>
+</li>
+</ol>
+<h3 id="part-3-configure-the-gateway-decision-logic">Part 3: Configure the gateway decision logic<a class="headerlink" href="#part-3-configure-the-gateway-decision-logic" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p>Add an <strong>Exclusive Gateway</strong> after the human task. This routes the workflow based on what the reviewer chose.</p>
+<p><img alt="Exclusive Gateway added after human task" class="screenshot" src="images/human-07.png" /></p>
+</li>
+<li>
+<p>Configure two outgoing paths:</p>
+<ul>
+<li><strong>Approve</strong> → proceed to payment</li>
+<li><strong>Reject</strong> → send supplier email</li>
+</ul>
+</li>
+<li>
+<p>Set the expression for the <strong>Approve</strong> path:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>vars.actionOutput == &quot;Approve&quot;
+</code></pre></div>
+<p><img alt="Gateway expression for Approve path" class="screenshot" src="images/human-08.png" /></p>
+</li>
+</ol>
+<h3 id="part-4-test-the-human-in-the-loop-flow">Part 4: Test the human-in-the-loop flow<a class="headerlink" href="#part-4-test-the-human-in-the-loop-flow" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p>Run the process in debug mode. Trigger a <strong>Failed Match</strong> scenario so the human task activates.</p>
+<p><img alt="Process debug showing human task triggered" class="screenshot" src="images/human-09.png" /></p>
+</li>
+<li>
+<p>Open <strong>Action Center</strong> and find your task. Review the comparison and click <strong>Approve</strong> or <strong>Reject</strong>.</p>
+<p><img alt="Action Center task with invoice comparison and action buttons" class="screenshot" src="images/human-10.png" /></p>
+</li>
+<li>
+<p>Return to the process and confirm it resumed and routed correctly based on your decision.</p>
+<p><img alt="Process continued after human decision" class="screenshot" src="images/human-11.png" /></p>
+</li>
+</ol>
 <p><a href="../add-agent/">← Step 3: Add an Agent</a> | <a href="../add-api/">Next: Add API Calls →</a></p>
 
 

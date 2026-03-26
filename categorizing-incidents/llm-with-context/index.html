@@ -523,10 +523,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#what-youll-build" class="md-nav__link">
+  <a href="#goal" class="md-nav__link">
     <span class="md-ellipsis">
       
-        What You'll Build
+        Goal
       
     </span>
   </a>
@@ -534,10 +534,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#key-concept-data-anchoring" class="md-nav__link">
+  <a href="#how-context-grounding-works" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Key Concept: Data Anchoring
+        How Context Grounding Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-the-evaluations-step-adds" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What the Evaluations Step Adds
       
     </span>
   </a>
@@ -553,16 +564,55 @@
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#what-to-expect" class="md-nav__link">
+    <nav class="md-nav" aria-label="Steps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#part-1-create-and-configure-the-agent" class="md-nav__link">
     <span class="md-ellipsis">
       
-        What to Expect
+        Part 1: Create and configure the agent
       
     </span>
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#part-2-configure-the-agent-prompts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 2: Configure the agent prompts
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#part-3-add-context-grounding" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 3: Add Context Grounding
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#part-4-test-with-evaluations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 4: Test with Evaluations
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1118,10 +1168,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#what-youll-build" class="md-nav__link">
+  <a href="#goal" class="md-nav__link">
     <span class="md-ellipsis">
       
-        What You'll Build
+        Goal
       
     </span>
   </a>
@@ -1129,10 +1179,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#key-concept-data-anchoring" class="md-nav__link">
+  <a href="#how-context-grounding-works" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Key Concept: Data Anchoring
+        How Context Grounding Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-the-evaluations-step-adds" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What the Evaluations Step Adds
       
     </span>
   </a>
@@ -1148,16 +1209,55 @@
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#what-to-expect" class="md-nav__link">
+    <nav class="md-nav" aria-label="Steps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#part-1-create-and-configure-the-agent" class="md-nav__link">
     <span class="md-ellipsis">
       
-        What to Expect
+        Part 1: Create and configure the agent
       
     </span>
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#part-2-configure-the-agent-prompts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 2: Configure the agent prompts
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#part-3-add-context-grounding" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 3: Add Context Grounding
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#part-4-test-with-evaluations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 4: Test with Evaluations
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1179,34 +1279,192 @@
 
 
 <h1 id="llm-with-context">LLM with Context<a class="headerlink" href="#llm-with-context" title="Permanent link">&para;</a></h1>
-<p><strong>Ground your agent in real data to eliminate hallucinations</strong></p>
+<p><strong>Build a context-grounded ServiceNow incident categorization agent</strong></p>
 <hr />
-<h2 id="what-youll-build">What You'll Build<a class="headerlink" href="#what-youll-build" title="Permanent link">&para;</a></h2>
-<p>In this phase you extend the basic categorization agent by anchoring its responses to actual incident information. Without grounding, the LLM may generate plausible-sounding but incorrect category assignments. With context, the agent's decisions are traceable to real data.</p>
-<h2 id="key-concept-data-anchoring">Key Concept: Data Anchoring<a class="headerlink" href="#key-concept-data-anchoring" title="Permanent link">&para;</a></h2>
-<p>Data anchoring means providing the LLM with structured, factual context before asking it to make a decision. Instead of:</p>
-<blockquote>
-<p>"Here is an incident description. Categorize it."</p>
-</blockquote>
-<p>You send:</p>
-<blockquote>
-<p>"Here is an incident description. Here is the relevant data from our incident history and category definitions. Based only on this data, categorize the incident."</p>
-</blockquote>
-<p>This constrains the model's output space to what is factually supported.</p>
+<h2 id="goal">Goal<a class="headerlink" href="#goal" title="Permanent link">&para;</a></h2>
+<p>Create a ServiceNow incident categorization agent in <strong>Agent Builder</strong>, configure its prompts, ground it in real data using Context Grounding, and validate its performance with Evaluations.</p>
+<h2 id="how-context-grounding-works">How Context Grounding Works<a class="headerlink" href="#how-context-grounding-works" title="Permanent link">&para;</a></h2>
+<p>Without grounding, an LLM may produce plausible-sounding but incorrect category–subcategory pairs — combinations that don't exist in your system. Context Grounding anchors the agent to a real data source, so every decision traces back to valid entries in your context.</p>
+<h2 id="what-the-evaluations-step-adds">What the Evaluations Step Adds<a class="headerlink" href="#what-the-evaluations-step-adds" title="Permanent link">&para;</a></h2>
+<p>Evaluations let you run a batch of test cases against your agent before deploying it. You define expected outputs, run the set, and measure how well the agent performs across edge cases.</p>
 <h2 id="steps">Steps<a class="headerlink" href="#steps" title="Permanent link">&para;</a></h2>
-<!-- Add step-by-step instructions here as you migrate from the original site -->
-
-<div class="admonition note">
-<p class="admonition-title">Content migration in progress</p>
-<p>Detailed steps and screenshots will be added here. In the meantime, refer to the <a href="https://sites.google.com/uipath.com/tpenlabs/home">original training site</a>.</p>
-</div>
-<h2 id="what-to-expect">What to Expect<a class="headerlink" href="#what-to-expect" title="Permanent link">&para;</a></h2>
-<p>After completing this phase, your agent will:</p>
+<h3 id="part-1-create-and-configure-the-agent">Part 1: Create and configure the agent<a class="headerlink" href="#part-1-create-and-configure-the-agent" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p>In <strong>Studio Web</strong>, create a new <strong>Agent Solution</strong>.</p>
+<p><img alt="Agent Solution created in Studio Web" class="screenshot" src="images/llm-01.png" /></p>
+</li>
+<li>
+<p>Rename the solution to <strong>ServiceNow Incidents Management Solution</strong>.</p>
+</li>
+<li>
+<p>Name the agent <strong>ServiceNow Incidents Management Agent</strong>.</p>
+<p><img alt="Agent named and solution renamed" class="screenshot" src="images/llm-02.png" /></p>
+</li>
+<li>
+<p>Open the <strong>Data Manager</strong> panel and add the following <strong>Input Arguments</strong> (type: String):</p>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>IncidentShortDescription</code></td>
+<td>Short description of the ServiceNow incident</td>
+</tr>
+<tr>
+<td><code>IncidentDescription</code></td>
+<td>Full description of the ServiceNow incident</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="Input arguments configured in Data Manager" class="screenshot" src="images/llm-03.png" /></p>
+</li>
+<li>
+<p>Add the following <strong>Output Arguments</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>IncidentCategory</code></td>
+<td>Category assigned to the incident</td>
+</tr>
+<tr>
+<td><code>IncidentSubcategory</code></td>
+<td>Subcategory assigned to the incident</td>
+</tr>
+<tr>
+<td><code>AssigneeEmail</code></td>
+<td>Email address of the assigned expert</td>
+</tr>
+<tr>
+<td><code>ExecutionDetails</code></td>
+<td>Summary of the classification steps taken</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="Output arguments configured in Data Manager" class="screenshot" src="images/llm-04.png" /></p>
+</li>
+</ol>
+<h3 id="part-2-configure-the-agent-prompts">Part 2: Configure the agent prompts<a class="headerlink" href="#part-2-configure-the-agent-prompts" title="Permanent link">&para;</a></h3>
+<p>The agent uses two prompts: a <strong>System Prompt</strong> that defines its role and rules, and a <strong>User Prompt</strong> that structures how your inputs are passed in.</p>
+<ol>
+<li>
+<p>Enter the following text in the <strong>System Prompt</strong> field:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>You are a ServiceNow Incidents categorization agent. Analyze incident details and determine the correct Category, Subcategory, and Assignee email address.
+</code></pre></div>
+<p><img alt="System prompt configured" class="screenshot" src="images/llm-05.png" /></p>
+</li>
+<li>
+<p>Enter the following text in the <strong>User Prompt</strong> field:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Analyze and categorize the following ServiceNow incident:
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>Incident Short Description: {{IncidentShortDescription}}
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>Incident Description: {{IncidentDescription}}
+</code></pre></div>
+</li>
+<li>
+<p>Test the agent with these sample values:</p>
 <ul>
-<li>Pull incident context before generating a response</li>
-<li>Base categorization decisions on actual data rather than inference</li>
-<li>Produce more consistent, auditable results</li>
+<li><strong>Short Description:</strong> <code>CRM software crashes on launch</code></li>
+<li><strong>Description:</strong> <code>Every time I try to open the CRM software, it crashes immediately after the splash screen. This has been happening for the past week and is affecting my ability to manage customer interactions.</code></li>
 </ul>
+<p><img alt="Agent test execution with sample incident data" class="screenshot" src="images/llm-06.png" /></p>
+</li>
+</ol>
+<h3 id="part-3-add-context-grounding">Part 3: Add Context Grounding<a class="headerlink" href="#part-3-add-context-grounding" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p>Enable <strong>Context Grounding</strong> in the agent configuration.</p>
+<p><img alt="Context Grounding toggle enabled" class="screenshot" src="images/llm-07.png" /></p>
+</li>
+<li>
+<p>Select <strong>ServiceNow Incidents Categorization Information</strong> as the context source.</p>
+<p>The context contains only valid Category–Subcategory pairs. The agent must select from this list — it must not generate combinations that are not present.</p>
+<p><img alt="Context source selected" class="screenshot" src="images/llm-08.png" /></p>
+</li>
+<li>
+<p>Import the <strong>SNOW Assignee Lookup Automation</strong> project.</p>
+</li>
+<li>
+<p>Add the imported automation as a tool. Use this description:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Use this tool to determine the email address of the on-duty expert for a given incident category and subcategory.
+</code></pre></div>
+<p><img alt="Assignee Lookup tool added to the agent" class="screenshot" src="images/llm-09.png" /></p>
+</li>
+</ol>
+<h3 id="part-4-test-with-evaluations">Part 4: Test with Evaluations<a class="headerlink" href="#part-4-test-with-evaluations" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p>Go to the <strong>Evaluation Sets</strong> tab.</p>
+</li>
+<li>
+<p>Import the provided JSON evaluation set. It contains 8 test cases:</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Short Description</th>
+<th>Expected Category</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Database connection issue</td>
+<td>Database_MSSQL</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Email sending failure</td>
+<td>Software_Email</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Laptop slowdown</td>
+<td>Inquiry_Antivirus</td>
+</tr>
+<tr>
+<td>4</td>
+<td>CRM software crash</td>
+<td>Inquiry_ExternalApplication</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Display flicker</td>
+<td>Hardware_Monitor</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Website access issue</td>
+<td>Network_DNS</td>
+</tr>
+<tr>
+<td>7</td>
+<td>VPN disconnection</td>
+<td>Network_VPN</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Windows update failure</td>
+<td>Software_OS</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="Evaluation set imported" class="screenshot" src="images/llm-10.png" /></p>
+</li>
+<li>
+<p>Run the evaluation set and review the results.</p>
+<p><img alt="Evaluation results showing pass/fail per test case" class="screenshot" src="images/llm-11.png" /></p>
+</li>
+</ol>
 <p><a href="../">← Back to Overview</a> | <a href="../tools-and-escalations/">Next: Tools and Escalations →</a></p>
 
 

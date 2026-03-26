@@ -932,10 +932,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#what-the-robot-does" class="md-nav__link">
+  <a href="#key-difference-from-the-standard-exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
-        What the Robot Does
+        Key Difference from the Standard Exercise
       
     </span>
   </a>
@@ -950,6 +950,45 @@
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Steps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-the-maestro-agentic-process" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Create the Maestro Agentic Process
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configure-the-robot-task" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configure the robot task
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test-the-process" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Test the process
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1118,10 +1157,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#what-the-robot-does" class="md-nav__link">
+  <a href="#key-difference-from-the-standard-exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
-        What the Robot Does
+        Key Difference from the Standard Exercise
       
     </span>
   </a>
@@ -1136,6 +1175,45 @@
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Steps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-the-maestro-agentic-process" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Create the Maestro Agentic Process
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configure-the-robot-task" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configure the robot task
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test-the-process" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Test the process
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1157,23 +1235,89 @@
 
 
 <h1 id="step-2-configure-a-robot">Step 2 — Configure a Robot<a class="headerlink" href="#step-2-configure-a-robot" title="Permanent link">&para;</a></h1>
-<p><strong>Set up invoice PDF retrieval</strong></p>
+<p><strong>Set up invoice PDF retrieval from a Storage Bucket</strong></p>
 <hr />
 <h2 id="goal">Goal<a class="headerlink" href="#goal" title="Permanent link">&para;</a></h2>
-<p>Configure the robotic component to retrieve invoice PDF documents from the source system and pass them to the agent for IXP extraction.</p>
-<h2 id="what-the-robot-does">What the Robot Does<a class="headerlink" href="#what-the-robot-does" title="Permanent link">&para;</a></h2>
-<ol>
-<li>Connects to the document source (shared drive, email, DMS)</li>
-<li>Identifies and retrieves unprocessed invoice PDFs</li>
-<li>Passes the documents to the Maestro process for the next step</li>
-</ol>
+<p>Create the Maestro Agentic Process, import your BPMN diagram, and connect the first task to the <strong>RetrieveInvoiceDocument</strong> RPA process. Unlike the standard exercise where the robot returns JSON, this robot retrieves a <strong>PDF file name</strong> from a Storage Bucket — the agent will extract structured data from the PDF in the next step.</p>
+<h2 id="key-difference-from-the-standard-exercise">Key Difference from the Standard Exercise<a class="headerlink" href="#key-difference-from-the-standard-exercise" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Standard Exercise</th>
+<th>IXP Exercise</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Robot process</td>
+<td><code>Retrieve.Invoice</code></td>
+<td><code>RetrieveInvoiceDocument</code></td>
+</tr>
+<tr>
+<td>Robot folder</td>
+<td><code>2-Way Matching</code></td>
+<td><code>2-Way Matching IXP</code></td>
+</tr>
+<tr>
+<td>Output</td>
+<td>Invoice + PO as JSON</td>
+<td>PDF filename in Storage Bucket</td>
+</tr>
+</tbody>
+</table>
 <h2 id="steps">Steps<a class="headerlink" href="#steps" title="Permanent link">&para;</a></h2>
-<!-- Add step-by-step instructions here as you migrate from the original site -->
-
-<div class="admonition note">
-<p class="admonition-title">Content migration in progress</p>
-<p>Detailed steps and screenshots will be added here. In the meantime, refer to the <a href="https://sites.google.com/uipath.com/tpenlabs/home">original training site</a>.</p>
-</div>
+<h3 id="create-the-maestro-agentic-process">Create the Maestro Agentic Process<a class="headerlink" href="#create-the-maestro-agentic-process" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p>In <strong>Studio Web</strong>, create a new <strong>Agentic Process</strong>.</p>
+<p><img alt="New Agentic Process in Studio Web" class="screenshot" src="images/ixp-robot-01.png" /></p>
+</li>
+<li>
+<p>Import your BPMN diagram. Select the <strong>2-Way Matching IXP Process.bpmn</strong> file you exported in Step 1.</p>
+<p><img alt="BPMN diagram imported" class="screenshot" src="images/ixp-robot-02.png" /></p>
+</li>
+<li>
+<p>Delete the auto-generated empty process placeholder.</p>
+</li>
+<li>
+<p>Rename the process to <strong>2-Way Matching IXP Process</strong>.</p>
+</li>
+<li>
+<p>Rename the project to <strong>2-Way Matching IXP Project</strong>.</p>
+<p><img alt="Process and project renamed" class="screenshot" src="images/ixp-robot-03.png" /></p>
+</li>
+</ol>
+<h3 id="configure-the-robot-task">Configure the robot task<a class="headerlink" href="#configure-the-robot-task" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p>Select the robot task node in the BPMN canvas.</p>
+</li>
+<li>
+<p>Open the properties panel and set the action to <strong>Start and wait for RPA workflow</strong>.</p>
+<p><img alt="Start and wait for RPA workflow selected" class="screenshot" src="images/ixp-robot-04.png" /></p>
+</li>
+<li>
+<p>Search for and select the <strong>RetrieveInvoiceDocument</strong> process from the <strong>2-Way Matching IXP</strong> folder.</p>
+<p><img alt="RetrieveInvoiceDocument process selected from 2-Way Matching IXP folder" class="screenshot" src="images/ixp-robot-05.png" /></p>
+</li>
+<li>
+<p>Review the process outputs. The robot returns a <strong>PDF filename</strong> stored in a Storage Bucket — this is what the agent will use to access and process the invoice document.</p>
+<p><img alt="Robot output showing PDF filename" class="screenshot" src="images/ixp-robot-06.png" /></p>
+</li>
+</ol>
+<h3 id="test-the-process">Test the process<a class="headerlink" href="#test-the-process" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p>Click <strong>Debug</strong> to launch the process.</p>
+<p><img alt="Debug mode launch" class="screenshot" src="images/ixp-robot-07.png" /></p>
+</li>
+<li>
+<p>Confirm the robot completed successfully and returned a PDF filename in the output variables.</p>
+<p><img alt="Debug output showing PDF filename returned by robot" class="screenshot" src="images/ixp-robot-08.png" /></p>
+</li>
+</ol>
+<p>The robot is now retrieving invoices as PDFs. In the next step, you'll configure the agent to extract structured data from those PDFs using IXP.</p>
 <p><a href="../create-bpmn/">← Step 1: Create BPMN Process</a> | <a href="../configure-agent/">Next: Configure an Agent →</a></p>
 
 
