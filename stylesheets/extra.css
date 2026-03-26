@@ -64,6 +64,20 @@
   }
 }
 
+/* Footer navigation — compact height (-25%) */
+.md-footer__link {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+/* Footer navigation — white text on dark background */
+.md-footer__link,
+.md-footer__title,
+.md-footer__direction,
+.md-footer .md-ellipsis {
+  color: #ffffff !important;
+}
+
 /* Image utilities */
 
 /* Center an image: ![alt](img.png){ .center } */
