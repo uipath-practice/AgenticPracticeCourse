@@ -1,0 +1,26 @@
+/* Image utilities */
+
+/* Center an image: ![alt](img.png){ .center } */
+img.center {
+  display: block;
+  margin: 1.5rem auto;
+}
+
+/* Bordered screenshot: ![alt](img.png){ .screenshot } */
+img.screenshot {
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  display: block;
+  margin: 1.5rem auto;
+}
+
+/* Figure caption — place italic text on the line directly after an image */
+img + em {
+  display: block;
+  text-align: center;
+  color: var(--md-default-fg-color--light);
+  font-size: 0.85rem;
+  margin-top: -0.75rem;
+  margin-bottom: 1.5rem;
+}
