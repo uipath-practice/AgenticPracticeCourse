@@ -7,7 +7,6 @@
 !!! info "Training Environment"
     - **Platform:** [cloud.uipath.com/tpenlabs](https://cloud.uipath.com/tpenlabs)
     - **Tenant:** AgenticPractice
-    - **Contact:** sergey.shumilov@uipath.com
 
 ## What You'll Build
 
