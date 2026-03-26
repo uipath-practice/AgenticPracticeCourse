@@ -1,0 +1,75 @@
+site_name: UiPath Agentic Practice Workshop
+site_url: https://s-shumilov.github.io/AgenticPracticeCourse/
+site_description: Hands-on learner's handbook for the UiPath Agentic Practice Workshop
+site_author: Sergey Shumilov
+
+theme:
+  name: material
+  palette:
+    - scheme: default
+      primary: deep orange
+      accent: orange
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: deep orange
+      accent: orange
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - navigation.footer
+    - search.highlight
+    - search.suggest
+    - content.code.copy
+    - content.tabs.link
+
+plugins:
+  - search
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - attr_list
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+
+nav:
+  - Home: index.md
+  - Categorizing Incidents:
+    - Overview: categorizing-incidents/index.md
+    - LLM with Context: categorizing-incidents/llm-with-context.md
+    - Tools and Escalations: categorizing-incidents/tools-and-escalations.md
+  - Invoice Matching:
+    - Overview: invoice-matching/index.md
+    - 1. Create BPMN Diagram: invoice-matching/create-bpmn.md
+    - 2. Add a Robot: invoice-matching/add-robot.md
+    - 3. Add an Agent: invoice-matching/add-agent.md
+    - 4. Add a Human: invoice-matching/add-human.md
+    - 5. Add API Calls: invoice-matching/add-api.md
+  - Invoice Matching with IXP:
+    - Overview: invoice-matching-ixp/index.md
+    - 1. Create BPMN Process: invoice-matching-ixp/create-bpmn.md
+    - 2. Configure a Robot: invoice-matching-ixp/configure-robot.md
+    - 3. Configure an Agent: invoice-matching-ixp/configure-agent.md
+    - 4. Configure Human Validation: invoice-matching-ixp/configure-human-validation.md
+    - 5. Configure API Integration: invoice-matching-ixp/configure-api.md
+  - Next Steps: next-steps.md
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/s-shumilov/AgenticPracticeCourse
