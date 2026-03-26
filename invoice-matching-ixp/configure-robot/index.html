@@ -1271,11 +1271,11 @@
 <ol>
 <li>
 <p>In <strong>Studio Web</strong>, create a new <strong>Agentic Process</strong>.</p>
-<p><img alt="New Agentic Process in Studio Web" class="screenshot" src="images/ixp-robot-01.png" /></p>
+<p><img alt="New Agentic Process in Studio Web" class="screenshot" src="../images/ixp-robot-01.png" /></p>
 </li>
 <li>
 <p>Import your BPMN diagram. Select the <strong>2-Way Matching IXP Process.bpmn</strong> file you exported in Step 1.</p>
-<p><img alt="BPMN diagram imported" class="screenshot" src="images/ixp-robot-02.png" /></p>
+<p><img alt="BPMN diagram imported" class="screenshot" src="../images/ixp-robot-02.png" /></p>
 </li>
 <li>
 <p>Delete the auto-generated empty process placeholder.</p>
@@ -1285,7 +1285,7 @@
 </li>
 <li>
 <p>Rename the project to <strong>2-Way Matching IXP Project</strong>.</p>
-<p><img alt="Process and project renamed" class="screenshot" src="images/ixp-robot-03.png" /></p>
+<p><img alt="Process and project renamed" class="screenshot" src="../images/ixp-robot-03.png" /></p>
 </li>
 </ol>
 <h3 id="configure-the-robot-task">Configure the robot task<a class="headerlink" href="#configure-the-robot-task" title="Permanent link">&para;</a></h3>
@@ -1295,26 +1295,34 @@
 </li>
 <li>
 <p>Open the properties panel and set the action to <strong>Start and wait for RPA workflow</strong>.</p>
-<p><img alt="Start and wait for RPA workflow selected" class="screenshot" src="images/ixp-robot-04.png" /></p>
+<p><img alt="Start and wait for RPA workflow selected" class="screenshot" src="../images/ixp-robot-04.png" /></p>
 </li>
 <li>
 <p>Search for and select the <strong>RetrieveInvoiceDocument</strong> process from the <strong>2-Way Matching IXP</strong> folder.</p>
-<p><img alt="RetrieveInvoiceDocument process selected from 2-Way Matching IXP folder" class="screenshot" src="images/ixp-robot-05.png" /></p>
+<p><img alt="RetrieveInvoiceDocument process selected from 2-Way Matching IXP folder" class="screenshot" src="../images/ixp-robot-05.png" /></p>
 </li>
 <li>
 <p>Review the process outputs. The robot returns a <strong>PDF filename</strong> stored in a Storage Bucket — this is what the agent will use to access and process the invoice document.</p>
-<p><img alt="Robot output showing PDF filename" class="screenshot" src="images/ixp-robot-06.png" /></p>
+<p><img alt="Robot output showing PDF filename" class="screenshot" src="../images/ixp-robot-06.png" /></p>
 </li>
 </ol>
 <h3 id="test-the-process">Test the process<a class="headerlink" href="#test-the-process" title="Permanent link">&para;</a></h3>
 <ol>
 <li>
 <p>Click <strong>Debug</strong> to launch the process.</p>
-<p><img alt="Debug mode launch" class="screenshot" src="images/ixp-robot-07.png" /></p>
+<p><img alt="Debug mode launch" class="screenshot" src="../images/ixp-robot-07.png" /></p>
 </li>
 <li>
 <p>Confirm the robot completed successfully and returned a PDF filename in the output variables.</p>
-<p><img alt="Debug output showing PDF filename returned by robot" class="screenshot" src="images/ixp-robot-08.png" /></p>
+<p><img alt="Debug output showing PDF filename returned by robot" class="screenshot" src="../images/ixp-robot-08.png" /></p>
+</li>
+<li>
+<p>Review the output variable mapping to verify the filename is accessible for the next step.</p>
+<p><img alt="Output variable panel showing PDF filename mapped correctly" class="screenshot" src="../images/ixp-robot-09.png" /></p>
+</li>
+<li>
+<p>Close debug mode and save the process.</p>
+<p><img alt="Process saved and ready for agent configuration" class="screenshot" src="../images/ixp-robot-10.png" /></p>
 </li>
 </ol>
 <p>The robot is now retrieving invoices as PDFs. In the next step, you'll configure the agent to extract structured data from those PDFs using IXP.</p>

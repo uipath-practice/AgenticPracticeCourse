@@ -1005,10 +1005,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#part-2-configure-the-user-prompt" class="md-nav__link">
+  <a href="#part-2-configure-the-prompts" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Part 2: Configure the User Prompt
+        Part 2: Configure the prompts
       
     </span>
   </a>
@@ -1246,10 +1246,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#part-2-configure-the-user-prompt" class="md-nav__link">
+  <a href="#part-2-configure-the-prompts" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Part 2: Configure the User Prompt
+        Part 2: Configure the prompts
       
     </span>
   </a>
@@ -1341,7 +1341,8 @@
 <h3 id="part-1-create-the-agent">Part 1: Create the agent<a class="headerlink" href="#part-1-create-the-agent" title="Permanent link">&para;</a></h3>
 <ol>
 <li>
-<p>In <strong>Studio Web</strong>, create a new Agent (or reuse the 2-Way Matching Agent from the standard exercise). Name it <strong>2-Way Matching Agent</strong>.</p>
+<p>In <strong>Studio Web</strong>, create a new Agent. Name it <strong>2-Way Matching Agent</strong>.</p>
+<p><img alt="New agent created in Studio Web" class="screenshot" src="../images/ixp-agent-01.png" /></p>
 </li>
 <li>
 <p>Configure the <strong>Input Argument</strong>:</p>
@@ -1361,7 +1362,7 @@
 </tr>
 </tbody>
 </table>
-<p><img alt="Input argument InvoicePDF configured as File type" class="screenshot" src="images/ixp-agent-01.png" /></p>
+<p><img alt="Input argument InvoicePDF configured as File type" class="screenshot" src="../images/ixp-agent-02.png" /></p>
 </li>
 <li>
 <p>Configure the <strong>Output Arguments</strong>:</p>
@@ -1396,70 +1397,91 @@
 </tr>
 </tbody>
 </table>
-<p><img alt="Output arguments configured including out_POID" class="screenshot" src="images/ixp-agent-02.png" /></p>
+<p><img alt="Output arguments panel" class="screenshot" src="../images/ixp-agent-03.png" /></p>
+<p><img alt="Output arguments configured including out_POID" class="screenshot" src="../images/ixp-agent-04.png" /></p>
+</li>
+<li>
+<p>Save the argument configuration.</p>
+<p><img alt="Saved argument configuration overview" class="screenshot" src="../images/ixp-agent-05.png" /></p>
 </li>
 </ol>
-<h3 id="part-2-configure-the-user-prompt">Part 2: Configure the User Prompt<a class="headerlink" href="#part-2-configure-the-user-prompt" title="Permanent link">&para;</a></h3>
+<h3 id="part-2-configure-the-prompts">Part 2: Configure the prompts<a class="headerlink" href="#part-2-configure-the-prompts" title="Permanent link">&para;</a></h3>
 <ol>
 <li>
 <p>Enter the following <strong>User Prompt</strong>:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Analyze {{InvoicePDF}}
 </code></pre></div>
-<p><img alt="User Prompt with InvoicePDF variable" class="screenshot" src="images/ixp-agent-03.png" /></p>
+<p><img alt="User Prompt with InvoicePDF variable" class="screenshot" src="../images/ixp-agent-06.png" /></p>
 </li>
 <li>
-<p>Configure the <strong>System Prompt</strong> with matching rules and instructions for tool use (similar to the standard exercise, adapted for PDF extraction via IXP).</p>
+<p>Configure the <strong>System Prompt</strong> with matching rules and tool instructions. Include instructions for calling the IXP tool first, extracting the PO ID, then calling the PO lookup tool.</p>
+<p><img alt="System Prompt configured" class="screenshot" src="../images/ixp-agent-07.png" /></p>
 </li>
 </ol>
 <h3 id="part-3-add-the-ixp-tool">Part 3: Add the IXP tool<a class="headerlink" href="#part-3-add-the-ixp-tool" title="Permanent link">&para;</a></h3>
 <ol>
 <li>
 <p>Go to the <strong>Tools</strong> tab and add the <strong>IXP tool</strong>.</p>
+<p><img alt="Tools tab open, IXP tool being added" class="screenshot" src="../images/ixp-agent-08.png" /></p>
 </li>
 <li>
 <p>Select the <strong>InvoicesIXP</strong> project as the IXP extraction source.</p>
-<p><img alt="IXP tool added with InvoicesIXP project selected" class="screenshot" src="images/ixp-agent-04.png" /></p>
+<p><img alt="InvoicesIXP project selected" class="screenshot" src="../images/ixp-agent-09.png" /></p>
 </li>
 <li>
-<p>Configure the tool description to tell the agent when to use it:</p>
+<p>Configure the tool description:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Use this tool to extract structured data from the invoice PDF, including header information, line items, totals, and the Purchase Order ID.
 </code></pre></div>
-<p><img alt="IXP tool description configured" class="screenshot" src="images/ixp-agent-05.png" /></p>
+<p><img alt="IXP tool description configured" class="screenshot" src="../images/ixp-agent-10.png" /></p>
+</li>
+<li>
+<p>Save the IXP tool configuration.</p>
+<p><img alt="IXP tool saved and visible in the tools list" class="screenshot" src="../images/ixp-agent-11.png" /></p>
 </li>
 </ol>
 <h3 id="part-4-add-the-po-lookup-tool">Part 4: Add the PO lookup tool<a class="headerlink" href="#part-4-add-the-po-lookup-tool" title="Permanent link">&para;</a></h3>
 <ol>
 <li>
 <p>Add a second tool: an <strong>RPA Workflow</strong> tool.</p>
+<p><img alt="RPA Workflow tool being added" class="screenshot" src="../images/ixp-agent-12.png" /></p>
 </li>
 <li>
 <p>Select <strong>Query Entity Records</strong> from the <strong>PurchaseOrdersDatabase</strong> source.</p>
-<p><img alt="Query Entity Records tool selected" class="screenshot" src="images/ixp-agent-06.png" /></p>
+<p><img alt="Query Entity Records selected from PurchaseOrdersDatabase" class="screenshot" src="../images/ixp-agent-13.png" /></p>
 </li>
 <li>
 <p>Configure the filter: <strong>POID equals in_POID</strong>.</p>
-<p>This tells the tool to find the Purchase Order whose ID matches what the agent extracted from the invoice.</p>
-<p><img alt="Filter configured as POID equals in_POID" class="screenshot" src="images/ixp-agent-07.png" /></p>
+<p><img alt="Filter configured as POID equals in_POID" class="screenshot" src="../images/ixp-agent-14.png" /></p>
 </li>
 <li>
 <p>Configure the tool description:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Use this tool to retrieve Purchase Order data from the database. Filter by POID using the PO ID extracted from the invoice. PO IDs start with &quot;PO-&quot; followed by digits.
 </code></pre></div>
-<p><img alt="PO lookup tool description" class="screenshot" src="images/ixp-agent-08.png" /></p>
+<p><img alt="PO lookup tool description configured" class="screenshot" src="../images/ixp-agent-15.png" /></p>
+</li>
+<li>
+<p>Save the PO lookup tool configuration.</p>
+<p><img alt="Both tools saved and visible in tools list" class="screenshot" src="../images/ixp-agent-16.png" /></p>
 </li>
 </ol>
 <h3 id="part-5-test-the-agent">Part 5: Test the agent<a class="headerlink" href="#part-5-test-the-agent" title="Permanent link">&para;</a></h3>
 <ol>
 <li>
-<p>Test the agent with a sample PDF invoice from the Storage Bucket. Confirm the agent:</p>
-<ul>
-<li>Calls the IXP tool to extract data</li>
-<li>Identifies the PO ID from the extracted data</li>
-<li>Calls the PO lookup tool with the correct PO ID</li>
-<li>Returns a matching decision</li>
-</ul>
-<p><img alt="Agent test execution with PDF invoice" class="screenshot" src="images/ixp-agent-09.png" /></p>
-<p><img alt="Agent output showing Status, HTML comparison, and POID" class="screenshot" src="images/ixp-agent-10.png" /></p>
+<p>Test the agent with a sample PDF invoice from the Storage Bucket. Confirm the agent calls the IXP tool to extract data.</p>
+<p><img alt="Agent test execution started with PDF input" class="screenshot" src="../images/ixp-agent-17.png" /></p>
+</li>
+<li>
+<p>Review the IXP extraction results — verify the agent identified the PO ID correctly.</p>
+<p><img alt="IXP extraction results with PO ID identified" class="screenshot" src="../images/ixp-agent-18.png" /></p>
+</li>
+<li>
+<p>Confirm the agent called the PO lookup tool with the extracted PO ID.</p>
+<p><img alt="PO lookup tool called with extracted POID" class="screenshot" src="../images/ixp-agent-19.png" /></p>
+</li>
+<li>
+<p>Review the final agent output — verify <code>out_Status</code>, <code>out_DocumentsHTML</code>, <code>out_SuggestedResponse</code>, and <code>out_POID</code> are all populated.</p>
+<p><img alt="Agent output variables fully populated" class="screenshot" src="../images/ixp-agent-20.png" /></p>
+<p><img alt="HTML comparison output preview" class="screenshot" src="../images/ixp-agent-21.png" /></p>
 </li>
 </ol>
 <h3 id="part-6-connect-the-agent-to-maestro">Part 6: Connect the agent to Maestro<a class="headerlink" href="#part-6-connect-the-agent-to-maestro" title="Permanent link">&para;</a></h3>
@@ -1469,6 +1491,7 @@
 </li>
 <li>
 <p>Set the action to <strong>Start and wait for agent</strong>. Select <strong>2-Way Matching Agent</strong>.</p>
+<p><img alt="Agent task configured in Maestro" class="screenshot" src="../images/ixp-agent-22.png" /></p>
 </li>
 <li>
 <p>Map the robot output to the agent input:</p>
@@ -1486,17 +1509,16 @@
 </tr>
 </tbody>
 </table>
-<p><img alt="Agent task configured with PDF file mapping" class="screenshot" src="images/ixp-agent-11.png" /></p>
+<p><img alt="Input mapping from robot output to agent input" class="screenshot" src="../images/ixp-agent-23.png" /></p>
 </li>
 <li>
 <p>Add an <strong>Exclusive Gateway</strong> after the agent task. Configure the expression for the <strong>Full Match</strong> path:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>vars.outStatus.ToLower()==&quot;full match&quot;
 </code></pre></div>
-<p><img alt="Gateway expression for Full Match path" class="screenshot" src="images/ixp-agent-12.png" /></p>
 </li>
 <li>
 <p>Run the process in debug mode and confirm the gateway routes correctly.</p>
-<p><img alt="Process debug showing correct gateway routing" class="screenshot" src="images/ixp-agent-13.png" /></p>
+<p><img alt="Process debug run showing correct gateway routing" class="screenshot" src="../images/ixp-agent-24.png" /></p>
 </li>
 </ol>
 <p><a href="../configure-robot/">← Step 2: Configure a Robot</a> | <a href="../configure-human-validation/">Next: Configure Human Validation →</a></p>

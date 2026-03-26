@@ -1290,11 +1290,11 @@
 </li>
 <li>
 <p>Import the <strong>2WM Validation App IXP Template</strong> from the shared templates library.</p>
-<p><img alt="2WM Validation App IXP Template selected" class="screenshot" src="images/ixp-human-01.png" /></p>
+<p><img alt="2WM Validation App IXP Template selected" class="screenshot" src="../images/ixp-human-01.png" /></p>
 </li>
 <li>
 <p>Review the imported app. It displays the agent's HTML comparison output and provides <strong>Approve</strong> and <strong>Reject</strong> buttons.</p>
-<p><img alt="2WM Validation App IXP interface" class="screenshot" src="images/ixp-human-02.png" /></p>
+<p><img alt="2WM Validation App IXP interface" class="screenshot" src="../images/ixp-human-02.png" /></p>
 </li>
 </ol>
 <h3 id="part-2-configure-the-human-task-in-maestro">Part 2: Configure the human task in Maestro<a class="headerlink" href="#part-2-configure-the-human-task-in-maestro" title="Permanent link">&para;</a></h3>
@@ -1304,7 +1304,7 @@
 </li>
 <li>
 <p>Set the action type to <strong>Action App Task</strong>.</p>
-<p><img alt="Action App Task selected" class="screenshot" src="images/ixp-human-03.png" /></p>
+<p><img alt="Action App Task selected" class="screenshot" src="../images/ixp-human-03.png" /></p>
 </li>
 <li>
 <p>Select the <strong>2WM Validation App IXP</strong> you imported.</p>
@@ -1314,7 +1314,7 @@
 </li>
 <li>
 <p>Assign the task to yourself.</p>
-<p><img alt="Task configured with title and assignee" class="screenshot" src="images/ixp-human-04.png" /></p>
+<p><img alt="Task configured with title and assignee" class="screenshot" src="../images/ixp-human-04.png" /></p>
 </li>
 <li>
 <p>Map the agent outputs to the app inputs:</p>
@@ -1336,18 +1336,18 @@
 </tr>
 </tbody>
 </table>
-<p><img alt="Agent outputs mapped to app inputs" class="screenshot" src="images/ixp-human-05.png" /></p>
+<p><img alt="Agent outputs mapped to app inputs" class="screenshot" src="../images/ixp-human-05.png" /></p>
 </li>
 <li>
 <p>Save the task configuration.</p>
-<p><img alt="Completed task configuration" class="screenshot" src="images/ixp-human-06.png" /></p>
+<p><img alt="Completed task configuration" class="screenshot" src="../images/ixp-human-06.png" /></p>
 </li>
 </ol>
 <h3 id="part-3-configure-the-gateway-decision-logic">Part 3: Configure the gateway decision logic<a class="headerlink" href="#part-3-configure-the-gateway-decision-logic" title="Permanent link">&para;</a></h3>
 <ol>
 <li>
 <p>Add an <strong>Exclusive Gateway</strong> after the human task.</p>
-<p><img alt="Exclusive Gateway added" class="screenshot" src="images/ixp-human-07.png" /></p>
+<p><img alt="Exclusive Gateway added" class="screenshot" src="../images/ixp-human-07.png" /></p>
 </li>
 <li>
 <p>Set <strong>Reject</strong> as the default path (it will be taken if the expression on the Approve path is not met).</p>
@@ -1356,7 +1356,7 @@
 <p>Configure the expression for the <strong>Approve</strong> path using the Expression Editor:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>vars.actionOutput == &quot;Approve&quot;
 </code></pre></div>
-<p><img alt="Expression Editor with Approve condition" class="screenshot" src="images/ixp-human-08.png" /></p>
+<p><img alt="Expression Editor with Approve condition" class="screenshot" src="../images/ixp-human-08.png" /></p>
 </li>
 <li>
 <p>Connect the <strong>Approve</strong> path to the payment task and the <strong>Reject</strong> path to the supplier notification task.</p>
@@ -1366,15 +1366,28 @@
 <ol>
 <li>
 <p>Run the process in debug mode. Trigger a <strong>Failed Match</strong> so the human task activates.</p>
-<p><img alt="Process debug with human task triggered" class="screenshot" src="images/ixp-human-09.png" /></p>
+<p><img alt="Process debug with human task triggered" class="screenshot" src="../images/ixp-human-09.png" /></p>
 </li>
 <li>
 <p>Open <strong>Action Center</strong> and find your task. Review the comparison and click <strong>Approve</strong> or <strong>Reject</strong>.</p>
-<p><img alt="Action Center showing invoice review task" class="screenshot" src="images/ixp-human-10.png" /></p>
+<p><img alt="Action Center showing invoice review task" class="screenshot" src="../images/ixp-human-10.png" /></p>
 </li>
 <li>
 <p>Confirm the process resumed and routed correctly.</p>
-<p><img alt="Process resumed after human decision" class="screenshot" src="images/ixp-human-11.png" /></p>
+<p><img alt="Process resumed after human decision" class="screenshot" src="../images/ixp-human-11.png" /></p>
+</li>
+<li>
+<p>Review the execution trace in Maestro to verify the correct path was taken.</p>
+<p><img alt="Execution trace showing approved or rejected path" class="screenshot" src="../images/ixp-human-12.png" /></p>
+</li>
+<li>
+<p>Run additional test scenarios — one Approve and one Reject — to confirm both paths work.</p>
+<p><img alt="Second test run with different decision outcome" class="screenshot" src="../images/ixp-human-13.png" /></p>
+<p><img alt="Process execution summary after both test runs" class="screenshot" src="../images/ixp-human-14.png" /></p>
+</li>
+<li>
+<p>Review the end-to-end process flow animation.</p>
+<p><img alt="End-to-end process flow" class="screenshot" src="../images/ixp-human-15.gif" /></p>
 </li>
 </ol>
 <p><a href="../configure-agent/">← Step 3: Configure an Agent</a> | <a href="../configure-api/">Next: Configure API Integration →</a></p>

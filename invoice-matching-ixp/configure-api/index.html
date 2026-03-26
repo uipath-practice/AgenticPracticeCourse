@@ -1225,11 +1225,11 @@
 </li>
 <li>
 <p>Set the action type to <strong>Execute Connector Activity</strong>.</p>
-<p><img alt="Execute Connector Activity selected" class="screenshot" src="images/ixp-api-01.png" /></p>
+<p><img alt="Execute Connector Activity selected" class="screenshot" src="../images/ixp-api-01.png" /></p>
 </li>
 <li>
 <p>Select the <strong>Gmail Connector</strong> and the shared Gmail connection.</p>
-<p><img alt="Gmail Connector and shared connection selected" class="screenshot" src="images/ixp-api-02.png" /></p>
+<p><img alt="Gmail Connector and shared connection selected" class="screenshot" src="../images/ixp-api-02.png" /></p>
 </li>
 <li>
 <p>Configure the <strong>Send Email</strong> activity:</p>
@@ -1237,7 +1237,7 @@
 <li><strong>To:</strong> the supplier's email address from the extracted invoice data</li>
 <li><strong>Body:</strong> use <code>out_SuggestedResponse</code> — the agent's formatted rejection email with specific discrepancy reasons</li>
 </ul>
-<p><img alt="Email configured with supplier address and rejection body" class="screenshot" src="images/ixp-api-03.png" /></p>
+<p><img alt="Email configured with supplier address and rejection body" class="screenshot" src="../images/ixp-api-03.png" /></p>
 </li>
 <li>
 <p>Save the task.</p>
@@ -1250,11 +1250,11 @@
 </li>
 <li>
 <p>Set the action type to <strong>Execute Connector Activity</strong>.</p>
-<p><img alt="Execute Connector Activity on Approve path" class="screenshot" src="images/ixp-api-04.png" /></p>
+<p><img alt="Execute Connector Activity on Approve path" class="screenshot" src="../images/ixp-api-04.png" /></p>
 </li>
 <li>
 <p>Select the <strong>Data Fabric connector</strong> and configure it to write the approved invoice record for payment processing.</p>
-<p><img alt="Data Fabric connector configured" class="screenshot" src="images/ixp-api-05.png" /></p>
+<p><img alt="Data Fabric connector configured" class="screenshot" src="../images/ixp-api-05.png" /></p>
 </li>
 </ol>
 <h3 id="part-3-test-the-complete-process">Part 3: Test the complete process<a class="headerlink" href="#part-3-test-the-complete-process" title="Permanent link">&para;</a></h3>
@@ -1265,7 +1265,7 @@
 <li>Check <strong>Data Fabric</strong> — approved invoices accumulate as records</li>
 <li>Check the supplier inbox — formatted rejection emails arrive automatically</li>
 </ul>
-<p><img alt="Data Fabric records from multiple process runs" class="screenshot" src="images/ixp-api-06.png" /></p>
+<p><img alt="Data Fabric records from multiple process runs" class="screenshot" src="../images/ixp-api-06.png" /></p>
 </li>
 </ol>
 <p>Your IXP-enhanced process is complete. It retrieves invoice PDFs via robot, extracts and validates data using IXP, queries the PO database, routes exceptions to human review, sends rejection emails, and stores approved records — all orchestrated by Maestro.</p>
