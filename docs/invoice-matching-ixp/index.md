@@ -1,28 +1,20 @@
 # Invoice Matching with IXP
 
-**Automate 2-way invoice matching with IXP-powered PDF data extraction**
-
 ---
 
-## Overview
+**UiPath Maestro** helps transform workflow designs into scalable, production-ready solutions and enables agentic orchestration — coordinating long-running enterprise processes between humans, robots, and AI agents across different systems of record and systems of engagement. 
 
-**Maestro** enables agentic orchestration — coordinating long-running enterprise processes between humans, robots, and AI agents across different systems of record and systems of engagement. This exercise uses **IXP (Intelligent eXtraction & Processing)** for invoice data extraction from PDF documents.
+In addition to that, this exercise will use **IXP** (**I**ntelligent e**X**traction & **P**rocessing) for invoice data extraction from PDF documents. 
+
+Here is the plan:
 
 | Step | Focus |
-|------|-------|
-| 1. Create BPMN Diagram | Design the end-to-end process |
-| 2. Configure a Robot | Retrieve the invoice PDF document |
-| 3. Configure an Agent | Extract data using IXP, look up the PO, validate and decide |
-| 4. Configure Human Validation | Handle exceptions in Action Center |
-| 5. Configure API Integration | Send emails and store approved invoices |
-
-1. [**Create BPMN Process**](create-bpmn.md)
-2. [**Configure a Robot**](configure-robot.md)
-3. [**Configure an Agent**](configure-agent.md)
-4. [**Configure Human Validation**](configure-human-validation.md)
-5. [**Configure API Integration**](configure-api.md)
-
----
+| :---: | :--- | 
+| [**Create BPMN Process**](create-bpmn.md) | Design the end-to-end workflow for the process |
+| [**Configure a Robot**](configure-robot.md) | RPA job to retrieve the invoice PDF document |
+| [**Configure an Agent**](configure-agent.md) | Extract data from Invoice using IXP, look up the Purchase Order, Perform Matching and help making decision |
+| [**Configure Human Validation**](configure-human-validation.md) | Customized Action App designed to help Humans handling exceptions in Action Center |
+| [**Configure API Integration**](configure-api.md) | Send notification emails and store approved invoices for further processing |
 
 !!! tip "Training Environment"
-    Log in at [cloud.uipath.com/tpenlabs](https://cloud.uipath.com/tpenlabs) using tenant **AgenticPractice**.
+    Log in at [cloud.uipath.com/tpenlabs](https://cloud.uipath.com/tpenlabs) and remember using tenant **AgenticPractice** for this exercise.

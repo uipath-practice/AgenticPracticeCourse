@@ -1,3 +1,24 @@
+/* UiPath brand fonts */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@600;700&display=swap');
+
+.md-typeset h1,
+.md-typeset h2,
+.md-typeset h3,
+.md-typeset h4,
+.md-typeset h5,
+.md-typeset h6 {
+  font-family: 'Nunito', sans-serif;
+}
+
+/* UiPath Robotic Orange — override Material primary color */
+:root {
+  --md-primary-fg-color: #FA4616;
+  --md-primary-fg-color--light: #fc7a52;
+  --md-primary-fg-color--dark: #d13a12;
+  --md-primary-bg-color: #ffffff;
+  --md-primary-bg-color--light: rgba(255, 255, 255, 0.7);
+}
+
 /* White header bar — logo + site title area only; tabs remain orange */
 .md-header {
   background-color: #ffffff;
@@ -8,6 +29,7 @@
 .md-header__topic,
 .md-ellipsis {
   color: #1a1a1a;
+  font-family: 'Nunito', sans-serif;
 }
 
 .md-header__button,
@@ -58,10 +80,16 @@
     width: auto;
   }
 
-  /* Nav item links — default size */
+  /* Nav item links — 20% smaller than body text in hamburger menu */
   .md-nav--primary .md-nav__link {
-    font-size: 1rem;
+    font-size: 0.8rem;
   }
+}
+
+
+/* Hide empty footer meta bar */
+.md-footer-meta {
+  display: none;
 }
 
 /* Footer navigation — compact height (-25%) */
@@ -132,26 +160,71 @@ img + em {
   font-size: 1em;
 }
 
-/* Admonition — intensified backgrounds per type */
+/* Admonition — UiPath brand colors */
 
-/* note (blue) */
-.md-typeset .admonition.note  { background-color: rgba(68, 138, 255, 0.08) !important; }
-.md-typeset .note > .admonition-title { background-color: rgba(68, 138, 255, 0.25) !important; }
+/* note (Dark Blue #1E6482) */
+.md-typeset .admonition.note  {
+  border-color: rgba(30, 100, 130, 0.4) !important;
+  background-color: rgba(30, 100, 130, 0.05) !important;
+}
+.md-typeset .note > .admonition-title { background-color: rgba(30, 100, 130, 0.12) !important; }
+.md-typeset .note > .admonition-title::before { background-color: #1E6482 !important; }
 
-/* info (cyan) */
-.md-typeset .admonition.info  { background-color: rgba(0, 176, 255, 0.08) !important; }
-.md-typeset .info > .admonition-title { background-color: rgba(0, 176, 255, 0.25) !important; }
+/* info (Dark Blue #1E6482 — prominent) */
+.md-typeset .admonition.info  {
+  border-color: rgba(30, 100, 130, 0.4) !important;
+  background-color: rgba(30, 100, 130, 0.07) !important;
+}
+.md-typeset .info > .admonition-title { background-color: rgba(30, 100, 130, 0.20) !important; }
+.md-typeset .info > .admonition-title::before { background-color: #1E6482 !important; }
 
-/* tip / hint (teal) */
-.md-typeset .admonition.tip   { background-color: rgba(0, 191, 165, 0.08) !important; }
-.md-typeset .tip > .admonition-title  { background-color: rgba(0, 191, 165, 0.25) !important; }
+/* tip (Bright Blue #CCF2FF + Dark Blue accent) */
+.md-typeset .admonition.tip   {
+  border-color: rgba(30, 100, 130, 0.4) !important;
+  background-color: rgba(204, 242, 255, 0.45) !important;
+}
+.md-typeset .tip > .admonition-title  { background-color: rgba(30, 100, 130, 0.15) !important; }
+.md-typeset .tip > .admonition-title::before  { background-color: #1E6482 !important; }
 
-/* warning (amber) */
-.md-typeset .admonition.warning { background-color: rgba(255, 145, 0, 0.08) !important; }
-.md-typeset .warning > .admonition-title { background-color: rgba(255, 145, 0, 0.25) !important; }
+/* warning (Offset Orange #A32200) */
+.md-typeset .admonition.warning {
+  border-color: rgba(163, 34, 0, 0.4) !important;
+  background-color: rgba(163, 34, 0, 0.05) !important;
+}
+.md-typeset .warning > .admonition-title { background-color: rgba(163, 34, 0, 0.15) !important; }
+.md-typeset .warning > .admonition-title::before { background-color: #A32200 !important; }
 
 .img-cols-50 > div       { flex: 1; }
 .img-cols-30-70 > div:first-child { flex: 3; }
 .img-cols-30-70 > div:last-child  { flex: 7; }
 .img-cols-70-30 > div:first-child { flex: 7; }
 .img-cols-70-30 > div:last-child  { flex: 3; }
+
+/* Top-level navigation tabs — 20% larger than Material default (0.7rem) */
+.md-tabs__link {
+  font-size: 0.84rem;
+  font-family: 'Nunito', sans-serif;
+}
+
+/* Left sidebar navigation — explicit Inter (inherits body font, but made explicit) */
+.md-nav__link,
+.md-nav__title {
+  font-family: 'Inter', sans-serif;
+}
+
+/* Table — body text size, full borders, grey header */
+.md-typeset table:not([class]) {
+  border-collapse: collapse;
+}
+
+.md-typeset table:not([class]) th,
+.md-typeset table:not([class]) td {
+  font-size: 0.8rem !important;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  padding-top: 0.4rem;
+  padding-bottom: 0.4rem;
+}
+
+.md-typeset table:not([class]) th {
+  background-color: #f0f0f0;
+}

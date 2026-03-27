@@ -6,6 +6,9 @@ site_author: Sergey Shumilov
 theme:
   name: material
   logo: assets/images/Partner Success Logo.png
+  favicon: assets/images/favicon.png
+  font:
+    text: Inter
   palette:
     scheme: default
     primary: deep orange

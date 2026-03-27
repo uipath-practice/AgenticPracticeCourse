@@ -1,12 +1,14 @@
 # Step 1 — Create BPMN Process
 
-**Model the end-to-end 2-way matching process before building it in Maestro**
+---
+
+***Model the end-to-end 2-way matching process before implementing automation steps in Maestro***
 
 ---
 
 ## Goal
 
-Design the BPMN diagram for the invoice matching process. You'll review the business process, build it in the UiPath BPMN designer, and export the file for import into Maestro.
+Our first step is to design the process flow diagram for the invoice matching automation. You'll review the business process, build it in the UiPath BPMN designer, and export the file for import into Maestro.
 
 ## The 2-Way Matching Process
 

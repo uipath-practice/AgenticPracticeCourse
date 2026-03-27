@@ -1,6 +1,7 @@
 # Step 2 — Configure a Robot
+---
 
-**Add an RPA automation to your Maestro workflow**
+***Add an RPA automation to your Maestro workflow***
 
 ---
 

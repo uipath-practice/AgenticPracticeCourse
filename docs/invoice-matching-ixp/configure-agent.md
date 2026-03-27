@@ -1,6 +1,8 @@
 # Step 3 — Configure an Agent
 
-**Build the 2-Way Matching Agent and connect it to your Maestro workflow**
+---
+
+***Build the 2-Way Matching Agent and connect it to your Maestro workflow***
 
 ---
 

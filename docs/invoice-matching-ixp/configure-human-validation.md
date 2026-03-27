@@ -1,6 +1,8 @@
 # Step 4 — Configure Human Validation
 
-**Add an Action App for human review when the agent can't match documents**
+---
+
+***Add an Action App for human review when the agent can't match documents***
 
 ---
 

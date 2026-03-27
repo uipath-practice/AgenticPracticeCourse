@@ -1,6 +1,8 @@
 # Step 5 — Configure API Integration
 
-**Send rejection emails and store approved invoices to complete the process**
+---
+
+***Send rejection emails and store approved invoices to complete the process***
 
 ---
 
