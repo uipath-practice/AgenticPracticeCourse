@@ -141,7 +141,7 @@ img + em {
 .img-cols {
   display: flex;
   gap: 1.5rem;
-  align-items: flex-start;
+  align-items: center;
   margin: 1.5rem 0;
 }
 

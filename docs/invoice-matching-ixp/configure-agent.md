@@ -1,19 +1,18 @@
-# Automating cognitive tasks using Agents
+# Build an Agent and add it to workflow
 
----
+!!! tip "Here is our plan for this lesson:"
 
-***Build the 2-Way Matching Agent and connect it to your Maestro workflow***
+    1. Build the **2-Way Matching AI Agent** from scratch in **Studio Web**.
+        - The agent will use Robot's JSON outputs as inputs, and output the validation result.
+        - If there is a problem with the invoice, the agent will also prepare data for the human validation task.
 
-Key steps in this lesson:
-Build the 2-Way Matching AI Agent from scratch in Studio Web.
-Agent will use Robot's JSONs as inputs, and output the validation result.
-If there is a problem with invoice, agent will also prepare data for human validation task. 
-Configure testing and build evaluations dataset to ensure quality of the Agent (optional).
-Configure the Agent in Maestro workflow 
-Configure Maestro Gateway based on Agent's outputs.
-Simulate to see if decision goes the right direction.
+    2. Configure testing and build an evaluations dataset to ensure quality of the Agent *(optional)*.
 
----
+    3. Configure the Agent in the Maestro workflow.
+
+    4. Configure Maestro Gateway based on Agent's outputs.
+
+    5. Simulate to see if the decision goes the right direction.
 
 ## Goal
 
@@ -21,19 +20,25 @@ Create the **2-Way Matching Agent** with two tools: an IXP data extraction tool 
 
 ## Why Use an LLM for Matching
 
-You could write traditional code to compare invoice data and line items. But the rules are flexible: tables may include lines with semantically similar descriptions, or variations that are difficult to codify. Every edge case increases code complexity.
+The next step in our process is to compare Purchase Order and Invoice.
 
-When discrepancies are found, you also need to draft a response to the supplier — which requires generating natural language. LLMs handle both jobs well. They can analyze large amounts of text in any format, identify discrepancies, and generate validation summaries or email responses in required formats and languages.
+You can write traditional code that would compare and analyze invoice data and line items, but it might be fairly challenging, since "rules" are usually flexible — for example, tables might include lines with semantically similar but not identical descriptions, or there may be some other acceptable variations. This increases code complexity and implementation time for every such edge case.
+
+Also, if discrepancies are detected, the usual next step is to write to the sender and request to update the invoice.
+
+LLMs are ideal for this job — they can analyze large amounts of text in any format, identify discrepancies and exceptions, then follow the instructions in prompts to generate a validation summary or email response in the required format and language.
+
+Let's use Studio to create our "2-Way Matching Agent"!
 
 ## Steps
 
 ### Part 1: Create the agent and configure arguments
 
-1. In **Studio Web**, add a new Agent to your solution. Name it **2-Way Matching Agent**.
+1. In **Studio Web**, add a new Agent to your solution. Remember that Solutions can have multiple components such as apps, automations, workflows and agents. Name it **2-Way Matching Agent**.
 
     ![New agent created in Studio Web](configure-agent.images/1-new-agent.png){ .screenshot }
 
-    When prompted, dismiss the Autopilot screen and click **Start fresh**. You can explore Autopilot later, but here you'll configure prompts and settings manually.
+    Dismiss the Autopilot screen when you see the prompt to generate a new agent. Feel free to play with Autopilot later, but here you'll configure prompts and settings manually — click **Start fresh**.
 
 2. Open **Data Manager** from the left ribbon and add a new Input argument:
 
@@ -85,6 +90,10 @@ When discrepancies are found, you also need to draft a response to the supplier 
 
 ### Part 2: Configure the prompts
 
+System prompt is like human's work instructions. Let's start with something like this:
+
+> *"Precision in prompts, like in coding, leads to powerful and predictable results. If your prompt is messy, expect messy output. Treat it like code, and write every word with purpose!"* — another advice from gpt-4o
+
 6. Enter the following **User Prompt**:
 
     ```text
@@ -98,7 +107,7 @@ When discrepancies are found, you also need to draft a response to the supplier 
     ```text
     You are an AI agent specialized in comparing Invoice PDFs with Purchase Orders. Your primary responsibilities are:
 
-    1. Analyze the contents of an Invoice PDF file using the InvoicesIXP tool. Extract all relevant information including company details, line items, totals, and tax information. Trigger Escalation if confidence falls below 60%.
+    1. Analyze the contents of an Invoice PDF file using the InvoicesIXP tool. Extract all relevant information including company details, line items, totals, and tax information. Trigger Escalation if confidence falls beyond 60%.
 
     2. Use the Retrieve PO Data tool to fetch Purchase Order data from the Data Fabric. The Purchase Order ID should be extracted from the Invoice. If the PO data cannot be retrieved, use Escalation.
 
@@ -119,7 +128,7 @@ When discrepancies are found, you also need to draft a response to the supplier 
     - "Full Match" - if Invoice and Purchase order match fully. Every line item in PO matched to Invoice line items, company name and details match, total and tax information matches.
     - "Failed Match" - if there are items that cannot be matched or other details do not align.
 
-    out_DocumentsHTML: If match is not successful, generate HTML code containing a side-by-side comparison of Purchase Order and Invoice, including company details, document line items, total and tax information.
+    out_DocumentsHTML: If match is not successful, generate HTML code containing side by side comparison of Purchase Order and Invoice, including Company details, document Line Items, Total and Tax information.
     - Use a table structure with three columns: Field, Purchase Order, Invoice.
     - Field titles should be placed in the leftmost column.
     - Tax value should include tax rate and tax name, if available.
@@ -143,6 +152,11 @@ When discrepancies are found, you also need to draft a response to the supplier 
 
 ### Part 3: Add the IXP tool
 
+Next, our agent will need tools that we mentioned in the system prompt:
+
+- **InvoicesIXP** tool — uses the existing Invoice IXP project for data extraction
+- **Retrieve PO Data** tool — looks up Purchase Order details using the extracted PO ID
+
 8. In canvas mode, select your agent and add a new Tool.
 
     ![Tools section, adding a new tool](configure-agent.images/8-add-tool.png){ .screenshot }
@@ -151,11 +165,11 @@ When discrepancies are found, you also need to draft a response to the supplier 
 
     ![InvoicesIXP project selected](configure-agent.images/9-ixp-project.png){ .screenshot }
 
-    This is an out-of-the-box invoice extraction model with standard taxonomy. It returns a JSON object containing the extracted data.
-
 10. Add a meaningful description, for example: **Invoice Data extraction tool**.
 
     ![IXP tool description configured](configure-agent.images/10-ixp-description.png){ .screenshot }
+
+    It's an out-of-the-box Invoice extraction model with standard taxonomy. You will not be able to see the tool configuration. It will return a JSON object containing extraction data. That's it!
 
 11. Save the IXP tool configuration.
 
@@ -163,17 +177,17 @@ When discrepancies are found, you also need to draft a response to the supplier 
 
 ### Part 4: Build and add the PO lookup tool
 
-PO data is stored in Data Fabric. You'll build a small RPA workflow to query it, then add that workflow as a tool for the agent.
+Next, let's build the **Retrieve PO Data** tool as a new RPA workflow. PO data is stored in Data Fabric and we can look up records using POID.
 
-12. Add a new RPA workflow to your solution. Give it a meaningful name.
+12. Add a new RPA workflow to your solution. Give it a meaningful name, like always.
 
     ![New RPA workflow added to solution](configure-agent.images/12-new-rpa-workflow.png){ .screenshot }
 
-13. Configure the input and output variables for the workflow.
+13. Configure the input and output variables for the workflow. Return the PODATA field from the entity.
 
     ![Input and output variables configured](configure-agent.images/13-workflow-variables.png){ .screenshot }
 
-14. Add a **Query Entity Records** activity configured to query the **PurchaseOrdersDatabase** entity. Apply the filter: **POID equals in_POID**. Return the PODATA field as the output.
+14. Add a **Query Entity Records** activity configured to query the **PurchaseOrdersDatabase** entity. Apply the filter: **POID equals in_POID**.
 
     ![Query Entity Records activity with POID filter](configure-agent.images/14-query-entity-records.png){ .screenshot }
 
@@ -188,6 +202,8 @@ PO data is stored in Data Fabric. You'll build a small RPA workflow to query it,
     ```
 
     ![Both tools saved and visible in tools list](configure-agent.images/16-both-tools.png){ .screenshot }
+
+Usually you would need to retrieve PO from a more complex environment like SAP or NetSuite, and also handle exceptions. But in this case you got away really easy — well done! ;)
 
 ### Part 5: Test the agent
 
@@ -209,15 +225,19 @@ PO data is stored in Data Fabric. You'll build a small RPA workflow to query it,
 
     ![HTML comparison output preview](configure-agent.images/21-html-comparison.png){ .screenshot }
 
-    Notice how the JSON formats of the invoice (returned by IXP) and the Purchase Order are different. The agent understands the meaning of both documents and correctly detects discrepancies regardless of format differences.
+Investigate carefully — there are no errors here. It's just that the Vendor sent an Invoice that is differently formatted, and some descriptions are not identical but very similar. The Agent will only follow our specific instructions in the Prompt, and the current prompt doesn't mention anything about such "similar" items, or the possibility of splitting 1 PO line item into multiple Invoice line items.
+
+As with any automation, our objective with the prompts is to cover as many cases as possible.
 
 ### Part 6: Connect the agent to Maestro
 
-21. Return to your **Maestro Agentic Process** and configure the agent task. Set the action to **Start and wait for agent**, then select **2-Way Matching Agent**.
+Let's get back to **Studio Web** and continue editing our Agentic Process.
+
+21. Return to your **Maestro Agentic Process** and configure the second task. Set the action to **Start and wait for agent**, then search for the agent in your solution (Defined Resources) and select it.
 
     ![Agent task configured in Maestro](configure-agent.images/22-agent-task-maestro.png){ .screenshot }
 
-22. Map the robot output to the agent input. Agent outputs are automatically added to the workflow variables.
+22. Pick outputs from the previous RPA Task (Retrieve Invoice PDF) and add them as inputs to the Agent — here is how you do it in your Agent Task's Settings:
 
     | Robot output | Agent input |
     |-------------|-------------|
@@ -225,18 +245,22 @@ PO data is stored in Data Fabric. You'll build a small RPA workflow to query it,
 
     ![Input mapping from robot output to agent input](configure-agent.images/23-input-mapping.png){ .screenshot }
 
-23. Configure the **Exclusive Gateway** after the agent task. Set the expression for the **Full Match** path:
+    Note that Agent's outputs were also automatically added to the workflow, so you can use them right away when configuring the Exclusive Gateway.
+
+23. Let's look at Agent's Status (`out_Status`) and direct the process to the next step — either sending the invoice for payment, or towards manual review. Configure the **Exclusive Gateway** after the agent task.
+
+    Set the expression for the **Full Match** path. Note that using `ToLower()` makes it a bit more reliable:
 
     ```text
     vars.outStatus.ToLower()=="full match"
     ```
 
-    You can test expected inputs directly in the expression editor. Set **Failed Match** as the default path.
+    You can test various expected inputs right in the expression editor. Set **Failed Match** as the default path.
 
-24. Click **Debug** and confirm the gateway routes correctly based on the agent's output.
+24. Click **Debug** and confirm the gateway routes correctly based on the agent's output. This time we want to see execution of the Agent and how Agent's output changes the direction of the execution flow from the default path.
 
     ![Process debug run showing correct gateway routing](configure-agent.images/24-gateway-routing.png){ .screenshot }
 
-Your agent is ready. In most cases, you'll need to return and refine the prompt to cover more edge cases — for example, allowing semantically similar descriptions, or splitting a single PO line item across multiple invoice lines.
+Your agent is ready. However, in most cases you will need to come back multiple times and improve the prompt in order for it to be more flexible — this way users need to perform less manual validation and it will work more reliably.
 
-[← Step 2: Configure a Robot](configure-robot.md) | [Next: Configure Human Validation →](configure-human-validation.md)
+[← Configure a Robot](configure-robot.md) | [Next: Configure Human Validation →](configure-human-validation.md)

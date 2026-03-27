@@ -255,6 +255,7 @@ Standard text — use exactly this in exercise overview pages:
 ## When Editing an Existing Page
 
 - Match the existing page's structure exactly. Don't introduce new section patterns.
+- **Never remove sections, paragraphs, or explanatory text when migrating or editing content.** Migrate all text from the source; only adjust wording to fit the voice and tone rules. If a paragraph feels informal or wordy, rephrase it — don't delete it.
 - If a page has a `!!! note "Content migration in progress"` block and you're adding real content to `## Steps`, remove the placeholder block entirely.
 - If you edit a prompt displayed in a code block, check the rest of the page — if the same prompt text appears anywhere else (description, table, inline), update all occurrences to match.
 - Do not add new admonition types not listed in this file without a clear reason.
@@ -262,8 +263,11 @@ Standard text — use exactly this in exercise overview pages:
 ## When Optimizing Language
 
 - Apply all language rules in this file.
+- **Never remove sections, paragraphs, or blocks of text.** Every block exists for a reason. Work within each sentence or paragraph — adjust wording, not scope.
 - Preserve technical accuracy — do not reword platform names, step names, or process descriptions without understanding the content.
-- Shorten, don't embellish. The goal is fewer words for the same meaning, not richer prose.
+- Adjust phrasing to match the voice and tone rules, but keep all explanatory content intact. Explanatory paragraphs that give context or motivation are not "filler" — do not cut them.
+- **Capitalised mid-sentence nouns are acceptable.** Do not change capitalisation of domain concepts such as "Invoice", "Purchase Order", "Supplier", "Storage Bucket" — the author may capitalise these intentionally for emphasis or consistency with UI labels.
+- **Describing the same scenario in more than one section is acceptable.** Only flag duplication when the exact same paragraph appears verbatim in two places.
 - After editing, re-read the page aloud in your head. If a sentence sounds awkward or would confuse a first-time learner, rewrite it.
 
 ---
