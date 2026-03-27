@@ -1,43 +1,61 @@
 # Step 1 — Create BPMN Process
 
-**Model the IXP-enhanced invoice matching workflow**
+**Model the end-to-end 2-way matching process before building it in Maestro**
 
 ---
 
 ## Goal
 
-Design the BPMN diagram for the IXP-based invoice matching process. The process is structurally similar to the standard version, with one key difference: the robot retrieves a **PDF document** (not pre-structured JSON), and the agent extracts structured data from it using **IXP (Intelligent eXtraction & Processing)**.
+Design the BPMN diagram for the invoice matching process. You'll review the business process, build it in the UiPath BPMN designer, and export the file for import into Maestro.
+
+## The 2-Way Matching Process
+
+2-way matching is one of the most common processes in finance — validating a supplier invoice against the original Purchase Order.
+
+Here are the common steps:
+
+1. **Purchase Order creation** — the purchasing department creates a formal PO with item descriptions, quantities, unit prices, and agreed payment terms.
+2. **Invoice receipt and data entry** — after the vendor delivers goods or services, they submit an invoice. The Accounts Payable team receives it and enters the data into the accounting system, often via automated extraction (OCR + IXP).
+3. **Document validation** — the AP team retrieves the original PO and compares it against the invoice, checking for consistency in key fields: PO number, total amount, price, and line items.
+   - Companies often set tolerance levels (e.g., a 5% price variance) to determine if minor differences are acceptable. If within tolerance, the invoice moves to approval; otherwise, it is flagged.
+   - A single PO may be covered by multiple invoices (partial delivery).
+4. **Approval or exception handling** — a matching invoice is approved for payment. If a discrepancy exists, the invoice is placed on hold and sent for investigation.
+5. **Payment processing and documentation** — the approved invoice is scheduled for payment. All records are stored together for audit purposes.
 
 ## Matching Variants
 
-This exercise uses **2-way matching** — comparing an invoice against a Purchase Order. For reference, more advanced variants exist:
-
-| Variant | Documents Compared |
+| Variant | Documents compared |
 |---------|--------------------|
 | **2-way** | Invoice + Purchase Order |
-| **3-way** | Invoice + Purchase Order + Goods Receipt Note |
-| **4-way** | Invoice + Purchase Order + Goods Receipt Note + Inspection Report |
+| **3-way** | Invoice + PO + Goods Receipt Note |
+| **4-way** | Invoice + PO + Goods Receipt Note + Inspection Report |
 
-You're building the 2-way variant.
+Every company has customizations depending on their ERP and industry. This exercise focuses on 2-way matching.
+
+## What You'll Build
+
+For this exercise, focus on steps 2–4. The simplified process:
+
+1. Supplier sends an invoice containing:
+   - Header (company name, addresses, dates, Invoice ID, PO ID)
+   - Line items as a table
+   - Footer (subtotals, totals, tax information)
+2. Invoice data is compared against the linked Purchase Order. Possible outcomes:
+   - **Full match** — names, quantities, and prices match across all line items; company details, totals, and tax information align.
+   - **Failed match** — discrepancies found: wrong company entity, missing line items, unmatched descriptions, or nothing in common at all.
+3. If the invoice and PO match — or if a human reviewed and approved it — invoice details are updated in Data Service and sent for payment.
+4. If they don't match — a validation task is created in **Action Center** for the Accounts Payable team to approve or reject.
+5. If rejected — an email is generated and sent to the supplier with reasons and a request to resubmit.
 
 ## Steps
 
 1. Open **[bpmn.uipath.com](https://bpmn.uipath.com/)** in your browser.
 
-2. Create a new diagram and model the invoice matching process:
-    - A **Start Event** triggers when a new invoice PDF arrives
-    - A **Robot task** retrieves the PDF from a Storage Bucket
-    - An **Agent task** extracts data using IXP, looks up the PO, and performs matching
-    - An **Exclusive Gateway** routes based on the agent's decision:
-        - Full match → update Data Service → End
-        - Mismatch → Human review → End
-        - Rejected → Send supplier notification → End
+2. Build a BPMN diagram based on the process description above.
 
     ![BPMN diagram for IXP invoice matching process](images/ixp-bpmn-01.png){ .screenshot }
 
-3. Review all paths and confirm each has an End Event.
-
-4. Export the diagram as a `.bpmn` file. Save it as **2-Way Matching IXP Process.bpmn**.
+3. Export the diagram as a `.bpmn` file. You'll import it into Maestro in the next step.
 
     ![Completed BPMN diagram ready for export](images/ixp-bpmn-02.png){ .screenshot }
 

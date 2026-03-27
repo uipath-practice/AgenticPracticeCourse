@@ -1,41 +1,26 @@
 # Invoice Matching with IXP
 
-**2-Way matching with Intelligent eXtraction & Processing**
+**Automate 2-way invoice matching with IXP-powered PDF data extraction**
 
 ---
 
 ## Overview
 
-This exercise builds on the standard invoice matching process by adding **IXP (Intelligent eXtraction & Processing)** for automated data extraction from PDF invoices. IXP handles unstructured documents and provides confidence scores that drive automated escalation decisions.
+**Maestro** enables agentic orchestration — coordinating long-running enterprise processes between humans, robots, and AI agents across different systems of record and systems of engagement. This exercise uses **IXP (Intelligent eXtraction & Processing)** for invoice data extraction from PDF documents.
 
-## What IXP Adds
+| Step | Focus |
+|------|-------|
+| 1. Create BPMN Diagram | Design the end-to-end process |
+| 2. Configure a Robot | Retrieve the invoice PDF document |
+| 3. Configure an Agent | Extract data using IXP, look up the PO, validate and decide |
+| 4. Configure Human Validation | Handle exceptions in Action Center |
+| 5. Configure API Integration | Send emails and store approved invoices |
 
-| Capability | Description |
-|------------|-------------|
-| **PDF extraction** | Reads and extracts data from unstructured invoice PDFs |
-| **Confidence scoring** | Each extracted field gets a confidence score |
-| **Automated escalation** | Low-confidence results automatically route to human review |
-
-## How It Fits the Process
-
-The full workflow:
-
-```
-Robot retrieves PDFs
-  → Agent extracts data using IXP
-      → High confidence: Agent queries ERP for PO data
-          → Agent validates and decides (match/reject)
-      → Low confidence: Escalate to human for review
-  → API calls complete the process
-```
-
-## Five-Step Implementation
-
-1. [**Create BPMN Process**](create-bpmn.md) — Design the IXP-enhanced workflow
-2. [**Configure a Robot**](configure-robot.md) — Set up invoice PDF retrieval
-3. [**Configure an Agent**](configure-agent.md) — Extract data, query ERP, validate, decide
-4. [**Configure Human Validation**](configure-human-validation.md) — Handle low-confidence escalations
-5. [**Configure API Integration**](configure-api.md) — Connect to external systems
+1. [**Create BPMN Process**](create-bpmn.md)
+2. [**Configure a Robot**](configure-robot.md)
+3. [**Configure an Agent**](configure-agent.md)
+4. [**Configure Human Validation**](configure-human-validation.md)
+5. [**Configure API Integration**](configure-api.md)
 
 ---
 
