@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#step-1-create-bpmn-process" class="md-skip">
+        <a href="#modeling-business-processes-using-bpmn-canvas" class="md-skip">
           Skip to content
         </a>
       
@@ -637,9 +637,10 @@
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
+    <nav class="md-nav" aria-label="The 2-Way Matching Process">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#matching-variants" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -649,8 +650,8 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#what-youll-build" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -660,12 +661,17 @@
   </a>
   
 </li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
         <li class="md-nav__item">
-  <a href="#steps" class="md-nav__link">
+  <a href="#build-the-diagram" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Steps
+        Build the diagram
       
     </span>
   </a>
@@ -844,25 +850,29 @@
 
 
 
-<h1 id="step-1-create-bpmn-process">Step 1 — Create BPMN Process<a class="headerlink" href="#step-1-create-bpmn-process" title="Permanent link">&para;</a></h1>
-<hr />
-<p><strong><em>Model the end-to-end 2-way matching process before implementing automation steps in Maestro</em></strong></p>
-<hr />
+<h1 id="modeling-business-processes-using-bpmn-canvas">Modeling Business Processes using BPMN canvas<a class="headerlink" href="#modeling-business-processes-using-bpmn-canvas" title="Permanent link">&para;</a></h1>
+<div class="admonition tip">
+<p class="admonition-title">Let's start</p>
+<p><strong>1. Review the business process that we will implement</strong></p>
+<p><strong>2. Prepare a BPMN diagram reflecting process steps</strong></p>
+</div>
 <h2 id="goal">Goal<a class="headerlink" href="#goal" title="Permanent link">&para;</a></h2>
-<p>Our first step is to design the process flow diagram for the invoice matching automation. You'll review the business process, build it in the UiPath BPMN designer, and export the file for import into Maestro.</p>
+<p>In this step, you'll design the process flow diagram for the invoice matching automation. You'll review the business process, build it in the UiPath BPMN designer, and export the file for import into Maestro.</p>
 <h2 id="the-2-way-matching-process">The 2-Way Matching Process<a class="headerlink" href="#the-2-way-matching-process" title="Permanent link">&para;</a></h2>
 <p>2-way matching is one of the most common processes in finance — validating a supplier invoice against the original Purchase Order.</p>
 <p>Here are the common steps:</p>
 <ol>
 <li><strong>Purchase Order creation</strong> — the purchasing department creates a formal PO with item descriptions, quantities, unit prices, and agreed payment terms.</li>
 <li><strong>Invoice receipt and data entry</strong> — after the vendor delivers goods or services, they submit an invoice. The Accounts Payable team receives it and enters the data into the accounting system, often via automated extraction (OCR + IXP).</li>
-<li><strong>Document validation</strong> — the AP team retrieves the original PO and compares it against the invoice, checking for consistency in key fields: PO number, total amount, price, and line items.</li>
+<li><strong>Document validation</strong> — the AP team retrieves the original PO and compares it against the invoice, checking for consistency in key fields: PO number, total amount, price, and line items.<ul>
 <li>Companies often set tolerance levels (e.g., a 5% price variance) to determine if minor differences are acceptable. If within tolerance, the invoice moves to approval; otherwise, it is flagged.</li>
 <li>A single PO may be covered by multiple invoices (partial delivery).</li>
+</ul>
+</li>
 <li><strong>Approval or exception handling</strong> — a matching invoice is approved for payment. If a discrepancy exists, the invoice is placed on hold and sent for investigation.</li>
 <li><strong>Payment processing and documentation</strong> — the approved invoice is scheduled for payment. All records are stored together for audit purposes.</li>
 </ol>
-<h2 id="matching-variants">Matching Variants<a class="headerlink" href="#matching-variants" title="Permanent link">&para;</a></h2>
+<h3 id="matching-variants">Matching Variants<a class="headerlink" href="#matching-variants" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
@@ -886,35 +896,45 @@
 </tbody>
 </table>
 <p>Every company has customizations depending on their ERP and industry. This exercise focuses on 2-way matching.</p>
-<h2 id="what-youll-build">What You'll Build<a class="headerlink" href="#what-youll-build" title="Permanent link">&para;</a></h2>
+<h3 id="what-youll-build">What You'll Build<a class="headerlink" href="#what-youll-build" title="Permanent link">&para;</a></h3>
 <p>For this exercise, focus on steps 2–4. The simplified process:</p>
 <ol>
-<li>Supplier sends an invoice containing:</li>
-<li>Header (company name, addresses, dates, Invoice ID, PO ID)</li>
-<li>Line items as a table</li>
-<li>Footer (subtotals, totals, tax information)</li>
-<li>Invoice data is compared against the linked Purchase Order. Possible outcomes:</li>
-<li><strong>Full match</strong> — names, quantities, and prices match across all line items; company details, totals, and tax information align.</li>
-<li><strong>Failed match</strong> — discrepancies found: wrong company entity, missing line items, unmatched descriptions, or nothing in common at all.</li>
-<li>If the invoice and PO match — or if a human reviewed and approved it — invoice details are updated in Data Service and sent for payment.</li>
-<li>If they don't match — a validation task is created in <strong>Action Center</strong> for the Accounts Payable team to approve or reject.</li>
-<li>If rejected — an email is generated and sent to the supplier with reasons and a request to resubmit.</li>
+<li>Supplier sends an invoice containing:<ul>
+<li><strong>Header</strong> (company name, addresses, dates, Invoice ID, PO ID, Company registration ID, etc - the usual fields).</li>
+<li><strong>Line items</strong> in a table (Product, Quantity, Price)</li>
+<li><strong>Footer</strong> (Subtotals, Totals, Tax information)</li>
+</ul>
+</li>
+<li><strong>Invoice data is compared</strong> against the linked Purchase Order. Possible outcomes:<ul>
+<li><strong>Full match:</strong> names, quantities, and prices match across all line items, company details, totals, and tax information align.</li>
+<li><strong>Failed match:</strong> discrepancies found: wrong company entity, missing line items, unmatched descriptions, or nothing in common at all.</li>
+</ul>
+</li>
+<li><strong>If the invoice and PO match</strong> (or if a human reviewed and approved it): invoice details are updated in <strong>Data Fabric</strong> and sent for payment.</li>
+<li><strong>If they don't match</strong> — a validation task is created in <strong>Action Center</strong> for the Accounts Payable team to review and then approve or reject.</li>
+<li><strong>If rejected</strong> — an email is generated and sent to the supplier with reasons and a request to fix and resubmit the invoice. The resubmitted invoice is processed following the same steps.</li>
 </ol>
-<h2 id="steps">Steps<a class="headerlink" href="#steps" title="Permanent link">&para;</a></h2>
+<h2 id="build-the-diagram">Build the diagram<a class="headerlink" href="#build-the-diagram" title="Permanent link">&para;</a></h2>
 <ol>
 <li>
 <p>Open <strong><a href="https://bpmn.uipath.com/">bpmn.uipath.com</a></strong> in your browser.</p>
 </li>
 <li>
-<p>Build a BPMN diagram based on the process description above.</p>
-<p><img alt="BPMN diagram for IXP invoice matching process" class="screenshot" src="../images/ixp-bpmn-01.png" /></p>
+<p>Build a BPMN diagram based on the process description above. It should look similar to this:</p>
+<p><img alt="BPMN diagram for IXP invoice matching process" class="screenshot" src="../create-bpmn.images/1-bpmn-diagram.png" /></p>
 </li>
 <li>
-<p>Export the diagram as a <code>.bpmn</code> file. You'll import it into Maestro in the next step.</p>
-<p><img alt="Completed BPMN diagram ready for export" class="screenshot" src="../images/ixp-bpmn-02.png" /></p>
+<p>Export the diagram as a <code>.bpmn</code> file. You'll import it into Maestro in the next step. Alternatively, download and use this <strong><a href="../dependencies/2-Way%20Matching%20Process.bpmn">sample BPMN file</a></strong>.</p>
 </li>
 </ol>
-<p><a href="../">← Back to Overview</a> | <a href="../configure-robot/">Next: Configure a Robot →</a></p>
+<div class="img-cols img-cols-30-70">
+<div>
+<p><img alt="Wise robot" class="screenshot" src="../create-bpmn.images/2-wise-robot.png" /></p>
+</div>
+<div>
+<p>In later steps, you'll connect each task in this diagram to UiPath platform components. When the process runs, Orchestrator will trigger robotic and agentic jobs — or route tasks to humans. Let's add some action into this diagram by <strong><a href="../configure-robot/">adding a Robot</a></strong>! </p>
+</div>
+</div>
 
 
 
@@ -1011,6 +1031,8 @@
     
     
       <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../javascripts/extra.js"></script>
       
     
   </body>

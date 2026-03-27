@@ -885,11 +885,11 @@
 </li>
 <li>
 <p>Set the action type to <strong>Execute Connector Activity</strong>.</p>
-<p><img alt="Execute Connector Activity selected" class="screenshot" src="../images/ixp-api-01.png" /></p>
+<p><img alt="Execute Connector Activity selected" class="screenshot" src="../configure-api.images/1-connector-activity.png" /></p>
 </li>
 <li>
 <p>Select the <strong>Gmail Connector</strong> and configure the shared Gmail connection.</p>
-<p><img alt="Gmail Connector and shared connection selected" class="screenshot" src="../images/ixp-api-02.png" /></p>
+<p><img alt="Gmail Connector and shared connection selected" class="screenshot" src="../configure-api.images/2-gmail-connector.png" /></p>
 </li>
 <li>
 <p>Configure the <strong>Send Email</strong> activity:</p>
@@ -898,7 +898,7 @@
 <li><strong>Subject:</strong> generate a suitable subject.</li>
 <li>
 <p><strong>Body:</strong> use <code>out_SuggestedResponse</code> — the HTML rejection email drafted by the agent and reviewed during human validation.</p>
-<p><img alt="Email configured with body from out_SuggestedResponse" class="screenshot" src="../images/ixp-api-03.png" /></p>
+<p><img alt="Email configured with body from out_SuggestedResponse" class="screenshot" src="../configure-api.images/3-email-configured.png" /></p>
 </li>
 <li>
 <p>Save the task.</p>
@@ -911,11 +911,11 @@
 </li>
 <li>
 <p>Set the action type to <strong>Execute Connector Activity</strong>.</p>
-<p><img alt="Execute Connector Activity on Approve path" class="screenshot" src="../images/ixp-api-04.png" /></p>
+<p><img alt="Execute Connector Activity on Approve path" class="screenshot" src="../configure-api.images/4-approve-connector.png" /></p>
 </li>
 <li>
 <p>Select the <strong>Data Fabric connector</strong> and configure it to write the approved invoice record. The payments team's automation reads from Data Fabric to process payments.</p>
-<p><img alt="Data Fabric connector configured" class="screenshot" src="../images/ixp-api-05.png" /></p>
+<p><img alt="Data Fabric connector configured" class="screenshot" src="../configure-api.images/5-data-fabric-connector.png" /></p>
 </li>
 </ol>
 <h3 id="part-3-test-the-complete-process">Part 3: Test the complete process<a class="headerlink" href="#part-3-test-the-complete-process" title="Permanent link">&para;</a></h3>
@@ -924,7 +924,7 @@
 <li>Check <strong>Data Fabric</strong> — approved invoices accumulate as records.</li>
 <li>
 <p>Check the inbox — HTML-formatted rejection emails arrive for rejected invoices.</p>
-<p><img alt="Data Fabric records from multiple process runs" class="screenshot" src="../images/ixp-api-06.png" /></p>
+<p><img alt="Data Fabric records from multiple process runs" class="screenshot" src="../configure-api.images/6-data-fabric-records.png" /></p>
 </li>
 </ol>
 <p>The process is complete. It retrieves invoice PDFs, extracts and validates data using IXP, routes exceptions to human review, sends rejection emails, and stores approved records — all orchestrated by Maestro.</p>
@@ -1025,6 +1025,8 @@
     
     
       <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../javascripts/extra.js"></script>
       
     
   </body>

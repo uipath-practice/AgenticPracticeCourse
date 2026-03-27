@@ -897,14 +897,14 @@
 <ol>
 <li>
 <p>In <strong>Studio Web</strong>, create a new <strong>Agent Solution</strong>.</p>
-<p><img alt="Agent Solution created in Studio Web" class="screenshot" src="../images/llm-01.png" /></p>
+<p><img alt="Agent Solution created in Studio Web" class="screenshot" src="../llm-with-context.images/1-agent-solution.png" /></p>
 </li>
 <li>
 <p>Rename the solution to <strong>ServiceNow Incidents Management Solution</strong>.</p>
 </li>
 <li>
 <p>Name the agent <strong>ServiceNow Incidents Management Agent</strong>.</p>
-<p><img alt="Agent named and solution renamed" class="screenshot" src="../images/llm-02.png" /></p>
+<p><img alt="Agent named and solution renamed" class="screenshot" src="../llm-with-context.images/2-agent-named.png" /></p>
 </li>
 <li>
 <p>Open the <strong>Data Manager</strong> panel and add the following <strong>Input Arguments</strong> (type: String):</p>
@@ -926,7 +926,7 @@
 </tr>
 </tbody>
 </table>
-<p><img alt="Input arguments configured in Data Manager" class="screenshot" src="../images/llm-03.png" /></p>
+<p><img alt="Input arguments configured in Data Manager" class="screenshot" src="../llm-with-context.images/3-input-arguments.png" /></p>
 </li>
 <li>
 <p>Add the following <strong>Output Arguments</strong>:</p>
@@ -956,7 +956,7 @@
 </tr>
 </tbody>
 </table>
-<p><img alt="Output arguments configured in Data Manager" class="screenshot" src="../images/llm-04.png" /></p>
+<p><img alt="Output arguments configured in Data Manager" class="screenshot" src="../llm-with-context.images/4-output-arguments.png" /></p>
 </li>
 </ol>
 <h3 id="part-2-configure-the-agent-prompts">Part 2: Configure the agent prompts<a class="headerlink" href="#part-2-configure-the-agent-prompts" title="Permanent link">&para;</a></h3>
@@ -966,7 +966,7 @@
 <p>Enter the following text in the <strong>System Prompt</strong> field:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>You are a ServiceNow Incidents categorization agent. Analyze incident details and determine the correct Category, Subcategory, and Assignee email address.
 </code></pre></div>
-<p><img alt="System prompt configured" class="screenshot" src="../images/llm-05.png" /></p>
+<p><img alt="System prompt configured" class="screenshot" src="../llm-with-context.images/5-system-prompt.png" /></p>
 </li>
 <li>
 <p>Enter the following text in the <strong>User Prompt</strong> field:</p>
@@ -981,19 +981,19 @@
 <li><strong>Short Description:</strong> <code>CRM software crashes on launch</code></li>
 <li><strong>Description:</strong> <code>Every time I try to open the CRM software, it crashes immediately after the splash screen. This has been happening for the past week and is affecting my ability to manage customer interactions.</code></li>
 </ul>
-<p><img alt="Agent test execution with sample incident data" class="screenshot" src="../images/llm-06.png" /></p>
+<p><img alt="Agent test execution with sample incident data" class="screenshot" src="../llm-with-context.images/6-agent-test.png" /></p>
 </li>
 </ol>
 <h3 id="part-3-add-context-grounding">Part 3: Add Context Grounding<a class="headerlink" href="#part-3-add-context-grounding" title="Permanent link">&para;</a></h3>
 <ol>
 <li>
 <p>Enable <strong>Context Grounding</strong> in the agent configuration.</p>
-<p><img alt="Context Grounding toggle enabled" class="screenshot" src="../images/llm-07.png" /></p>
+<p><img alt="Context Grounding toggle enabled" class="screenshot" src="../llm-with-context.images/7-context-grounding.png" /></p>
 </li>
 <li>
 <p>Select <strong>ServiceNow Incidents Categorization Information</strong> as the context source.</p>
 <p>The context contains only valid Category–Subcategory pairs. The agent must select from this list — it must not generate combinations that are not present.</p>
-<p><img alt="Context source selected" class="screenshot" src="../images/llm-08.png" /></p>
+<p><img alt="Context source selected" class="screenshot" src="../llm-with-context.images/8-context-source.png" /></p>
 </li>
 <li>
 <p>Import the <strong>SNOW Assignee Lookup Automation</strong> project.</p>
@@ -1002,7 +1002,7 @@
 <p>Add the imported automation as a tool. Use this description:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Use this tool to determine the email address of the on-duty expert for a given incident category and subcategory.
 </code></pre></div>
-<p><img alt="Assignee Lookup tool added to the agent" class="screenshot" src="../images/llm-09.png" /></p>
+<p><img alt="Assignee Lookup tool added to the agent" class="screenshot" src="../llm-with-context.images/9-assignee-tool.png" /></p>
 </li>
 </ol>
 <h3 id="part-4-test-with-evaluations">Part 4: Test with Evaluations<a class="headerlink" href="#part-4-test-with-evaluations" title="Permanent link">&para;</a></h3>
@@ -1063,11 +1063,11 @@
 </tr>
 </tbody>
 </table>
-<p><img alt="Evaluation set imported" class="screenshot" src="../images/llm-10.png" /></p>
+<p><img alt="Evaluation set imported" class="screenshot" src="../llm-with-context.images/10-evaluation-set.png" /></p>
 </li>
 <li>
 <p>Run the evaluation set and review the results.</p>
-<p><img alt="Evaluation results showing pass/fail per test case" class="screenshot" src="../images/llm-11.png" /></p>
+<p><img alt="Evaluation results showing pass/fail per test case" class="screenshot" src="../llm-with-context.images/11-evaluation-results.png" /></p>
 </li>
 </ol>
 
@@ -1166,6 +1166,8 @@
     
     
       <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../javascripts/extra.js"></script>
       
     
   </body>

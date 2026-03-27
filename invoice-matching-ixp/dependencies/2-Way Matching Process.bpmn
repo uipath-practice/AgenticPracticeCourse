@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:uipath="http://uipath.org/schema/bpmn" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="x-uipath-initial-diagram" targetNamespace="http://www.omg.org/spec/BPMN/20100524/MODEL" exporter="UiPath Studio Web (https://uipath.com)" exporterVersion="8a233f38">
+  <bpmn:process id="Process_1" name="Yes" isExecutable="false">
+    <bpmn:extensionElements>
+      <uipath:variables version="v1" />
+      <uipath:bindings version="v1">
+        <uipath:binding id="bWPUDRIgD" name="releaseKey" type="string" default="3A0FA2F7-45E1-435F-AAEA-26187065C6B0" resource="process" resourceKey="3A0FA2F7-45E1-435F-AAEA-26187065C6B0" propertyAttribute="Key" />
+        <uipath:binding id="bHpMmwDjS" name="releaseKey" type="string" default="125419E4-CB18-4B3B-B50D-8C1246C307F6" resource="process" resourceKey="125419E4-CB18-4B3B-B50D-8C1246C307F6" propertyAttribute="Key" />
+      </uipath:bindings>
+      <uipath:migrationVersion version="5" />
+    </bpmn:extensionElements>
+    <bpmn:startEvent id="Event_jjdkDo" name="Manual Start">
+      <bpmn:extensionElements>
+        <uipath:entryPointId value="594d45c4-38b6-4160-be8d-250407a8e4dd" />
+      </bpmn:extensionElements>
+      <bpmn:outgoing>edge___Event_jjdkDo-Activity_zQtGNV</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:task id="Activity_zQtGNV" name="Retrieve data for next PO and Invoice">
+      <bpmn:documentation>Retrieve data for next PO and Invoice</bpmn:documentation>
+      <bpmn:incoming>edge___Event_jjdkDo-Activity_zQtGNV</bpmn:incoming>
+      <bpmn:outgoing>edge___Activity_zQtGNV-Activity_CjAznd</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Activity_CjAznd" name="Compare Invoice against Purchase Order">
+      <bpmn:documentation>Perform 2-way matching</bpmn:documentation>
+      <bpmn:incoming>edge___Activity_zQtGNV-Activity_CjAznd</bpmn:incoming>
+      <bpmn:outgoing>edge___Activity_CjAznd-Gateway_PCsPAZ</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:exclusiveGateway id="Gateway_PCsPAZ" name="Comparison results" default="edge___Gateway_PCsPAZ-Activity_AphyH5">
+      <bpmn:incoming>edge___Activity_CjAznd-Gateway_PCsPAZ</bpmn:incoming>
+      <bpmn:outgoing>edge___Gateway_PCsPAZ-Activity_jlbtMj</bpmn:outgoing>
+      <bpmn:outgoing>edge___Gateway_PCsPAZ-Activity_AphyH5</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:task id="Activity_jlbtMj" name="Update Financial Systems">
+      <bpmn:documentation>Update Financial Systems</bpmn:documentation>
+      <bpmn:incoming>edge___Gateway_PCsPAZ-Activity_jlbtMj</bpmn:incoming>
+      <bpmn:incoming>edge___Gateway_bM9uct-Activity_jlbtMj</bpmn:incoming>
+      <bpmn:outgoing>edge___Activity_jlbtMj-Event_U9ZynV5EeBAv</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:endEvent id="Event_U9ZynV" name="Finish">
+      <bpmn:incoming>edge___Activity_6B8gTv-Event_U9ZynV</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:task id="Activity_AphyH5" name="Manual Review and Validation">
+      <bpmn:documentation>Manual Validation</bpmn:documentation>
+      <bpmn:incoming>edge___Gateway_PCsPAZ-Activity_AphyH5</bpmn:incoming>
+      <bpmn:outgoing>edge___Activity_AphyH5-Gateway_bM9uct</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:exclusiveGateway id="Gateway_bM9uct" name="Reviewer Decision" default="edge___Gateway_bM9uct-Activity_6B8gTv">
+      <bpmn:incoming>edge___Activity_AphyH5-Gateway_bM9uct</bpmn:incoming>
+      <bpmn:outgoing>edge___Gateway_bM9uct-Activity_6B8gTv</bpmn:outgoing>
+      <bpmn:outgoing>edge___Gateway_bM9uct-Activity_jlbtMj</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:task id="Activity_6B8gTv" name="Send rejection Email to Vendor">
+      <bpmn:documentation>Reject invoice by sending email or message</bpmn:documentation>
+      <bpmn:incoming>edge___Gateway_bM9uct-Activity_6B8gTv</bpmn:incoming>
+      <bpmn:outgoing>edge___Activity_6B8gTv-Event_U9ZynV</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:endEvent id="Event_MAu8of" name="Finish">
+      <bpmn:incoming>edge___Activity_jlbtMj-Event_U9ZynV5EeBAv</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="edge___Event_jjdkDo-Activity_zQtGNV" sourceRef="Event_jjdkDo" targetRef="Activity_zQtGNV" />
+    <bpmn:sequenceFlow id="edge___Activity_zQtGNV-Activity_CjAznd" sourceRef="Activity_zQtGNV" targetRef="Activity_CjAznd" />
+    <bpmn:sequenceFlow id="edge___Activity_CjAznd-Gateway_PCsPAZ" sourceRef="Activity_CjAznd" targetRef="Gateway_PCsPAZ" />
+    <bpmn:sequenceFlow id="edge___Gateway_PCsPAZ-Activity_jlbtMj" name="Full Match " sourceRef="Gateway_PCsPAZ" targetRef="Activity_jlbtMj">
+      <bpmn:documentation>"Full match"</bpmn:documentation>
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">=true</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="edge___Gateway_PCsPAZ-Activity_AphyH5" name="Issues detected" sourceRef="Gateway_PCsPAZ" targetRef="Activity_AphyH5">
+      <bpmn:documentation>"Failed Match"</bpmn:documentation>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="edge___Activity_AphyH5-Gateway_bM9uct" sourceRef="Activity_AphyH5" targetRef="Gateway_bM9uct" />
+    <bpmn:sequenceFlow id="edge___Gateway_bM9uct-Activity_6B8gTv" name="Reject" sourceRef="Gateway_bM9uct" targetRef="Activity_6B8gTv">
+      <bpmn:documentation>Reject</bpmn:documentation>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="edge___Gateway_bM9uct-Activity_jlbtMj" name="Approve" sourceRef="Gateway_bM9uct" targetRef="Activity_jlbtMj">
+      <bpmn:documentation>Approve</bpmn:documentation>
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">=true</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="edge___Activity_6B8gTv-Event_U9ZynV" sourceRef="Activity_6B8gTv" targetRef="Event_U9ZynV" />
+    <bpmn:sequenceFlow id="edge___Activity_jlbtMj-Event_U9ZynV5EeBAv" sourceRef="Activity_jlbtMj" targetRef="Event_MAu8of" />
+    <bpmn:association id="edge___Activity_6B8gTv-Text_OSNmFU" sourceRef="Activity_6B8gTv" targetRef="Text_OSNmFU" />
+    <bpmn:association id="edge___Activity_AphyH5-Text_1WToi9" sourceRef="Activity_AphyH5" targetRef="Text_1WToi9" />
+    <bpmn:association id="edge___Activity_CjAznd-Text_eesI4d" sourceRef="Activity_CjAznd" targetRef="Text_eesI4d" />
+    <bpmn:association id="edge___Activity_jlbtMj-Text_zxaaHW" sourceRef="Activity_jlbtMj" targetRef="Text_zxaaHW" />
+    <bpmn:association id="edge_Activity_zQtGNV-Text_Rb7PdI" sourceRef="Activity_zQtGNV" targetRef="Text_Rb7PdI" />
+    <bpmn:textAnnotation id="Text_eesI4d">
+      <bpmn:text>AGENT: compare documents and find discrepancies</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:textAnnotation id="Text_1WToi9">
+      <bpmn:documentation>HITL: Validation App that explains mismatch and allows to Approve or Reject</bpmn:documentation>
+      <bpmn:text>Human in the loop: Validation Task for review. Decision: Approve or Reject</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:textAnnotation id="Text_zxaaHW">
+      <bpmn:documentation>Data Service: add transaction record</bpmn:documentation>
+      <bpmn:text>Data Service: add transaction record for payment processing</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:textAnnotation id="Text_OSNmFU">
+      <bpmn:text>Integration Service (GMail): Send Email Message</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:textAnnotation id="Text_Rb7PdI">
+      <bpmn:text>ROBOT: Retrieve Invoice &amp; Purchase Order (JSON objects) </bpmn:text>
+    </bpmn:textAnnotation>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_1">
+      <bpmndi:BPMNShape id="S_Text_eesI4d" bpmnElement="Text_eesI4d">
+        <dc:Bounds x="225.59986541816556" y="560.845203256701" width="209" height="45" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="225.59986541816556" y="610.845203256701" width="209" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="S_Text_1WToi9" bpmnElement="Text_1WToi9">
+        <dc:Bounds x="323.9142030962098" y="244.6670229654778" width="208" height="54" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="323.9142030962098" y="303.6670229654778" width="208" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="S_Event_jjdkDo" bpmnElement="Event_jjdkDo">
+        <dc:Bounds x="4" y="490.3333282470703" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="4" y="531.3333282470703" width="36" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="S_Activity_zQtGNV" bpmnElement="Activity_zQtGNV">
+        <dc:Bounds x="108" y="468.3333282470703" width="100" height="80" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="108" y="553.3333282470703" width="100" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="S_Activity_CjAznd" bpmnElement="Activity_CjAznd">
+        <dc:Bounds x="279" y="468.3333282470703" width="100" height="80" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="279" y="553.3333282470703" width="100" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="S_Gateway_PCsPAZ" bpmnElement="Gateway_PCsPAZ">
+        <dc:Bounds x="445" y="483.3333282470703" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="445" y="538.3333282470703" width="50" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="S_Activity_jlbtMj" bpmnElement="Activity_jlbtMj">
+        <dc:Bounds x="652" y="468.3333282470703" width="100" height="80" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="652" y="553.3333282470703" width="100" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="S_Event_U9ZynV" bpmnElement="Event_U9ZynV">
+        <dc:Bounds x="905.9725109249334" y="259.3333282470703" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="905.9725109249334" y="300.3333282470703" width="36" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="S_Activity_AphyH5" bpmnElement="Activity_AphyH5">
+        <dc:Bounds x="420" y="325.3333282470703" width="100" height="80" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="420" y="410.3333282470703" width="100" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="S_Gateway_bM9uct" bpmnElement="Gateway_bM9uct">
+        <dc:Bounds x="575" y="340.3333282470703" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="575" y="395.3333282470703" width="50" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="S_Activity_6B8gTv" bpmnElement="Activity_6B8gTv">
+        <dc:Bounds x="657" y="237.3333282470703" width="100" height="80" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="657" y="322.3333282470703" width="100" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="S_Text_zxaaHW" bpmnElement="Text_zxaaHW">
+        <dc:Bounds x="764.0007424721232" y="545.3354922054136" width="164" height="51" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="764.0007424721232" y="601.3354922054136" width="164" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="S_Text_OSNmFU" bpmnElement="Text_OSNmFU">
+        <dc:Bounds x="772.4625342073681" y="177.3236883933963" width="147" height="57" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="772.4625342073681" y="239.3236883933963" width="147" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="S_Event_MAu8of" bpmnElement="Event_MAu8of">
+        <dc:Bounds x="905.9725109249334" y="490.3333282470703" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="905.9725109249334" y="531.3333282470703" width="36" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="S_Text_Rb7PdI" bpmnElement="Text_Rb7PdI">
+        <dc:Bounds x="113.12264571129947" y="393.19842815502795" width="205" height="52" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="113.12264571129947" y="450.19842815502795" width="205" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_edge___Event_jjdkDo-Activity_zQtGNV" bpmnElement="edge___Event_jjdkDo-Activity_zQtGNV">
+        <di:waypoint x="40" y="508" />
+        <di:waypoint x="108" y="508" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_edge___Activity_zQtGNV-Activity_CjAznd" bpmnElement="edge___Activity_zQtGNV-Activity_CjAznd">
+        <di:waypoint x="208" y="508" />
+        <di:waypoint x="279" y="508" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_edge___Activity_CjAznd-Gateway_PCsPAZ" bpmnElement="edge___Activity_CjAznd-Gateway_PCsPAZ">
+        <di:waypoint x="379" y="508" />
+        <di:waypoint x="445" y="508" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_edge___Gateway_PCsPAZ-Activity_jlbtMj" bpmnElement="edge___Gateway_PCsPAZ-Activity_jlbtMj">
+        <di:waypoint x="495" y="508" />
+        <di:waypoint x="652" y="508" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_edge___Gateway_PCsPAZ-Activity_AphyH5" bpmnElement="edge___Gateway_PCsPAZ-Activity_AphyH5">
+        <di:waypoint x="470" y="483" />
+        <di:waypoint x="470" y="405" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_edge___Activity_AphyH5-Gateway_bM9uct" bpmnElement="edge___Activity_AphyH5-Gateway_bM9uct">
+        <di:waypoint x="520" y="365" />
+        <di:waypoint x="575" y="365" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_edge___Gateway_bM9uct-Activity_6B8gTv" bpmnElement="edge___Gateway_bM9uct-Activity_6B8gTv">
+        <di:waypoint x="600" y="340" />
+        <di:waypoint x="600" y="277" />
+        <di:waypoint x="657" y="277" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_edge___Gateway_bM9uct-Activity_jlbtMj" bpmnElement="edge___Gateway_bM9uct-Activity_jlbtMj">
+        <di:waypoint x="625" y="365" />
+        <di:waypoint x="702" y="365" />
+        <di:waypoint x="702" y="468" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_edge___Activity_6B8gTv-Event_U9ZynV" bpmnElement="edge___Activity_6B8gTv-Event_U9ZynV">
+        <di:waypoint x="757" y="277" />
+        <di:waypoint x="906" y="277" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_edge___Activity_jlbtMj-Event_U9ZynV5EeBAv" bpmnElement="edge___Activity_jlbtMj-Event_U9ZynV5EeBAv">
+        <di:waypoint x="752" y="508" />
+        <di:waypoint x="906" y="508" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_edge___Activity_6B8gTv-Text_OSNmFU" bpmnElement="edge___Activity_6B8gTv-Text_OSNmFU">
+        <di:waypoint x="757" y="251" />
+        <di:waypoint x="792" y="234" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_edge___Activity_AphyH5-Text_1WToi9" bpmnElement="edge___Activity_AphyH5-Text_1WToi9">
+        <di:waypoint x="444.74838497437435" y="325.3333282470703" />
+        <di:waypoint x="449.08794536223627" y="298.6670229654778" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_edge___Activity_CjAznd-Text_eesI4d" bpmnElement="edge___Activity_CjAznd-Text_eesI4d">
+        <di:waypoint x="329.8378031962971" y="548.3333282470703" />
+        <di:waypoint x="329.3930488908611" y="560.845203256701" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_edge___Activity_jlbtMj-Text_zxaaHW" bpmnElement="edge___Activity_jlbtMj-Text_zxaaHW">
+        <di:waypoint x="752" y="521.1812355991822" />
+        <di:waypoint x="807.6497673820973" y="545.3354922054136" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_edge_Activity_zQtGNV-Text_Rb7PdI" bpmnElement="edge_Activity_zQtGNV-Text_Rb7PdI">
+        <di:waypoint x="194.5076340517167" y="468.3333282470703" />
+        <di:waypoint x="185.13130888783405" y="445.19842815502795" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

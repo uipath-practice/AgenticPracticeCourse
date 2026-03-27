@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#step-2-configure-a-robot" class="md-skip">
+        <a href="#automating-tasks-using-robots" class="md-skip">
           Skip to content
         </a>
       
@@ -861,36 +861,59 @@
 
 
 
-<h1 id="step-2-configure-a-robot">Step 2 — Configure a Robot<a class="headerlink" href="#step-2-configure-a-robot" title="Permanent link">&para;</a></h1>
-<hr />
-<p><strong><em>Add an RPA automation to your Maestro workflow</em></strong></p>
-<hr />
+<h1 id="automating-tasks-using-robots">Automating Tasks using Robots<a class="headerlink" href="#automating-tasks-using-robots" title="Permanent link">&para;</a></h1>
+<div class="admonition tip">
+<p class="admonition-title">Here is our plan for this lesson:</p>
+<ol>
+<li>
+<p>Create a <strong>Maestro</strong> agentic process in <strong>Studio Web</strong> and import your BPMN diagram</p>
+</li>
+<li>
+<p>Connect the RPA robotic task to the <strong>RetrieveInvoiceDocument</strong> process</p>
+</li>
+<li>
+<p>Run a debug session to verify the robot's output</p>
+</li>
+</ol>
+</div>
 <h2 id="goal">Goal<a class="headerlink" href="#goal" title="Permanent link">&para;</a></h2>
 <p>Create a Maestro Agentic Process, import your BPMN diagram, and connect the first task to the <strong>RetrieveInvoiceDocument</strong> RPA process. The robot simulates retrieving an invoice PDF and outputs the file name stored in a Storage Bucket. The agent in the next step will extract structured data from that PDF using IXP.</p>
 <h2 id="about-the-robot-process">About the Robot Process<a class="headerlink" href="#about-the-robot-process" title="Permanent link">&para;</a></h2>
-<p>In this scenario, the company processes hundreds of invoices per day. Data is stored in ERP and Accounts Payable systems that don't always have APIs or direct database access. RPA automation using UI interaction is often the only way to extract that data.</p>
-<p>The <strong>RetrieveInvoiceDocument</strong> process simulates this: it retrieves a sample invoice and outputs the PDF file name from a Storage Bucket. The process has already been configured in Orchestrator in the <strong>2-Way Matching IXP</strong> folder.</p>
+<p>In this simulated scenario, the company processes hundreds of invoices per day. Data is stored in ERP and Accounts Payable systems that don't always have APIs or direct database access. RPA automation using UI interaction is often the only way to extract that data, and this is where UiPath shines.</p>
+<p>The <strong>RetrieveInvoiceDocument</strong> process simulates retrieval of an invoice and outputs the PDF file, and the location of this file in Orchestrator's Storage Bucket. The process has already been configured in Orchestrator in the <strong>2-Way Matching IXP</strong> folder - you will not need to write it.</p>
 <h2 id="steps">Steps<a class="headerlink" href="#steps" title="Permanent link">&para;</a></h2>
 <h3 id="create-the-agentic-process">Create the Agentic Process<a class="headerlink" href="#create-the-agentic-process" title="Permanent link">&para;</a></h3>
 <ol>
 <li>
-<p>In <strong>Studio Web</strong>, click <strong>Create New</strong> and select <strong>Agentic Process</strong>.</p>
-<p><img alt="New Agentic Process in Studio Web" class="screenshot" src="../images/ixp-robot-01.png" /></p>
+<p>In <strong>Studio Web</strong>, make sure you are building in the right Tenant (<strong>AgenticPractice</strong>), click <strong>Create New</strong> and select <strong>Agentic Process</strong>.</p>
+<p><img alt="New Agentic Process in Studio Web" class="screenshot" src="../configure-robot.images/1-new-agentic-process.png" /></p>
 </li>
+</ol>
+<div class="img-cols img-cols-30-70">
+<div>
+<ol>
+<li>Open <strong>Project Explorer</strong>, right-click on the Agentic Process, and select <strong>Import BPMN</strong>. Select the <code>.bpmn</code> file you exported in the previous step.</li>
+</ol>
+</div>
+<div>
+<p><img alt="BPMN diagram imported into Studio Web" class="screenshot" src="../configure-robot.images/2-import-bpmn.png" /></p>
+</div>
+</div>
+<ol>
 <li>
 <p>Open <strong>Project Explorer</strong>, right-click on the Agentic Process, and select <strong>Import BPMN</strong>. Select the <code>.bpmn</code> file you exported in the previous step.</p>
-<p><img alt="BPMN diagram imported into Studio Web" class="screenshot" src="../images/ixp-robot-02.png" /></p>
+<p><img alt="BPMN diagram imported into Studio Web" class="screenshot" src="../configure-robot.images/2-import-bpmn.png" /></p>
 </li>
 <li>
 <p>Delete the auto-generated empty process placeholder.</p>
 </li>
 <li>
 <p>Rename the solution to <strong>2-Way Matching Solution</strong> and the process to <strong>2-Way Matching Process</strong>.</p>
-<p><img alt="Solution and process renamed" class="screenshot" src="../images/ixp-robot-03.png" /></p>
+<p><img alt="Solution and process renamed" class="screenshot" src="../configure-robot.images/3-rename-solution.png" /></p>
 </li>
 <li>
 <p>Click <strong>Debug</strong> to run the imported diagram. Unlike a static BPMN tool, Maestro can actually execute the model — observe how it follows connections and decision paths.</p>
-<p><img alt="Debug run on the imported BPMN diagram" class="screenshot" src="../images/ixp-robot-04.png" /></p>
+<p><img alt="Debug run on the imported BPMN diagram" class="screenshot" src="../configure-robot.images/4-debug-imported-bpmn.png" /></p>
 </li>
 </ol>
 <h3 id="configure-the-robot-task">Configure the robot task<a class="headerlink" href="#configure-the-robot-task" title="Permanent link">&para;</a></h3>
@@ -900,36 +923,35 @@
 </li>
 <li>
 <p>In the properties panel, set the action to <strong>Start and wait for RPA workflow</strong>.</p>
-<p><img alt="Start and wait for RPA workflow selected" class="screenshot" src="../images/ixp-robot-05.png" /></p>
+<p><img alt="Start and wait for RPA workflow selected" class="screenshot" src="../configure-robot.images/5-start-wait-rpa.png" /></p>
 </li>
 <li>
 <p>Search for and select <strong>RetrieveInvoiceDocument</strong> from the <strong>2-Way Matching IXP</strong> folder.</p>
-<p><img alt="RetrieveInvoiceDocument selected from 2-Way Matching IXP folder" class="screenshot" src="../images/ixp-robot-06.png" /></p>
+<p><img alt="RetrieveInvoiceDocument selected from 2-Way Matching IXP folder" class="screenshot" src="../configure-robot.images/6-select-retrieve-invoice.png" /></p>
 </li>
 <li>
 <p>Set a value for <strong>in_FailureProbability</strong>. This controls the probability (in percent) that the invoice won't match the PO. Set it to <strong>90</strong> so the validation path triggers frequently during testing. You can adjust it at any time.</p>
-<p><img alt="in_FailureProbability input set" class="screenshot" src="../images/ixp-robot-07.png" /></p>
+<p><img alt="in_FailureProbability input set" class="screenshot" src="../configure-robot.images/7-failure-probability.png" /></p>
 </li>
 </ol>
 <h3 id="test-the-process">Test the process<a class="headerlink" href="#test-the-process" title="Permanent link">&para;</a></h3>
 <ol>
 <li>
 <p>Click <strong>Debug</strong> to run the process.</p>
-<p><img alt="Debug mode launch" class="screenshot" src="../images/ixp-robot-08.png" /></p>
+<p><img alt="Debug mode launch" class="screenshot" src="../configure-robot.images/8-debug-launch.png" /></p>
 </li>
 <li>
 <p>Check the execution details. If you see a file name in the output variables, the robot retrieved the invoice PDF successfully.</p>
-<p><img alt="Debug output showing PDF filename returned by robot" class="screenshot" src="../images/ixp-robot-09.png" /></p>
+<p><img alt="Debug output showing PDF filename returned by robot" class="screenshot" src="../configure-robot.images/9-debug-output.png" /></p>
 </li>
 </ol>
 <p>At this step, don't worry about manually configuring input/output parameters — variables are automatically created for subsequent steps.</p>
 <ol>
 <li>
 <p>Close debug mode and save the process.</p>
-<p><img alt="Process saved and ready for agent configuration" class="screenshot" src="../images/ixp-robot-10.png" /></p>
+<p><img alt="Process saved and ready for agent configuration" class="screenshot" src="../configure-robot.images/10-save-process.png" /></p>
 </li>
 </ol>
-<p><a href="../create-bpmn/">← Step 1: Create BPMN Process</a> | <a href="../configure-agent/">Next: Configure an Agent →</a></p>
 
 
 
@@ -1026,6 +1048,8 @@
     
     
       <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../javascripts/extra.js"></script>
       
     
   </body>
