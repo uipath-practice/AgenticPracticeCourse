@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#step-5-configure-api-integration" class="md-skip">
+        <a href="#update-external-systems-using-api" class="md-skip">
           Skip to content
         </a>
       
@@ -741,10 +741,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#integration-service" class="md-nav__link">
+  <a href="#integration-service-and-data-fabric" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Integration Service
+        Integration Service and Data Fabric
       
     </span>
   </a>
@@ -786,10 +786,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#part-3-test-the-complete-process" class="md-nav__link">
+  <a href="#part-3-test-both-scenarios" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Part 3: Test the complete process
+        Part 3: Test both scenarios
       
     </span>
   </a>
@@ -861,18 +861,25 @@
 
 
 
-<h1 id="step-5-configure-api-integration">Step 5 — Configure API Integration<a class="headerlink" href="#step-5-configure-api-integration" title="Permanent link">&para;</a></h1>
-<hr />
-<p><strong><em>Send rejection emails and store approved invoices to complete the process</em></strong></p>
-<hr />
+<h1 id="update-external-systems-using-api">Update external systems using API<a class="headerlink" href="#update-external-systems-using-api" title="Permanent link">&para;</a></h1>
+<div class="admonition tip">
+<p class="admonition-title">Here is our plan for this lesson:</p>
+<ul>
+<li>Send an email to the Supplier with the rejection reason and a request to fix it. Use the email draft from the previous steps.</li>
+<li>Send all Approved Invoices to the Data Fabric database so that the finance team can process payments via their App.</li>
+</ul>
+</div>
 <h2 id="goal">Goal<a class="headerlink" href="#goal" title="Permanent link">&para;</a></h2>
 <p>Add the final two tasks to the workflow: send a rejection email to the supplier when an invoice is rejected, and store approved invoice data in <strong>Data Fabric</strong> for payment processing. Both use <strong>Integration Service</strong> connectors already configured in your tenant.</p>
-<h2 id="integration-service">Integration Service<a class="headerlink" href="#integration-service" title="Permanent link">&para;</a></h2>
-<p><strong>Integration Service</strong> is UiPath's centralized way to integrate with API-enabled applications. It handles authorization and authentication, centralizes connection management, and simplifies integration with SaaS platforms.</p>
-<p>Two connections are available in this tenant:
-- <strong>Gmail</strong> — a shared mailbox for sending emails
-- <strong>Data Fabric</strong> — shared data storage for tables, files, and other structured data</p>
-<p>Credentials and permissions are managed by the platform administrators. You don't need to configure authentication.</p>
+<p>Validation Form helps to make sure the post-processing is executed confidently based on data that has been verified. Let's complete the process!</p>
+<h2 id="integration-service-and-data-fabric">Integration Service and Data Fabric<a class="headerlink" href="#integration-service-and-data-fabric" title="Permanent link">&para;</a></h2>
+<p>UiPath <strong>Integration Service</strong> is the fastest and most convenient way to automate API-enabled applications. It handles authorization and authentication, centralizing API connection management and enabling faster SaaS platform integration.</p>
+<p>Two connections are available in this tenant:</p>
+<ul>
+<li><strong>Gmail</strong> — a shared mailbox for sending emails</li>
+<li><strong>Data Fabric</strong> — shared data storage for tables, files, and other structured data</li>
+</ul>
+<p>Platform administrators have prepared these connections for automation use and manage security and access restrictions. You don't need to configure authentication.</p>
 <div class="admonition note">
 <p class="admonition-title">Tenant check</p>
 <p>Make sure you're using the correct tenant. Contact your trainer if there are issues with connections.</p>
@@ -888,7 +895,7 @@
 <p><img alt="Execute Connector Activity selected" class="screenshot" src="../configure-api.images/1-connector-activity.png" /></p>
 </li>
 <li>
-<p>Select the <strong>Gmail Connector</strong> and configure the shared Gmail connection.</p>
+<p>Select the <strong>Gmail Connector</strong> and configure the Shared Gmail Connection.</p>
 <p><img alt="Gmail Connector and shared connection selected" class="screenshot" src="../configure-api.images/2-gmail-connector.png" /></p>
 </li>
 <li>
@@ -897,7 +904,7 @@
 <li><strong>To:</strong> send it to yourself or a colleague.</li>
 <li><strong>Subject:</strong> generate a suitable subject.</li>
 <li>
-<p><strong>Body:</strong> use <code>out_SuggestedResponse</code> — the HTML rejection email drafted by the agent and reviewed during human validation.</p>
+<p><strong>Body:</strong> select <code>out_SuggestedResponse</code> — the HTML rejection email drafted by the agent and reviewed during human validation.</p>
 <p><img alt="Email configured with body from out_SuggestedResponse" class="screenshot" src="../configure-api.images/3-email-configured.png" /></p>
 </li>
 <li>
@@ -905,6 +912,7 @@
 </li>
 </ol>
 <h3 id="part-2-store-approved-invoice-data-in-data-fabric">Part 2: Store approved invoice data in Data Fabric<a class="headerlink" href="#part-2-store-approved-invoice-data-in-data-fabric" title="Permanent link">&para;</a></h3>
+<p>For approved invoices, pass the invoice data to the payments team. They use their own UiPath Automation connected to Data Fabric, so push data there.</p>
 <ol>
 <li>
 <p>Select the task on the <strong>Approve</strong> path.</p>
@@ -914,21 +922,24 @@
 <p><img alt="Execute Connector Activity on Approve path" class="screenshot" src="../configure-api.images/4-approve-connector.png" /></p>
 </li>
 <li>
-<p>Select the <strong>Data Fabric connector</strong> and configure it to write the approved invoice record. The payments team's automation reads from Data Fabric to process payments.</p>
+<p>Maestro/Agentic Orchestration works with Data Service via Integration Service, so select the <strong>Data Fabric connector</strong> and configure it with the specified parameters.</p>
 <p><img alt="Data Fabric connector configured" class="screenshot" src="../configure-api.images/5-data-fabric-connector.png" /></p>
 </li>
 </ol>
-<h3 id="part-3-test-the-complete-process">Part 3: Test the complete process<a class="headerlink" href="#part-3-test-the-complete-process" title="Permanent link">&para;</a></h3>
+<h3 id="part-3-test-both-scenarios">Part 3: Test both scenarios<a class="headerlink" href="#part-3-test-both-scenarios" title="Permanent link">&para;</a></h3>
 <ol>
-<li>Run the process several times. After a few runs:</li>
-<li>Check <strong>Data Fabric</strong> — approved invoices accumulate as records.</li>
 <li>
-<p>Check the inbox — HTML-formatted rejection emails arrive for rejected invoices.</p>
+<p>Test both scenarios. Remember — the initial RPA job has an input parameter controlling Invoice mismatch probability with Purchase Orders.</p>
+<p>Run the process several times. After a few runs:
+- Check <strong>Data Fabric</strong> — approved invoices accumulate as records.
+- Check the inbox — HTML-formatted rejection emails arrive for rejected invoices.</p>
 <p><img alt="Data Fabric records from multiple process runs" class="screenshot" src="../configure-api.images/6-data-fabric-records.png" /></p>
 </li>
 </ol>
+<p>After several runs, Data Fabric accumulates data and rejection emails arrive in your mailbox as nicely formatted HTML messages.</p>
+<p>Everything works as planned!</p>
 <p>The process is complete. It retrieves invoice PDFs, extracts and validates data using IXP, routes exceptions to human review, sends rejection emails, and stores approved records — all orchestrated by Maestro.</p>
-<p><a href="../configure-human-validation/">← Step 4: Configure Human Validation</a> | <a href="../">Back to Overview</a></p>
+<p><a href="../configure-human-validation/">← Configure Human Validation</a> | <a href="../">Back to Overview</a></p>
 
 
 

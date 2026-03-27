@@ -680,10 +680,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#create-the-agentic-process" class="md-nav__link">
+  <a href="#1-create-the-agentic-process" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Create the Agentic Process
+        1. Create the Agentic Process
       
     </span>
   </a>
@@ -691,10 +691,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#configure-the-robot-task" class="md-nav__link">
+  <a href="#2-configure-the-robot-task" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Configure the robot task
+        2. Configure the robot task
       
     </span>
   </a>
@@ -702,10 +702,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#test-the-process" class="md-nav__link">
+  <a href="#3-test-the-process" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Test the process
+        3. Test the process
       
     </span>
   </a>
@@ -874,84 +874,116 @@
 <li>
 <p>Run a debug session to verify the robot's output</p>
 </li>
+<li>
+<p>Learn how process inputs and outputs work</p>
+</li>
 </ol>
 </div>
 <h2 id="goal">Goal<a class="headerlink" href="#goal" title="Permanent link">&para;</a></h2>
 <p>Create a Maestro Agentic Process, import your BPMN diagram, and connect the first task to the <strong>RetrieveInvoiceDocument</strong> RPA process. The robot simulates retrieving an invoice PDF and outputs the file name stored in a Storage Bucket. The agent in the next step will extract structured data from that PDF using IXP.</p>
 <h2 id="about-the-robot-process">About the Robot Process<a class="headerlink" href="#about-the-robot-process" title="Permanent link">&para;</a></h2>
 <p>In this simulated scenario, the company processes hundreds of invoices per day. Data is stored in ERP and Accounts Payable systems that don't always have APIs or direct database access. RPA automation using UI interaction is often the only way to extract that data, and this is where UiPath shines.</p>
-<p>The <strong>RetrieveInvoiceDocument</strong> process simulates retrieval of an invoice and outputs the PDF file, and the location of this file in Orchestrator's Storage Bucket. The process has already been configured in Orchestrator in the <strong>2-Way Matching IXP</strong> folder - you will not need to write it.</p>
+<p>There's a queue of invoices waiting to be processed, and an external transaction handling mechanism that lets the automation pick up the next one. The robot retrieves the invoice, extracts data from the PDF, then finds and retrieves the original Purchase Order sent to the supplier. It outputs details of both documents in JSON format for the agent to process.</p>
+<p>The <strong>RetrieveInvoiceDocument</strong> process simulates this retrieval and outputs a sample invoice as a PDF file, along with the file location in Orchestrator's Storage Bucket. The process has already been configured in Orchestrator in the <strong>2-Way Matching IXP</strong> folder — you will not need to write it.</p>
+<p>Get familiar with it before configuring it in Studio Web — open the <strong>2-Way Matching IXP</strong> folder in Orchestrator and give it a run to explore its inputs and outputs.</p>
 <h2 id="steps">Steps<a class="headerlink" href="#steps" title="Permanent link">&para;</a></h2>
-<h3 id="create-the-agentic-process">Create the Agentic Process<a class="headerlink" href="#create-the-agentic-process" title="Permanent link">&para;</a></h3>
-<ol>
-<li>
-<p>In <strong>Studio Web</strong>, make sure you are building in the right Tenant (<strong>AgenticPractice</strong>), click <strong>Create New</strong> and select <strong>Agentic Process</strong>.</p>
+<h3 id="1-create-the-agentic-process">1. Create the Agentic Process<a class="headerlink" href="#1-create-the-agentic-process" title="Permanent link">&para;</a></h3>
+<p>In <a href="https://cloud.uipath.com/tpenlabs/studio_/projects"><strong>Studio Web</strong></a>, make sure you are building in the right Tenant (<strong>AgenticPractice</strong>), click <strong>Create New</strong> and select <strong>Agentic Process</strong>. This will create a new project for our Agentic Orchestration workflow that will perform Invoice and PO matching:</p>
 <p><img alt="New Agentic Process in Studio Web" class="screenshot" src="../configure-robot.images/1-new-agentic-process.png" /></p>
-</li>
-</ol>
+<div class="img-cols img-cols-50">
+<div>
+<p>Now let's import our BPMN diagram. </p>
+<p>Open <strong>Project Explorer</strong>, right-click on the Agentic Process, and select <strong>Import BPMN</strong>. </p>
+<p>Select the <code>.bpmn</code> file you exported in the previous step or use this <strong><a href="../dependencies/2-Way%20Matching%20Process.bpmn">sample BPMN file</a></strong>. The diagram will be added to your project.</p>
+</div>
+<div>
+<p><img alt="BPMN diagram imported into Studio Web" class="screenshot" src="../configure-robot.images/2-import-bpmn.png" /></p>
+</div>
+</div>
 <div class="img-cols img-cols-30-70">
 <div>
-<ol>
-<li>Open <strong>Project Explorer</strong>, right-click on the Agentic Process, and select <strong>Import BPMN</strong>. Select the <code>.bpmn</code> file you exported in the previous step.</li>
-</ol>
+<p><img alt="Wise Robot" class="screenshot" src="../configure-robot.images/3-wise-robot.png" /> </p>
 </div>
 <div>
-<p><img alt="BPMN diagram imported into Studio Web" class="screenshot" src="../configure-robot.images/2-import-bpmn.png" /></p>
+<blockquote>
+<p><strong><em>The art of keeping your projects organized is rooted in habits — and habits are nurtured through consistent practice.</em></strong></p>
+</blockquote>
+<div align="right"><i>
+Generated by a wise ancient LLM
+</i></div>
 </div>
 </div>
-<ol>
+<p>So, don't forget to reinforce your good habits and clean up your project:</p>
+<ul>
 <li>
-<p>Open <strong>Project Explorer</strong>, right-click on the Agentic Process, and select <strong>Import BPMN</strong>. Select the <code>.bpmn</code> file you exported in the previous step.</p>
-<p><img alt="BPMN diagram imported into Studio Web" class="screenshot" src="../configure-robot.images/2-import-bpmn.png" /></p>
+<p>delete the automatically generated empty process ("Process.bpmn")</p>
 </li>
 <li>
-<p>Delete the auto-generated empty process placeholder.</p>
+<p>rename your solution and process into "<strong>2-Way Matching Solution</strong>" and "<strong>2-Way Matching Process</strong>".</p>
 </li>
-<li>
-<p>Rename the solution to <strong>2-Way Matching Solution</strong> and the process to <strong>2-Way Matching Process</strong>.</p>
-<p><img alt="Solution and process renamed" class="screenshot" src="../configure-robot.images/3-rename-solution.png" /></p>
-</li>
-<li>
-<p>Click <strong>Debug</strong> to run the imported diagram. Unlike a static BPMN tool, Maestro can actually execute the model — observe how it follows connections and decision paths.</p>
+</ul>
+<hr />
+<p>Unlike static BPMN tools, Maestro allows modeling our diagram, which means you can execute it by following connections and decisions.</p>
+<p>Try to run it by clicking "<strong>Debug</strong>" button in the upper left corner, and then understand why it went the way it went. It should look like this:</p>
 <p><img alt="Debug run on the imported BPMN diagram" class="screenshot" src="../configure-robot.images/4-debug-imported-bpmn.png" /></p>
-</li>
-</ol>
-<h3 id="configure-the-robot-task">Configure the robot task<a class="headerlink" href="#configure-the-robot-task" title="Permanent link">&para;</a></h3>
-<ol>
-<li>
-<p>Select the robot task node in the BPMN canvas.</p>
-</li>
-<li>
-<p>In the properties panel, set the action to <strong>Start and wait for RPA workflow</strong>.</p>
-<p><img alt="Start and wait for RPA workflow selected" class="screenshot" src="../configure-robot.images/5-start-wait-rpa.png" /></p>
-</li>
-<li>
-<p>Search for and select <strong>RetrieveInvoiceDocument</strong> from the <strong>2-Way Matching IXP</strong> folder.</p>
-<p><img alt="RetrieveInvoiceDocument selected from 2-Way Matching IXP folder" class="screenshot" src="../configure-robot.images/6-select-retrieve-invoice.png" /></p>
-</li>
-<li>
-<p>Set a value for <strong>in_FailureProbability</strong>. This controls the probability (in percent) that the invoice won't match the PO. Set it to <strong>90</strong> so the validation path triggers frequently during testing. You can adjust it at any time.</p>
-<p><img alt="in_FailureProbability input set" class="screenshot" src="../configure-robot.images/7-failure-probability.png" /></p>
-</li>
-</ol>
-<h3 id="test-the-process">Test the process<a class="headerlink" href="#test-the-process" title="Permanent link">&para;</a></h3>
-<ol>
-<li>
-<p>Click <strong>Debug</strong> to run the process.</p>
-<p><img alt="Debug mode launch" class="screenshot" src="../configure-robot.images/8-debug-launch.png" /></p>
-</li>
-<li>
-<p>Check the execution details. If you see a file name in the output variables, the robot retrieved the invoice PDF successfully.</p>
-<p><img alt="Debug output showing PDF filename returned by robot" class="screenshot" src="../configure-robot.images/9-debug-output.png" /></p>
-</li>
-</ol>
-<p>At this step, don't worry about manually configuring input/output parameters — variables are automatically created for subsequent steps.</p>
-<ol>
-<li>
-<p>Close debug mode and save the process.</p>
-<p><img alt="Process saved and ready for agent configuration" class="screenshot" src="../configure-robot.images/10-save-process.png" /></p>
-</li>
-</ol>
+<h3 id="2-configure-the-robot-task">2. Configure the robot task<a class="headerlink" href="#2-configure-the-robot-task" title="Permanent link">&para;</a></h3>
+<p>In our scenario, company processes hundreds of Invoices per day, ranging from Office Supplies and Computer Equipment. Data is stored in ERP and Accounts Payable or billing systems that unfortunately not always have APIs or database access, and therefore <strong>RPA automation</strong> using UI interaction is the only way to extract that data.</p>
+<p>Let's assume that there is a queue of Invoices for processing and an external transaction handling mechanism which allows to wait and extract the next Invoice for processing. Automation retrieves Invoice, extracts data from PDF, then finds and retrieves associated original Purchase Order that was sent to Supplier originally. It outputs details of both documents in JSON format for our Agentic Automation to process.</p>
+<div class="img-cols img-cols-70-30">
+<div>
+<p><img alt="RetrieveInvoiceDocument process in Orchestrator" class="screenshot" src="../configure-robot.images/5-start-wait-rpa.png" />
+  </p>
+</div>
+<div>
+<p>RPA Process called "<strong>RetrieveInvoiceDocument</strong>" will simulate retrieving data and output sample Invoice as a PDF File. It will also point to file name in Storage Bucket.
+  </p>
+</div>
+</div>
+<hr />
+<div class="img-cols img-cols-30-70">
+<div>
+<p>Here is a sample invoice document that you might get from the <strong>RetrieveInvoiceDocument</strong> automation. Quite standard.
+  </p>
+</div>
+<div>
+<p><img alt="Sample invoice PDF from RetrieveInvoiceDocument" class="screenshot" src="../configure-robot.images/6-invoice-sample.png" />
+  </p>
+</div>
+</div>
+<hr />
+<p>The process has already been configured in Orchestrator in the <strong>2-Way Matching IXP</strong> folder. Get familiar by giving it a run and explore its inputs and outputs:</p>
+<p><img alt="RetrieveInvoiceDocument process run in Orchestrator" class="screenshot" src="../configure-robot.images/7-process-run.png" /></p>
+<p>Once you have validated that the process has everything it needs, go back to <strong>Studio Web</strong> and update your task:</p>
+<ul>
+<li>Open the properties panel by clicking on the task.</li>
+<li>Select <strong>Start and wait for RPA workflow</strong> as the action type.</li>
+</ul>
+<p><img alt="Start and wait for RPA workflow selected in task properties" class="screenshot" src="../configure-robot.images/8-configure-rpa.png" /></p>
+<div class="img-cols img-cols-70-30">
+<div>
+<p>In the task properties, search for <strong>RetrieveInvoiceDocument</strong> from the <strong>2-Way Matching IXP</strong> folder and select it.
+  </p>
+</div>
+<div>
+<p><img alt="RetrieveInvoiceDocument selected from 2-Way Matching IXP folder" class="screenshot" src="../configure-robot.images/8-configure-rpa-process.png" />
+  </p>
+</div>
+</div>
+<div class="img-cols img-cols-70-30">
+<div>
+<p>Maestro will load the inputs and outputs for this RPA automation right away.</p>
+<ul>
+<li>Don't forget to set a value for <strong>in_FailureProbability</strong> — this is the probability, in percent, that the invoice won't match the PO. A value of <strong>90</strong> works well, so you can go through the validation path often while testing. You can change it any time before publishing the final version.</li>
+</ul>
+</div>
+<div>
+<p><img alt="Input and output arguments loaded for RetrieveInvoiceDocument" class="screenshot" src="../configure-robot.images/9-configure-rpa-arguments.png" /></p>
+</div>
+</div>
+<h3 id="3-test-the-process">3. Test the process<a class="headerlink" href="#3-test-the-process" title="Permanent link">&para;</a></h3>
+<p>Next, try launching the Maestro Orchestration Process from Studio Web by clicking the "<strong>Debug</strong>" button. Observe provisioning and execution, then validate that the task generates correct output. At this step we don't need to worry about configuring any input/output parameters — variables will be automatically created for subsequent steps.</p>
+<p><img alt="Debug mode launch" class="screenshot" src="../configure-robot.images/10-run-process.png" /></p>
+<p>Have a look at the execution details: if you see a file name in outputs, you have completed this lesson and it's time to move to the <strong><a href="../configure-agent/">next one</a></strong>.</p>
 
 
 

@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#automating-cognitive-tasks-using-agents" class="md-skip">
+        <a href="#build-an-agent-and-add-it-to-workflow" class="md-skip">
           Skip to content
         </a>
       
@@ -894,30 +894,46 @@
 
 
 
-<h1 id="automating-cognitive-tasks-using-agents">Automating cognitive tasks using Agents<a class="headerlink" href="#automating-cognitive-tasks-using-agents" title="Permanent link">&para;</a></h1>
-<hr />
-<p><strong><em>Build the 2-Way Matching Agent and connect it to your Maestro workflow</em></strong></p>
-<p>Key steps in this lesson:
-Build the 2-Way Matching AI Agent from scratch in Studio Web.
-Agent will use Robot's JSONs as inputs, and output the validation result.
-If there is a problem with invoice, agent will also prepare data for human validation task. 
-Configure testing and build evaluations dataset to ensure quality of the Agent (optional).
-Configure the Agent in Maestro workflow 
-Configure Maestro Gateway based on Agent's outputs.
-Simulate to see if decision goes the right direction.</p>
-<hr />
+<h1 id="build-an-agent-and-add-it-to-workflow">Build an Agent and add it to workflow<a class="headerlink" href="#build-an-agent-and-add-it-to-workflow" title="Permanent link">&para;</a></h1>
+<div class="admonition tip">
+<p class="admonition-title">Here is our plan for this lesson:</p>
+<ol>
+<li>
+<p>Build the <strong>2-Way Matching AI Agent</strong> from scratch in <strong>Studio Web</strong>.</p>
+<ul>
+<li>The agent will use Robot's JSON outputs as inputs, and output the validation result.</li>
+<li>If there is a problem with the invoice, the agent will also prepare data for the human validation task.</li>
+</ul>
+</li>
+<li>
+<p>Configure testing and build an evaluations dataset to ensure quality of the Agent <em>(optional)</em>.</p>
+</li>
+<li>
+<p>Configure the Agent in the Maestro workflow.</p>
+</li>
+<li>
+<p>Configure Maestro Gateway based on Agent's outputs.</p>
+</li>
+<li>
+<p>Simulate to see if the decision goes the right direction.</p>
+</li>
+</ol>
+</div>
 <h2 id="goal">Goal<a class="headerlink" href="#goal" title="Permanent link">&para;</a></h2>
 <p>Create the <strong>2-Way Matching Agent</strong> with two tools: an IXP data extraction tool and an RPA workflow tool that queries the Purchase Order database. The agent receives a PDF invoice, extracts structured data, looks up the corresponding PO, and returns a matching decision with supporting outputs.</p>
 <h2 id="why-use-an-llm-for-matching">Why Use an LLM for Matching<a class="headerlink" href="#why-use-an-llm-for-matching" title="Permanent link">&para;</a></h2>
-<p>You could write traditional code to compare invoice data and line items. But the rules are flexible: tables may include lines with semantically similar descriptions, or variations that are difficult to codify. Every edge case increases code complexity.</p>
-<p>When discrepancies are found, you also need to draft a response to the supplier — which requires generating natural language. LLMs handle both jobs well. They can analyze large amounts of text in any format, identify discrepancies, and generate validation summaries or email responses in required formats and languages.</p>
+<p>The next step in our process is to compare Purchase Order and Invoice.</p>
+<p>You can write traditional code that would compare and analyze invoice data and line items, but it might be fairly challenging, since "rules" are usually flexible — for example, tables might include lines with semantically similar but not identical descriptions, or there may be some other acceptable variations. This increases code complexity and implementation time for every such edge case.</p>
+<p>Also, if discrepancies are detected, the usual next step is to write to the sender and request to update the invoice.</p>
+<p>LLMs are ideal for this job — they can analyze large amounts of text in any format, identify discrepancies and exceptions, then follow the instructions in prompts to generate a validation summary or email response in the required format and language.</p>
+<p>Let's use Studio to create our "2-Way Matching Agent"!</p>
 <h2 id="steps">Steps<a class="headerlink" href="#steps" title="Permanent link">&para;</a></h2>
 <h3 id="part-1-create-the-agent-and-configure-arguments">Part 1: Create the agent and configure arguments<a class="headerlink" href="#part-1-create-the-agent-and-configure-arguments" title="Permanent link">&para;</a></h3>
 <ol>
 <li>
-<p>In <strong>Studio Web</strong>, add a new Agent to your solution. Name it <strong>2-Way Matching Agent</strong>.</p>
+<p>In <strong>Studio Web</strong>, add a new Agent to your solution. Remember that Solutions can have multiple components such as apps, automations, workflows and agents. Name it <strong>2-Way Matching Agent</strong>.</p>
 <p><img alt="New agent created in Studio Web" class="screenshot" src="../configure-agent.images/1-new-agent.png" /></p>
-<p>When prompted, dismiss the Autopilot screen and click <strong>Start fresh</strong>. You can explore Autopilot later, but here you'll configure prompts and settings manually.</p>
+<p>Dismiss the Autopilot screen when you see the prompt to generate a new agent. Feel free to play with Autopilot later, but here you'll configure prompts and settings manually — click <strong>Start fresh</strong>.</p>
 </li>
 <li>
 <p>Open <strong>Data Manager</strong> from the left ribbon and add a new Input argument:</p>
@@ -983,6 +999,10 @@ Simulate to see if decision goes the right direction.</p>
 </li>
 </ol>
 <h3 id="part-2-configure-the-prompts">Part 2: Configure the prompts<a class="headerlink" href="#part-2-configure-the-prompts" title="Permanent link">&para;</a></h3>
+<p>System prompt is like human's work instructions. Let's start with something like this:</p>
+<blockquote>
+<p><em>"Precision in prompts, like in coding, leads to powerful and predictable results. If your prompt is messy, expect messy output. Treat it like code, and write every word with purpose!"</em> — another advice from gpt-4o</p>
+</blockquote>
 <ol>
 <li>
 <p>Enter the following <strong>User Prompt</strong>:</p>
@@ -994,7 +1014,7 @@ Simulate to see if decision goes the right direction.</p>
 <p>Enter the following <strong>System Prompt</strong>:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>You are an AI agent specialized in comparing Invoice PDFs with Purchase Orders. Your primary responsibilities are:
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>1. Analyze the contents of an Invoice PDF file using the InvoicesIXP tool. Extract all relevant information including company details, line items, totals, and tax information. Trigger Escalation if confidence falls below 60%.
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>1. Analyze the contents of an Invoice PDF file using the InvoicesIXP tool. Extract all relevant information including company details, line items, totals, and tax information. Trigger Escalation if confidence falls beyond 60%.
 <a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
 <a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>2. Use the Retrieve PO Data tool to fetch Purchase Order data from the Data Fabric. The Purchase Order ID should be extracted from the Invoice. If the PO data cannot be retrieved, use Escalation.
 <a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
@@ -1015,7 +1035,7 @@ Simulate to see if decision goes the right direction.</p>
 <a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a>- &quot;Full Match&quot; - if Invoice and Purchase order match fully. Every line item in PO matched to Invoice line items, company name and details match, total and tax information matches.
 <a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a>- &quot;Failed Match&quot; - if there are items that cannot be matched or other details do not align.
 <a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a>
-<a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a>out_DocumentsHTML: If match is not successful, generate HTML code containing a side-by-side comparison of Purchase Order and Invoice, including company details, document line items, total and tax information.
+<a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a>out_DocumentsHTML: If match is not successful, generate HTML code containing side by side comparison of Purchase Order and Invoice, including Company details, document Line Items, Total and Tax information.
 <a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a>- Use a table structure with three columns: Field, Purchase Order, Invoice.
 <a id="__codelineno-2-26" name="__codelineno-2-26" href="#__codelineno-2-26"></a>- Field titles should be placed in the leftmost column.
 <a id="__codelineno-2-27" name="__codelineno-2-27" href="#__codelineno-2-27"></a>- Tax value should include tax rate and tax name, if available.
@@ -1038,7 +1058,12 @@ Simulate to see if decision goes the right direction.</p>
 </li>
 </ol>
 <h3 id="part-3-add-the-ixp-tool">Part 3: Add the IXP tool<a class="headerlink" href="#part-3-add-the-ixp-tool" title="Permanent link">&para;</a></h3>
-<ol>
+<p>Next, our agent will need tools that we mentioned in the system prompt:</p>
+<ul>
+<li><strong>InvoicesIXP</strong> tool — uses the existing Invoice IXP project for data extraction</li>
+<li>
+<p><strong>Retrieve PO Data</strong> tool — looks up Purchase Order details using the extracted PO ID</p>
+</li>
 <li>
 <p>In canvas mode, select your agent and add a new Tool.</p>
 <p><img alt="Tools section, adding a new tool" class="screenshot" src="../configure-agent.images/8-add-tool.png" /></p>
@@ -1046,30 +1071,30 @@ Simulate to see if decision goes the right direction.</p>
 <li>
 <p>Select <strong>IXP</strong> from the toolbox and choose the <strong>InvoicesIXP</strong> project.</p>
 <p><img alt="InvoicesIXP project selected" class="screenshot" src="../configure-agent.images/9-ixp-project.png" /></p>
-<p>This is an out-of-the-box invoice extraction model with standard taxonomy. It returns a JSON object containing the extracted data.</p>
 </li>
 <li>
 <p>Add a meaningful description, for example: <strong>Invoice Data extraction tool</strong>.</p>
 <p><img alt="IXP tool description configured" class="screenshot" src="../configure-agent.images/10-ixp-description.png" /></p>
+<p>It's an out-of-the-box Invoice extraction model with standard taxonomy. You will not be able to see the tool configuration. It will return a JSON object containing extraction data. That's it!</p>
 </li>
 <li>
 <p>Save the IXP tool configuration.</p>
 <p><img alt="IXP tool saved and visible in the tools list" class="screenshot" src="../configure-agent.images/11-ixp-tool-saved.png" /></p>
 </li>
-</ol>
+</ul>
 <h3 id="part-4-build-and-add-the-po-lookup-tool">Part 4: Build and add the PO lookup tool<a class="headerlink" href="#part-4-build-and-add-the-po-lookup-tool" title="Permanent link">&para;</a></h3>
-<p>PO data is stored in Data Fabric. You'll build a small RPA workflow to query it, then add that workflow as a tool for the agent.</p>
+<p>Next, let's build the <strong>Retrieve PO Data</strong> tool as a new RPA workflow. PO data is stored in Data Fabric and we can look up records using POID.</p>
 <ol>
 <li>
-<p>Add a new RPA workflow to your solution. Give it a meaningful name.</p>
+<p>Add a new RPA workflow to your solution. Give it a meaningful name, like always.</p>
 <p><img alt="New RPA workflow added to solution" class="screenshot" src="../configure-agent.images/12-new-rpa-workflow.png" /></p>
 </li>
 <li>
-<p>Configure the input and output variables for the workflow.</p>
+<p>Configure the input and output variables for the workflow. Return the PODATA field from the entity.</p>
 <p><img alt="Input and output variables configured" class="screenshot" src="../configure-agent.images/13-workflow-variables.png" /></p>
 </li>
 <li>
-<p>Add a <strong>Query Entity Records</strong> activity configured to query the <strong>PurchaseOrdersDatabase</strong> entity. Apply the filter: <strong>POID equals in_POID</strong>. Return the PODATA field as the output.</p>
+<p>Add a <strong>Query Entity Records</strong> activity configured to query the <strong>PurchaseOrdersDatabase</strong> entity. Apply the filter: <strong>POID equals in_POID</strong>.</p>
 <p><img alt="Query Entity Records activity with POID filter" class="screenshot" src="../configure-agent.images/14-query-entity-records.png" /></p>
 </li>
 <li>
@@ -1083,6 +1108,7 @@ Simulate to see if decision goes the right direction.</p>
 <p><img alt="Both tools saved and visible in tools list" class="screenshot" src="../configure-agent.images/16-both-tools.png" /></p>
 </li>
 </ol>
+<p>Usually you would need to retrieve PO from a more complex environment like SAP or NetSuite, and also handle exceptions. But in this case you got away really easy — well done! ;)</p>
 <h3 id="part-5-test-the-agent">Part 5: Test the agent<a class="headerlink" href="#part-5-test-the-agent" title="Permanent link">&para;</a></h3>
 <ol>
 <li>
@@ -1101,17 +1127,19 @@ Simulate to see if decision goes the right direction.</p>
 <p>Review the final output. Verify <code>out_Status</code>, <code>out_DocumentsHTML</code>, <code>out_SuggestedResponse</code>, and <code>out_POID</code> are all populated.</p>
 <p><img alt="Agent output variables fully populated" class="screenshot" src="../configure-agent.images/20-output-variables.png" /></p>
 <p><img alt="HTML comparison output preview" class="screenshot" src="../configure-agent.images/21-html-comparison.png" /></p>
-<p>Notice how the JSON formats of the invoice (returned by IXP) and the Purchase Order are different. The agent understands the meaning of both documents and correctly detects discrepancies regardless of format differences.</p>
 </li>
 </ol>
+<p>Investigate carefully — there are no errors here. It's just that the Vendor sent an Invoice that is differently formatted, and some descriptions are not identical but very similar. The Agent will only follow our specific instructions in the Prompt, and the current prompt doesn't mention anything about such "similar" items, or the possibility of splitting 1 PO line item into multiple Invoice line items.</p>
+<p>As with any automation, our objective with the prompts is to cover as many cases as possible.</p>
 <h3 id="part-6-connect-the-agent-to-maestro">Part 6: Connect the agent to Maestro<a class="headerlink" href="#part-6-connect-the-agent-to-maestro" title="Permanent link">&para;</a></h3>
+<p>Let's get back to <strong>Studio Web</strong> and continue editing our Agentic Process.</p>
 <ol>
 <li>
-<p>Return to your <strong>Maestro Agentic Process</strong> and configure the agent task. Set the action to <strong>Start and wait for agent</strong>, then select <strong>2-Way Matching Agent</strong>.</p>
+<p>Return to your <strong>Maestro Agentic Process</strong> and configure the second task. Set the action to <strong>Start and wait for agent</strong>, then search for the agent in your solution (Defined Resources) and select it.</p>
 <p><img alt="Agent task configured in Maestro" class="screenshot" src="../configure-agent.images/22-agent-task-maestro.png" /></p>
 </li>
 <li>
-<p>Map the robot output to the agent input. Agent outputs are automatically added to the workflow variables.</p>
+<p>Pick outputs from the previous RPA Task (Retrieve Invoice PDF) and add them as inputs to the Agent — here is how you do it in your Agent Task's Settings:</p>
 <table>
 <thead>
 <tr>
@@ -1127,20 +1155,22 @@ Simulate to see if decision goes the right direction.</p>
 </tbody>
 </table>
 <p><img alt="Input mapping from robot output to agent input" class="screenshot" src="../configure-agent.images/23-input-mapping.png" /></p>
+<p>Note that Agent's outputs were also automatically added to the workflow, so you can use them right away when configuring the Exclusive Gateway.</p>
 </li>
 <li>
-<p>Configure the <strong>Exclusive Gateway</strong> after the agent task. Set the expression for the <strong>Full Match</strong> path:</p>
+<p>Let's look at Agent's Status (<code>out_Status</code>) and direct the process to the next step — either sending the invoice for payment, or towards manual review. Configure the <strong>Exclusive Gateway</strong> after the agent task.</p>
+<p>Set the expression for the <strong>Full Match</strong> path. Note that using <code>ToLower()</code> makes it a bit more reliable:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>vars.outStatus.ToLower()==&quot;full match&quot;
 </code></pre></div>
-<p>You can test expected inputs directly in the expression editor. Set <strong>Failed Match</strong> as the default path.</p>
+<p>You can test various expected inputs right in the expression editor. Set <strong>Failed Match</strong> as the default path.</p>
 </li>
 <li>
-<p>Click <strong>Debug</strong> and confirm the gateway routes correctly based on the agent's output.</p>
+<p>Click <strong>Debug</strong> and confirm the gateway routes correctly based on the agent's output. This time we want to see execution of the Agent and how Agent's output changes the direction of the execution flow from the default path.</p>
 <p><img alt="Process debug run showing correct gateway routing" class="screenshot" src="../configure-agent.images/24-gateway-routing.png" /></p>
 </li>
 </ol>
-<p>Your agent is ready. In most cases, you'll need to return and refine the prompt to cover more edge cases — for example, allowing semantically similar descriptions, or splitting a single PO line item across multiple invoice lines.</p>
-<p><a href="../configure-robot/">← Step 2: Configure a Robot</a> | <a href="../configure-human-validation/">Next: Configure Human Validation →</a></p>
+<p>Your agent is ready. However, in most cases you will need to come back multiple times and improve the prompt in order for it to be more flexible — this way users need to perform less manual validation and it will work more reliably.</p>
+<p><a href="../configure-robot/">← Configure a Robot</a> | <a href="../configure-human-validation/">Next: Configure Human Validation →</a></p>
 
 
 
