@@ -600,39 +600,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#what-ixp-adds" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        What IXP Adds
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#how-it-fits-the-process" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        How It Fits the Process
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#five-step-implementation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Five-Step Implementation
-      
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -834,49 +801,46 @@
 
 
 <h1 id="invoice-matching-with-ixp">Invoice Matching with IXP<a class="headerlink" href="#invoice-matching-with-ixp" title="Permanent link">&para;</a></h1>
-<p><strong>2-Way matching with Intelligent eXtraction &amp; Processing</strong></p>
+<p><strong>Automate 2-way invoice matching with IXP-powered PDF data extraction</strong></p>
 <hr />
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
-<p>This exercise builds on the standard invoice matching process by adding <strong>IXP (Intelligent eXtraction &amp; Processing)</strong> for automated data extraction from PDF invoices. IXP handles unstructured documents and provides confidence scores that drive automated escalation decisions.</p>
-<h2 id="what-ixp-adds">What IXP Adds<a class="headerlink" href="#what-ixp-adds" title="Permanent link">&para;</a></h2>
+<p><strong>Maestro</strong> enables agentic orchestration — coordinating long-running enterprise processes between humans, robots, and AI agents across different systems of record and systems of engagement. This exercise uses <strong>IXP (Intelligent eXtraction &amp; Processing)</strong> for invoice data extraction from PDF documents.</p>
 <table>
 <thead>
 <tr>
-<th>Capability</th>
-<th>Description</th>
+<th>Step</th>
+<th>Focus</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>PDF extraction</strong></td>
-<td>Reads and extracts data from unstructured invoice PDFs</td>
+<td>1. Create BPMN Diagram</td>
+<td>Design the end-to-end process</td>
 </tr>
 <tr>
-<td><strong>Confidence scoring</strong></td>
-<td>Each extracted field gets a confidence score</td>
+<td>2. Configure a Robot</td>
+<td>Retrieve the invoice PDF document</td>
 </tr>
 <tr>
-<td><strong>Automated escalation</strong></td>
-<td>Low-confidence results automatically route to human review</td>
+<td>3. Configure an Agent</td>
+<td>Extract data using IXP, look up the PO, validate and decide</td>
+</tr>
+<tr>
+<td>4. Configure Human Validation</td>
+<td>Handle exceptions in Action Center</td>
+</tr>
+<tr>
+<td>5. Configure API Integration</td>
+<td>Send emails and store approved invoices</td>
 </tr>
 </tbody>
 </table>
-<h2 id="how-it-fits-the-process">How It Fits the Process<a class="headerlink" href="#how-it-fits-the-process" title="Permanent link">&para;</a></h2>
-<p>The full workflow:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Robot retrieves PDFs
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>  → Agent extracts data using IXP
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>      → High confidence: Agent queries ERP for PO data
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>          → Agent validates and decides (match/reject)
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>      → Low confidence: Escalate to human for review
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>  → API calls complete the process
-</code></pre></div>
-<h2 id="five-step-implementation">Five-Step Implementation<a class="headerlink" href="#five-step-implementation" title="Permanent link">&para;</a></h2>
 <ol>
-<li><a href="create-bpmn/"><strong>Create BPMN Process</strong></a> — Design the IXP-enhanced workflow</li>
-<li><a href="configure-robot/"><strong>Configure a Robot</strong></a> — Set up invoice PDF retrieval</li>
-<li><a href="configure-agent/"><strong>Configure an Agent</strong></a> — Extract data, query ERP, validate, decide</li>
-<li><a href="configure-human-validation/"><strong>Configure Human Validation</strong></a> — Handle low-confidence escalations</li>
-<li><a href="configure-api/"><strong>Configure API Integration</strong></a> — Connect to external systems</li>
+<li><a href="create-bpmn/"><strong>Create BPMN Process</strong></a></li>
+<li><a href="configure-robot/"><strong>Configure a Robot</strong></a></li>
+<li><a href="configure-agent/"><strong>Configure an Agent</strong></a></li>
+<li><a href="configure-human-validation/"><strong>Configure Human Validation</strong></a></li>
+<li><a href="configure-api/"><strong>Configure API Integration</strong></a></li>
 </ol>
 <hr />
 <div class="admonition tip">

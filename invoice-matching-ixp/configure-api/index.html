@@ -741,6 +741,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#integration-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Integration Service
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#steps" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -851,31 +862,42 @@
 
 
 <h1 id="step-5-configure-api-integration">Step 5 — Configure API Integration<a class="headerlink" href="#step-5-configure-api-integration" title="Permanent link">&para;</a></h1>
-<p><strong>Connect Gmail and Data Fabric to complete the IXP process</strong></p>
+<p><strong>Send rejection emails and store approved invoices to complete the process</strong></p>
 <hr />
 <h2 id="goal">Goal<a class="headerlink" href="#goal" title="Permanent link">&para;</a></h2>
-<p>Add the same two API integrations as the standard exercise: <strong>Gmail</strong> for rejection emails and <strong>Data Fabric</strong> for storing approved invoice records. Both use <strong>Integration Service</strong> connectors already configured in your tenant.</p>
+<p>Add the final two tasks to the workflow: send a rejection email to the supplier when an invoice is rejected, and store approved invoice data in <strong>Data Fabric</strong> for payment processing. Both use <strong>Integration Service</strong> connectors already configured in your tenant.</p>
+<h2 id="integration-service">Integration Service<a class="headerlink" href="#integration-service" title="Permanent link">&para;</a></h2>
+<p><strong>Integration Service</strong> is UiPath's centralized way to integrate with API-enabled applications. It handles authorization and authentication, centralizes connection management, and simplifies integration with SaaS platforms.</p>
+<p>Two connections are available in this tenant:
+- <strong>Gmail</strong> — a shared mailbox for sending emails
+- <strong>Data Fabric</strong> — shared data storage for tables, files, and other structured data</p>
+<p>Credentials and permissions are managed by the platform administrators. You don't need to configure authentication.</p>
+<div class="admonition note">
+<p class="admonition-title">Tenant check</p>
+<p>Make sure you're using the correct tenant. Contact your trainer if there are issues with connections.</p>
+</div>
 <h2 id="steps">Steps<a class="headerlink" href="#steps" title="Permanent link">&para;</a></h2>
 <h3 id="part-1-configure-the-rejection-email">Part 1: Configure the rejection email<a class="headerlink" href="#part-1-configure-the-rejection-email" title="Permanent link">&para;</a></h3>
 <ol>
 <li>
-<p>In your <strong>2-Way Matching IXP Process</strong> in Maestro, select the task on the <strong>Reject</strong> path.</p>
+<p>In your <strong>Maestro Agentic Process</strong>, select the task on the <strong>Reject</strong> path.</p>
 </li>
 <li>
 <p>Set the action type to <strong>Execute Connector Activity</strong>.</p>
 <p><img alt="Execute Connector Activity selected" class="screenshot" src="../images/ixp-api-01.png" /></p>
 </li>
 <li>
-<p>Select the <strong>Gmail Connector</strong> and the shared Gmail connection.</p>
+<p>Select the <strong>Gmail Connector</strong> and configure the shared Gmail connection.</p>
 <p><img alt="Gmail Connector and shared connection selected" class="screenshot" src="../images/ixp-api-02.png" /></p>
 </li>
 <li>
 <p>Configure the <strong>Send Email</strong> activity:</p>
-<ul>
-<li><strong>To:</strong> the supplier's email address from the extracted invoice data</li>
-<li><strong>Body:</strong> use <code>out_SuggestedResponse</code> — the agent's formatted rejection email with specific discrepancy reasons</li>
-</ul>
-<p><img alt="Email configured with supplier address and rejection body" class="screenshot" src="../images/ixp-api-03.png" /></p>
+</li>
+<li><strong>To:</strong> send it to yourself or a colleague.</li>
+<li><strong>Subject:</strong> generate a suitable subject.</li>
+<li>
+<p><strong>Body:</strong> use <code>out_SuggestedResponse</code> — the HTML rejection email drafted by the agent and reviewed during human validation.</p>
+<p><img alt="Email configured with body from out_SuggestedResponse" class="screenshot" src="../images/ixp-api-03.png" /></p>
 </li>
 <li>
 <p>Save the task.</p>
@@ -891,22 +913,20 @@
 <p><img alt="Execute Connector Activity on Approve path" class="screenshot" src="../images/ixp-api-04.png" /></p>
 </li>
 <li>
-<p>Select the <strong>Data Fabric connector</strong> and configure it to write the approved invoice record for payment processing.</p>
+<p>Select the <strong>Data Fabric connector</strong> and configure it to write the approved invoice record. The payments team's automation reads from Data Fabric to process payments.</p>
 <p><img alt="Data Fabric connector configured" class="screenshot" src="../images/ixp-api-05.png" /></p>
 </li>
 </ol>
 <h3 id="part-3-test-the-complete-process">Part 3: Test the complete process<a class="headerlink" href="#part-3-test-the-complete-process" title="Permanent link">&para;</a></h3>
 <ol>
+<li>Run the process several times. After a few runs:</li>
+<li>Check <strong>Data Fabric</strong> — approved invoices accumulate as records.</li>
 <li>
-<p>Run the process several times. After a few runs:</p>
-<ul>
-<li>Check <strong>Data Fabric</strong> — approved invoices accumulate as records</li>
-<li>Check the supplier inbox — formatted rejection emails arrive automatically</li>
-</ul>
+<p>Check the inbox — HTML-formatted rejection emails arrive for rejected invoices.</p>
 <p><img alt="Data Fabric records from multiple process runs" class="screenshot" src="../images/ixp-api-06.png" /></p>
 </li>
 </ol>
-<p>Your IXP-enhanced process is complete. It retrieves invoice PDFs via robot, extracts and validates data using IXP, queries the PO database, routes exceptions to human review, sends rejection emails, and stores approved records — all orchestrated by Maestro.</p>
+<p>The process is complete. It retrieves invoice PDFs, extracts and validates data using IXP, routes exceptions to human review, sends rejection emails, and stores approved records — all orchestrated by Maestro.</p>
 <p><a href="../configure-human-validation/">← Step 4: Configure Human Validation</a> | <a href="../">Back to Overview</a></p>
 
 

@@ -685,21 +685,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#how-the-agent-works" class="md-nav__link">
+  <a href="#why-use-an-llm-for-matching" class="md-nav__link">
     <span class="md-ellipsis">
       
-        How the Agent Works
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#po-id-format" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        PO ID Format
+        Why Use an LLM for Matching
       
     </span>
   </a>
@@ -719,10 +708,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#part-1-create-the-agent" class="md-nav__link">
+  <a href="#part-1-create-the-agent-and-configure-arguments" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Part 1: Create the agent
+        Part 1: Create the agent and configure arguments
       
     </span>
   </a>
@@ -752,10 +741,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#part-4-add-the-po-lookup-tool" class="md-nav__link">
+  <a href="#part-4-build-and-add-the-po-lookup-tool" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Part 4: Add the PO lookup tool
+        Part 4: Build and add the PO lookup tool
       
     </span>
   </a>
@@ -906,115 +895,152 @@
 
 
 <h1 id="step-3-configure-an-agent">Step 3 — Configure an Agent<a class="headerlink" href="#step-3-configure-an-agent" title="Permanent link">&para;</a></h1>
-<p><strong>Extract invoice data using IXP, look up the PO, and perform matching</strong></p>
+<p><strong>Build the 2-Way Matching Agent and connect it to your Maestro workflow</strong></p>
 <hr />
 <h2 id="goal">Goal<a class="headerlink" href="#goal" title="Permanent link">&para;</a></h2>
-<p>Configure the <strong>2-Way Matching Agent</strong> with two tools: an IXP extraction tool and an RPA workflow tool that queries the Purchase Order database. The agent receives a PDF invoice, extracts structured data from it, looks up the corresponding PO, and returns a matching decision.</p>
-<h2 id="how-the-agent-works">How the Agent Works<a class="headerlink" href="#how-the-agent-works" title="Permanent link">&para;</a></h2>
-<p>The agent follows this sequence:</p>
-<ol>
-<li>Receives the invoice PDF filename</li>
-<li>Calls the <strong>IXP tool</strong> to extract structured invoice data (header, line items, totals, PO ID)</li>
-<li>Uses the extracted <strong>PO ID</strong> to call the <strong>RPA workflow tool</strong> and retrieve the matching Purchase Order from the database</li>
-<li>Compares invoice against PO and returns: <code>Full Match</code> or <code>Failed Match</code></li>
-</ol>
-<h2 id="po-id-format">PO ID Format<a class="headerlink" href="#po-id-format" title="Permanent link">&para;</a></h2>
-<p>PO IDs in this exercise follow the format <strong>PO-</strong> followed by digits — for example, <code>PO-123456</code>. The agent uses this format when filtering the database query.</p>
+<p>Create the <strong>2-Way Matching Agent</strong> with two tools: an IXP data extraction tool and an RPA workflow tool that queries the Purchase Order database. The agent receives a PDF invoice, extracts structured data, looks up the corresponding PO, and returns a matching decision with supporting outputs.</p>
+<h2 id="why-use-an-llm-for-matching">Why Use an LLM for Matching<a class="headerlink" href="#why-use-an-llm-for-matching" title="Permanent link">&para;</a></h2>
+<p>You could write traditional code to compare invoice data and line items. But the rules are flexible: tables may include lines with semantically similar descriptions, or variations that are difficult to codify. Every edge case increases code complexity.</p>
+<p>When discrepancies are found, you also need to draft a response to the supplier — which requires generating natural language. LLMs handle both jobs well. They can analyze large amounts of text in any format, identify discrepancies, and generate validation summaries or email responses in required formats and languages.</p>
 <h2 id="steps">Steps<a class="headerlink" href="#steps" title="Permanent link">&para;</a></h2>
-<h3 id="part-1-create-the-agent">Part 1: Create the agent<a class="headerlink" href="#part-1-create-the-agent" title="Permanent link">&para;</a></h3>
+<h3 id="part-1-create-the-agent-and-configure-arguments">Part 1: Create the agent and configure arguments<a class="headerlink" href="#part-1-create-the-agent-and-configure-arguments" title="Permanent link">&para;</a></h3>
 <ol>
 <li>
-<p>In <strong>Studio Web</strong>, create a new Agent. Name it <strong>2-Way Matching Agent</strong>.</p>
+<p>In <strong>Studio Web</strong>, add a new Agent to your solution. Name it <strong>2-Way Matching Agent</strong>.</p>
 <p><img alt="New agent created in Studio Web" class="screenshot" src="../images/ixp-agent-01.png" /></p>
+<p>When prompted, dismiss the Autopilot screen and click <strong>Start fresh</strong>. You can explore Autopilot later, but here you'll configure prompts and settings manually.</p>
 </li>
 <li>
-<p>Configure the <strong>Input Argument</strong>:</p>
+<p>Open <strong>Data Manager</strong> from the left ribbon and add a new Input argument:</p>
 <table>
 <thead>
 <tr>
-<th>Argument</th>
-<th>Type</th>
-<th>Description</th>
+<th>Field</th>
+<th>Value</th>
 </tr>
 </thead>
 <tbody>
 <tr>
+<td>Name</td>
 <td><code>InvoicePDF</code></td>
+</tr>
+<tr>
+<td>Type</td>
 <td>File</td>
-<td>The PDF invoice file retrieved from Storage Bucket</td>
+</tr>
+<tr>
+<td>Description</td>
+<td>Invoice File</td>
 </tr>
 </tbody>
 </table>
 <p><img alt="Input argument InvoicePDF configured as File type" class="screenshot" src="../images/ixp-agent-02.png" /></p>
 </li>
 <li>
-<p>Configure the <strong>Output Arguments</strong>:</p>
-<table>
-<thead>
-<tr>
-<th>Argument</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>out_Status</code></td>
-<td>String</td>
-<td><code>Full Match</code> or <code>Failed Match</code></td>
-</tr>
-<tr>
-<td><code>out_DocumentsHTML</code></td>
-<td>String</td>
-<td>Side-by-side HTML comparison</td>
-</tr>
-<tr>
-<td><code>out_SuggestedResponse</code></td>
-<td>String</td>
-<td>Suggested rejection email to supplier</td>
-</tr>
-<tr>
-<td><code>out_POID</code></td>
-<td>String</td>
-<td>The PO ID extracted from the invoice</td>
-</tr>
-</tbody>
-</table>
-<p><img alt="Output arguments panel" class="screenshot" src="../images/ixp-agent-03.png" /></p>
-<p><img alt="Output arguments configured including out_POID" class="screenshot" src="../images/ixp-agent-04.png" /></p>
+<p>For Output arguments, switch to editor mode.</p>
+<p><img alt="Switching to editor mode for output arguments" class="screenshot" src="../images/ixp-agent-03.png" /></p>
 </li>
 <li>
-<p>Save the argument configuration.</p>
-<p><img alt="Saved argument configuration overview" class="screenshot" src="../images/ixp-agent-05.png" /></p>
+<p>Paste the following JSON into the editor:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="p">{</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;out_Status&quot;</span><span class="p">],</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="nt">&quot;out_Status&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">      </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Status of matching - either &#39;Full Match&#39; or &#39;Failed Match&#39;&quot;</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">    </span><span class="nt">&quot;out_DocumentsHTML&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">      </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;HTML code containing side by side comparison of Purchase Order and Invoice&quot;</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">    </span><span class="nt">&quot;out_SuggestedResponse&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">      </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Suggested response to Invoice Supplier with description and request to mitigate issues&quot;</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="w">    </span><span class="nt">&quot;out_POID&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="w">      </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Purchase Order ID extracted from Invoice PDF&quot;</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="w">  </span><span class="p">},</span>
+<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="w">  </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Outputs&quot;</span>
+<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="p">}</span>
+</code></pre></div>
+<p><img alt="Output arguments JSON pasted into editor" class="screenshot" src="../images/ixp-agent-04.png" /></p>
+</li>
+<li>
+<p>Confirm all four output arguments are configured correctly.</p>
+<p><img alt="Output arguments configured" class="screenshot" src="../images/ixp-agent-05.png" /></p>
 </li>
 </ol>
 <h3 id="part-2-configure-the-prompts">Part 2: Configure the prompts<a class="headerlink" href="#part-2-configure-the-prompts" title="Permanent link">&para;</a></h3>
 <ol>
 <li>
 <p>Enter the following <strong>User Prompt</strong>:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Analyze {{InvoicePDF}}
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Analyze {{InvoicePDF}}.
 </code></pre></div>
 <p><img alt="User Prompt with InvoicePDF variable" class="screenshot" src="../images/ixp-agent-06.png" /></p>
 </li>
 <li>
-<p>Configure the <strong>System Prompt</strong> with matching rules and tool instructions. Include instructions for calling the IXP tool first, extracting the PO ID, then calling the PO lookup tool.</p>
+<p>Enter the following <strong>System Prompt</strong>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>You are an AI agent specialized in comparing Invoice PDFs with Purchase Orders. Your primary responsibilities are:
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>1. Analyze the contents of an Invoice PDF file using the InvoicesIXP tool. Extract all relevant information including company details, line items, totals, and tax information. Trigger Escalation if confidence falls below 60%.
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>2. Use the Retrieve PO Data tool to fetch Purchase Order data from the Data Fabric. The Purchase Order ID should be extracted from the Invoice. If the PO data cannot be retrieved, use Escalation.
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>3. Compare the Invoice details with the Purchase Order information. Identify and list any mismatches or discrepancies between the two documents. Pay special attention to:
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>   - Company names and details
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>   - Line items (product names, quantities, prices)
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>   - Totals and subtotals
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>   - Tax information
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>   - Dates (order date, delivery date, payment due date)
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>4. Handle any unexpected data formats or missing information gracefully. If crucial information is missing from either document, note this in your analysis and use Escalation.
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>
+<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>5. Provide a clear, concise report of your findings, highlighting any issues that require attention.
+<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>
+<a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a>You should be thorough in your analysis, checking for discrepancies in items, quantities, prices, dates, and any other relevant fields. Always maintain a professional and objective tone in your reports.
+<a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a>
+<a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a>out_Status: Status of comparison should be:
+<a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a>- &quot;Full Match&quot; - if Invoice and Purchase order match fully. Every line item in PO matched to Invoice line items, company name and details match, total and tax information matches.
+<a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a>- &quot;Failed Match&quot; - if there are items that cannot be matched or other details do not align.
+<a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a>
+<a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a>out_DocumentsHTML: If match is not successful, generate HTML code containing a side-by-side comparison of Purchase Order and Invoice, including company details, document line items, total and tax information.
+<a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a>- Use a table structure with three columns: Field, Purchase Order, Invoice.
+<a id="__codelineno-2-26" name="__codelineno-2-26" href="#__codelineno-2-26"></a>- Field titles should be placed in the leftmost column.
+<a id="__codelineno-2-27" name="__codelineno-2-27" href="#__codelineno-2-27"></a>- Tax value should include tax rate and tax name, if available.
+<a id="__codelineno-2-28" name="__codelineno-2-28" href="#__codelineno-2-28"></a>- Line items should be displayed as sub-tables inside the main table cell, aligned top.
+<a id="__codelineno-2-29" name="__codelineno-2-29" href="#__codelineno-2-29"></a>- Cells with discrepancies should have a light red background, both in the main table and in cells of line items sub-tables.
+<a id="__codelineno-2-30" name="__codelineno-2-30" href="#__codelineno-2-30"></a>- Set the table width property to 100%.
+<a id="__codelineno-2-31" name="__codelineno-2-31" href="#__codelineno-2-31"></a>- Use appropriate HTML tags for headers, rows, and data cells.
+<a id="__codelineno-2-32" name="__codelineno-2-32" href="#__codelineno-2-32"></a>
+<a id="__codelineno-2-33" name="__codelineno-2-33" href="#__codelineno-2-33"></a>out_SuggestedResponse: If match is not successful, draft the invoice rejection email to the supplier.
+<a id="__codelineno-2-34" name="__codelineno-2-34" href="#__codelineno-2-34"></a>- The email should have HTML formatting.
+<a id="__codelineno-2-35" name="__codelineno-2-35" href="#__codelineno-2-35"></a>- Start with &quot;Dear Supplier&quot; and do not include a Subject line or placeholders. Sign the email as &quot;Payments Team&quot;.
+<a id="__codelineno-2-36" name="__codelineno-2-36" href="#__codelineno-2-36"></a>- Display product names, prices, and other data from documents in bold text.
+<a id="__codelineno-2-37" name="__codelineno-2-37" href="#__codelineno-2-37"></a>- Include a bullet list with reasons for rejection, i.e., discrepancies that can&#39;t be matched, and a request to adjust the invoice and resend.
+<a id="__codelineno-2-38" name="__codelineno-2-38" href="#__codelineno-2-38"></a>- In the bullet list, do not include items if that individual item is considered a match. Only list items that do not follow the rules.
+<a id="__codelineno-2-39" name="__codelineno-2-39" href="#__codelineno-2-39"></a>- Maintain a professional and courteous tone throughout the email.
+<a id="__codelineno-2-40" name="__codelineno-2-40" href="#__codelineno-2-40"></a>
+<a id="__codelineno-2-41" name="__codelineno-2-41" href="#__codelineno-2-41"></a>Always double-check your analysis and outputs for accuracy before finalizing your response.
+</code></pre></div>
 <p><img alt="System Prompt configured" class="screenshot" src="../images/ixp-agent-07.png" /></p>
 </li>
 </ol>
 <h3 id="part-3-add-the-ixp-tool">Part 3: Add the IXP tool<a class="headerlink" href="#part-3-add-the-ixp-tool" title="Permanent link">&para;</a></h3>
 <ol>
 <li>
-<p>Go to the <strong>Tools</strong> tab and add the <strong>IXP tool</strong>.</p>
-<p><img alt="Tools tab open, IXP tool being added" class="screenshot" src="../images/ixp-agent-08.png" /></p>
+<p>In canvas mode, select your agent and add a new Tool.</p>
+<p><img alt="Tools section, adding a new tool" class="screenshot" src="../images/ixp-agent-08.png" /></p>
 </li>
 <li>
-<p>Select the <strong>InvoicesIXP</strong> project as the IXP extraction source.</p>
+<p>Select <strong>IXP</strong> from the toolbox and choose the <strong>InvoicesIXP</strong> project.</p>
 <p><img alt="InvoicesIXP project selected" class="screenshot" src="../images/ixp-agent-09.png" /></p>
+<p>This is an out-of-the-box invoice extraction model with standard taxonomy. It returns a JSON object containing the extracted data.</p>
 </li>
 <li>
-<p>Configure the tool description:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Use this tool to extract structured data from the invoice PDF, including header information, line items, totals, and the Purchase Order ID.
-</code></pre></div>
+<p>Add a meaningful description, for example: <strong>Invoice Data extraction tool</strong>.</p>
 <p><img alt="IXP tool description configured" class="screenshot" src="../images/ixp-agent-10.png" /></p>
 </li>
 <li>
@@ -1022,39 +1048,40 @@
 <p><img alt="IXP tool saved and visible in the tools list" class="screenshot" src="../images/ixp-agent-11.png" /></p>
 </li>
 </ol>
-<h3 id="part-4-add-the-po-lookup-tool">Part 4: Add the PO lookup tool<a class="headerlink" href="#part-4-add-the-po-lookup-tool" title="Permanent link">&para;</a></h3>
+<h3 id="part-4-build-and-add-the-po-lookup-tool">Part 4: Build and add the PO lookup tool<a class="headerlink" href="#part-4-build-and-add-the-po-lookup-tool" title="Permanent link">&para;</a></h3>
+<p>PO data is stored in Data Fabric. You'll build a small RPA workflow to query it, then add that workflow as a tool for the agent.</p>
 <ol>
 <li>
-<p>Add a second tool: an <strong>RPA Workflow</strong> tool.</p>
-<p><img alt="RPA Workflow tool being added" class="screenshot" src="../images/ixp-agent-12.png" /></p>
+<p>Add a new RPA workflow to your solution. Give it a meaningful name.</p>
+<p><img alt="New RPA workflow added to solution" class="screenshot" src="../images/ixp-agent-12.png" /></p>
 </li>
 <li>
-<p>Select <strong>Query Entity Records</strong> from the <strong>PurchaseOrdersDatabase</strong> source.</p>
-<p><img alt="Query Entity Records selected from PurchaseOrdersDatabase" class="screenshot" src="../images/ixp-agent-13.png" /></p>
+<p>Configure the input and output variables for the workflow.</p>
+<p><img alt="Input and output variables configured" class="screenshot" src="../images/ixp-agent-13.png" /></p>
 </li>
 <li>
-<p>Configure the filter: <strong>POID equals in_POID</strong>.</p>
-<p><img alt="Filter configured as POID equals in_POID" class="screenshot" src="../images/ixp-agent-14.png" /></p>
+<p>Add a <strong>Query Entity Records</strong> activity configured to query the <strong>PurchaseOrdersDatabase</strong> entity. Apply the filter: <strong>POID equals in_POID</strong>. Return the PODATA field as the output.</p>
+<p><img alt="Query Entity Records activity with POID filter" class="screenshot" src="../images/ixp-agent-14.png" /></p>
 </li>
 <li>
-<p>Configure the tool description:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Use this tool to retrieve Purchase Order data from the database. Filter by POID using the PO ID extracted from the invoice. PO IDs start with &quot;PO-&quot; followed by digits.
+<p>Back in your agent's canvas, add this RPA workflow as a tool.</p>
+<p><img alt="RPA workflow added as a tool" class="screenshot" src="../images/ixp-agent-15.png" /></p>
+</li>
+<li>
+<p>Configure the input hint for the <strong>in_POID</strong> argument so the agent knows the expected format:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Purchase Order ID. It starts with &#39;PO-&#39; followed by a few digits, for example: &#39;PO-123456&#39;.
 </code></pre></div>
-<p><img alt="PO lookup tool description configured" class="screenshot" src="../images/ixp-agent-15.png" /></p>
-</li>
-<li>
-<p>Save the PO lookup tool configuration.</p>
 <p><img alt="Both tools saved and visible in tools list" class="screenshot" src="../images/ixp-agent-16.png" /></p>
 </li>
 </ol>
 <h3 id="part-5-test-the-agent">Part 5: Test the agent<a class="headerlink" href="#part-5-test-the-agent" title="Permanent link">&para;</a></h3>
 <ol>
 <li>
-<p>Test the agent with a sample PDF invoice from the Storage Bucket. Confirm the agent calls the IXP tool to extract data.</p>
+<p>Test the agent with a sample PDF invoice. Confirm the agent calls the IXP tool first.</p>
 <p><img alt="Agent test execution started with PDF input" class="screenshot" src="../images/ixp-agent-17.png" /></p>
 </li>
 <li>
-<p>Review the IXP extraction results — verify the agent identified the PO ID correctly.</p>
+<p>Review the IXP extraction results and verify the agent identified the PO ID correctly.</p>
 <p><img alt="IXP extraction results with PO ID identified" class="screenshot" src="../images/ixp-agent-18.png" /></p>
 </li>
 <li>
@@ -1062,27 +1089,25 @@
 <p><img alt="PO lookup tool called with extracted POID" class="screenshot" src="../images/ixp-agent-19.png" /></p>
 </li>
 <li>
-<p>Review the final agent output — verify <code>out_Status</code>, <code>out_DocumentsHTML</code>, <code>out_SuggestedResponse</code>, and <code>out_POID</code> are all populated.</p>
+<p>Review the final output. Verify <code>out_Status</code>, <code>out_DocumentsHTML</code>, <code>out_SuggestedResponse</code>, and <code>out_POID</code> are all populated.</p>
 <p><img alt="Agent output variables fully populated" class="screenshot" src="../images/ixp-agent-20.png" /></p>
 <p><img alt="HTML comparison output preview" class="screenshot" src="../images/ixp-agent-21.png" /></p>
+<p>Notice how the JSON formats of the invoice (returned by IXP) and the Purchase Order are different. The agent understands the meaning of both documents and correctly detects discrepancies regardless of format differences.</p>
 </li>
 </ol>
 <h3 id="part-6-connect-the-agent-to-maestro">Part 6: Connect the agent to Maestro<a class="headerlink" href="#part-6-connect-the-agent-to-maestro" title="Permanent link">&para;</a></h3>
 <ol>
 <li>
-<p>Return to your <strong>2-Way Matching IXP Process</strong> in Maestro. Select the agent task node.</p>
-</li>
-<li>
-<p>Set the action to <strong>Start and wait for agent</strong>. Select <strong>2-Way Matching Agent</strong>.</p>
+<p>Return to your <strong>Maestro Agentic Process</strong> and configure the agent task. Set the action to <strong>Start and wait for agent</strong>, then select <strong>2-Way Matching Agent</strong>.</p>
 <p><img alt="Agent task configured in Maestro" class="screenshot" src="../images/ixp-agent-22.png" /></p>
 </li>
 <li>
-<p>Map the robot output to the agent input:</p>
+<p>Map the robot output to the agent input. Agent outputs are automatically added to the workflow variables.</p>
 <table>
 <thead>
 <tr>
-<th>Robot Output</th>
-<th>Agent Input</th>
+<th>Robot output</th>
+<th>Agent input</th>
 </tr>
 </thead>
 <tbody>
@@ -1095,15 +1120,17 @@
 <p><img alt="Input mapping from robot output to agent input" class="screenshot" src="../images/ixp-agent-23.png" /></p>
 </li>
 <li>
-<p>Add an <strong>Exclusive Gateway</strong> after the agent task. Configure the expression for the <strong>Full Match</strong> path:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>vars.outStatus.ToLower()==&quot;full match&quot;
+<p>Configure the <strong>Exclusive Gateway</strong> after the agent task. Set the expression for the <strong>Full Match</strong> path:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>vars.outStatus.ToLower()==&quot;full match&quot;
 </code></pre></div>
+<p>You can test expected inputs directly in the expression editor. Set <strong>Failed Match</strong> as the default path.</p>
 </li>
 <li>
-<p>Run the process in debug mode and confirm the gateway routes correctly.</p>
+<p>Click <strong>Debug</strong> and confirm the gateway routes correctly based on the agent's output.</p>
 <p><img alt="Process debug run showing correct gateway routing" class="screenshot" src="../images/ixp-agent-24.png" /></p>
 </li>
 </ol>
+<p>Your agent is ready. In most cases, you'll need to return and refine the prompt to cover more edge cases — for example, allowing semantically similar descriptions, or splitting a single PO line item across multiple invoice lines.</p>
 <p><a href="../configure-robot/">← Step 2: Configure a Robot</a> | <a href="../configure-human-validation/">Next: Configure Human Validation →</a></p>
 
 

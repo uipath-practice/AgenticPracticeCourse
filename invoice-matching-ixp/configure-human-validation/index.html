@@ -713,10 +713,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#the-ixp-validation-app" class="md-nav__link">
+  <a href="#humans-in-the-loop" class="md-nav__link">
     <span class="md-ellipsis">
       
-        The IXP Validation App
+        Humans in the Loop
       
     </span>
   </a>
@@ -758,10 +758,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#part-3-configure-the-gateway-decision-logic" class="md-nav__link">
+  <a href="#part-3-configure-the-gateway-decision" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Part 3: Configure the gateway decision logic
+        Part 3: Configure the gateway decision
       
     </span>
   </a>
@@ -873,50 +873,46 @@
 
 
 <h1 id="step-4-configure-human-validation">Step 4 — Configure Human Validation<a class="headerlink" href="#step-4-configure-human-validation" title="Permanent link">&para;</a></h1>
-<p><strong>Import the IXP validation app and configure the human review task</strong></p>
+<p><strong>Add an Action App for human review when the agent can't match documents</strong></p>
 <hr />
 <h2 id="goal">Goal<a class="headerlink" href="#goal" title="Permanent link">&para;</a></h2>
-<p>Add a human validation step on the <strong>Failed Match</strong> path. When the agent flags a mismatch, a reviewer in <strong>Action Center</strong> sees the comparison and approves or rejects it. The workflow resumes based on their decision.</p>
-<h2 id="the-ixp-validation-app">The IXP Validation App<a class="headerlink" href="#the-ixp-validation-app" title="Permanent link">&para;</a></h2>
-<p>This exercise uses a different template than the standard exercise:</p>
-<table>
-<thead>
-<tr>
-<th>Exercise</th>
-<th>App Template</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Standard (JSON)</td>
-<td><code>2WM Validation App Template</code></td>
-</tr>
-<tr>
-<td>IXP (PDF)</td>
-<td><code>2WM Validation App IXP Template</code></td>
-</tr>
-</tbody>
-</table>
-<p>The IXP template is adapted to work with data extracted from PDFs via IXP.</p>
+<p>Add a human validation step on the <strong>Failed Match</strong> path. When the agent flags a mismatch, a reviewer in <strong>Action Center</strong> sees a summary with both documents and chooses to approve or reject the invoice. The workflow resumes based on their decision.</p>
+<h2 id="humans-in-the-loop">Humans in the Loop<a class="headerlink" href="#humans-in-the-loop" title="Permanent link">&para;</a></h2>
+<p>When an agent can't determine the correct course of action, human involvement is required. Reviewers process tasks in <strong>Action Center</strong> using inputs prepared by robots and agents:</p>
+<ul>
+<li>All inputs needed to make a decision should be on one screen. Reviewers shouldn't need to open other applications or check execution logs.</li>
+<li>The agent's job is to prepare all inputs in the right format before the human task is triggered.</li>
+<li>Once the decision is made, the process continues to the next step.</li>
+</ul>
+<p>Here's what the validation form needs:
+- Both documents presented side by side, with discrepancies highlighted in red.
+- A brief description of the problem.
+- A pre-drafted rejection email — the agent already generated this in the previous step.</p>
+<div class="admonition note">
+<p class="admonition-title">Note on approvals</p>
+<p>In practice, approving a mismatched invoice for payment can be a serious compliance issue — in some countries it's illegal. For this exercise, assume the reviewer can make any decision with no consequences.</p>
+</div>
 <h2 id="steps">Steps<a class="headerlink" href="#steps" title="Permanent link">&para;</a></h2>
 <h3 id="part-1-import-the-validation-app">Part 1: Import the validation app<a class="headerlink" href="#part-1-import-the-validation-app" title="Permanent link">&para;</a></h3>
 <ol>
 <li>
-<p>Navigate to <strong>Apps</strong> in your workspace.</p>
-</li>
-<li>
-<p>Import the <strong>2WM Validation App IXP Template</strong> from the shared templates library.</p>
+<p>Import the <strong>2WM Validation App IXP Template</strong> from the shared templates into your solution. Find it and click <strong>Add</strong>.</p>
 <p><img alt="2WM Validation App IXP Template selected" class="screenshot" src="../images/ixp-human-01.png" /></p>
 </li>
 <li>
-<p>Review the imported app. It displays the agent's HTML comparison output and provides <strong>Approve</strong> and <strong>Reject</strong> buttons.</p>
+<p>After the app appears in your solution, review its structure:</p>
+</li>
+<li>UI elements — how the validation task appears to the reviewer.</li>
+<li>App Actions and Action Schema — the possible outcomes of the reviewer's decision.</li>
+<li>
+<p>App Inputs and Outputs — where data comes from and what comes out.</p>
 <p><img alt="2WM Validation App IXP interface" class="screenshot" src="../images/ixp-human-02.png" /></p>
 </li>
 </ol>
 <h3 id="part-2-configure-the-human-task-in-maestro">Part 2: Configure the human task in Maestro<a class="headerlink" href="#part-2-configure-the-human-task-in-maestro" title="Permanent link">&para;</a></h3>
 <ol>
 <li>
-<p>In your <strong>2-Way Matching IXP Process</strong>, select the human task node on the <strong>Failed Match</strong> path.</p>
+<p>In your <strong>Maestro Agentic Process</strong>, select the human task node on the <strong>Failed Match</strong> path.</p>
 </li>
 <li>
 <p>Set the action type to <strong>Action App Task</strong>.</p>
@@ -926,10 +922,10 @@
 <p>Select the <strong>2WM Validation App IXP</strong> you imported.</p>
 </li>
 <li>
-<p>Set the task title, for example: <strong>Invoice Review Required</strong>.</p>
+<p>Customize the task title so it's easy to identify in Action Center, for example: <strong>Invoice Review Required</strong>.</p>
 </li>
 <li>
-<p>Assign the task to yourself.</p>
+<p>In <strong>Advanced Options</strong>, assign the task to yourself. Otherwise you'll need to locate your task among all unassigned tasks in Action Center.</p>
 <p><img alt="Task configured with title and assignee" class="screenshot" src="../images/ixp-human-04.png" /></p>
 </li>
 <li>
@@ -937,8 +933,8 @@
 <table>
 <thead>
 <tr>
-<th>Agent Output</th>
-<th>App Input</th>
+<th>Agent output</th>
+<th>App input</th>
 </tr>
 </thead>
 <tbody>
@@ -959,50 +955,47 @@
 <p><img alt="Completed task configuration" class="screenshot" src="../images/ixp-human-06.png" /></p>
 </li>
 </ol>
-<h3 id="part-3-configure-the-gateway-decision-logic">Part 3: Configure the gateway decision logic<a class="headerlink" href="#part-3-configure-the-gateway-decision-logic" title="Permanent link">&para;</a></h3>
+<h3 id="part-3-configure-the-gateway-decision">Part 3: Configure the gateway decision<a class="headerlink" href="#part-3-configure-the-gateway-decision" title="Permanent link">&para;</a></h3>
 <ol>
 <li>
-<p>Add an <strong>Exclusive Gateway</strong> after the human task.</p>
-<p><img alt="Exclusive Gateway added" class="screenshot" src="../images/ixp-human-07.png" /></p>
+<p>Configure the <strong>Exclusive Gateway</strong> downstream from the human task.</p>
+<p><img alt="Exclusive Gateway configured" class="screenshot" src="../images/ixp-human-07.png" /></p>
 </li>
 <li>
-<p>Set <strong>Reject</strong> as the default path (it will be taken if the expression on the Approve path is not met).</p>
+<p>Set <strong>Reject</strong> as the default path.</p>
 </li>
 <li>
-<p>Configure the expression for the <strong>Approve</strong> path using the Expression Editor:</p>
+<p>In the Expression Editor, pick the <strong>Action</strong> output (which per the app settings can be <code>"Approve"</code> or <code>"Reject"</code>). Configure the <strong>Approve</strong> path condition:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>vars.actionOutput == &quot;Approve&quot;
 </code></pre></div>
 <p><img alt="Expression Editor with Approve condition" class="screenshot" src="../images/ixp-human-08.png" /></p>
-</li>
-<li>
-<p>Connect the <strong>Approve</strong> path to the payment task and the <strong>Reject</strong> path to the supplier notification task.</p>
 </li>
 </ol>
 <h3 id="part-4-test-the-human-validation-flow">Part 4: Test the human validation flow<a class="headerlink" href="#part-4-test-the-human-validation-flow" title="Permanent link">&para;</a></h3>
 <ol>
 <li>
-<p>Run the process in debug mode. Trigger a <strong>Failed Match</strong> so the human task activates.</p>
+<p>Click <strong>Debug</strong>. With <code>in_FailureProbability</code> set to 90, the invoice will frequently fail to match, triggering the human task.</p>
 <p><img alt="Process debug with human task triggered" class="screenshot" src="../images/ixp-human-09.png" /></p>
 </li>
 <li>
-<p>Open <strong>Action Center</strong> and find your task. Review the comparison and click <strong>Approve</strong> or <strong>Reject</strong>.</p>
+<p>When the process pauses, click <strong>Open app task</strong> or find it in <strong>Action Center</strong>. Review the comparison and click <strong>Approve</strong> or <strong>Reject</strong>.</p>
 <p><img alt="Action Center showing invoice review task" class="screenshot" src="../images/ixp-human-10.png" /></p>
 </li>
 <li>
-<p>Confirm the process resumed and routed correctly.</p>
+<p>Confirm the process resumed and routed correctly after your decision.</p>
 <p><img alt="Process resumed after human decision" class="screenshot" src="../images/ixp-human-11.png" /></p>
 </li>
 <li>
 <p>Review the execution trace in Maestro to verify the correct path was taken.</p>
-<p><img alt="Execution trace showing approved or rejected path" class="screenshot" src="../images/ixp-human-12.png" /></p>
+<p><img alt="Execution trace showing the path taken" class="screenshot" src="../images/ixp-human-12.png" /></p>
 </li>
 <li>
-<p>Run additional test scenarios — one Approve and one Reject — to confirm both paths work.</p>
+<p>Run a few more tests — try both Approve and Reject — to confirm both paths work.</p>
 <p><img alt="Second test run with different decision outcome" class="screenshot" src="../images/ixp-human-13.png" /></p>
-<p><img alt="Process execution summary after both test runs" class="screenshot" src="../images/ixp-human-14.png" /></p>
+<p><img alt="Process execution summary after multiple test runs" class="screenshot" src="../images/ixp-human-14.png" /></p>
 </li>
 <li>
-<p>Review the end-to-end process flow animation.</p>
+<p>Review the end-to-end process execution.</p>
 <p><img alt="End-to-end process flow" class="screenshot" src="../images/ixp-human-15.gif" /></p>
 </li>
 </ol>
