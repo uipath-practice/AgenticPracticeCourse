@@ -1,0 +1,23 @@
+{
+  "version": "1.0",
+  "image_file": "3-gmail-configuration.png",
+  "image_path": "docs/invoice-matching-ixp/configure-api.images/3-gmail-configuration.png",
+  "lesson": "configure-api",
+  "exercise": "invoice-matching-ixp",
+  "extraction": {
+    "ocr_text": "Activity *\nSend Email\n\nPrimary\n\nTo *\n@\nsergey.shumilov@uipath.com\n\nSave as draft\n\nSubject\nInvoice Rejection Notification\n@\n\nBody\nThe body of the email\n@\nresponse\n\nCompare Invoice against Purchase Order\nTt  out_SuggestedResponse (string)\n\nManual Review and Validation\nTt  out_ApproverResponse (string)",
+    "description": "This screenshot shows a UiPath Maestro/Agentic Process connector activity configuration screen for a Gmail Send Email action. The email fields are being configured: the recipient and subject are filled in, and the Body field's variable picker is open with search text entered. The dropdown displays available output variables from earlier workflow steps, including response-related string outputs.",
+    "step_instructions": "1. In the Activity field, select \"Send Email\".\n2. In the To field, enter the recipient email address.\n3. In the Subject field, enter \"Invoice Rejection Notification\" or another suitable subject.\n4. Click in the Body field and open the variable picker.\n5. In the search box, type \"response\".\n6. Select the appropriate response output from the list, such as \"out_SuggestedResponse (string)\", to use as the email body."
+  },
+  "model": {
+    "name": "gpt-5.4",
+    "deployment": "gpt-5.4",
+    "api_version": "2025-04-01-preview"
+  },
+  "usage": {
+    "prompt_tokens": 2047,
+    "completion_tokens": 293,
+    "total_tokens": 2340
+  },
+  "generated_at": "2026-03-30T06:39:58.628288+00:00"
+}

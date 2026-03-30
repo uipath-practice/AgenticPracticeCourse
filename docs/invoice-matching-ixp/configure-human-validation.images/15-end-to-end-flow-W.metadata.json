@@ -1,0 +1,23 @@
+{
+  "version": "1.0",
+  "image_file": "15-end-to-end-flow-W.gif",
+  "image_path": "docs/invoice-matching-ixp/configure-human-validation.images/15-end-to-end-flow-W.gif",
+  "lesson": "configure-human-validation",
+  "exercise": "invoice-matching-ixp",
+  "extraction": {
+    "ocr_text": "Human in the loop: Validation\nTask for review. Decision:\nApprove or Reject\n\nIntegration Service\n(GMail): Send Email\nMessage\n\nSend rejection\nEmail to Vendor\n\nReject\n\nFinish\n\nManual Review\nand Validation\n\nApprove\n\nReviewer\nDecision\n\nROBOT: Retrieve Invoice. &\nPurchase Order (JSON objects)\n\nIssues detected\n\nRetrieve data\nfor next PO and\nInvoice\n\nCompare\nInvoice against\nPurchase Order\n\nComparison\nresults\n\nFull Match\n\nUpdate\nFinancial\nSystems\n\nFinish\n\nAGENT: compare documents\nand find discrepancies\n\nData Service: add\ntransaction record. for\npayment processing",
+    "description": "This screenshot shows a UiPath Maestro BPMN-style process diagram for the invoice matching workflow with a human validation branch. The \"Manual Review and Validation\" human task is selected and highlighted in blue, connected to a reviewer decision gateway with Reject and Approve paths. The surrounding flow shows automated steps for retrieving invoice and purchase order data, comparing documents, sending a rejection email, and updating financial systems.",
+    "step_instructions": "Click on the \"Manual Review and Validation\" human task on the failed/issues-detected path to configure the human validation step. Review the downstream \"Reviewer Decision\" gateway and confirm the task routes to either \"Send rejection Email to Vendor\" on Reject or \"Update Financial Systems\" on Approve. Informational screenshot — it illustrates the completed human-in-the-loop validation flow in the process diagram."
+  },
+  "model": {
+    "name": "gpt-5.4",
+    "deployment": "gpt-5.4",
+    "api_version": "2025-04-01-preview"
+  },
+  "usage": {
+    "prompt_tokens": 2514,
+    "completion_tokens": 328,
+    "total_tokens": 2842
+  },
+  "generated_at": "2026-03-30T05:18:49.198810+00:00"
+}

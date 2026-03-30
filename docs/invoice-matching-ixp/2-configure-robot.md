@@ -133,4 +133,4 @@ Next, try launching the Maestro Orchestration Process from Studio Web by clickin
 
 ![Debug mode launch](configure-robot.images/10-run-process.png){ .screenshot }
 
-Have a look at the execution details: if you see a file name in outputs, you have completed this lesson and it's time to move to the **[next one](configure-agent.md)**.
+Have a look at the execution details: if you see a file name in outputs, you have completed this lesson and it's time to move to the **[next one](3-configure-agent.md)**.

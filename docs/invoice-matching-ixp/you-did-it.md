@@ -1,12 +1,16 @@
 # You did it!
 
-**You've built a complete agentic invoice-matching process from scratch.**
+!!! tip "Congratulations!"
+
+    You've built a complete agentic invoice-matching process from scratch.
 
 ---
 
 ## What you built
 
-Your process handles the full invoice lifecycle — from retrieving a PDF to routing the outcome — without any manual steps in the happy path:
+Your process handles the full invoice lifecycle — from retrieving a PDF to routing the outcome — without any manual steps required for the happy path.
+
+Summary:
 
 | Component | Role |
 |-----------|------|
@@ -19,9 +23,9 @@ This is a production-pattern process. The same design — Robot → Agent → Hu
 
 ---
 
-## Immediate next steps
+## Next steps
 
-### 1. Publish and run your process
+### 1. Publish and run your process from Maestro dashboard
 
 Publish your completed process to your personal workspace, then run it as you would any other UiPath process.
 
@@ -65,7 +69,3 @@ After a few runs, **Maestro → Analytics** shows:
 | UiPath Academy | Official learning paths for Agent Builder and Maestro |
 | UiPath Documentation | API references, platform guides, release notes |
 | UiPath Community | Forum for questions, shared automations, and tips |
-
----
-
-[← Configure API Integration](configure-api.md) | [Next Steps →](../next-steps.md)

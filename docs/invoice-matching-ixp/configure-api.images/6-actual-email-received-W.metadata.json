@@ -1,0 +1,23 @@
+{
+  "version": "1.0",
+  "image_file": "6-actual-email-received-W.png",
+  "image_path": "docs/invoice-matching-ixp/configure-api.images/6-actual-email-received-W.png",
+  "lesson": "configure-api",
+  "exercise": "invoice-matching-ixp",
+  "extraction": {
+    "ocr_text": "[EXTERNAL] Invoice Rejection Notification\n\nuipath.supplier@gmail.com <uipath.supplier@gmail.com>\nTo: Sergey Shumilov\n\nToday at 3:00 PM\n\nCAUTION: This email originated from outside of the organization. Do not click links or\nopen attachments unless you recognize the sender and know the content is safe.\n\nDear Supplier,\n\nThank you for your invoice. We reviewed it against our Purchase Order\nand identified discrepancies that prevent us from processing the\npayment at this time.\n\n• For product Desk Mat, the Purchase Order unit price is 12.00 for\n  a quantity of 4, while the Invoice shows a unit price of 24.00 for a\n  quantity of 4. This results in a line total difference (PO: 48.00 vs\n  Invoice: 96.00).\n• Due to the unit price discrepancy, the totals do not align:\n  Subtotal (PO: 48.00 vs Invoice: 96.00), Tax at GST 8% (PO: 3.84\n  vs Invoice: 7.68), and Total (PO: 51.84 vs Invoice: 103.68).\n\nPlease revise the invoice to match the Purchase Order pricing and\ntotals and resend the corrected invoice for processing.\n\nBest regards,\nPayments Team",
+    "description": "This screenshot shows an email message in a mail client, displaying a rejection notification sent from a shared Gmail account to a recipient. It is the result of the UiPath Integration Service Gmail connector workflow, showing the generated HTML/text rejection email content for a mismatched invoice scenario. The message includes an external sender warning banner and detailed discrepancy information comparing purchase order and invoice values.",
+    "step_instructions": "Informational screenshot — no user action required. It shows the expected outcome of the rejection scenario test: a rejection email received in the inbox with the generated invoice discrepancy details."
+  },
+  "model": {
+    "name": "gpt-5.4",
+    "deployment": "gpt-5.4",
+    "api_version": "2025-04-01-preview"
+  },
+  "usage": {
+    "prompt_tokens": 2023,
+    "completion_tokens": 418,
+    "total_tokens": 2441
+  },
+  "generated_at": "2026-03-30T06:40:18.074625+00:00"
+}

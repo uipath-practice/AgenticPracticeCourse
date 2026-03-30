@@ -1,0 +1,23 @@
+{
+  "version": "1.0",
+  "image_file": "10-configure-gateway.png",
+  "image_path": "docs/invoice-matching-ixp/configure-human-validation.images/10-configure-gateway.png",
+  "lesson": "configure-human-validation",
+  "exercise": "invoice-matching-ixp",
+  "extraction": {
+    "ocr_text": "Manual Review\nand Validation\n\nIssues detected\n\nComparison\nresults\n\nFull-Match\n\nReviewer\nDecision\n\nReject\n\nSend rejection\nEmail to Vendor\n\nApprove\n\nUpdate\nFinancial\nSystems\n\nConnect\n\nExclusive gateway\n\nGeneral\n\nName\nReviewer Decision\n\nDescription\n\nConditions\n\nReject\n\nLabel\nReject\n\nMake default path\nIf no other path conditions are true, the default path will be used automatically.\n\nCondition\n\nApprove\n\nLabel\nApprove\n\nMake default path\nIf no other path conditions are true, the default path will be used automatically.\n\nCondition\ntrue\n\nUse\n{} Expression editor",
+    "description": "The screenshot shows a BPMN-style workflow designer in the UiPath platform with an Exclusive gateway named \"Reviewer Decision\" selected. On the right, the properties panel is open, displaying the gateway's General and Conditions settings, with two outgoing paths: Reject and Approve. The Reject path is marked as the default path, and the Approve condition is set to \"true\" with the expression editor menu visible.",
+    "step_instructions": "1. Select the \"Reviewer Decision\" exclusive gateway in the workflow diagram.\n2. In the right-side properties panel under Conditions > Reject, turn on \"Make default path\".\n3. Under Conditions > Approve, in the Condition field, enter \"true\".\n4. Click the options button next to the Approve Condition field and select \"Expression editor\" if you need to edit the condition using the expression editor."
+  },
+  "model": {
+    "name": "gpt-5.4",
+    "deployment": "gpt-5.4",
+    "api_version": "2025-04-01-preview"
+  },
+  "usage": {
+    "prompt_tokens": 1422,
+    "completion_tokens": 340,
+    "total_tokens": 1762
+  },
+  "generated_at": "2026-03-30T05:18:38.818249+00:00"
+}

@@ -18,9 +18,9 @@ This workshop guides you through building real agentic automation solutions on t
 
 2. **Invoice vs. Purchase Order Matching** — a multi-actor automation that combines an AI agent with Robotic workflows, a human validation step, and API integrations. This is where agentic orchestration starts to look like real enterprise automation.
 
-[Start Exercise 1 →](categorizing-incidents/index.md) 
+[Start Exercise 1 →](categorizing-incidents/index.md)
 
-[Start Exercise 2 →](invoice-matching-ixp/index.md)
+[Start Exercise 2 →](invoice-matching-ixp/0-index.md)
 
 Or use navigation on the top to access lessons!
 

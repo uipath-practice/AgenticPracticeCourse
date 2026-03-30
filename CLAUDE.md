@@ -35,8 +35,10 @@ docs/
 
 ### Naming conventions
 - Exercise folder names: lowercase, hyphenated (`categorizing-incidents`, `invoice-matching-ixp`)
-- Step file names: `verb-noun.md` — describes the action (`add-robot.md`, `configure-agent.md`, `create-bpmn.md`)
-- No numeric prefixes in filenames; numbers appear in the nav label only
+- Overview page: `0-index.md`
+- Step file names: `N-verb-noun.md` — numeric prefix (1–9) followed by descriptive action. Examples: `1-create-bpmn.md`, `2-configure-robot.md`, `3-configure-agent.md`
+- Outro page (if used): `you-did-it.md` or `next-steps.md` (no numeric prefix)
+- File numbering should match the sequence of steps to prevent navigation confusion
 
 ### Nav registration (mkdocs.yml)
 **Always update `nav:` in `mkdocs.yml` when adding, removing, or renaming a page.**
@@ -104,6 +106,55 @@ Use for:
 - API or field references
 
 Keep table rows short. If a cell would wrap awkwardly, convert to a description list instead.
+
+### Two-column layout (`[[[...]]]`)
+
+Use the split-column shorthand when a screenshot and its description should sit side by side. This is processed by `hooks/split_cols.py` before MkDocs renders the page.
+
+**Syntax:**
+
+```
+[[[
+left column content (markdown)
+|N|
+right column content (markdown)
+]]]
+```
+
+`N` is the left-column width as a percentage. Three values are supported:
+
+| Value | Split |
+|-------|-------|
+| `\|30\|` | 30 % left / 70 % right |
+| `\|50\|` | 50 % left / 50 % right |
+| `\|70\|` | 70 % left / 30 % right |
+
+Both columns accept full Markdown, including images, code blocks, and lists.
+
+**Typical pattern** — text on the left, screenshot on the right:
+
+```
+[[[
+Click on **Data Manager** in the left ribbon, then click "**+**" to add a new argument.
+|30|
+![Data Manager panel with add button highlighted](images/data-manager.png){ .screenshot }
+]]]
+```
+
+**Typical pattern** — screenshot on the left, text on the right (use `|70|`):
+
+```
+[[[
+![New agent created in Studio Web](images/create-agent.png){ .screenshot }
+|70|
+In **Studio Web**, add a new Agent to your solution and name it:
+```text
+2-Way Matching Agent
+```
+]]]
+```
+
+Each delimiter (`[[[`, `|N|`, `]]]`) must be on its own line with no trailing spaces.
 
 ### Admonitions
 | Type | Use for |
@@ -192,6 +243,7 @@ Note the 4-space indent — this keeps the image inside the numbered list item s
 - Internal links: relative paths (`../invoice-matching/index.md`).
 - External URLs: always use Markdown link syntax, never bare URLs. Display text should be the domain or a descriptive label, not the raw URL.
 - Platform URL: always `[cloud.uipath.com/tpenlabs](https://cloud.uipath.com/tpenlabs)`.
+- **No bottom navigation links on step pages.** Navigation is handled by the MkDocs Material theme's automatic nav sidebar. Do not add manual links like `[← Previous](previous.md) | [Next →](next.md)` at the end of step pages.
 
 ---
 

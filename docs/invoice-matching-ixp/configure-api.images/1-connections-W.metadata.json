@@ -1,0 +1,23 @@
+{
+  "version": "1.0",
+  "image_file": "1-connections-W.png",
+  "image_path": "docs/invoice-matching-ixp/configure-api.images/1-connections-W.png",
+  "lesson": "configure-api",
+  "exercise": "invoice-matching-ixp",
+  "extraction": {
+    "ocr_text": "UiPath Integration Service\nConnector Builder\n99+\nTenant: RoadshowANZ\nSE\nMy folders\nSearch\nMy Workspace\n2-Way Matching\nServiceNow Incidents\n2-Way Matching\nConnectors\nConnections\nTriggers\nSearch by connector or connection\nAdd connection\nConnector\nConnection\nCreated by\nCreated on\nDefault\nStatus\nData Fabric\nShared Data Fabric Connection\n59197cb6-...\n21st October 2025\nYes\nConnected\nGmail\nShared Gmail Connection\n59197cb6-...\n21st October 2025\nYes\nConnected\n1 - 2 / 2\nPage 1 / 1\nItems per page:\n20",
+    "description": "The screenshot shows the UiPath Integration Service for the folder/project \"2-Way Matching\" with the Connections tab selected. In the main panel, two existing connections are listed: a Data Fabric shared connection and a Gmail shared connection, both marked as default and showing a green Connected status. The left navigation shows My Workspace with the 2-Way Matching folder selected.",
+    "step_instructions": "Informational screenshot — no user action required. It shows that in Integration Service, the \"2-Way Matching\" folder is selected and the \"Connections\" tab contains two active connections: \"Shared Data Fabric Connection\" and \"Shared Gmail Connection,\" both in Connected status."
+  },
+  "model": {
+    "name": "gpt-5.4",
+    "deployment": "gpt-5.4",
+    "api_version": "2025-04-01-preview"
+  },
+  "usage": {
+    "prompt_tokens": 1240,
+    "completion_tokens": 300,
+    "total_tokens": 1540
+  },
+  "generated_at": "2026-03-30T06:39:58.717200+00:00"
+}

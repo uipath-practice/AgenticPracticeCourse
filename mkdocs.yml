@@ -53,12 +53,12 @@ nav:
     - LLM with Context: categorizing-incidents/llm-with-context.md
     - Tools and Escalations: categorizing-incidents/tools-and-escalations.md
   - Invoice Matching with IXP:
-    - Overview: invoice-matching-ixp/index.md
-    - 1. Create BPMN Process: invoice-matching-ixp/create-bpmn.md
-    - 2. Configure a Robot: invoice-matching-ixp/configure-robot.md
-    - 3. Configure an Agent: invoice-matching-ixp/configure-agent.md
-    - 4. Configure Human Validation: invoice-matching-ixp/configure-human-validation.md
-    - 5. Configure API Integration: invoice-matching-ixp/configure-api.md
+    - Overview: invoice-matching-ixp/0-index.md
+    - 1. Create BPMN Process: invoice-matching-ixp/1-create-bpmn.md
+    - 2. Configure a Robot: invoice-matching-ixp/2-configure-robot.md
+    - 3. Configure an Agent: invoice-matching-ixp/3-configure-agent.md
+    - 4. Configure Human Validation: invoice-matching-ixp/4-configure-human-validation.md
+    - 5. Configure API Integration: invoice-matching-ixp/5-configure-api.md
     - You did it!: invoice-matching-ixp/you-did-it.md
   - Next Steps: next-steps.md
 

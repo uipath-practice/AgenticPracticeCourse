@@ -1,0 +1,23 @@
+{
+  "version": "1.0",
+  "image_file": "7-add-action-task.png",
+  "image_path": "docs/invoice-matching-ixp/configure-human-validation.images/7-add-action-task.png",
+  "lesson": "configure-human-validation",
+  "exercise": "invoice-matching-ixp",
+  "extraction": {
+    "ocr_text": "Properties   XML\nUser task\nGeneral\nName\nManual Review and Validation\nDescription\nManual Validation\nImplementation\nAction\nCreate action app task\nAction *\nSelect an Action\nSearch apps\n+ Resource\nDefined resources\n2WM Validation App IXP\nConnect\nManual Review\nand Validation\nReviewer\nDecision\nIssues detected\nComparison\nresults\nFull Match",
+    "description": "This screenshot shows the UiPath Maestro BPMN designer with a User task node selected and its Properties panel open on the right. The task is being configured for human validation: the Action type is set to create an Action App task, and the Action selection dropdown is open showing the available app resource \"2WM Validation App IXP.\" The process diagram on the left shows the selected \"Manual Review and Validation\" task connected to a gateway labeled \"Reviewer Decision.\"",
+    "step_instructions": "1. Click on the User task node \"Manual Review and Validation\" to open its Properties.\n2. In the Action dropdown, select \"Create action app task.\"\n3. In the Action * field, open the app selector.\n4. Select \"2WM Validation App IXP\" from the Defined resources list."
+  },
+  "model": {
+    "name": "gpt-5.4",
+    "deployment": "gpt-5.4",
+    "api_version": "2025-04-01-preview"
+  },
+  "usage": {
+    "prompt_tokens": 2167,
+    "completion_tokens": 262,
+    "total_tokens": 2429
+  },
+  "generated_at": "2026-03-30T05:19:16.585432+00:00"
+}

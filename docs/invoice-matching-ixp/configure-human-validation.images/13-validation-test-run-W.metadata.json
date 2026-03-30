@@ -1,0 +1,23 @@
+{
+  "version": "1.0",
+  "image_file": "13-validation-test-run-W.png",
+  "image_path": "docs/invoice-matching-ixp/configure-human-validation.images/13-validation-test-run-W.png",
+  "lesson": "configure-human-validation",
+  "exercise": "invoice-matching-ixp",
+  "extraction": {
+    "ocr_text": "Human in the loop: Validation\nTask for review. Decision:\nApprove or Reject.\n\nReject\nSend rejection\nEmail to Vendor\n\nFinish\n\nManual Review\nand Validation\n\nApprove\nReviewer\nDecision\n\nIntegration Service\n[GMail]: Send Email\nMessage\n\nAGENT: Extract data from Invoice;\nRetrieve original Purchase order;\ncompare documents and find\ndiscrepancies\n\nIssues detected\n\nRetrieve\nInvoice (PDF)\nfor processing\n\nInvoice\nValidation\nAgent\n\nFull-Match\n\nUpdate\nFinancial\nSystems\n\nFinish\n\nManual\n\nComparison\nresults\n\nROBOT: Retrieve Invoice\n\nData Service: add\ntransaction record for\npayment processing\n\nExecution trail\n\nDetails\nVariables\n\nStatus & step\nEnded at\nDuration\n\nInstance: ecad9e30-6eb7-45e0-ae81-f5b0031c06e6\n-\n-\n\nManual (Start event)\n2026-03-03 13:31:17\n< 1 sec\n\nRetrieve Invoice (PDF) for processing (Service task)\n2026-03-03 13:31:31\n14 sec\n\nInvoice Validation Agent (Service task)\n2026-03-03 13:32:33\n1 min, 1 sec\n\nComparison results (Exclusive gateway)\n2026-03-03 13:32:34\n< 1 sec\n\nManual Review and Validation (User task)\n-\n-\n\nExecution duration\nIn progress...\n\nElement name\nManual Review and Validation\n\nElement ID\nActivity_AphyH5\n\nUser Task - Action Center\nOpen app task",
+    "description": "This screenshot shows the UiPath Maestro process execution view with a BPMN-style workflow at the top and the execution trail and details panels at the bottom. The process is currently paused at the human task node \"Manual Review and Validation,\" which is highlighted in the diagram and selected in the execution trail. In the Details panel, the Action Center task is available and an \"Open app task\" button is shown so the reviewer can complete the validation decision.",
+    "step_instructions": "1. In the Execution trail, select the \"Manual Review and Validation (User task)\" step if it is not already selected.\n2. In the Details panel, locate \"User Task - Action Center.\"\n3. Click on \"Open app task\" to open the human validation task in Action Center and review the invoice."
+  },
+  "model": {
+    "name": "gpt-5.4",
+    "deployment": "gpt-5.4",
+    "api_version": "2025-04-01-preview"
+  },
+  "usage": {
+    "prompt_tokens": 2466,
+    "completion_tokens": 547,
+    "total_tokens": 3013
+  },
+  "generated_at": "2026-03-30T05:18:45.657323+00:00"
+}

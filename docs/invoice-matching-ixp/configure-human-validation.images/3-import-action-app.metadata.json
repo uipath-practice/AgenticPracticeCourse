@@ -1,0 +1,23 @@
+{
+  "version": "1.0",
+  "image_file": "3-import-action-app.png",
+  "image_path": "docs/invoice-matching-ixp/configure-human-validation.images/3-import-action-app.png",
+  "lesson": "configure-human-validation",
+  "exercise": "invoice-matching-ixp",
+  "extraction": {
+    "ocr_text": "Debug\nDebug step-by-step\nPublish\nExplorer\n2-Way Matchin...\n2-Way Matching Solution\n2-Way Matching Agent\nDefinition\nEvaluation Sets\nEvaluators\n2-Way Matching Process\n2-Way Matching Process IXP.\nRetrieve PO Details\nMain.xaml\nAdd project to solution\nAgentic process\nAgent\nRPA Workflow\nAPI Workflow\nApp\nEscalation app\nImport existing",
+    "description": "This screenshot shows the UiPath solution Explorer in Studio Web with a solution named \"2-Way Matching Solution\" containing an agent, an agentic process, and an RPA workflow. The add-project menu is open from the plus icon, displaying options to add different project types to the solution, with \"Import existing\" highlighted as the relevant action.",
+    "step_instructions": "1. Click on the + (Add project) icon in the Explorer header.\n2. In the \"Add project to solution\" menu, click on \"Import existing\"."
+  },
+  "model": {
+    "name": "gpt-5.4",
+    "deployment": "gpt-5.4",
+    "api_version": "2025-04-01-preview"
+  },
+  "usage": {
+    "prompt_tokens": 2188,
+    "completion_tokens": 221,
+    "total_tokens": 2409
+  },
+  "generated_at": "2026-03-30T05:18:57.027638+00:00"
+}

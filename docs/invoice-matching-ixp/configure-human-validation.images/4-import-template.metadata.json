@@ -1,0 +1,23 @@
+{
+  "version": "1.0",
+  "image_file": "4-import-template.png",
+  "image_path": "docs/invoice-matching-ixp/configure-human-validation.images/4-import-template.png",
+  "lesson": "configure-human-validation",
+  "exercise": "invoice-matching-ixp",
+  "extraction": {
+    "ocr_text": "Add project\n\nSearch by project name, description, or solution name\n\nRetrieve PO Data Template\n2WM Validation IXP Te...\n\n2WM Validation App IXP Template\n2WM Validation App v2\n2WM Validation IXP Te...\n\nProject details\n\nCollaborators\nSS\nowner\nsergey.shumilov@uipath.com\n\nStatus\nDraft\n\nLast modified\n1 minute ago\n\n1 project selected\n\nCancel\nAdd",
+    "description": "This screenshot shows the UiPath 'Add project' dialog, likely within Maestro or a related project selection interface. A list of available projects is displayed on the left, and the project '2WM Validation App IXP Template' is selected, with its details shown in the right-side panel including collaborator, status, and last modified time. The Add button is available in the bottom-right corner to confirm adding the selected project.",
+    "step_instructions": "1. Select the checkbox for the project '2WM Validation App IXP Template'.\n2. Review the project details in the right-side panel to confirm the correct project is selected.\n3. Click on the 'Add' button in the bottom-right corner."
+  },
+  "model": {
+    "name": "gpt-5.4",
+    "deployment": "gpt-5.4",
+    "api_version": "2025-04-01-preview"
+  },
+  "usage": {
+    "prompt_tokens": 2490,
+    "completion_tokens": 265,
+    "total_tokens": 2755
+  },
+  "generated_at": "2026-03-30T05:19:05.735445+00:00"
+}

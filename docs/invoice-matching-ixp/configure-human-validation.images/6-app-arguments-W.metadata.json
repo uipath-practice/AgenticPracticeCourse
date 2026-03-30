@@ -1,0 +1,23 @@
+{
+  "version": "1.0",
+  "image_file": "6-app-arguments-W.png",
+  "image_path": "docs/invoice-matching-ixp/configure-human-validation.images/6-app-arguments-W.png",
+  "lesson": "configure-human-validation",
+  "exercise": "invoice-matching-ixp",
+  "extraction": {
+    "ocr_text": "DocBox\nTabs\nDecision\nActionBox\nPrompt\nReject\nApprove\nAppVersion\nResponseBox\nRejectionText\nPageSideBySideHTML\nPageInvoiceViewer\nPagePurchaseOrderViewer\nHeaderContent_Top_click.xaml\nLoad Invoice Viewer.xaml\nLoad Purchase Order Viewer.xaml\nOnClick Approve Button .xaml\nOnClick Reject Button.xaml\nApp variables\nInvoiceAppsFile\nPOasHTML\nAction\nActionSchema\n\nAction Properties\n\nOutcomes\nDecisions available to users for managing escalations or tasks in a workflow or rule. e.g. Approve, Reject\nApprove\nReject\n+\n\nInput Properties\nDefine data fields to display when an escalation or task is created via workflow or agent run, and map these to display/input controls in your app, e.g. label or text area.\nTt\nin_SuggestedR...\n*\nSystem.String\n>\nDraft response suggested buy agent based on it's findings\nTt\nin_Documents...\n*\nSystem.String\n>\nHTML side by side comparison of Invoice and PO with highlighted discrepancies\n{...}\nin_InvoicePDF\nFile\n>\nPDF File of the original Invoice\nTt\nin_POID\nSystem.String\n>\nPO ID extracted from the Invoice\n+\nAdd property\n\nInput/Output Properties\nSome properties can be both inputs and outputs. Map these properties to the input controls in your app as needed.\n+\nAdd property\n\nOutput Properties\nDefine the data provided by the end user upon task completion, and map these properties to a submit action rule. e.g. User comments, decisions\nTt\nout_ApproverR...\nSystem.String\n>\nResponse as edited by Business User after validation\n+\nAdd property",
+    "description": "This screenshot shows the UiPath Action App designer with the Action schema selected and the Action Properties panel open. The app is configured with two outcomes, Approve and Reject, along with several input properties for invoice validation data and one output property for the approver's edited response. The left panel displays the app structure, including decision buttons, XAML event handlers, app variables, and the Action node.",
+    "step_instructions": "1. Select the Action node in the left panel to open Action Properties.\n2. In the Outcomes section, add or confirm the two decisions: Approve and Reject.\n3. In Input Properties, add the required inputs such as in_SuggestedR..., in_Documents..., in_InvoicePDF, and in_POID.\n4. In Output Properties, add the output property out_ApproverR... to capture the business user's edited response.\n5. Review the app structure on the left to ensure the Reject and Approve actions and related XAML handlers are present."
+  },
+  "model": {
+    "name": "gpt-5.4",
+    "deployment": "gpt-5.4",
+    "api_version": "2025-04-01-preview"
+  },
+  "usage": {
+    "prompt_tokens": 2630,
+    "completion_tokens": 585,
+    "total_tokens": 3215
+  },
+  "generated_at": "2026-03-30T05:19:20.402468+00:00"
+}

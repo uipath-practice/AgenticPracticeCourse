@@ -1,0 +1,23 @@
+{
+  "version": "1.0",
+  "image_file": "12-gateway-expression.png",
+  "image_path": "docs/invoice-matching-ixp/configure-human-validation.images/12-gateway-expression.png",
+  "lesson": "configure-human-validation",
+  "exercise": "invoice-matching-ixp",
+  "extraction": {
+    "ocr_text": "Approve\n\nLabel\n\nApprove\n\nMake default path\n\nIf no other path conditions are true, the default path will be used automatically.\n\nCondition\n\nƒx vars.action==\"Approve\" ×",
+    "description": "This screenshot shows a UiPath Maestro BPMN designer properties panel for an Exclusive Gateway path labeled \"Approve.\" The path label is set to \"Approve,\" the \"Make default path\" toggle is off, and a condition expression is configured in the Condition field. The expression shown checks whether the action variable equals \"Approve.\"",
+    "step_instructions": "1. In the Label field, enter \"Approve\".\n2. Leave the Make default path toggle turned off for this path.\n3. In the Condition field, enter the expression `vars.action==\"Approve\"`.\n4. Use this condition to route the process through the Approve path when the human task output is Approve."
+  },
+  "model": {
+    "name": "gpt-5.4",
+    "deployment": "gpt-5.4",
+    "api_version": "2025-04-01-preview"
+  },
+  "usage": {
+    "prompt_tokens": 2128,
+    "completion_tokens": 207,
+    "total_tokens": 2335
+  },
+  "generated_at": "2026-03-30T05:18:37.711480+00:00"
+}

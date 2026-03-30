@@ -1,0 +1,23 @@
+{
+  "version": "1.0",
+  "image_file": "5-payments-queue-W.png",
+  "image_path": "docs/invoice-matching-ixp/configure-api.images/5-payments-queue-W.png",
+  "lesson": "configure-api",
+  "exercise": "invoice-matching-ixp",
+  "extraction": {
+    "ocr_text": "Entities > Payments Queue\n\nPayments Queue\n\nOverview    Data\n\nSearch\nSearch in:  All Text and...\nAdvanced Search\n\nSearch is not supported on the fields from external systems.\n\nId\nInvoiceData ↑\nCreate Time\n\n{\"Header\":{\"CompanyName\":\n\"Marina Bay Solutions Pte Ltd\",\n\"Company Address\":\"1 Raffles\nPlace, #32-00, Singapore\n048616\", \"Company Registration\nCode\": \"SG202298765Z\"}, \"Lines\"\n:[{\"ID\":\"1\",\"Product\nName\":\"Computer Desk\",\"Unit\nPrice\":\"150.00\",\"Quantity\":\"3\"}],\n\"Details\": { \"Subtotal\": \"450.00\",\n\"Tax (GST 9%)\": \"40.50\", \"Total\":\n\"490.50\"}}\n\n{ \"Header\" : { \"CompanyName\" : \"Lor\n\n{ \"Header\" : { \"CompanyName\" : \"Ma\n\n{ \"Header\" : { \"CompanyName\" : \"Pac\n\n10/22/2025, 3:05:24 PM\n10/22/2025, 3:02:21 PM\n10/22/2025, 3:01:32 PM",
+    "description": "This screenshot shows the UiPath Data Fabric/Entities interface open to the Payments Queue entity on the Data tab. A table of records is visible with columns for Id, InvoiceData, and Create Time, and a tooltip/popover is open over one row showing the full JSON invoice payload. The page also shows search controls and an informational banner stating that search is not supported on fields from external systems.",
+    "step_instructions": "Informational screenshot — no user action required. It shows the Payments Queue Data view populated with multiple invoice records from process runs, including a hovered record that reveals the full InvoiceData JSON and timestamps for created records."
+  },
+  "model": {
+    "name": "gpt-5.4",
+    "deployment": "gpt-5.4",
+    "api_version": "2025-04-01-preview"
+  },
+  "usage": {
+    "prompt_tokens": 2346,
+    "completion_tokens": 406,
+    "total_tokens": 2752
+  },
+  "generated_at": "2026-03-30T06:40:08.653415+00:00"
+}

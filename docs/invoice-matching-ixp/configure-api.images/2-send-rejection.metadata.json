@@ -1,0 +1,23 @@
+{
+  "version": "1.0",
+  "image_file": "2-send-rejection.png",
+  "image_path": "docs/invoice-matching-ixp/configure-api.images/2-send-rejection.png",
+  "lesson": "configure-api",
+  "exercise": "invoice-matching-ixp",
+  "extraction": {
+    "ocr_text": "Connect\nservice\nEmail\nMessage\nProperties\nXML\nSend task\nGeneral\nName\nSend rejection Email to Vendor\nDescription\nReject invoice by sending email or message\nImplementation\nAction\nExecute connector activity\nConnector *\nGmail\nGmail connection *\nShared Gmail Connection ×\nActivity *\nSend Email\nSend rejection\nEmail to Vendor\nFinish\nApprove\nUpdate\nFinancial\nSystems\nFinish\nData Service: add\ntransaction record for\npayment processing",
+    "description": "The screenshot shows the UiPath BPMN/process designer with a Send task selected and its Properties panel open on the right. The selected task is named \"Send rejection Email to Vendor,\" and its implementation is configured to execute a connector activity using the Gmail connector, a shared Gmail connection, and the \"Send Email\" activity. Red callouts highlight the selected task and the key configuration fields in the Properties panel.",
+    "step_instructions": "1. Click on the \"Send rejection Email to Vendor\" send task in the process diagram.\n2. In the Properties panel, verify or enter \"Send rejection Email to Vendor\" in the Name field.\n3. In the Description field, enter \"Reject invoice by sending email or message\".\n4. Under Implementation, select \"Execute connector activity\" from the Action dropdown.\n5. In the Connector field, select \"Gmail\".\n6. In the Gmail connection field, select \"Shared Gmail Connection\".\n7. In the Activity field, select \"Send Email\"."
+  },
+  "model": {
+    "name": "gpt-5.4",
+    "deployment": "gpt-5.4",
+    "api_version": "2025-04-01-preview"
+  },
+  "usage": {
+    "prompt_tokens": 1443,
+    "completion_tokens": 321,
+    "total_tokens": 1764
+  },
+  "generated_at": "2026-03-30T06:40:05.104461+00:00"
+}

@@ -1,0 +1,23 @@
+{
+  "version": "1.0",
+  "image_file": "9-configure-action-arguments.png",
+  "image_path": "docs/invoice-matching-ixp/configure-human-validation.images/9-configure-action-arguments.png",
+  "lesson": "configure-human-validation",
+  "exercise": "invoice-matching-ixp",
+  "extraction": {
+    "ocr_text": "Inputs\n\nin_SuggestedResponse *\nTt out_SuggestedRes...  ×\n@\n\nin_DocumentsHTML *\nTt out_DocumentsHT...  ×\n@\n\nin_InvoicePDF\nout_InvoicePDF  ×\n@\n\nUse variable\nSearch variable\n\nout_InvoicePDF (file)\n\nProcess instance metadata\n\nRetrieve Invoice (PDF) for processing\n\nError (object)\n\nTt out_InvoiceFileName (string)\n\nout_InvoicePDF (file)\n\nInvoice Validation Agent\n\nManual Review and Validation",
+    "description": "This screenshot shows the UiPath Maestro/Studio Web task input mapping panel for an Action App Task. The Inputs section is open, with in_SuggestedResponse and in_DocumentsHTML already mapped, and the variable picker expanded for the in_InvoicePDF field. The dropdown shows available process variables, with out_InvoicePDF (file) selected from the 'Retrieve Invoice (PDF) for processing' step.",
+    "step_instructions": "1. Click on the in_InvoicePDF input field to open the variable picker.\n2. In the Use variable panel, expand Retrieve Invoice (PDF) for processing if needed.\n3. Select out_InvoicePDF (file) from the list to map it to the in_InvoicePDF field.\n4. Verify that the in_SuggestedResponse and in_DocumentsHTML fields remain mapped to out_SuggestedResponse and out_DocumentsHTML respectively."
+  },
+  "model": {
+    "name": "gpt-5.4",
+    "deployment": "gpt-5.4",
+    "api_version": "2025-04-01-preview"
+  },
+  "usage": {
+    "prompt_tokens": 2023,
+    "completion_tokens": 329,
+    "total_tokens": 2352
+  },
+  "generated_at": "2026-03-30T05:19:24.372570+00:00"
+}

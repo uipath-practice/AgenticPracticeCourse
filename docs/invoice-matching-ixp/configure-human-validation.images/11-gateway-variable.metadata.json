@@ -1,0 +1,23 @@
+{
+  "version": "1.0",
+  "image_file": "11-gateway-variable.png",
+  "image_path": "docs/invoice-matching-ixp/configure-human-validation.images/11-gateway-variable.png",
+  "lesson": "configure-human-validation",
+  "exercise": "invoice-matching-ixp",
+  "extraction": {
+    "ocr_text": "C# Expression editor\nReviewer Decision > Condition\n(boolean)\n\n{} Insert variable\n\nUse variable\nSearch variable\n\nManual Review and Validation\nTt out_ApproverResponse (string)\nTt Action (string)\nError (object)",
+    "description": "This screenshot shows the C# Expression editor in UiPath Maestro/Studio Web for configuring the condition on a gateway path under Reviewer Decision. The Insert variable dropdown is open, displaying available variables from the Manual Review and Validation task outputs, with the Action (string) variable highlighted for selection.",
+    "step_instructions": "1. Click on the {} Insert variable dropdown in the C# Expression editor toolbar.\n2. In the Use variable list, expand Manual Review and Validation if needed.\n3. Click on Action (string) to insert that output variable into the condition expression."
+  },
+  "model": {
+    "name": "gpt-5.4",
+    "deployment": "gpt-5.4",
+    "api_version": "2025-04-01-preview"
+  },
+  "usage": {
+    "prompt_tokens": 2450,
+    "completion_tokens": 190,
+    "total_tokens": 2640
+  },
+  "generated_at": "2026-03-30T05:18:31.742817+00:00"
+}

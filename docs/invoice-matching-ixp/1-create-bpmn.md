@@ -63,5 +63,5 @@ For this exercise, focus on steps 2–4. The simplified process:
 [[[
 ![Wise robot](create-bpmn.images/2-wise-robot.png){ .screenshot }
 |30|
-In later steps, you'll connect each task in this diagram to UiPath platform components. When the process runs, Orchestrator will trigger robotic and agentic jobs — or route tasks to humans. Let's add some action into this diagram by **[adding a Robot](configure-robot.md)**!
+In later steps, you'll connect each task in this diagram to UiPath platform components. When the process runs, Orchestrator will trigger robotic and agentic jobs — or route tasks to humans. Let's add some action into this diagram by **[adding a Robot](2-configure-robot.md)**!
 ]]]

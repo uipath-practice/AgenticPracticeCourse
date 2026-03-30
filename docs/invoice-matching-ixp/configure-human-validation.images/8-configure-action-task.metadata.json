@@ -1,0 +1,23 @@
+{
+  "version": "1.0",
+  "image_file": "8-configure-action-task.png",
+  "image_path": "docs/invoice-matching-ixp/configure-human-validation.images/8-configure-action-task.png",
+  "lesson": "configure-human-validation",
+  "exercise": "invoice-matching-ixp",
+  "extraction": {
+    "ocr_text": "Action *\n2WM Validation App IXP ×\n\nTask title *\nInvoice Validation (<Your Name>)\n@\n\nAdditional properties\n\nPriority *\nSelect...\n\nLabels\nAdd custom labels, separated by commas\n\nAssignee\nAuto-assign to your user\n×\n\nAction catalog name\nSearch for an action catalog\n\nEnable actionable messages",
+    "description": "This screenshot shows the task configuration panel in UiPath Maestro/Studio Web for a human validation step using an Action App Task. The selected Action is \"2WM Validation App IXP,\" and the form displays fields for Task title, Priority, Labels, Assignee, and Action catalog name. The Task title and Assignee fields are highlighted, indicating the task should be named and assigned to the current user.",
+    "step_instructions": "1. In the Task title field, enter a recognizable title such as \"Invoice Validation (<Your Name>)\".\n2. In the Assignee field, select or confirm \"Auto-assign to your user\" so the task is assigned to yourself.\n3. Verify that the Action field is set to \"2WM Validation App IXP\".\n4. Optionally configure Priority, Labels, Action catalog name, or Enable actionable messages if needed."
+  },
+  "model": {
+    "name": "gpt-5.4",
+    "deployment": "gpt-5.4",
+    "api_version": "2025-04-01-preview"
+  },
+  "usage": {
+    "prompt_tokens": 2071,
+    "completion_tokens": 282,
+    "total_tokens": 2353
+  },
+  "generated_at": "2026-03-30T05:19:15.665463+00:00"
+}

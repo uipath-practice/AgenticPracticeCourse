@@ -1,0 +1,23 @@
+{
+  "version": "1.0",
+  "image_file": "1-validation-arguments.png",
+  "image_path": "docs/invoice-matching-ixp/configure-human-validation.images/1-validation-arguments.png",
+  "lesson": "configure-human-validation",
+  "exercise": "invoice-matching-ixp",
+  "extraction": {
+    "ocr_text": "Human in the loop\n\nFailed Match\n\nValidate\nDocuments\n\nInputs:\n• in_SuggestedResponse\n  (Email draft by Agent)\n• in_DocumentsHTML\n  (Invoice/PO side by side)\n• in_InvoicePDF\n• in_POID\n\nOutputs:\n• App Action: “Approved” or “Rejected”\n• out_ApproverResponse\n  (Text of rejection email to supplier\n  edited by reviewer)",
+    "description": "This screenshot is an informational slide or diagram rather than a live UiPath product interface. It illustrates the human validation step in the Invoice Matching with IXP flow, showing a failed match being routed to a \"Validate Documents\" human-in-the-loop stage. The diagram lists the inputs passed into validation and the outputs returned after the reviewer approves or rejects the invoice.",
+    "step_instructions": "Informational screenshot — no user action required. It shows that when invoice matching fails, the process sends the suggested response, side-by-side invoice/PO HTML, invoice PDF, and PO ID into a human validation step, which returns an app action of “Approved” or “Rejected” and an edited approver response."
+  },
+  "model": {
+    "name": "gpt-5.4",
+    "deployment": "gpt-5.4",
+    "api_version": "2025-04-01-preview"
+  },
+  "usage": {
+    "prompt_tokens": 1714,
+    "completion_tokens": 261,
+    "total_tokens": 1975
+  },
+  "generated_at": "2026-03-30T05:18:34.190131+00:00"
+}
