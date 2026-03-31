@@ -130,3 +130,6 @@ Next, try launching the Maestro Orchestration Process from Studio Web by clickin
 ![Debug mode launch](configure-robot.images/10-run-process.png){ .screenshot }
 
 Have a look at the execution details: if you see a file name in outputs, you have completed this lesson and it's time to move to the **[next one](3-configure-agent.md)**.
+
+!!! tip "Check out the PDF file structure"
+    You can find the PDF file by it's name in Storage Bucket: **InvoicesStorage** located in **2-Way Matching IXP** folder.

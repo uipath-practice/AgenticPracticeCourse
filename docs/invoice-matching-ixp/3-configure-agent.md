@@ -73,13 +73,13 @@ Just like a Robot, Agent has its inputs and outputs, called Arguments. Click on 
 
 | Field | Value |
 |-------|-------|
-| Name | ```InvoicePDF``` |
+| Name | ```in_InvoicePDF``` |
 | Type | File |
 | Description | ```Invoice File``` |
 
 For Output arguments, copy paste below JSON into editor after switching to "**Editor mode**":
 |50|
-![Input argument InvoicePDF configured as File type](configure-agent.images/4-arguments-input.png){ .screenshot }
+![Input argument in_InvoicePDF configured as File type](configure-agent.images/4-arguments-input.png){ .screenshot }
 ]]]
 
 
@@ -139,7 +139,7 @@ As you remember from previous exercise:
 
 - **User Prompt** is the specific request or task input by the end user, the "What".
 |30|
-![User Prompt with InvoicePDF variable](configure-agent.images/8-prompts.png){ .screenshot }
+![User Prompt with in_InvoicePDF variable](configure-agent.images/8-prompts.png){ .screenshot }
 ]]]
 
 [[[
@@ -197,7 +197,7 @@ Always double-check your analysis and outputs for accuracy before finalizing you
 Enter the following **User Prompt**:
 |30|
 ```
-Analyze {{InvoicePDF}}.
+Analyze {{in_InvoicePDF}}.
 ```
 ]]]
 
@@ -269,18 +269,23 @@ Inside of **Main.xaml** workflow, add a **Query Entity Records** activity (from 
 
 Apply the filter: **POID equals in_POID**.
 
+!!! tip "Important"
+    If workflow returns no records, make sure that POID equals value of input argument `in_POID` and not static text "*in_POID*"
+
 |30|
 
 ![Query Entity Records activity with POID filter](configure-agent.images/15-query-entity.png){ .screenshot }
 
 ]]]
 
-Here is what you should get in the end:
+Here is what you should get in the end. Try running it if you have a PO ID from one of the invoices.
 
 ![RPA workflow view](configure-agent.images/16-rpa-complete.png){ .screenshot }
 
+!!! warning "This RPA workflow is good enough only for this excercise since this workflow has no input validation and no exception handling"
+
 [[[
-Back in your Agent's canvas, add this RPA Workflow as a Tool.
+Back in your Agent's definition, add this RPA Workflow as a Tool. Make sure you pick the one "In current solution".
 
 Just in case, give a hint to Agent about **in_POID** input argument:
 ```
