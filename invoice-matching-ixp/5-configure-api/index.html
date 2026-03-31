@@ -231,7 +231,7 @@
     
     
       <li class="md-tabs__item md-tabs__item--active">
-        <a href="../0-index/" class="md-tabs__link">
+        <a href="../" class="md-tabs__link">
           
   
   
@@ -530,7 +530,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../0-index/" class="md-nav__link">
+      <a href="../" class="md-nav__link">
         
   
   
@@ -893,12 +893,12 @@
 <div class="admonition tip">
 <p class="admonition-title">Here is our plan for this lesson:</p>
 <ol>
-<li>Send an email to the supplier when an invoice is rejected, using the draft response from the Agent.</li>
-<li>Store approved invoice data in <strong>Data Fabric</strong> so the finance team can process payments.</li>
+<li>Send a message to the supplier whenever an invoice is rejected, using the response text from validation step and <strong>Gmail Connector</strong>.</li>
+<li>Store approved invoice data in <strong>Data Fabric</strong> so the finance team can process payments using their own automation.</li>
 </ol>
 </div>
 <h2 id="goal">Goal<a class="headerlink" href="#goal" title="Permanent link">&para;</a></h2>
-<p>Complete the end-to-end process by adding two final tasks: a rejection email connector on the <strong>Reject</strong> path, and a data storage connector on the <strong>Approve</strong> path. Both use <strong>Integration Service</strong> connectors already configured in your tenant.</p>
+<p>Complete the end-to-end process by adding two final tasks: a rejection email connector on the <strong>Reject</strong> path, and a data storage connector on the <strong>Approve</strong> path. Both use <strong>Integration Service</strong> connectors already configured in <strong>AgenticPracrtice</strong> tenant.</p>
 <h2 id="integration-service-and-data-fabric">Integration Service and Data Fabric<a class="headerlink" href="#integration-service-and-data-fabric" title="Permanent link">&para;</a></h2>
 <p>UiPath <strong>Integration Service</strong> is the fastest and most convenient way to automate API-enabled applications. It handles authorization and authentication, centralizing API connection management and enabling faster SaaS platform integration.</p>
 <p>Two connections are already configured in your tenant:</p>
@@ -915,9 +915,7 @@
 <h2 id="steps">Steps<a class="headerlink" href="#steps" title="Permanent link">&para;</a></h2>
 <h3 id="1-configure-the-rejection-email-task">1. Configure the rejection email task<a class="headerlink" href="#1-configure-the-rejection-email-task" title="Permanent link">&para;</a></h3>
 <p>The process should send a rejection email when an invoice fails validation. The email uses the draft response that the Agent generated and the reviewer had a chance to edit.</p>
-<ol>
-<li>In your <strong>Maestro Agentic Process</strong>, select the task on the <strong>Reject</strong> path and set the action type to <strong>Execute Connector Activity</strong>.</li>
-</ol>
+<p>In your <strong>Maestro Agentic Process</strong>, select the task on the <strong>Reject</strong> path and set the action type to <strong>Execute Connector Activity</strong>.</p>
 <div class="img-cols img-cols-30">
 <div>
 <p>Configure the task to use the Gmail connector with the shared Gmail connection and Send Email activity.
@@ -928,9 +926,7 @@
   </p>
 </div>
 </div>
-<ol>
-<li>Configure the <strong>Send Email</strong> activity: enter the recipient address, subject, and map the email body to the Agent's <code>out_SuggestedResponse</code> variable (or the reviewer's edited version, <code>out_ApproverResponse</code>).</li>
-</ol>
+<p>Configure the <strong>Send Email</strong> activity: enter the recipient address, subject, and map the email body to the Agent's <code>out_SuggestedResponse</code> variable (or the reviewer's edited version, <code>out_ApproverResponse</code>).</p>
 <div class="img-cols img-cols-30">
 <div>
 <p>In the Send Email activity, enter the recipient email address, a suitable subject line, and select the response variable from the Agent or reviewer as the email body.
@@ -941,14 +937,10 @@
   </p>
 </div>
 </div>
-<ol>
-<li>Save the task configuration.</li>
-</ol>
+<p>Save the task configuration.</p>
 <h3 id="2-configure-the-data-storage-task">2. Configure the data storage task<a class="headerlink" href="#2-configure-the-data-storage-task" title="Permanent link">&para;</a></h3>
 <p>For approved invoices, pass the invoice data to <strong>Data Fabric</strong> so the finance team's own UiPath automation can pick it up and process payments.</p>
-<ol>
-<li>Select the task on the <strong>Approve</strong> path and set the action type to <strong>Execute Connector Activity</strong>.</li>
-</ol>
+<p>Select the task on the <strong>Approve</strong> path and set the action type to <strong>Execute Connector Activity</strong>.</p>
 <div class="img-cols img-cols-30">
 <div>
 <p>Configure the task to use the Data Fabric connector with the shared connection and Create Entity Record activity for the Payments Queue object.
@@ -959,29 +951,15 @@
   </p>
 </div>
 </div>
-<ol>
-<li>
 <p>Map the invoice data output to the <code>InvoiceData</code> input field. This passes all approved invoice information to the payments queue.</p>
-</li>
-<li>
 <p>Save the task configuration.</p>
-</li>
-</ol>
 <h3 id="3-test-both-paths">3. Test both paths<a class="headerlink" href="#3-test-both-paths" title="Permanent link">&para;</a></h3>
 <p>Now run the process several times to trigger both scenarios.</p>
-<ol>
-<li>
 <p>Click <strong>Debug</strong> and let the process run. With <code>in_FailureProbability</code> set high, you'll see both rejected and approved invoices.</p>
-</li>
-<li>
 <p>Check <strong>Data Fabric</strong> to see approved invoices accumulating in the Payments Queue:</p>
-</li>
-</ol>
-<p><img alt="Approved invoices in Data Fabric Payments Queue" class="screenshot" src="../configure-api.images/5-payments-queue-W.png" width="900" /></p>
-<ol>
-<li>Check your inbox for rejection emails from the shared Gmail account. Each email contains the discrepancies identified by the Agent and reviewed by the human validator:</li>
-</ol>
-<p><img alt="Rejection email received with generated invoice comparison" class="screenshot" src="../configure-api.images/6-actual-email-received-W.png" width="900" /></p>
+<p><img alt="Approved invoices in Data Fabric Payments Queue" class="screenshot" src="../configure-api.images/5-payments-queue-W.png" width="800" /></p>
+<p>Check your inbox for rejection emails from the shared Gmail account. Each email contains the discrepancies identified by the Agent and reviewed by the human validator:</p>
+<p><img alt="Rejection email received with generated invoice comparison" class="screenshot" src="../configure-api.images/6-actual-email-received-W.png" width="600" /></p>
 <p>Everything works as planned! The process is now complete — it retrieves invoice PDFs, extracts and validates data using IXP, routes exceptions to human review, sends rejection emails, and stores approved records for payment processing. All orchestrated by Maestro.</p>
 
 
