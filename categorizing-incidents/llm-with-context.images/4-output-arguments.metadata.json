@@ -1,0 +1,23 @@
+{
+  "version": "1.0",
+  "image_file": "4-output-arguments.png",
+  "image_path": "docs/categorizing-incidents/llm-with-context.images/4-output-arguments.png",
+  "lesson": "llm-with-context",
+  "exercise": "categorizing-incidents",
+  "extraction": {
+    "ocr_text": "Data manager\n\nInputs\n\nTt IncidentShortDescription\n\nTt IncidentDescription\n\nOutputs\n\n1  {\n2      \"type\": \"object\",\n3      \"properties\": {\n4          \"IncidentCategory\": {\n5              \"type\": \"string\",\n6              \"description\": \"The category of the Se[...]\n7          },\n8          \"IncidentSubcategory\": {\n9              \"type\": \"string\",\n10             \"description\": \"The subcategory of the [...]\n11         },\n12         \"AssigneeEmail\": {\n13             \"type\": \"string\",\n14             \"description\": \"The assignee email for [...]\n15         },\n16         \"ExecutionDetails\": {\n17             \"type\": \"string\",\n18             \"description\": \"Details and results of [...]\n19         }\n20     },\n21     \"title\": \"Outputs\"\n22 }\n\n</>",
+    "description": "This screenshot shows the Data Manager panel in UiPath Studio Web Agent Builder. The Inputs section lists two string input arguments, IncidentShortDescription and IncidentDescription, and the Outputs section is open in JSON editor mode. The output schema defines four output arguments: IncidentCategory, IncidentSubcategory, AssigneeEmail, and ExecutionDetails, each as string properties with descriptions.",
+    "step_instructions": "Informational screenshot — no user action required. It shows the completed Output arguments configuration in the Data Manager JSON editor, with the </> editor mode enabled and the output schema already populated."
+  },
+  "model": {
+    "name": "gpt-5.4",
+    "deployment": "gpt-5.4",
+    "api_version": "2025-04-01-preview"
+  },
+  "usage": {
+    "prompt_tokens": 9810,
+    "completion_tokens": 336,
+    "total_tokens": 10146
+  },
+  "generated_at": "2026-03-31T05:36:04.384020+00:00"
+}

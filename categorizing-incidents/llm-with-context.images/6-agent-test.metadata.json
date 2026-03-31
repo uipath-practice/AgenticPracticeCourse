@@ -1,0 +1,26 @@
+{
+  "version": "1.0",
+  "image_file": "6-agent-test.png",
+  "image_path": "docs/categorizing-incidents/llm-with-context.images/6-agent-test.png",
+  "lesson": "llm-with-context",
+  "exercise": "categorizing-incidents",
+  "extraction": {
+    "ocr_text": "Debug\nDebug step-by-step\nPublish\nExplorer\n+\nScore: NA\nServiceNow Incidents Management Solution\nServiceNow Incidents Management Age[...]\nDefinition\nEvaluation sets\nEvaluators\nAdd project to solution\nAgentic process\nAgent\nRPA Workflow\nApp\nEscalation app\nImport existing",
+    "description": "This screenshot shows UiPath Studio Web in the Explorer panel for the solution \"ServiceNow Incidents Management Solution.\" The agent project is expanded, with \"Definition\" selected, and the Add project menu is open from the plus icon in the top-right. The menu lists project types that can be added to the solution, and the \"Import existing\" option at the bottom is highlighted for importing an existing project.",
+    "step_instructions": [
+      "Click on the + button in the Explorer header to open the Add project to solution menu.",
+      "Click on Import existing to import an existing project into the current solution."
+    ]
+  },
+  "model": {
+    "name": "gpt-5.4",
+    "deployment": "gpt-5.4",
+    "api_version": "2025-04-01-preview"
+  },
+  "usage": {
+    "prompt_tokens": 7186,
+    "completion_tokens": 213,
+    "total_tokens": 7399
+  },
+  "generated_at": "2026-03-31T05:36:09.702951+00:00"
+}

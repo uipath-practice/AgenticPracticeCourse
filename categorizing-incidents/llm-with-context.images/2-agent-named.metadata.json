@@ -1,0 +1,23 @@
+{
+  "version": "1.0",
+  "image_file": "2-agent-named.png",
+  "image_path": "docs/categorizing-incidents/llm-with-context.images/2-agent-named.png",
+  "lesson": "llm-with-context",
+  "exercise": "categorizing-incidents",
+  "extraction": {
+    "ocr_text": "UiPath Studio\nServiceNow Incidents Management Solution > ServiceN[...]\n\nDebug\nDebug step-by-step\nPublish\n\nExplorer\n+\n\nScore: NA\n0%\n\nServiceNow Incidents Management Solution\nServiceNow Incidents Manage[...]\n\nDefinition\nEvaluation sets\nEvaluators\n\nRename\nProperties\n\nDebug project\nF5\n\nDebug project step-by-step\n⇧F5\n\nDelete",
+    "description": "This screenshot shows UiPath Studio Web in the Agent Builder/Studio Web project workspace with the Explorer panel open. The solution has been renamed to “ServiceNow Incidents Management Solution,” and the agent item beneath it is selected with its context menu open. The Rename option in the right-click menu is highlighted, indicating the next action is to rename the agent.",
+    "step_instructions": "1. In the Explorer panel, right-click the agent under the solution.\n2. Click on Rename in the context menu.\n3. In the agent name field, enter ServiceNow Incidents Management Agent."
+  },
+  "model": {
+    "name": "gpt-5.4",
+    "deployment": "gpt-5.4",
+    "api_version": "2025-04-01-preview"
+  },
+  "usage": {
+    "prompt_tokens": 8591,
+    "completion_tokens": 225,
+    "total_tokens": 8816
+  },
+  "generated_at": "2026-03-31T05:36:02.750735+00:00"
+}

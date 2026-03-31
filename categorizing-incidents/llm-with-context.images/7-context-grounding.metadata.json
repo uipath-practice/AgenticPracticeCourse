@@ -1,0 +1,23 @@
+{
+  "version": "1.0",
+  "image_file": "7-context-grounding.png",
+  "image_path": "docs/categorizing-incidents/llm-with-context.images/7-context-grounding.png",
+  "lesson": "llm-with-context",
+  "exercise": "categorizing-incidents",
+  "extraction": {
+    "ocr_text": "Add project\n\ntemplate\n\nSNOW Assignee Lookup Automation    SNOW Assignee Loo...\n\n2WM Validation App Template\n2WM Validation App v2\n\nProject details\n\nCollaborators\nSS  owner\nsergey.shumilov@uipath.com\neditor\nRoadshowANZ\n\nStatus\nDraft\n\nLast modified\n1 minute ago\n\n1 project selected\n\nCancel\nAdd",
+    "description": "This screenshot shows a Studio Web modal dialog titled \"Add project\" used to import or add an existing project into the current solution. The search box contains the term \"template,\" and the project \"SNOW Assignee Lookup Automation\" is selected in the list. On the right, the Project details panel displays collaborators, status, and last modified information, and the Add button is available in the bottom-right corner.",
+    "step_instructions": "1. In the search field, enter \"template\" to filter the available projects.\n2. Select the checkbox for \"SNOW Assignee Lookup Automation.\"\n3. Click on the \"Add\" button in the bottom-right corner to import the selected project."
+  },
+  "model": {
+    "name": "gpt-5.4",
+    "deployment": "gpt-5.4",
+    "api_version": "2025-04-01-preview"
+  },
+  "usage": {
+    "prompt_tokens": 4145,
+    "completion_tokens": 253,
+    "total_tokens": 4398
+  },
+  "generated_at": "2026-03-31T05:36:11.294080+00:00"
+}

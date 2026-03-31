@@ -1,0 +1,26 @@
+{
+  "version": "1.0",
+  "image_file": "8-context-source.png",
+  "image_path": "docs/categorizing-incidents/llm-with-context.images/8-context-source.png",
+  "lesson": "llm-with-context",
+  "exercise": "categorizing-incidents",
+  "extraction": {
+    "ocr_text": "Score: NA\n0%\nForm\nFlow\nPreview\n\nAnalyze and categorize the following\nServiceNow incident:\n\nIncident Short Description:\n{{IncidentShortDescription}}\nIncident Description:\n{{IncidentDescription}}\n\nDetermine the appropriate category,\nsubcategory, and assignee email for this\nincident based on the provided\ninformation.\n\nTools\nAdd tool\nEnable the agent to access data and\nperform actions.\n\nContexts\nAdd context\nAdd contexts the agent can query.\nServiceNow Incidents Ca...\nUse this context when you need to\nestablish the Category, Subcategory\nand Assignee of ServiceNow incidents.\n\nChoose tool\nSearch all tools\n\nSuggested tools\nAnalyze Attachments\nPreview\nAnalyze one or more files with an LLM to extract, synth...\nWeb Summary\nGenerate AI-based summaries of web search results, syn...\nWeb Reader\nExtract readable text from a publicly accessible URL and ...\nWeb Search\nWeb search executes a search of the public domain usin...\n\nToolbox\nRPA workflow\nAutomated process that connect multiple steps\nAgent\nAnother agent performing a smaller job\nActivity\nSingle activity, such as sending an email\nMCP server\nPreview\nExchange of context between agents and external\ntools\nIXP\nPreview\nIXP models for structured, schema driven data\nextraction from documents",
+    "description": "This screenshot shows UiPath Studio Web Agent Builder with the agent configuration page open. On the left, the agent already has a user prompt, a Tools section with an Add tool button, and a configured context named \"ServiceNow Incidents Ca...\". On the right, the Choose tool side panel is open, and the RPA workflow option in the Toolbox is highlighted, indicating the user is about to add an imported automation as a tool.",
+    "step_instructions": [
+      "Click on Add tool in the Tools section.",
+      "In the Choose tool panel, select RPA workflow from the Toolbox."
+    ]
+  },
+  "model": {
+    "name": "gpt-5.4",
+    "deployment": "gpt-5.4",
+    "api_version": "2025-04-01-preview"
+  },
+  "usage": {
+    "prompt_tokens": 3704,
+    "completion_tokens": 432,
+    "total_tokens": 4136
+  },
+  "generated_at": "2026-03-31T05:36:16.900598+00:00"
+}
