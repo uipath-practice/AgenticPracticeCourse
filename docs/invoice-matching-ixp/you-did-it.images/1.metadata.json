@@ -1,0 +1,23 @@
+{
+  "version": "1.0",
+  "image_file": "1.png",
+  "image_path": "docs/invoice-matching-ixp/you-did-it.images/1.png",
+  "lesson": "you-did-it",
+  "exercise": "invoice-matching-ixp",
+  "extraction": {
+    "ocr_text": "Instance management    Monitoring    Optimize\n\nManual\nStart\n\nRetrieve data\nfor next PO and\nInvoice\n\nROBOT: Retrieve Invoice &\nPurchase Order (JSON objects)\n\nCompare\ninvoice against\nPurchase Order\n\nAGENT: compare documents and\nfind discrepancies\n\nComparison\nresults\n\nIssues detected\n\nManual Review\nand Validation\n\nHuman in the loop: Validation\nTask for review. Decision:\nApprove or Reject.\n\nReviewer\nDecision\n\nReject\n\nSend rejection\nEmail to Vendor\n\nIntegration Service\n[GMail]: Send Email\nMessage\n\nFinish\n\nApprove\n\nFull-Match\n\nUpdate\nFinancial\nSystems\n\nData Service: add\ntransaction record for\npayment processing\n\nFinish\n\nSearch\n\nVersion: 1.0.0\nDate range: Last month\nStatus: Running\nError message: None\nAll filters\n\nStatus\nProcess instance ID\nVersion\nStarted at\nLast update\nDuration\nStarted by\n\n2WM Process-81676884\n1.0.0\n2025-10-22 15:23:15\n-\n28 sec\nsergey.shumilov@outlook.sg\n\n2WM Process-81676882\n1.0.0\n2025-10-22 15:23:14\n-\n29 sec\nsergey.shumilov@outlook.sg\n\n1 - 2 / 2\nPage 1 / 1\nItems\n10",
+    "description": "This screenshot shows UiPath Maestro in the Instance management view. The top panel displays a BPMN-style process diagram for the invoice matching workflow, including robot, agent, human review, email rejection, and financial system update steps. The bottom panel lists running process instances with filters applied for version 1.0.0, last month, status Running, and no error message, showing two active instances and their durations.",
+    "step_instructions": "Informational screenshot — no user action required. It shows the completed invoice-matching process published and running in Maestro, with the process map visible above and the list of running process instances below."
+  },
+  "model": {
+    "name": "gpt-5.4",
+    "deployment": "gpt-5.4",
+    "api_version": "2025-04-01-preview"
+  },
+  "usage": {
+    "prompt_tokens": 2434,
+    "completion_tokens": 464,
+    "total_tokens": 2898
+  },
+  "generated_at": "2026-03-31T03:09:41.075388+00:00"
+}

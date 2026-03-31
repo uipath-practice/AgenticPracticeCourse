@@ -89,15 +89,11 @@ Let's assume that there is a queue of Invoices for processing and an external tr
 RPA Process called "**RetrieveInvoiceDocument**" will simulate retrieving data and output sample Invoice as a PDF File. It will also point to file name in Storage Bucket.
 ]]]
 
----
-
 [[[
 Here is a sample invoice document that you might get from the **RetrieveInvoiceDocument** automation. Quite standard.
 |30|
 ![Sample invoice PDF from RetrieveInvoiceDocument](configure-robot.images/6-invoice-sample.png){ .screenshot }
 ]]]
-
----
 
 The process has already been configured in Orchestrator in the **2-Way Matching IXP** folder. Get familiar by giving it a run and explore its inputs and outputs:
 

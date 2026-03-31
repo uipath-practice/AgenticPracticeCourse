@@ -57,7 +57,7 @@ Find the **2WM Validation App IXP Template** in the list, select it, and click *
 
 After the app appears in your solution, review its structure to understand the design approach. 
 
-- Structure of the App **UI elements** - this is how validation task appears in from of the user.
+- Structure of the App **UI elements** - this is how validation task appears in front of the user.
 
 - App Actions and **Action Schema** - this covers possible outcomes of the user decision or action.
 
@@ -119,7 +119,7 @@ Select the **Exclusive Gateway** that routes the process after the human task.
 
 ![Gateway properties showing Reject and Approve paths](configure-human-validation.images/10-configure-gateway.png){ .screenshot width="800" }
 
-Set **Reject** as the default path, keeping in mind that a real business business process might have different approach. 
+Set **Reject** as the default path, keeping in mind that a real business process might have a different approach.
 
 For the **Approve** path, click the Expression Editor button to configure the condition.
 
@@ -165,4 +165,4 @@ Run a few more tests — try both Approve and Reject — to confirm both paths r
 
 Let's agree that the App could use a better design, but all in all — it does the job well enough.
 
-Feel free to make a couple of additional test runs, and move on to the **[next lesson](5-configure-api.md)**. We are almost done!
+Run a couple more tests and move on to the **[next lesson](5-configure-api.md)**. We are almost done!

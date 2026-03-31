@@ -1,0 +1,23 @@
+{
+  "version": "1.0",
+  "image_file": "2.png",
+  "image_path": "docs/invoice-matching-ixp/you-did-it.images/2.png",
+  "lesson": "you-did-it",
+  "exercise": "invoice-matching-ixp",
+  "extraction": {
+    "ocr_text": "Instance management    Monitoring    Optimize\n\nHide heatmap\n\nIntegration Service\n(GMail): Send Email\nMessage\n\n2\nSend rejection\nEmail to Vendor\n\n2\nFinish\n\nHuman in the loop: Validation\nTask for review. Decision:\nApprove or Reject\n\n2\nManual Review\nand Validation\n\nReject\n\n2\nReviewer\nDecision\n\nApprove\n\nROBOT: Retrieve Invoice &\nPurchase Order (JSON objects)\n\n14\nManual\nStart\n\n14\nRetrieve data\nfor next PO and\nInvoice\n\n14\nCompare\nInvoice against\nPurchase Order\n\nAGENT: compare documents and\nfind discrepancies\n\nIssues detected\n\n14\nComparison\nresults\n\nFull-Match\n\n12\nUpdate\nFinancial\nSystems\n\n12\nFinish\n\nData Service: add\ntransaction record for\npayment processing\n\n+\n−",
+    "description": "This screenshot shows the UiPath process Monitoring view with a workflow diagram and heatmap overlay enabled. The process visualizes an invoice matching flow with steps for retrieving invoice and PO data, comparing documents, manual review and validation, reviewer decision, sending rejection email, and updating financial systems. Colored heatmap intensity is strongest around the Manual Review and Validation activity, indicating concentrated activity there.",
+    "step_instructions": "Informational screenshot — no user action required. It shows the Monitoring tab of the UiPath process with heatmap visualization enabled, highlighting execution/activity counts across the invoice matching workflow."
+  },
+  "model": {
+    "name": "gpt-5.4",
+    "deployment": "gpt-5.4",
+    "api_version": "2025-04-01-preview"
+  },
+  "usage": {
+    "prompt_tokens": 1705,
+    "completion_tokens": 323,
+    "total_tokens": 2028
+  },
+  "generated_at": "2026-03-31T03:09:40.195665+00:00"
+}

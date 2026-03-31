@@ -7,7 +7,7 @@
 
 ## Goal
 
-Complete the end-to-end process by adding two final tasks: a rejection email connector on the **Reject** path, and a data storage connector on the **Approve** path. Both use **Integration Service** connectors already configured in **AgenticPracrtice** tenant.
+Complete the end-to-end process by adding two final tasks: a rejection email connector on the **Reject** path, and a data storage connector on the **Approve** path. Both use **Integration Service** connectors already configured in **AgenticPractice** tenant.
 
 ## Integration Service and Data Fabric
 
@@ -16,7 +16,7 @@ UiPath **Integration Service** is the fastest and most convenient way to automat
 Two connections are already configured in your tenant:
 
 - **Gmail** — a shared mailbox for sending automated emails
-- **Data Fabric** — shared data storage for structured records
+- **Data Fabric** — shared data storage for structured records (tables, files, etc.)
 
 Your platform administrators have prepared these connections. You don't need to configure authentication.
 
@@ -31,45 +31,45 @@ Your platform administrators have prepared these connections. You don't need to 
 
 The process should send a rejection email when an invoice fails validation. The email uses the draft response that the Agent generated and the reviewer had a chance to edit.
 
-In your **Maestro Agentic Process**, select the task on the **Reject** path and set the action type to **Execute Connector Activity**.
 
 [[[
-Configure the task to use the Gmail connector with the shared Gmail connection and Send Email activity.
+In your **Maestro Agentic Process**, select the task on the **Reject** path and set the action type to **Execute Connector Activity**.
+
+Use the "**Shared Gmail Connection**" and pick "**Send Email**" activity.
 |30|
 ![Send rejection email task configuration](configure-api.images/2-send-rejection.png){ .screenshot }
 ]]]
 
-Configure the **Send Email** activity: enter the recipient address, subject, and map the email body to the Agent's `out_SuggestedResponse` variable (or the reviewer's edited version, `out_ApproverResponse`).
 
 [[[
-In the Send Email activity, enter the recipient email address, a suitable subject line, and select the response variable from the Agent or reviewer as the email body.
-|30|
+
+Configure the **Send Email** activity: enter your email address as the recipient address, suitable subject line, and map the email body to the reviewer's edited version, `out_ApproverResponse`.
+
+|50|
 ![Gmail Send Email activity configuration](configure-api.images/3-gmail-configuration.png){ .screenshot }
 ]]]
 
-Save the task configuration.
 
-### 2. Configure the data storage task
+### 2. Configure the Data Fabric storage task
 
-For approved invoices, pass the invoice data to **Data Fabric** so the finance team's own UiPath automation can pick it up and process payments.
-
-Select the task on the **Approve** path and set the action type to **Execute Connector Activity**.
+Now we know what would happen with the rejected Invoices. For approved invoices, pass the invoice data to **Data Fabric** so the finance team's own UiPath automation can pick it up and process payments. They are using their own UiPath Automation connected to same data source, so all we need to do is to push our data there.
 
 [[[
-Configure the task to use the Data Fabric connector with the shared connection and Create Entity Record activity for the Payments Queue object.
+Select the task on the **Approve** path and set the action type to **Execute Connector Activity**.
+
+Configure the task to use the **Data Fabric** connector with the shared connection and **Create Entity Record** activity for the **Payments Queue** object.
+
+Map the invoice data output to the **InvoiceData** input field. This passes all approved invoice information to the payments queue.
+
 |30|
 ![Update Financial Systems task configuration](configure-api.images/4-update-records.png){ .screenshot }
 ]]]
 
-Map the invoice data output to the `InvoiceData` input field. This passes all approved invoice information to the payments queue.
 
-Save the task configuration.
 
 ### 3. Test both paths
 
-Now run the process several times to trigger both scenarios.
-
-Click **Debug** and let the process run. With `in_FailureProbability` set high, you'll see both rejected and approved invoices.
+Click **Debug** and let the process run. Remember that with `in_FailureProbability` parameter of RPA automation you can control how often you'll see rejected and approved invoices.
 
 Check **Data Fabric** to see approved invoices accumulating in the Payments Queue:
 
@@ -78,5 +78,3 @@ Check **Data Fabric** to see approved invoices accumulating in the Payments Queu
 Check your inbox for rejection emails from the shared Gmail account. Each email contains the discrepancies identified by the Agent and reviewed by the human validator:
 
 ![Rejection email received with generated invoice comparison](configure-api.images/6-actual-email-received-W.png){ .screenshot width="600" }
-
-Everything works as planned! The process is now complete — it retrieves invoice PDFs, extracts and validates data using IXP, routes exceptions to human review, sends rejection emails, and stores approved records for payment processing. All orchestrated by Maestro.

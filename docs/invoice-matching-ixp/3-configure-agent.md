@@ -24,7 +24,7 @@ Create the **2-Way Matching Agent** with two tools:
 
 The agent receives a PDF invoice, extracts structured data (including PO details), looks up the corresponding PO, and returns a matching decision with supporting outputs.
 
-## Why Use the LLM for Matching
+## Why use the LLM for Matching
 
 One of the steps in our process is to compare Purchase Order and Invoice.
 
@@ -126,7 +126,7 @@ For Output arguments, copy paste below JSON into editor after switching to "**Ed
 [[[
 ![ChatGPT wizdom](configure-agent.images/7-gpt-logo.png){ .screenshot }
 |30|
-> ***"Precision in prompts, like in coding, leads to powerful and predictable results. If your prompt is messy, expect messy output. Treat it like code, and write every word with purpose!"*** — another advice from gpt-4o
+> ***"Precision in prompts, like in coding, leads to powerful and predictable results. If your prompt is messy, expect messy output. Treat it like code, and write every word with purpose!"*** — another piece of advice from gpt-4o
 ]]]
 
 
