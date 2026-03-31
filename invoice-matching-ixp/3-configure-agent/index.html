@@ -1012,7 +1012,7 @@
 <tbody>
 <tr>
 <td>Name</td>
-<td><code>InvoicePDF</code></td>
+<td><code>in_InvoicePDF</code></td>
 </tr>
 <tr>
 <td>Type</td>
@@ -1028,7 +1028,7 @@
   </p>
 </div>
 <div>
-<p><img alt="Input argument InvoicePDF configured as File type" class="screenshot" src="../configure-agent.images/4-arguments-input.png" />
+<p><img alt="Input argument in_InvoicePDF configured as File type" class="screenshot" src="../configure-agent.images/4-arguments-input.png" />
   </p>
 </div>
 </div>
@@ -1097,7 +1097,7 @@
 </ul>
 </div>
 <div>
-<p><img alt="User Prompt with InvoicePDF variable" class="screenshot" src="../configure-agent.images/8-prompts.png" />
+<p><img alt="User Prompt with in_InvoicePDF variable" class="screenshot" src="../configure-agent.images/8-prompts.png" />
   </p>
 </div>
 </div>
@@ -1156,7 +1156,7 @@
   </p>
 </div>
 <div>
-<p><div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Analyze {{InvoicePDF}}.
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Analyze {{in_InvoicePDF}}.
 </code></pre></div>
   </p>
 </div>
@@ -1225,19 +1225,26 @@
 </div>
 <div class="img-cols img-cols-30">
 <div>
-<p>Apply the filter: <strong>POID equals in_POID</strong>.
-  </p>
+<p>Apply the filter: <strong>POID equals in_POID</strong>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Important</p>
+<p>If workflow returns no records, make sure that POID equals value of input argument <code>in_POID</code> and not static text "<em>in_POID</em>"
+</p>
+</div>
 </div>
 <div>
 <p><img alt="Query Entity Records activity with POID filter" class="screenshot" src="../configure-agent.images/15-query-entity.png" />
   </p>
 </div>
 </div>
-<p>Here is what you should get in the end:</p>
+<p>Here is what you should get in the end. Try running it if you have a PO ID from one of the invoices.</p>
 <p><img alt="RPA workflow view" class="screenshot" src="../configure-agent.images/16-rpa-complete.png" /></p>
+<div class="admonition warning">
+<p class="admonition-title">This RPA workflow is good enough only for this excercise since this workflow has no input validation and no exception handling</p>
+</div>
 <div class="img-cols img-cols-30">
 <div>
-<p>Back in your Agent's canvas, add this RPA Workflow as a Tool.</p>
+<p>Back in your Agent's definition, add this RPA Workflow as a Tool. Make sure you pick the one "In current solution".</p>
 <p>Just in case, give a hint to Agent about <strong>in_POID</strong> input argument:
 <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>Purchase Order ID. it starts with &quot;PO-&quot; followed by few digits, for example: &quot;PO-123456&quot;
 </code></pre></div></p>
