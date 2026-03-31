@@ -35,10 +35,10 @@ docs/
 
 ### Naming conventions
 - Exercise folder names: lowercase, hyphenated (`categorizing-incidents`, `invoice-matching-ixp`)
-- Overview page: `0-index.md`
+- Overview page: `index.md` (not `0-index.md`) — must be named `index.md` so folder URL serves it by default
 - Step file names: `N-verb-noun.md` — numeric prefix (1–9) followed by descriptive action. Examples: `1-create-bpmn.md`, `2-configure-robot.md`, `3-configure-agent.md`
 - Outro page (if used): `you-did-it.md` or `next-steps.md` (no numeric prefix)
-- File numbering should match the sequence of steps to prevent navigation confusion
+- Numeric prefixes on steps clarify sequence for source file editing; nav labels in `mkdocs.yml` indicate order to readers
 
 ### Nav registration (mkdocs.yml)
 **Always update `nav:` in `mkdocs.yml` when adding, removing, or renaming a page.**

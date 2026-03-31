@@ -20,7 +20,7 @@ This workshop guides you through building real agentic automation solutions on t
 
 [Start Exercise 1 →](categorizing-incidents/index.md)
 
-[Start Exercise 2 →](invoice-matching-ixp/0-index.md)
+[Start Exercise 2 →](invoice-matching-ixp/index.md)
 
 Or use navigation on the top to access lessons!
 
