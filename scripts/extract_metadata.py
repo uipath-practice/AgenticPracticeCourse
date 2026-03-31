@@ -1,13 +1,17 @@
 """Main CLI entry point for screenshot metadata extraction."""
 
+from __future__ import annotations
+
 import argparse
 import sys
 import time
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
+from typing import Optional
 
 from .config import DOCS_ROOT, get_openai_client
 from .context_resolver import resolve_context
+from .doc_context import update_doc_context
 from .image_scanner import ImageTask, scan_images
 from .llm_client import build_prompt, extract_from_image
 from .metadata_writer import build_metadata, write_metadata
@@ -17,6 +21,7 @@ def process_image(
     client,
     task: ImageTask,
     embedding_client=None,
+    doc_chunks: Optional[list] = None,
     verbose: bool = False,
 ) -> dict:
     """Process a single image: resolve context, call LLM, write metadata.
@@ -25,7 +30,11 @@ def process_image(
     """
     try:
         # Resolve context
-        context = resolve_context(task, embedding_client=embedding_client)
+        context = resolve_context(
+            task,
+            embedding_client=embedding_client,
+            doc_chunks=doc_chunks,
+        )
 
         # Build prompt
         system_prompt = build_prompt(
@@ -116,6 +125,11 @@ def main():
         help="Disable RAG context (skip vector store queries).",
     )
     parser.add_argument(
+        "--no-doc-context",
+        action="store_true",
+        help="Skip loading documentation context from documentation.md.",
+    )
+    parser.add_argument(
         "--verbose",
         action="store_true",
         help="Print detailed progress.",
@@ -148,6 +162,21 @@ def main():
     client = get_openai_client()
     embedding_client = None if args.no_rag else client
 
+    # Load documentation context per exercise (before processing images)
+    doc_chunks_by_exercise: dict = {}
+    if not args.no_doc_context:
+        exercise_slugs = {task.exercise_slug for task in tasks if task.exercise_slug}
+        for slug in sorted(exercise_slugs):
+            exercise_folder = DOCS_ROOT / slug
+            doc_md = exercise_folder / "documentation.md"
+            if doc_md.exists():
+                print(f"Updating documentation context for: {slug}")
+                chunks = update_doc_context(exercise_folder)
+                doc_chunks_by_exercise[slug] = chunks
+                if chunks:
+                    print(f"  {len(chunks)} doc context chunks ready")
+                print()
+
     # Process images
     total = len(tasks)
     print(f"Processing {total} images with concurrency={args.concurrency}...\n")
@@ -159,8 +188,13 @@ def main():
         # Sequential processing
         for i, task in enumerate(tasks, 1):
             print(f"[{i}/{total}] {task.image_name}")
+            doc_chunks = doc_chunks_by_exercise.get(task.exercise_slug, [])
             result = process_image(
-                client, task, embedding_client=embedding_client, verbose=args.verbose
+                client,
+                task,
+                embedding_client=embedding_client,
+                doc_chunks=doc_chunks,
+                verbose=args.verbose,
             )
             results.append(result)
             if result["status"] == "success":
@@ -176,6 +210,7 @@ def main():
                     client,
                     task,
                     embedding_client=embedding_client,
+                    doc_chunks=doc_chunks_by_exercise.get(task.exercise_slug, []),
                     verbose=args.verbose,
                 ): task
                 for task in tasks

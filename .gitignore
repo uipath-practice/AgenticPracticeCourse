@@ -5,3 +5,4 @@ __pycache__/
 .DS_Store
 scripts/.env
 scripts/context/vector_store.json
+docs/**/documentation.cache.json

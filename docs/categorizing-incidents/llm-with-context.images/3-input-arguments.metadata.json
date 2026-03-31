@@ -1,0 +1,23 @@
+{
+  "version": "1.0",
+  "image_file": "3-input-arguments.png",
+  "image_path": "docs/categorizing-incidents/llm-with-context.images/3-input-arguments.png",
+  "lesson": "llm-with-context",
+  "exercise": "categorizing-incidents",
+  "extraction": {
+    "ocr_text": "Data manager\n\nInputs\n\nTt  IncidentShortDescription\n\nType*\nString\n\nDescription\nThe short description of the ServiceNow\nincident\n\nRequired\n\nTt  IncidentDescription\n\nType*\nString\n\nDescription\nThe description of the ServiceNow incident\n\nRequired",
+    "description": "This screenshot shows the Data Manager panel in UiPath Studio Web / Agent Builder with the Inputs section open. Two input arguments are configured: IncidentShortDescription and IncidentDescription, both with type String and ServiceNow-related descriptions. The Data Manager icon on the left sidebar is selected, and the second description field appears active for editing.",
+    "step_instructions": "1. Click on the Data Manager icon in the left sidebar.\n2. In the Inputs section, add or select the input argument IncidentShortDescription.\n3. In the Type field, select String.\n4. In the Description field, enter \"The short description of the ServiceNow incident\".\n5. Add or select the input argument IncidentDescription.\n6. In the Type field, select String.\n7. In the Description field, enter \"The description of the ServiceNow incident\".\n8. Leave the Required checkbox unchecked unless the exercise specifies otherwise."
+  },
+  "model": {
+    "name": "gpt-5.4",
+    "deployment": "gpt-5.4",
+    "api_version": "2025-04-01-preview"
+  },
+  "usage": {
+    "prompt_tokens": 9666,
+    "completion_tokens": 273,
+    "total_tokens": 9939
+  },
+  "generated_at": "2026-03-31T05:35:59.517344+00:00"
+}

@@ -1,5 +1,7 @@
 """Context ingestion pipeline — process documents and build vector store."""
 
+from __future__ import annotations
+
 import argparse
 import json
 import sys

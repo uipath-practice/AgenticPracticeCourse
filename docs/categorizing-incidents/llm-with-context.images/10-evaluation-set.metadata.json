@@ -1,0 +1,23 @@
+{
+  "version": "1.0",
+  "image_file": "10-evaluation-set.png",
+  "image_path": "docs/categorizing-incidents/llm-with-context.images/10-evaluation-set.png",
+  "lesson": "llm-with-context",
+  "exercise": "categorizing-incidents",
+  "extraction": {
+    "ocr_text": "Execution Trace\n\nAgent run - ServiceNow Incidents Management Agent\n  LLM call   gpt-4o-2024-11-20\n  Tool call   ServiceNow_Incidents_Categorization_Information\n  LLM call   gpt-4o-2024-11-20\n  Tool call   SNOW_Assignee_Lookup_Automation\n  LLM call   gpt-4o-2024-11-20\n  Agent output\n\nAgent output\n\nAdd to evaluation set\n\nResult   Metadata   Feedback\n\nOutput\n\nIncidentCategory: Inquiry / Help\nIncidentSubcategory: External Application\nAssigneeEmail: paul.martin@example.com\nExecutionDetails: The incident was categorized as 'Inquiry / Help' under the\nsubcategory 'External Application' because the issue involved\na third-party CRM software crashing on launch. Based on the\ncategorization, the on-duty assignee email was determined\nto be paul.martin@example.com.",
+    "description": "This screenshot shows UiPath Agent Builder in Studio Web with the Execution Trace panel on the left and the Agent output panel on the right. The trace displays a completed agent run for the ServiceNow Incidents Management Agent, including multiple LLM calls and two tool calls: one to the categorization context source and one to the SNOW assignee lookup automation. The Result tab is selected, showing the final output fields for incident category, subcategory, assignee email, and execution details, with an Add to evaluation set button available.",
+    "step_instructions": "Click on the completed agent run in the Execution Trace to review the sequence of LLM and tool calls. Verify the output in the Result tab, including IncidentCategory, IncidentSubcategory, and AssigneeEmail. Click on \"Add to evaluation set\" to save this successful test run as an evaluation case."
+  },
+  "model": {
+    "name": "gpt-5.4",
+    "deployment": "gpt-5.4",
+    "api_version": "2025-04-01-preview"
+  },
+  "usage": {
+    "prompt_tokens": 9374,
+    "completion_tokens": 403,
+    "total_tokens": 9777
+  },
+  "generated_at": "2026-03-31T05:35:53.878329+00:00"
+}

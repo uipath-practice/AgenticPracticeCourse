@@ -119,17 +119,25 @@ class VectorStore:
 _vector_store = VectorStore()
 
 
-def resolve_context(task: ImageTask, embedding_client=None) -> dict:
+def resolve_context(
+    task: ImageTask,
+    embedding_client=None,
+    doc_chunks: Optional[list] = None,
+) -> dict:
     """Resolve full context for an image task.
 
     Args:
         task: The ImageTask to resolve context for.
         embedding_client: Optional Azure OpenAI client for vector store queries.
+        doc_chunks: Optional list of pre-embedded documentation chunks from
+            the exercise's documentation.md. Provided by doc_context.update_doc_context().
 
     Returns:
         Dict with keys: lesson_title, exercise_name, lesson_context, alt_text,
         section_heading, rag_context.
     """
+    from .doc_context import query_doc_chunks
+
     # Find the lesson markdown file
     lesson_md_path = task.image_path.parent.parent / f"{task.lesson_slug}.md"
     lesson_content = _read_file(lesson_md_path)
@@ -156,21 +164,27 @@ def resolve_context(task: ImageTask, embedding_client=None) -> dict:
     if surrounding_context:
         context_parts.append(f"Surrounding lesson content:\n{surrounding_context}")
 
-    # Try to get RAG context from vector store
+    # Compute query embedding once, used for both vector store and doc chunks
+    query_embedding = None
     rag_context = ""
     if embedding_client:
+        query_text = f"{lesson_title} {section_heading} {alt_text}"
+        try:
+            from .config import AZURE_EMBEDDING_DEPLOYMENT
+
+            resp = embedding_client.embeddings.create(
+                model=AZURE_EMBEDDING_DEPLOYMENT,
+                input=query_text,
+            )
+            query_embedding = resp.data[0].embedding
+        except Exception as e:
+            print(f"  Warning: Embedding query failed: {e}")
+
+    # Vector store RAG
+    if query_embedding:
         _vector_store.load()
         if _vector_store.embeddings is not None:
-            # Build a query from the image context
-            query_text = f"{lesson_title} {section_heading} {alt_text}"
             try:
-                from .config import AZURE_EMBEDDING_DEPLOYMENT
-
-                resp = embedding_client.embeddings.create(
-                    model=AZURE_EMBEDDING_DEPLOYMENT,
-                    input=query_text,
-                )
-                query_embedding = resp.data[0].embedding
                 results = _vector_store.query(query_embedding, top_k=2)
                 if results:
                     rag_parts = [
@@ -185,6 +199,21 @@ def resolve_context(task: ImageTask, embedding_client=None) -> dict:
                         )
             except Exception as e:
                 print(f"  Warning: RAG query failed: {e}")
+
+    # Documentation context (exercise-specific doc pages)
+    if doc_chunks and query_embedding:
+        try:
+            doc_results = query_doc_chunks(doc_chunks, query_embedding, top_k=3)
+            if doc_results:
+                doc_parts = [
+                    f"[Official docs: {r['source']}]\n{r['text']}"
+                    for r in doc_results
+                ]
+                context_parts.append(
+                    f"Official UiPath documentation context:\n" + "\n---\n".join(doc_parts)
+                )
+        except Exception as e:
+            print(f"  Warning: Doc context query failed: {e}")
 
     lesson_context = "\n\n".join(context_parts)
 

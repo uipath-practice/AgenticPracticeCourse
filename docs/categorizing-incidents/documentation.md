@@ -1,0 +1,25 @@
+# Documentation References — Invoice Matching with IXP
+
+Add a link here for each new set of screenshots you upload to this exercise.
+The metadata extraction script (`python -m scripts.extract_metadata`) reads this file
+and embeds the linked documentation as context for image analysis. New links are
+fetched and embedded automatically on the next run; previously embedded links are
+not re-fetched.
+
+## Links
+
+https://docs.uipath.com/agents/automation-cloud/latest/user-guide/building-an-agent-in-studio-web
+
+https://docs.uipath.com/agents/automation-cloud/latest/user-guide/running-an-agent
+
+https://docs.uipath.com/agents/automation-cloud/latest/user-guide/agent-tools
+
+https://docs.uipath.com/agents/automation-cloud/latest/user-guide/configuring-simulations-for-tools
+
+https://docs.uipath.com/agents/automation-cloud/latest/user-guide/agent-contexts
+
+https://docs.uipath.com/agents/automation-cloud/latest/user-guide/agent-escalations-and-agent-memory
+
+https://docs.uipath.com/agents/automation-cloud/latest/user-guide/agent-evaluations
+
+https://docs.uipath.com/agents/automation-cloud/latest/user-guide/agent-prompts

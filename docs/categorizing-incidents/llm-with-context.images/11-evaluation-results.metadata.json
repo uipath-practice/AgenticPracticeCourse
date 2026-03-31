@@ -1,0 +1,23 @@
+{
+  "version": "1.0",
+  "image_file": "11-evaluation-results.png",
+  "image_path": "docs/categorizing-incidents/llm-with-context.images/11-evaluation-results.png",
+  "lesson": "llm-with-context",
+  "exercise": "categorizing-incidents",
+  "extraction": {
+    "ocr_text": "Evaluations    Results\n\nSearch\n\nGenerate to set    Add to set    Evaluate set\n\nEvaluation name ↕    Input    Ex..    Expected output    Simulation ...\n\nDatabase_MSSQL\nIncidentShortDescription: Database connection issue from RPA automations, I...\n-\nIncidentCategory: Database, IncidentSubcategory: MS SQL Server, AssigneeEmail: bud.richman@example.cc\n-\n\nSoftware_Email\nIncidentShortDescription: I can't send emails to external addresses, IncidentD...\n-\nIncidentCategory: Software, IncidentSubcategory: Email, AssigneeEmail: savannah.kesich@example.com, Ex...\n-\n\nInquiry_Antivirus\n-\nIncidentCategory: Inquiry / Help, IncidentSubcategory: Antivirus, AssigneeEmail: paul.martin@example.com\n-\n\nInquiry_ExternalApp...\n-\nIncidentCategory: Inquiry / Help, IncidentSubcategory: External Application, AssigneeEmail: paul.martin@ex...\n-\n\nHardware_Monitor\nIncidentShortDescription: Display flickers occasionally, IncidentDescription: M...\n-\nIncidentCategory: Hardware, IncidentSubcategory: Monitor, AssigneeEmail: aqib.mushtaq@example.com, E...\n-\n\nNetwork_DNS\nIncidentShortDescription: System cannot reach certain websites, IncidentDesc...\n-\nIncidentCategory: Network, IncidentSubcategory: DNS, AssigneeEmail: david.dan@example.com, Execution ...\n-\n\nNetwork_VPN\nIncidentShortDescription: VPN connection drops frequently, IncidentDescripti...\n-\nIncidentCategory: Network, IncidentSubcategory: VPN, AssigneeEmail: bud.richman@example.com, Executi...\n-\n\nSoftware_OS\nIncidentShortDescription: Windows update failure, IncidentDescription: I trie...\n-\nIncidentCategory: Software, IncidentSubcategory: Operating System, AssigneeEmail: savannah.kesich@exar...\n-\n\nTooltip:\nInput\nIncidentShortDescription: \"Database connection issue from RPA automations\"\nIncidentDescription: \"I'm building an RPA workflow that connects to production\ninstance of Microsoft SQL Server and it fails with error \\\"IP\nAddress not authorized to perform this query\\\". Could you\nauthorize my IP address: 123.23.41.165\"\n\n1 - 8 / 8\n\nPage 1 / 1\n\nItems    15",
+    "description": "This screenshot shows the UiPath Agent Builder Evaluations tab with an imported evaluation set and its test cases listed in a table. The evaluation rows display names, input summaries, expected outputs, and simulation-related columns, while a tooltip is open over the first row showing the full input for the Database_MSSQL case. The Evaluate set button is visible in the top-right, indicating the set is ready to be run or reviewed.",
+    "step_instructions": "Informational screenshot — no user action required. It shows the evaluation set entries in Agent Builder, with the full input preview for the Database_MSSQL test case visible in a tooltip and the Evaluate set button available to run the evaluations."
+  },
+  "model": {
+    "name": "gpt-5.4",
+    "deployment": "gpt-5.4",
+    "api_version": "2025-04-01-preview"
+  },
+  "usage": {
+    "prompt_tokens": 8190,
+    "completion_tokens": 667,
+    "total_tokens": 8857
+  },
+  "generated_at": "2026-03-31T05:35:57.541457+00:00"
+}

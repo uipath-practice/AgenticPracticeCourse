@@ -1,0 +1,23 @@
+{
+  "version": "1.0",
+  "image_file": "9-assignee-tool.png",
+  "image_path": "docs/categorizing-incidents/llm-with-context.images/9-assignee-tool.png",
+  "lesson": "llm-with-context",
+  "exercise": "categorizing-incidents",
+  "extraction": {
+    "ocr_text": "Choose tool\n\nRPA workflow                              Create new\n\nSearch RPA workflows\n\nIn current solution (1)\n\nSNOW Assignee Lookup Automation",
+    "description": "This screenshot shows the UiPath Agent Builder/Studio Web tool selection panel with the \"Choose tool\" dialog open. The user is in the \"RPA workflow\" category, and the list of available workflows in the current solution is displayed. One workflow, \"SNOW Assignee Lookup Automation,\" is visible and appears to be the tool to add.",
+    "step_instructions": "1. Click on the \"RPA workflow\" category if it is not already selected.\n2. In the \"Search RPA workflows\" field, optionally search for the workflow by name.\n3. Click on \"SNOW Assignee Lookup Automation\" under \"In current solution (1)\" to add it as a tool."
+  },
+  "model": {
+    "name": "gpt-5.4",
+    "deployment": "gpt-5.4",
+    "api_version": "2025-04-01-preview"
+  },
+  "usage": {
+    "prompt_tokens": 4936,
+    "completion_tokens": 198,
+    "total_tokens": 5134
+  },
+  "generated_at": "2026-03-31T05:36:15.807253+00:00"
+}

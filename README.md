@@ -254,7 +254,78 @@ To add a page to the nav, add a line here. To rename a menu item, change the lab
 | Image file | lowercase, hyphenated | `agent-builder-prompt-panel.png` |
 | Shared image | lives in `docs/assets/images/` | `../assets/images/maestro-overview.png` |
 
+---
 
+## Contributing with Claude Code Skills
+
+This repo ships with two Claude Code skills that automate the most repetitive authoring tasks. Any team member with Claude Code installed gets them automatically — no setup needed beyond cloning the repo.
+
+### Prerequisites
+
+1. **Claude Code** — installed and authenticated ([claude.ai/code](https://claude.ai/code))
+2. **Azure OpenAI credentials** — required only for the `/new-lesson` skill. Copy `scripts/.env.example` to `scripts/.env` and fill in your own values. This file is gitignored and must never be committed.
+3. **Python dependencies** — `pip install openai requests beautifulsoup4 numpy python-dotenv pillow` (required for the metadata extraction script)
+
+### Available skills
+
+| Skill | What it does | When to use |
+|-------|-------------|-------------|
+| `/new-exercise` | Scaffolds a new exercise: creates folders, overview page, step stubs, updates `mkdocs.yml` nav, and adds an index card to the home page | Starting a new exercise from scratch |
+| `/new-lesson` | Builds a complete lesson page from screenshots: runs metadata extraction, reads the results, and generates step-by-step content with images and code blocks | After uploading screenshots to an exercise's images folder |
+
+### Documentation references
+
+Each exercise folder contains a `documentation.md` file. **Add a link to this file every time you upload new screenshots.** The links point to official product documentation relevant to what those screenshots show.
+
+```
+docs/<exercise-slug>/documentation.md
+```
+
+Example entry:
+```
+- https://docs.uipath.com/agents/automation-cloud/latest/user-guide/building-an-agent-in-studio-web
+```
+
+The metadata extraction script reads this file before processing images. It fetches and embeds each URL's text content (text only, no images) using Azure OpenAI embeddings, then uses this as context when analyzing screenshots. URLs already embedded in a previous run are skipped automatically — only new links are fetched. The embedded cache (`documentation.cache.json`) is gitignored.
+
+The same links appear in a **Learn more** table at the end of each generated lesson page.
+
+### Typical workflow
+
+```
+1. /new-exercise     →  provide name, description, and step list
+2. Upload screenshots to docs/<exercise-slug>/<step>.images/
+3. Add relevant docs links to docs/<exercise-slug>/documentation.md
+4. /new-lesson       →  provide exercise slug, step number, images folder path
+5. Review generated page, edit as needed
+6. mkdocs build      →  verify no errors
+7. git push          →  site deploys automatically
+```
+
+### Example invocations
+
+```
+/new-exercise
+Name: Expense Report Processing
+Slug: expense-report-processing
+Description: Automate expense report review using IXP and human validation
+Steps: 1. Upload Report — robot retrieves PDFs, 2. Extract Data — IXP reads fields, 3. Review Exceptions — Action Center task
+```
+
+```
+/new-lesson
+Exercise: expense-report-processing
+Step: 2
+Name: Extract Data
+Images: docs/expense-report-processing/extract-data.images/
+Context: IXP project reads line items from expense receipts. Outputs amount, category, date fields.
+```
+
+### Authoring conventions
+
+All content rules are in `CLAUDE.md` at the project root. Claude reads it automatically every session. When you encounter a pattern question (how to structure a page, how to format a code block, what tone to use), check CLAUDE.md first.
+
+To add a new rule or update an existing one, edit `CLAUDE.md` directly and commit. This keeps conventions versioned and visible to all contributors.
 
 
 

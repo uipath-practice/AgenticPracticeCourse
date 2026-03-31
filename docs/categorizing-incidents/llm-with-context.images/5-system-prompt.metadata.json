@@ -1,0 +1,23 @@
+{
+  "version": "1.0",
+  "image_file": "5-system-prompt.png",
+  "image_path": "docs/categorizing-incidents/llm-with-context.images/5-system-prompt.png",
+  "lesson": "llm-with-context",
+  "exercise": "categorizing-incidents",
+  "extraction": {
+    "ocr_text": "Score: NA\n0%\nForm\nFlow\n\nTools\nAdd tool\nEnable the agent to access data and\nperform actions.\n\nContexts\nAdd context\nAdd contexts the agent can query.\n\nEscalations\nAdd escalation\nEscalate to an assigned person\nbefore the agent takes an important\naction.\n\nChoose context\n\nContexts\nCreate new\n\nSearch contexts\n\nAvailable resources\nServiceNow Incidents\nServiceNow Incidents Categorization Informa...\nServiceNow Incidents Categorization Information",
+    "description": "This screenshot shows the UiPath Agent Builder configuration interface with the Form view selected. On the left, the agent settings cards for Tools, Contexts, and Escalations are visible, and the Contexts card's Add context action is highlighted. On the right, a Choose context side panel is open, showing available context resources under a ServiceNow Incidents folder, including a selectable item named ServiceNow Incidents Categorization Information.",
+    "step_instructions": "1. Click on Add context in the Contexts section.\n2. In the Choose context panel, browse the Available resources list under ServiceNow Incidents.\n3. Select the ServiceNow Incidents Categorization Information context item."
+  },
+  "model": {
+    "name": "gpt-5.4",
+    "deployment": "gpt-5.4",
+    "api_version": "2025-04-01-preview"
+  },
+  "usage": {
+    "prompt_tokens": 7289,
+    "completion_tokens": 271,
+    "total_tokens": 7560
+  },
+  "generated_at": "2026-03-31T05:36:06.683604+00:00"
+}

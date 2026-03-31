@@ -1,26 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:uipath="http://uipath.org/schema/bpmn" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="x-uipath-initial-diagram" targetNamespace="http://www.omg.org/spec/BPMN/20100524/MODEL" exporter="UiPath Studio Web (https://uipath.com)" exporterVersion="8a233f38">
-  <bpmn:process id="Process_1" name="Yes" isExecutable="false">
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:uipath="http://uipath.org/schema/bpmn" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="x-uipath-initial-diagram" targetNamespace="http://www.omg.org/spec/BPMN/20100524/MODEL" exporter="UiPath Studio Web (https://uipath.com)" exporterVersion="45d22852">
+  <bpmn:process id="Process_1" name="2-Way Matching Process IXP" isExecutable="false">
     <bpmn:extensionElements>
       <uipath:variables version="v1" />
       <uipath:bindings version="v1">
         <uipath:binding id="bWPUDRIgD" name="releaseKey" type="string" default="3A0FA2F7-45E1-435F-AAEA-26187065C6B0" resource="process" resourceKey="3A0FA2F7-45E1-435F-AAEA-26187065C6B0" propertyAttribute="Key" />
         <uipath:binding id="bHpMmwDjS" name="releaseKey" type="string" default="125419E4-CB18-4B3B-B50D-8C1246C307F6" resource="process" resourceKey="125419E4-CB18-4B3B-B50D-8C1246C307F6" propertyAttribute="Key" />
       </uipath:bindings>
-      <uipath:migrationVersion version="5" />
+      <uipath:migrationVersion version="11" />
     </bpmn:extensionElements>
-    <bpmn:startEvent id="Event_jjdkDo" name="Manual Start">
+    <bpmn:startEvent id="Event_jjdkDo" name="Manual">
+      <bpmn:documentation>Whenever new invoice arrives, this workflow starts</bpmn:documentation>
       <bpmn:extensionElements>
         <uipath:entryPointId value="594d45c4-38b6-4160-be8d-250407a8e4dd" />
       </bpmn:extensionElements>
       <bpmn:outgoing>edge___Event_jjdkDo-Activity_zQtGNV</bpmn:outgoing>
     </bpmn:startEvent>
-    <bpmn:task id="Activity_zQtGNV" name="Retrieve data for next PO and Invoice">
-      <bpmn:documentation>Retrieve data for next PO and Invoice</bpmn:documentation>
+    <bpmn:task id="Activity_zQtGNV" name="Retrieve Invoice (PDF) for processing">
+      <bpmn:documentation>Retrieve Invoice (PDF) for processing</bpmn:documentation>
       <bpmn:incoming>edge___Event_jjdkDo-Activity_zQtGNV</bpmn:incoming>
       <bpmn:outgoing>edge___Activity_zQtGNV-Activity_CjAznd</bpmn:outgoing>
     </bpmn:task>
-    <bpmn:task id="Activity_CjAznd" name="Compare Invoice against Purchase Order">
+    <bpmn:task id="Activity_CjAznd" name="Invoice Validation Agent">
       <bpmn:documentation>Perform 2-way matching</bpmn:documentation>
       <bpmn:incoming>edge___Activity_zQtGNV-Activity_CjAznd</bpmn:incoming>
       <bpmn:outgoing>edge___Activity_CjAznd-Gateway_PCsPAZ</bpmn:outgoing>
@@ -83,7 +84,7 @@
     <bpmn:association id="edge___Activity_jlbtMj-Text_zxaaHW" sourceRef="Activity_jlbtMj" targetRef="Text_zxaaHW" />
     <bpmn:association id="edge_Activity_zQtGNV-Text_Rb7PdI" sourceRef="Activity_zQtGNV" targetRef="Text_Rb7PdI" />
     <bpmn:textAnnotation id="Text_eesI4d">
-      <bpmn:text>AGENT: compare documents and find discrepancies</bpmn:text>
+      <bpmn:text>AGENT: Extract data from Invoice; Retrieve original Purchase order; compare documents and find discrepancies</bpmn:text>
     </bpmn:textAnnotation>
     <bpmn:textAnnotation id="Text_1WToi9">
       <bpmn:documentation>HITL: Validation App that explains mismatch and allows to Approve or Reject</bpmn:documentation>
@@ -97,21 +98,21 @@
       <bpmn:text>Integration Service (GMail): Send Email Message</bpmn:text>
     </bpmn:textAnnotation>
     <bpmn:textAnnotation id="Text_Rb7PdI">
-      <bpmn:text>ROBOT: Retrieve Invoice &amp; Purchase Order (JSON objects) </bpmn:text>
+      <bpmn:text>ROBOT: Retrieve Invoice</bpmn:text>
     </bpmn:textAnnotation>
   </bpmn:process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_1">
       <bpmndi:BPMNShape id="S_Text_eesI4d" bpmnElement="Text_eesI4d">
-        <dc:Bounds x="225.59986541816556" y="560.845203256701" width="209" height="45" />
+        <dc:Bounds x="162.59986541816556" y="377.845203256701" width="222" height="64" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="225.59986541816556" y="610.845203256701" width="209" height="14" />
+          <dc:Bounds x="162.59986541816556" y="446.845203256701" width="222" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="S_Text_1WToi9" bpmnElement="Text_1WToi9">
-        <dc:Bounds x="323.9142030962098" y="244.6670229654778" width="208" height="54" />
+        <dc:Bounds x="324.9142030962098" y="247.6670229654778" width="208" height="54" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="323.9142030962098" y="303.6670229654778" width="208" height="14" />
+          <dc:Bounds x="324.9142030962098" y="306.6670229654778" width="208" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="S_Event_jjdkDo" bpmnElement="Event_jjdkDo">
@@ -187,9 +188,9 @@
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="S_Text_Rb7PdI" bpmnElement="Text_Rb7PdI">
-        <dc:Bounds x="113.12264571129947" y="393.19842815502795" width="205" height="52" />
+        <dc:Bounds x="61.12264571129947" y="564.198428155028" width="205" height="39" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="113.12264571129947" y="450.19842815502795" width="205" height="14" />
+          <dc:Bounds x="61.12264571129947" y="608.198428155028" width="205" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="BPMNEdge_edge___Event_jjdkDo-Activity_zQtGNV" bpmnElement="edge___Event_jjdkDo-Activity_zQtGNV">
@@ -239,20 +240,20 @@
         <di:waypoint x="792" y="234" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="BPMNEdge_edge___Activity_AphyH5-Text_1WToi9" bpmnElement="edge___Activity_AphyH5-Text_1WToi9">
-        <di:waypoint x="444.74838497437435" y="325.3333282470703" />
-        <di:waypoint x="449.08794536223627" y="298.6670229654778" />
+        <di:waypoint x="451.8738408822614" y="325.3333282470703" />
+        <di:waypoint x="441.1493605006833" y="301.6670229654778" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="BPMNEdge_edge___Activity_CjAznd-Text_eesI4d" bpmnElement="edge___Activity_CjAznd-Text_eesI4d">
-        <di:waypoint x="329.8378031962971" y="548.3333282470703" />
-        <di:waypoint x="329.3930488908611" y="560.845203256701" />
+        <di:waypoint x="306.49977082526374" y="468.3333282470703" />
+        <di:waypoint x="291.60004875795454" y="441.845203256701" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="BPMNEdge_edge___Activity_jlbtMj-Text_zxaaHW" bpmnElement="edge___Activity_jlbtMj-Text_zxaaHW">
         <di:waypoint x="752" y="521.1812355991822" />
         <di:waypoint x="807.6497673820973" y="545.3354922054136" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="BPMNEdge_edge_Activity_zQtGNV-Text_Rb7PdI" bpmnElement="edge_Activity_zQtGNV-Text_Rb7PdI">
-        <di:waypoint x="194.5076340517167" y="468.3333282470703" />
-        <di:waypoint x="185.13130888783405" y="445.19842815502795" />
+        <di:waypoint x="160.9842172136261" y="548.3333282470703" />
+        <di:waypoint x="162.16783981965673" y="564.198428155028" />
       </bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
