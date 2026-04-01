@@ -1,0 +1,30 @@
+{
+  "version": "1.0",
+  "image_file": "1-search-incidents-tool-W.png",
+  "image_path": "docs/categorizing-incidents/tools-and-escalations.images/1-search-incidents-tool-W.png",
+  "lesson": "tools-and-escalations",
+  "exercise": "categorizing-incidents",
+  "extraction": {
+    "ocr_text": "Score: NA\n0%\n\nForm\nFlow\nPreview\n\nEscalations\n\nServiceNow Incidents M...\nAutonomous Agent\n\nContext\nTools\n\nServiceNow\nIncidents\nCategorization\nInformation\n\nSNOW Assignee\nLookup\nAutomation\n\nChoose tool\nsearch servicenow\n\nRPA workflows\nNo results\n\nAgents\nNo results\n\nActivities\nSearch Incidents by Incident Number\nSearch for incidents in ServiceNow using the incident number.\n\nSearch Users by Email or Name\nSearch for users in ServiceNow by email or name.\n\nWait for an Event on ServiceNow and Resume\nPreview\nPause and resume a workflow based on specific events occurring in ServiceNow.\n\nGet Record\nPreview\nRetrieves a record in ServiceNow\n\nDelete Record\nPreview",
+    "description": "This screenshot shows UiPath Agent Builder in the Flow view with the tool picker panel open on the right. In the search box, the user has entered \"search servicenow,\" and the Activities results are filtered to ServiceNow-related tools. The \"Search Incidents by Incident Number\" activity is visibly highlighted as the tool to add under the agent's Tools section.",
+    "step_instructions": "1. Click the + icon under the Tools section of the agent.\n2. In the Choose tool search field, enter \"search servicenow\".\n3. From the Activities results, click on \"Search Incidents by Incident Number\"."
+  },
+  "layout": {
+    "mode": "full_width",
+    "ocr_length": 657,
+    "aspect_ratio": 1.73,
+    "image_size": "1600x923",
+    "rationale": "High density (657 chars) + wide (1.73) or very high text"
+  },
+  "model": {
+    "name": "gpt-5.4",
+    "deployment": "gpt-5.4",
+    "api_version": "2025-04-01-preview"
+  },
+  "usage": {
+    "prompt_tokens": 5395,
+    "completion_tokens": 322,
+    "total_tokens": 5717
+  },
+  "generated_at": "2026-04-01T05:27:04.283985+00:00"
+}

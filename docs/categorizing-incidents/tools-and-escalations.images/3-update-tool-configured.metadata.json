@@ -6,8 +6,15 @@
   "exercise": "categorizing-incidents",
   "extraction": {
     "ocr_text": "Update ServiceNow Incident\n\nName *\nUpdate ServiceNow Incident\n\nTool\nUpdate ServiceNow Incident\n\nDescription\nUpdates the category, subcategory and the assignee of a\nServiceNow incident.\n\nAssignee (string)\nAssignee Email address ×\n\nIncidentID (string)\nThe ID of ServiceNow Incident, do not use Incid... ×\n\nCategory (string)\nThe Category of ServiceNow Incident ×\n\nSubcategory (string)\nThe Subcategory of ServiceNow Incident ×",
-    "description": "This screenshot shows the UiPath Agent Builder tool configuration panel for the ServiceNow tool named \"Update ServiceNow Incident.\" The tool’s name, disabled tool selector, and description are visible, along with configured argument description chips for Assignee, IncidentID, Category, and Subcategory. The UI indicates the tool has already been set up with descriptive metadata for each input field.",
-    "step_instructions": "Informational screenshot — no user action required. It shows the completed configuration for the Update ServiceNow Incident tool: verify the Name is \"Update ServiceNow Incident,\" confirm the Description says \"Updates the category, subcategory and the assignee of a ServiceNow incident.\", and ensure the argument descriptions are set for Assignee, IncidentID, Category, and Subcategory."
+    "description": "This screenshot shows the UiPath Agent Builder tool configuration panel for the ServiceNow tool named \"Update ServiceNow Incident.\" The tool’s name, disabled tool selector, and description are visible, along with configured argument description chips for Assignee, IncidentID, Category, and Subcategory. The UI indicates the tool has already been configured with descriptive metadata for each string input.",
+    "step_instructions": "Informational screenshot — no user action required. It shows the completed configuration for the Update ServiceNow Incident tool, with argument descriptions filled in for Assignee, IncidentID, Category, and Subcategory."
+  },
+  "layout": {
+    "mode": "split_50",
+    "ocr_length": 422,
+    "aspect_ratio": 0.73,
+    "image_size": "1162x1600",
+    "rationale": "Medium text density (422 chars)"
   },
   "model": {
     "name": "gpt-5.4",
@@ -15,9 +22,9 @@
     "api_version": "2025-04-01-preview"
   },
   "usage": {
-    "prompt_tokens": 5263,
-    "completion_tokens": 278,
-    "total_tokens": 5541
+    "prompt_tokens": 5243,
+    "completion_tokens": 243,
+    "total_tokens": 5486
   },
-  "generated_at": "2026-03-31T12:31:02.249863+00:00"
+  "generated_at": "2026-04-01T05:27:01.378765+00:00"
 }

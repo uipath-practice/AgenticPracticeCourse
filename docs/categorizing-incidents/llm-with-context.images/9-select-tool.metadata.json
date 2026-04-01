@@ -5,9 +5,16 @@
   "lesson": "llm-with-context",
   "exercise": "categorizing-incidents",
   "extraction": {
-    "ocr_text": "Choose tool\n\nRPA workflow                              Create new\n\nSearch RPA workflows\n\nIn current solution (1)\n\nSNOW Assignee Lookup Automation",
-    "description": "This screenshot shows the UiPath Agent Builder/Studio Web tool selection panel with the \"Choose tool\" dialog open. The user is in the \"RPA workflow\" category, and the list of available workflows in the current solution is displayed. One workflow, \"SNOW Assignee Lookup Automation,\" is visible and appears to be the tool to add.",
-    "step_instructions": "1. Click on the \"RPA workflow\" category if it is not already selected.\n2. In the \"Search RPA workflows\" field, optionally search for the workflow by name.\n3. Click on \"SNOW Assignee Lookup Automation\" under \"In current solution (1)\" to add it as a tool."
+    "ocr_text": "Choose tool\n\nRPA workflow\nCreate new\n\nSearch RPA workflows\n\nIn current solution (1)\n\nSNOW Assignee Lookup Automation",
+    "description": "This screenshot shows the UiPath Agent Builder tool selection dialog in Studio Web, specifically the RPA workflow tab. A search box is visible, and under the \"In current solution (1)\" section, the available workflow \"SNOW Assignee Lookup Automation\" is listed for selection.",
+    "step_instructions": "1. Click on the \"RPA workflow\" tab if it is not already selected.\n2. In the list under \"In current solution (1)\", select \"SNOW Assignee Lookup Automation\".\n3. Optionally, use the \"Search RPA workflows\" field to find the workflow by name."
+  },
+  "layout": {
+    "mode": "split_30",
+    "ocr_length": 116,
+    "aspect_ratio": 2.04,
+    "image_size": "902x442",
+    "rationale": "Low text density (116 chars) or narrow layout"
   },
   "model": {
     "name": "gpt-5.4",
@@ -15,9 +22,9 @@
     "api_version": "2025-04-01-preview"
   },
   "usage": {
-    "prompt_tokens": 4936,
-    "completion_tokens": 198,
-    "total_tokens": 5134
+    "prompt_tokens": 4229,
+    "completion_tokens": 182,
+    "total_tokens": 4411
   },
-  "generated_at": "2026-03-31T05:36:15.807253+00:00"
+  "generated_at": "2026-04-01T05:30:06.874771+00:00"
 }

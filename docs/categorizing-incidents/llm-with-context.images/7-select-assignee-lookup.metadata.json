@@ -6,8 +6,15 @@
   "exercise": "categorizing-incidents",
   "extraction": {
     "ocr_text": "Add project\n\ntemplate\n\nSNOW Assignee Lookup Automation    SNOW Assignee Loo...\n\n2WM Validation App Template\n2WM Validation App v2\n\nProject details\n\nCollaborators\nSS  owner\nsergey.shumilov@uipath.com\neditor\nRoadshowANZ\n\nStatus\nDraft\n\nLast modified\n1 minute ago\n\n1 project selected\n\nCancel\nAdd",
-    "description": "This screenshot shows a Studio Web modal dialog titled \"Add project\" used to import or add an existing project into the current solution. The search box contains the term \"template,\" and the project \"SNOW Assignee Lookup Automation\" is selected in the list. On the right, the Project details panel displays collaborators, status, and last modified information, and the Add button is available in the bottom-right corner.",
-    "step_instructions": "1. In the search field, enter \"template\" to filter the available projects.\n2. Select the checkbox for \"SNOW Assignee Lookup Automation.\"\n3. Click on the \"Add\" button in the bottom-right corner to import the selected project."
+    "description": "This screenshot shows the Add project dialog in UiPath Studio Web/Agent Builder while importing an existing project into the solution. The search box is populated, and the project list displays SNOW Assignee Lookup Automation as the selected item, with its details shown in the Project details panel on the right. The Add button is available in the bottom-right corner to confirm importing the selected project.",
+    "step_instructions": "1. In the search field, search for the project by entering the relevant text.\n2. Select SNOW Assignee Lookup Automation from the project list.\n3. Click on the Add button to import the selected project into the solution."
+  },
+  "layout": {
+    "mode": "split_30",
+    "ocr_length": 291,
+    "aspect_ratio": 1.82,
+    "image_size": "1600x877",
+    "rationale": "Low text density (291 chars) or narrow layout"
   },
   "model": {
     "name": "gpt-5.4",
@@ -15,9 +22,9 @@
     "api_version": "2025-04-01-preview"
   },
   "usage": {
-    "prompt_tokens": 4145,
-    "completion_tokens": 253,
-    "total_tokens": 4398
+    "prompt_tokens": 7325,
+    "completion_tokens": 242,
+    "total_tokens": 7567
   },
-  "generated_at": "2026-03-31T05:36:11.294080+00:00"
+  "generated_at": "2026-04-01T05:30:07.580086+00:00"
 }

@@ -1,0 +1,30 @@
+{
+  "version": "1.0",
+  "image_file": "9-action-center-escalation-W.png",
+  "image_path": "docs/categorizing-incidents/tools-and-escalations.images/9-action-center-escalation-W.png",
+  "lesson": "tools-and-escalations",
+  "exercise": "categorizing-incidents",
+  "extraction": {
+    "ocr_text": "UiPath Action Center\nOverview\nInbox\nAdmin Settings\n99+\nTenant: RoadshowANZ\nSE\n\nMy Tasks\nCategorization request #7853024\nPending\n\nSearch Text/Id ...\n\nFilter (1)\nClear all\n\nTime :\nLast hour\n\nPending\nUnassigned\nCompleted\n\nCategorization request\n#7853024\nNo Labels Added\nMedium\n5 minutes ago\n\nEnd of List.\n\nAssistance required to categorize ServiceNow incident INC0147569\n\nIncident details\n\nShort Description\nI would like to talk with a manager ## Sergey\n\nDescription\nEvery time I reach out to this team, the response time is really long,\nseriously affecting my productivity. I would like to talk with a manager\nplease.\n\nCategorization Details\n\nAgent Output\nThe incident description and short description do not clearly match any\nof the predefined Category-Subcategory pairs in the categorization\ncontext. Escalation is required to determine the appropriate\ncategorization.\n\nCategory\n\nSubcategory\n\nSubmit\nStop agent execution",
+    "description": "This screenshot shows UiPath Action Center on the Inbox page with a pending human-in-the-loop task opened for an escalated agent request. The task is titled \"Categorization request #7853024\" and displays incident details on the left and categorization fields on the right. The agent output explains that the incident could not be confidently categorized, and dropdowns for Category and Subcategory are available for the reviewer to complete before submitting.",
+    "step_instructions": "1. Review the incident information in the Short Description and Description fields.\n2. Review the Agent Output message explaining why the case was escalated.\n3. Click on the Category dropdown and select the appropriate category.\n4. Click on the Subcategory dropdown and select the appropriate subcategory.\n5. Click on Submit to send the human decision back to the agent.\n6. If the process should not continue, click on Stop agent execution instead."
+  },
+  "layout": {
+    "mode": "full_width",
+    "ocr_length": 921,
+    "aspect_ratio": 2.17,
+    "image_size": "1600x739",
+    "rationale": "High density (921 chars) + wide (2.17) or very high text"
+  },
+  "model": {
+    "name": "gpt-5.4",
+    "deployment": "gpt-5.4",
+    "api_version": "2025-04-01-preview"
+  },
+  "usage": {
+    "prompt_tokens": 8949,
+    "completion_tokens": 438,
+    "total_tokens": 9387
+  },
+  "generated_at": "2026-04-01T05:27:29.088626+00:00"
+}

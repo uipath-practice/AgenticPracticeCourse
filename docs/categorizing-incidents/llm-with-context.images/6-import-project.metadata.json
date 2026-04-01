@@ -6,11 +6,15 @@
   "exercise": "categorizing-incidents",
   "extraction": {
     "ocr_text": "Debug\nDebug step-by-step\nPublish\nExplorer\n+\nScore: NA\nServiceNow Incidents Management Solution\nServiceNow Incidents Management Age[...]\nDefinition\nEvaluation sets\nEvaluators\nAdd project to solution\nAgentic process\nAgent\nRPA Workflow\nApp\nEscalation app\nImport existing",
-    "description": "This screenshot shows UiPath Studio Web in the Explorer panel for the solution \"ServiceNow Incidents Management Solution.\" The agent project is expanded, with \"Definition\" selected, and the Add project menu is open from the plus icon in the top-right. The menu lists project types that can be added to the solution, and the \"Import existing\" option at the bottom is highlighted for importing an existing project.",
-    "step_instructions": [
-      "Click on the + button in the Explorer header to open the Add project to solution menu.",
-      "Click on Import existing to import an existing project into the current solution."
-    ]
+    "description": "This screenshot shows UiPath Studio Web in the Agent Builder workspace, with the Explorer panel open for the ServiceNow Incidents Management Solution. The plus menu in the Explorer is expanded under “Add project to solution,” displaying options to add new project types or import an existing one. The “Import existing” option and the + button are highlighted, indicating the next action.",
+    "step_instructions": "1. Click on the + button in the Explorer panel.\n2. In the “Add project to solution” menu, click on “Import existing.”"
+  },
+  "layout": {
+    "mode": "split_30",
+    "ocr_length": 267,
+    "aspect_ratio": 1.69,
+    "image_size": "1210x718",
+    "rationale": "Low text density (267 chars) or narrow layout"
   },
   "model": {
     "name": "gpt-5.4",
@@ -18,9 +22,9 @@
     "api_version": "2025-04-01-preview"
   },
   "usage": {
-    "prompt_tokens": 7186,
-    "completion_tokens": 213,
-    "total_tokens": 7399
+    "prompt_tokens": 7726,
+    "completion_tokens": 199,
+    "total_tokens": 7925
   },
-  "generated_at": "2026-03-31T05:36:09.702951+00:00"
+  "generated_at": "2026-04-01T05:30:02.103383+00:00"
 }

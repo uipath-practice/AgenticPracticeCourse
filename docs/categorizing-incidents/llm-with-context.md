@@ -12,7 +12,7 @@
 
 ## Goal
 
-Create a ServiceNow incident categorization agent in **Agent Builder**, configure its prompts, ground it in real data using Context Grounding, and validate its performance with Evaluations.
+Create a ServiceNow incident categorization agent in **Agent Builder**, configure its prompts, learn how to ground it in real data using **Context Grounding**, and build **Evaluations** for quality assurance and reliability testing.
 
 ## How Context Grounding Works
 
@@ -24,170 +24,311 @@ When the agent categorizes an incident, it references actual category and subcat
 
 Evaluations let you run a batch of test cases against your agent before deploying it. You define expected outputs for a set of sample incidents, run the evaluation, and measure how well the agent performs across edge cases. This is a form of regression testing — it helps ensure that prompt changes or model upgrades don't break existing functionality.
 
----
-
 ## Steps
 
-### Part 1: Create and configure the agent
+### 1. Create and configure the agent
 
-1. In **Studio Web**, create a new **Agent Solution**.
 
-    ![Creating a new Agent in Studio Web](llm-with-context.images/1-create-agent.png){ .screenshot }
+[[[
+In **Studio Web**, create a new **Agent Solution**.
+|30|
+![Creating a new Agent in Studio Web](llm-with-context.images/1-create-agent.png){ .screenshot }
+]]]
 
-2. Rename the solution to **ServiceNow Incidents Management Solution**, and name the agent **ServiceNow Incidents Management Agent**.
+!!! tip "Autopilot"
+    When you create an agent, Studio Web may suggest using Autopilot to auto-generate a solution using AI assistant. You can dismiss it and build manually (as we're doing here), or experiment with Autopilot later for practice.
 
-    ![Renaming the agent in Explorer](llm-with-context.images/2-rename-agent.png){ .screenshot }
+[[[
+Rename the solution new solution so that it's easier to find it later, for example:
 
-    !!! tip
-        When you create an agent, Studio Web may suggest using Autopilot to auto-generate a solution. You can dismiss it and build manually (as we're doing here), or experiment with Autopilot later for practice.
+- **Solution Name**: 
+```
+ServiceNow Incidents Management Solution
+```
 
-3. Open the **Data Manager** panel. Add the following **Input Arguments** (type: String):
+- **Agent Name**: 
+```
+ServiceNow Incidents Management Agent
+```
 
-    | Argument | Description |
-    |----------|-------------|
-    | `IncidentShortDescription` | Short description of the ServiceNow incident |
-    | `IncidentDescription` | Full description of the ServiceNow incident |
+|50|
+![Renaming the agent in Explorer](llm-with-context.images/2-rename-agent.png){ .screenshot }
+]]]
 
-    ![Input arguments configured in Data Manager](llm-with-context.images/3-input-arguments.png){ .screenshot }
 
-4. Add the following **Output Arguments**. You can do this manually, or switch to JSON editor mode and paste the schema below:
+!!! tip "Arguments"
+    Agent arguments let your agent take in information about a business case and return a result, same way as any other activities or RPA processes do. This allows you to pass information from a trigger in Orchestrator or use the output of an agent to launch another automation.
 
-    ```json
-    {
-      "type": "object",
-      "properties": {
-        "IncidentCategory": {
-          "type": "string",
-          "description": "The category of the ServiceNow incident"
-        },
-        "IncidentSubcategory": {
-          "type": "string",
-          "description": "The subcategory of the ServiceNow incident"
-        },
-        "AssigneeEmail": {
-          "type": "string",
-          "description": "The assignee email for the ServiceNow incident"
-        },
-        "ExecutionDetails": {
-          "type": "string",
-          "description": "Details and results of classification"
-        }
-      },
-      "title": "Outputs"
+
+[[[
+Open the **Data Manager** panel. Add the following **Input Arguments**. Type should be **String**.
+```css hl_lines="1"
+IncidentShortDescription
+```
+```
+Short description of the ServiceNow incident
+```
+```css hl_lines="1"
+IncidentDescription
+```
+```
+Full description of the ServiceNow incident
+```
+|50|
+![Input arguments configured in Data Manager](llm-with-context.images/3-input-arguments.png){ .screenshot }
+]]]
+
+[[[
+Next, create following Outputs:
+```css hl_lines="1"
+IncidentCategory
+```
+```
+The category of the ServiceNow incident
+```
+```css hl_lines="1"
+IncidentSubcategory
+```
+```
+The subcategory of the ServiceNow incident incident
+```
+```css hl_lines="1"
+AssigneeEmail
+```
+```
+The assignee email for the ServiceNow incident
+```
+```css hl_lines="1"
+ExecutionDetails
+```
+```
+Details and results of classification
+```
+|50|
+
+]]]
+
+Luckily, you can import them at once by **switching to JSON editor mode** and pasting the below JSON schema:
+
+[[[
+```json
+{
+  "type": "object",
+  "properties": {
+    "IncidentCategory": {
+      "type": "string",
+      "description": "The category of the ServiceNow incident"
+    },
+    "IncidentSubcategory": {
+      "type": "string",
+      "description": "The subcategory of the ServiceNow incident"
+    },
+    "AssigneeEmail": {
+      "type": "string",
+      "description": "The assignee email for the ServiceNow incident"
+    },
+    "ExecutionDetails": {
+      "type": "string",
+      "description": "Details and results of classification"
     }
-    ```
+  },
+  "title": "Outputs"
+}
+```
+|50|
 
-    ![Output arguments in Data Manager JSON editor](llm-with-context.images/4-output-arguments.png){ .screenshot }
+![Output arguments in Data Manager JSON editor](llm-with-context.images/4-output-arguments.png){ .screenshot }
+]]]
 
-### Part 2: Configure the agent prompts
+### 2. Configure the agent prompts
 
-5. Enter the following text in the **System Prompt** field:
+After the input and output data is defined, let's prepare the System prompt and the User prompt. Let's understand the difference first.
 
-    ```text
-    You are a ServiceNow Incidents categorization agent, an AI assistant tasked with managing newly created ServiceNow incidents. Your primary responsibility is to analyze incident details and determine the correct Category, Subcategory, and Assignee email address for each incident.
+**System Prompts** provide consistent guidelines that define an agent's role and capabilities, while **User Prompts** direct its attention to specific tasks and input parameters. Understanding this distinction is essential for effectively designing and implementing AI agents that can perform complex tasks while maintaining appropriate operational boundaries.
 
-    # Categorize the incident
+[[[
 
-    - Determine the Incident Category and Subcategory based on Description and Short Description.
+**System prompt**
 
-    # Once categories have been established, determine the on-duty Assignee email address who handles this type of requests.
+System prompt allows you to describe in natural language the agent's role, goal and constraints. You specify any rules for it to follow, and information about when it might want to use certain tools, escalations, or context.
+|50|
 
-    # Summarize the actions taken. In the ExecutionDetails, provide:
-    a. Incident Category
-    b. Incident Subcategory
-    c. Assignee Email
-    d. Reasoning for your decisions
-    ```
+**User prompt**
 
-6. Enter the following text in the **User Prompt** field:
+User prompts allow you to structure how the inputs/arguments are passed to the agent, and you can also show in the user prompt how we'll refer to certain inputs in the system prompt.
+]]]
 
-    ```text
-    Analyze and categorize the following ServiceNow incident:
 
-    Incident Short Description: {{IncidentShortDescription}}
+```markdown hl_lines="1 3 7 9" title="Enter the following text in the System Prompt field:"
+You are a ServiceNow Incidents categorization agent, an AI assistant tasked with managing newly created ServiceNow incidents. Your primary responsibility is to analyze incident details and determine the correct Category, Subcategory, and Assignee email address for each incident.
 
-    Incident Description: {{IncidentDescription}}
+# Categorize the incident
 
-    Determine the appropriate category, subcategory, and assignee email for this incident based on the provided information.
-    ```
+- Determine the Incident Category and Subcategory based on Description and Short Description.
 
-7. Test the agent with these sample incident details to observe how it behaves without grounding:
+# Once categories have been established, determine the on-duty Assignee email address who handles this type of requests.
 
-    - **Short Description:** `CRM software crashes on launch`
-    - **Description:** `Every time I try to open the CRM software, it crashes immediately. I've already tried reinstalling it.`
+# Summarize the actions taken. In the ExecutionDetails, provide:
+a. Incident Category
+b. Incident Subcategory
+c. Assignee Email
+d. Reasoning for your decisions
+```
 
-    !!! warning "Expected behavior without grounding"
-        Without context grounding, the agent will return plausible-sounding category and assignee information, but these may not exist in your actual system. This is the hallucination problem — the agent sounds confident but is inventing categories. We'll fix this in Part 3.
+```markdown hl_lines="1 6" title="Enter the following text in the User Prompt field:" 
+Analyze and categorize the following ServiceNow incident:
 
-### Part 3: Add Context Grounding
+Incident Short Description: {{IncidentShortDescription}}
+Incident Description:       {{IncidentDescription}}
 
-8. Click **Add context** in the **Contexts** section of the agent configuration.
+Determine the appropriate category, subcategory, and assignee email for this incident based on the provided information.
+```
 
-    ![Selecting context source in Agent Builder](llm-with-context.images/5-add-context.png){ .screenshot }
+Let's test the agent with these sample incident details to observe how it behaves without grounding. Run the agent and provide following input arguments:
 
-    Context Grounding provides the agent with a structured data source. The context is named **ServiceNow Incidents Categorization Information** and contains the valid Category–Subcategory pairs used in your organization.
 
-9. Select **ServiceNow Incidents Categorization Information** from the available resources under the **ServiceNow Incidents** folder.
+```css title="Short Description:"
+CRM software crashes on launch
+```
 
-10. Now, import the **SNOW Assignee Lookup Automation** project. Click the **+** button in the Explorer and choose **Import existing**.
+```css title="Description:"
+Every time I try to open the CRM software, it crashes immediately. I've already tried reinstalling it.
+```
 
-    ![Importing existing project into solution](llm-with-context.images/6-import-project.png){ .screenshot }
+In the output panel you will notice that Agent will send the request to the LLM and receive a response. But how would it come to the category names and the assignee email address? 
 
-11. Search for "SNOW Assignee" and select **SNOW Assignee Lookup Automation**.
+Without context grounding, the agent will return plausible-sounding category and assignee information, but these may not exist in your actual system. This is the hallucination problem — the agent sounds confident but is inventing categories. We'll fix this in the next step.
 
-    ![Selecting SNOW Assignee Lookup Automation](llm-with-context.images/7-select-assignee-lookup.png){ .screenshot }
+In order to "ground response" on real available categories and look up actual on-duty expert email address, let's do the following: 
 
-12. Add this automation as a tool to your agent. Click **Add tool** in the **Tools** section, then select **RPA workflow**.
+- enable Context Grounding
+- add Assignee Lookup automation
 
-    ![Adding RPA tool in Agent Builder](llm-with-context.images/8-add-rpa-tool.png){ .screenshot }
+### 3. Add context grounding
 
-13. Select **SNOW Assignee Lookup Automation** from the list of available workflows in your solution.
+Context Grounding provides the agent with a structured data source. The context is named **ServiceNow Incidents Categorization Information** and contains the valid Category–Subcategory pairs used in our training organization. It list list of available categories and subcategories and brief description for each:
 
-    ![Selecting the assignee lookup tool](llm-with-context.images/9-select-tool.png){ .screenshot }
+![What's behind the context grounding](llm-with-context.images/5-context-source.png){ .screenshot width="900" }
 
-14. Add a description for the tool so the agent knows when to use it:
 
-    ```text
-    Use this tool to determine the email address of the current on-duty expert for a given Category and Subcategory.
-    ```
+[[[
+Should be enough for a smart LLM to analyze any incoming ticket. Click **Add context** in the **Contexts** section of the agent configuration. 
 
-15. Update the **System Prompt** to reference both the context and the tool:
+!!! tip "If you are in Canvas mode, use the "+" button next to Contexts."
 
-    ```text
-    You are a ServiceNow Incidents categorization agent, an AI assistant tasked with managing newly created ServiceNow incidents. Your primary responsibility is to analyze incident details and determine the correct Category, Subcategory, and Assignee email address for each incident.
+|30|
+![Selecting context source in Agent Builder](llm-with-context.images/5-add-context.png){ .screenshot }
+]]]
+
+
+Select **ServiceNow Incidents Categorization Information** from the available resources under the **ServiceNow Incidents** folder and add it with following description: 
+```
+Use this context when you need to establish the Category and Subcategory of ServiceNow incidents
+```
+
+### 4. Add assignee lookup tool
+
+
+[[[
+Now, import the **SNOW Assignee Lookup Automation** project. 
+
+Click the **+** button in the Explorer and choose **Import existing** to add it into your solution.
+|50|
+![Importing existing project into solution](llm-with-context.images/6-import-project.png){ .screenshot }
+]]]
+
+
+[[[
+Search for "SNOW Assignee" and select **SNOW Assignee Lookup Automation**.
+|30|
+![Selecting SNOW Assignee Lookup Automation](llm-with-context.images/7-select-assignee-lookup.png){ .screenshot }
+]]]
+
+Add this automation as a tool to your agent. Click **Add tool** in the **Tools** section, then select **RPA workflow**.
+
+![Adding RPA tool in Agent Builder](llm-with-context.images/8-add-rpa-tool.png){ .screenshot width="800" }
+
+
+[[[
+Select **SNOW Assignee Lookup Automation** from the list of available workflows in your current solution.
+|50|
+![Selecting the assignee lookup tool](llm-with-context.images/9-select-tool.png){ .screenshot }
+]]]
+
+[[[
+Add a description for the tool so the agent knows when to use it:
+|30|
+```text
+Use this tool to determine the email address of the current on-duty expert for a given Category and Subcategory.
+```
+]]]
+
+### 5. Update system promt 
+
+??? tip "Review the changes"
+    Here are the changes that we need to apply in order for prompt to reflect new tools use. Review carefully:
+    ```diff 
+
+    --- Original
+    +++ With Context and tools
 
     # Categorize the incident.
 
-    - Determine the Incident Category and Subcategory based on Description and Short Description from Categorization Information Context.
-    - Context contains table with only possible Category-Subcategory pairs. Do not mix Category-Subcategory pairs if specific pair is not present in the context. Do not generate new categories if they are not present in the context.
-    - Pick the Category-Subcategory pair that aligns well with Incident Descriptions. If you are not sure or no category pair is a clear match, return "Unknown" as category.
+    -- Determine the Incident Category and Subcategory based on Description and Short Description.
+    +- Determine the Incident Category and Subcategory based on Description and Short Description from Categorization Information Context.
+    +- Context contains table with only possible Category-Subcategory pairs. Do not mix Category-Subcategory pairs if specific pair is not present in the context. Do not generate new categories if they are not present in the context.
+    +- Pick the Category-Subcategory pair that aligns well with Incident Descriptions. If you are not sure or no category pair is a clear match, return "Unknown" as category.
 
-    # Once categories have been established, determine the on-duty Assignee email address who handles this type of requests by calling Assignee Lookup automation.
+    -# Once categories have been established, determine the on-duty Assignee email address who handles this type of requests.
+    +# Once categories have been established, determine the on-duty Assignee email address who handles this type of requests by calling Assignee Lookup automation.
 
     # Summarize the actions taken. In the ExecutionDetails, provide:
     a. Incident Category
     b. Incident Subcategory
     c. Assignee Email
     d. Reasoning for your decisions
+
     ```
 
-16. Test the agent again with the same CRM crash sample incident. Now review the **Execution Trace** to observe:
 
-    - The agent's LLM call to analyze the incident
-    - The agent querying the Context Grounding data
-    - The agent calling the Assignee Lookup tool
-    - The final categorization in the Result tab
+```markdown hl_lines="5 6 7 9" title="Update the System Prompt to reference both the context and the tool:"
+You are a ServiceNow Incidents categorization agent, an AI assistant tasked with managing newly created ServiceNow incidents. Your primary responsibility is to analyze incident details and determine the correct Category, Subcategory, and Assignee email address for each incident.
 
-    ![Agent test output with execution trace](llm-with-context.images/10-agent-test-output.png){ .screenshot }
+# Categorize the incident.
 
-    The output should now show only valid categories and an assignee email retrieved from the lookup tool — no hallucinations.
+- Determine the Incident Category and Subcategory based on Description and Short Description from Categorization Information Context.
+- Context contains table with only possible Category-Subcategory pairs. Do not mix Category-Subcategory pairs if specific pair is not present in the context. Do not generate new categories if they are not present in the context.
+- Pick the Category-Subcategory pair that aligns well with Incident Descriptions. If you are not sure or no category pair is a clear match, return "Unknown" as category.
 
-### Part 4: Test with Evaluations
+# Once categories have been established, determine the on-duty Assignee email address who handles this type of requests by calling Assignee Lookup automation.
 
-17. Go to the **Evaluation Sets** tab in your agent.
+# Summarize the actions taken. In the ExecutionDetails, provide:
+a. Incident Category
+b. Incident Subcategory
+c. Assignee Email
+d. Reasoning for your decisions
 
-18. Click **Import** and paste the following JSON evaluation set. This set contains 8 test cases covering different incident types:
+```
 
+Test the agent again with the same CRM crash sample incident. Now review the **Execution Trace** to observe:
+
+- The agent's LLM call to analyze the incident
+- The agent querying the Context Grounding data
+- The agent calling the Assignee Lookup tool
+- The final categorization in the Result tab
+
+![Agent test output with execution trace](llm-with-context.images/10-agent-test-output.png){ .screenshot width="900" }
+
+The output should now show only valid categories and an assignee email retrieved from the lookup tool — no hallucinations. Congratulations!
+
+### 6. Test with Evaluations
+
+How about giving it a thorough testing? Evaluations is a form of regression testing, that help us with automatic validation of results for a set of predefined samples. At this stage we just want to mass-evaluate agent on multiple samples to make sure it does the job well. We will also look into Evaluations more during the next exercise - stay tuned!
+
+For now, go to the Evaluation sets tab and click **Import**. 
+
+??? tip "Evaluation set"
+    Paste the JSON below into the text field. After import you should see several evaluations.
     ```json
     {
       "fileName": "evaluation-set-1761459564848.json",
@@ -317,8 +458,13 @@ Evaluations let you run a batch of test cases against your agent before deployin
     }
     ```
 
-    ![Evaluation set imported and ready to run](llm-with-context.images/11-evaluation-set.png){ .screenshot }
+![Evaluation set imported and ready to run](llm-with-context.images/11-evaluation-set-W.png){ .screenshot width="900" }
 
-19. Click **Evaluate set** and review the results. Each test case will run through your agent, and you'll see whether the outputs match the expected values.
+Click **Evaluate set** and review the results. Each test case will run your agent once, and you'll see whether the outputs match the expected values.
 
-Evaluations help you maintain quality and catch regressions when you update your prompts or change models. A well-grounded, well-evaluated agent is ready for production use.
+Essentially, evaluations are test cases. Evaluations help you maintain quality and catch regressions when you update your prompts or change models.  With certain inputs, we expect certain outputs. 
+
+Evaluations are a good way to control quality of your prompt, and to have consistent results when changing or upgrading LLM models, or making sure that adjusting prompt to address one ussie didn't break some basic use case.
+
+Anyway, our Agent's "Brain" is ready, it's time to add some "Hands" - we will do it in the next lesson!
+

@@ -1,0 +1,30 @@
+{
+  "version": "1.0",
+  "image_file": "6-escalation-app-W.png",
+  "image_path": "docs/categorizing-incidents/tools-and-escalations.images/6-escalation-app-W.png",
+  "lesson": "tools-and-escalations",
+  "exercise": "categorizing-incidents",
+  "extraction": {
+    "ocr_text": "Triage Escalation\n\nForm    Flow    Preview\n\nTriage Escalation\n\nEscalation Name *\nTriage Escalation\n\nDescription *\nUse this when you can not establish category and subcategory of the Incident\nbased on Description and Short Description\n\nEscalation Type\nApp Task\n\nAction App *\nServiceNow Escalation App\n\nAgent Memory Enabled (Preview)\n\nAdditional Properties\n\nTask title\nCategorization request\n\nPriority\nMedium\n\nTriage Escalation\n\nEscalations\n\nServiceNow Incidents M...\nAutonomous Agent\n\nContext\nTools\n\nServiceNow\nIncidents\nCategorization\nInformation\n\nSNOW Assignee\nLookup\nAutomation\n\nSearch Incidents\nby Incident\nNumber\n\nUpdate\nService\nNow\nIncident",
+    "description": "This screenshot shows the UiPath Agent Builder escalation configuration view for an autonomous agent. On the left, the agent flow canvas displays a selected escalation node named \"Triage Escalation\" connected to the \"ServiceNow Incidents M...\" agent and its related tools/context nodes. On the right, the properties panel is open with the escalation configured as an App Task using the \"ServiceNow Escalation App,\" including a description prompt, task title, and priority.",
+    "step_instructions": "1. Select the \"Triage Escalation\" node in the Flow canvas.\n2. In the \"Escalation Name\" field, enter \"Triage Escalation\".\n3. In the \"Description\" field, enter \"Use this when you can not establish category and subcategory of the Incident based on Description and Short Description\".\n4. In the \"Escalation Type\" dropdown, select \"App Task\".\n5. In the \"Action App\" field, select \"ServiceNow Escalation App\".\n6. Expand \"Additional Properties\" if needed.\n7. In the \"Task title\" field, enter \"Categorization request\".\n8. In the \"Priority\" dropdown, leave or select \"Medium\"."
+  },
+  "layout": {
+    "mode": "full_width",
+    "ocr_length": 645,
+    "aspect_ratio": 1.75,
+    "image_size": "1600x915",
+    "rationale": "High density (645 chars) + wide (1.75) or very high text"
+  },
+  "model": {
+    "name": "gpt-5.4",
+    "deployment": "gpt-5.4",
+    "api_version": "2025-04-01-preview"
+  },
+  "usage": {
+    "prompt_tokens": 5277,
+    "completion_tokens": 458,
+    "total_tokens": 5735
+  },
+  "generated_at": "2026-04-01T05:27:18.437162+00:00"
+}

@@ -1,68 +1,32 @@
-# Categorizing Incidents
+# Categorizing Technical Support Incidents
 
-**Build an intelligent ServiceNow incident triage agent**
-
----
+**Build an intelligent ServiceNow incident triage agent for ticket routing**
 
 ## Overview
 
-In this exercise you'll use **UiPath Agent Builder** to create an agent that automatically categorizes and routes ServiceNow incidents. You'll progress through five phases, each adding a new capability layer.
+**UiPath Agent Builder** is a vital tool designed to empower users in the development of intelligent automation solutions with minimal coding experience. It facilitates the creation, design, and deployment of agents that can perform various tasks, such as invoking automations, utilizing APIs, and collaborating with other systems seamlessly. 
 
-## Five-Phase Learning Path
+By offering a low-code environment, Agent Builder democratizes access to automation capabilities, enabling both technical and non-technical users to craft powerful, context-driven agents tailored to their unique operational needs. 
 
-### Phase 1 — Basic Agent
-Create a foundational categorization agent using system prompts. The agent analyzes incident descriptions and assigns categories without any external data sources.
+In this exercise you'll use **UiPath Agent Builder** to create an agent that automatically categorizes and routes ServiceNow incidents. You'll build a complete system that analyzes technical incidents, grounds decisions in real data, and routes ambiguous cases to human reviewers.
 
-**You'll learn:**
-- Agent Builder basics
-- Writing effective system prompts for categorization
-- Testing agent responses
+The progression looks like this:
 
----
+- First, we will teach agent to categorize incidents based on static descriptions. We will play with sample inputs to better understand LLM interactions, use the **Context Grounding** to finetune the results, and give it a thorough testing using **Evaluations** feature.
 
-### Phase 2 — LLM with Context
-[Ground your agent](llm-with-context.md) in real incident data to eliminate hallucinations. Instead of relying solely on the LLM's general knowledge, you'll provide structured context from your incident database.
+- Once categorization itself is working well - we will "grow agent's hands" by connecting it to **ServiceNow** using **Integration Service** so that it can retrieve incident details and update incident back to ServiceNow based on Agent's analysis. 
 
-**You'll learn:**
-- Data-anchoring techniques
-- Preventing AI-generated assumptions
-- Feeding structured data into prompts
+- Finally, if Agent is unable to categorize the Incident, it should be able to reach out to **Humans** using **Escalations** capability.
 
----
+By the end, you'll have a fully functional, production-ready triage agent. Let's get started!
 
-### Phase 3 — Evaluations
-Deploy an evaluation framework to systematically test your agent's performance across a standardized collection of test cases.
 
-**You'll learn:**
-- Building test case collections
-- Running batch evaluations
-- Measuring and improving categorization accuracy
+## Steps
 
----
-
-### Phase 4 — Live System Integration
-Connect the agent to ServiceNow's live API — retrieve incident details from real systems and post categorization decisions back.
-
-**You'll learn:**
-- API integration in Agent Builder
-- Reading from and writing to ServiceNow
-- Working with real operational data
-
----
-
-### Phase 5 — Tools and Escalations
-[Implement escalation workflows](tools-and-escalations.md) via Action Center. Route complex or ambiguous incidents to human reviewers when automated handling isn't appropriate.
-
-**You'll learn:**
-- Configuring Action Center escalations
-- Designing human-in-the-loop decision points
-- When (and how) to hand off to humans
-
----
-
-## Platform
-
-All exercises run in **UiPath Agent Builder**, a low-code environment that lets you create, design, and deploy agents without deep coding experience.
+| Step | Focus |
+| ---: | :--- |
+| [**LLM with Context**](llm-with-context.md) | Ground your agent in real incident data to eliminate hallucinations. Create an agent that analyzes incident descriptions, anchors decisions to structured context, and validates performance with evaluation sets. |
+| [**Tools and Escalations**](tools-and-escalations.md) | Connect your agent to ServiceNow's live API and implement escalation workflows. Retrieve incident details from real systems, update tickets with categorization decisions, and route ambiguous cases to human reviewers via Action Center. |
 
 !!! tip "Training Environment"
-    Log in at [cloud.uipath.com/tpenlabs](https://cloud.uipath.com/tpenlabs) using tenant **AgenticPractice**.
+    Log in at **[cloud.uipath.com/tpenlabs](https://cloud.uipath.com/tpenlabs)** and remember using tenant **AgenticPractice** for this exercise.

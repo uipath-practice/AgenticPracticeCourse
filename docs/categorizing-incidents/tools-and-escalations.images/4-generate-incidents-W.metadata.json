@@ -1,0 +1,30 @@
+{
+  "version": "1.0",
+  "image_file": "4-generate-incidents-W.png",
+  "image_path": "docs/categorizing-incidents/tools-and-escalations.images/4-generate-incidents-W.png",
+  "lesson": "tools-and-escalations",
+  "exercise": "categorizing-incidents",
+  "extraction": {
+    "ocr_text": "ServiceNow Incident manager for Agentic ILT\nBilly Cowley and all his recently created ServiceNow Incidents\n\nSergey\nTag field will be added to Description field and used as a filter\nsergey.shumilov@uipath.com\n\nRefresh\nRetrieve list of tickets from ServiceNow\n\nGenerate\nHow many:\n3\nGenerate new tickets for processing\n\nNew tickets\n\nTicket Number    State    Short Description    Description\nINC0124651    new    Display flickers occasionally ## Sergey    My screen flickers randomly throughout the day. It’s not completely unusable, [...]\nINC0124653    new    I would like to talk with a manager ## Sergey    Every time I reach out to this team, the response time is really long, seriously a[...]\nINC0124654    new    Laptop slowing down ## Sergey    I noticed my laptop is slowing down every time a security scan starts running, c[...]\nINC0124655    new    I would like to talk with a manager ## Sergey    Every time I reach out to this team, the response time is really long, seriously a[...]\nINC0124657    new    Database connection issue from RPA automations ## Sergey    I'm building an RPA workflow that connects to Microsoft SQL Server and it fails [...]\n\nProcessed tickets\n\nTicket Number    Category    Subcategory    Assignee    Short Description    Description\nINC0124647    inquiry    email    fred.luddy@example.com    System cannot reach certain websites ## Sergey    Some websites are not loading on my system, but they [...]",
+    "description": "This screenshot shows the Ticket Management App used to generate and review ServiceNow incidents for the UiPath lesson. The app displays a tag field filled with \"Sergey,\" a quantity field set to \"3,\" and a New tickets table containing newly generated incidents. One incident number, INC0124651, is visually highlighted, indicating the ticket number to copy for later use.",
+    "step_instructions": "1. In the tag field, enter your name, such as \"Sergey.\"\n2. In the How many field, enter the number of sample incidents to create, such as \"3.\"\n3. Click on the Generate button to create new tickets.\n4. In the New tickets list, locate the newly created incidents.\n5. Copy the Incident Number from the highlighted ticket, such as \"INC0124651.\""
+  },
+  "layout": {
+    "mode": "full_width",
+    "ocr_length": 1437,
+    "aspect_ratio": 1.73,
+    "image_size": "1600x923",
+    "rationale": "High density (1437 chars) + wide (1.73) or very high text"
+  },
+  "model": {
+    "name": "gpt-5.4",
+    "deployment": "gpt-5.4",
+    "api_version": "2025-04-01-preview"
+  },
+  "usage": {
+    "prompt_tokens": 5280,
+    "completion_tokens": 525,
+    "total_tokens": 5805
+  },
+  "generated_at": "2026-04-01T05:27:12.085640+00:00"
+}

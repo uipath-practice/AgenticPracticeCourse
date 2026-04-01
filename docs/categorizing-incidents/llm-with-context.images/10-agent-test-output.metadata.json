@@ -5,9 +5,16 @@
   "lesson": "llm-with-context",
   "exercise": "categorizing-incidents",
   "extraction": {
-    "ocr_text": "Execution Trace\n\nAgent run - ServiceNow Incidents Management Agent\n  LLM call   gpt-4o-2024-11-20\n  Tool call   ServiceNow_Incidents_Categorization_Information\n  LLM call   gpt-4o-2024-11-20\n  Tool call   SNOW_Assignee_Lookup_Automation\n  LLM call   gpt-4o-2024-11-20\n  Agent output\n\nAgent output\n\nAdd to evaluation set\n\nResult   Metadata   Feedback\n\nOutput\n\nIncidentCategory: Inquiry / Help\nIncidentSubcategory: External Application\nAssigneeEmail: paul.martin@example.com\nExecutionDetails: The incident was categorized as 'Inquiry / Help' under the\nsubcategory 'External Application' because the issue involved\na third-party CRM software crashing on launch. Based on the\ncategorization, the on-duty assignee email was determined\nto be paul.martin@example.com.",
-    "description": "This screenshot shows UiPath Agent Builder in Studio Web with the Execution Trace panel on the left and the Agent output panel on the right. The trace displays a completed agent run for the ServiceNow Incidents Management Agent, including multiple LLM calls and two tool calls: one to the categorization context source and one to the SNOW assignee lookup automation. The Result tab is selected, showing the final output fields for incident category, subcategory, assignee email, and execution details, with an Add to evaluation set button available.",
-    "step_instructions": "Click on the completed agent run in the Execution Trace to review the sequence of LLM and tool calls. Verify the output in the Result tab, including IncidentCategory, IncidentSubcategory, and AssigneeEmail. Click on \"Add to evaluation set\" to save this successful test run as an evaluation case."
+    "ocr_text": "Execution Trace\n\nAgent run - ServiceNow Incidents Management Agent\n  LLM call  gpt-4o-2024-11-20\n  Tool call  ServiceNow_Incidents_Categorization_Information\n  LLM call  gpt-4o-2024-11-20\n  Tool call  SNOW_Assignee_Lookup_Automation\n  LLM call  gpt-4o-2024-11-20\n  Agent output\n\nAgent output\nAdd to evaluation set\n\nResult    Metadata    Feedback\n\nOutput\n\nIncidentCategory: Inquiry / Help\nIncidentSubcategory: External Application\nAssigneeEmail: paul.martin@example.com\nExecutionDetails: The incident was categorized as 'Inquiry / Help' under the\nsubcategory 'External Application' because the issue involved\na third-party CRM software crashing on launch. Based on the\ncategorization, the on-duty assignee email was determined\nto be paul.martin@example.com.",
+    "description": "This screenshot shows UiPath Agent Builder in Studio Web after testing the ServiceNow Incidents Management Agent. The left Execution Trace panel displays the sequence of steps taken by the agent, including LLM calls, a context grounding tool call to ServiceNow_Incidents_Categorization_Information, and a tool call to SNOW_Assignee_Lookup_Automation. The right Agent output panel is on the Result tab and shows the final structured output with a valid category, subcategory, assignee email, and execution details.",
+    "step_instructions": "Informational screenshot — no user action required. It shows the completed test run and execution trace, confirming that the agent used the context source and the assignee lookup tool before producing the final categorization result."
+  },
+  "layout": {
+    "mode": "full_width",
+    "ocr_length": 756,
+    "aspect_ratio": 3.78,
+    "image_size": "1600x423",
+    "rationale": "High density (756 chars) + wide (3.78) or very high text"
   },
   "model": {
     "name": "gpt-5.4",
@@ -15,9 +22,9 @@
     "api_version": "2025-04-01-preview"
   },
   "usage": {
-    "prompt_tokens": 9374,
-    "completion_tokens": 403,
-    "total_tokens": 9777
+    "prompt_tokens": 9381,
+    "completion_tokens": 381,
+    "total_tokens": 9762
   },
-  "generated_at": "2026-03-31T05:35:53.878329+00:00"
+  "generated_at": "2026-04-01T05:29:47.605253+00:00"
 }

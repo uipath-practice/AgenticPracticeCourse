@@ -6,8 +6,15 @@
   "exercise": "categorizing-incidents",
   "extraction": {
     "ocr_text": "Search Incidents by Incident Number\n\nName *\nSearch Incidents by Incident Number\n\nActivity\nSearch Incidents by Incident Number\n\nDescription\nSearch for incidents in ServiceNow using the\nincident number.\n\nServiceNow connection *\nShared ServiceNow Connection ×\n\nPrimary\n\nIncident ID\nThe ID of the Incident",
-    "description": "This screenshot shows the UiPath Agent Builder tool configuration panel for the ServiceNow tool named \"Search Incidents by Incident Number.\" The form displays the tool name, activity, description, and a required ServiceNow connection field. The shared ServiceNow connection is already selected, and the Primary section below shows an Incident ID input mapping.",
-    "step_instructions": "Informational screenshot — no user action required. It shows that the required ServiceNow connection has already been selected in the \"ServiceNow connection *\" field as \"Shared ServiceNow Connection.\""
+    "description": "This screenshot shows the UiPath Agent Builder tool configuration panel for the ServiceNow tool named \"Search Incidents by Incident Number.\" The tool details are visible, including the name, activity, description, and the required ServiceNow connection field. The shared ServiceNow connection is already selected and highlighted, and the Primary section with the Incident ID input is visible below.",
+    "step_instructions": "Select \"Shared ServiceNow Connection\" in the \"ServiceNow connection *\" field. Confirm that the shared connection is populated for the \"Search Incidents by Incident Number\" tool, then proceed to the next configuration step."
+  },
+  "layout": {
+    "mode": "split_50",
+    "ocr_length": 301,
+    "aspect_ratio": 0.7,
+    "image_size": "922x1326",
+    "rationale": "Medium text density (301 chars)"
   },
   "model": {
     "name": "gpt-5.4",
@@ -15,9 +22,9 @@
     "api_version": "2025-04-01-preview"
   },
   "usage": {
-    "prompt_tokens": 5123,
-    "completion_tokens": 202,
-    "total_tokens": 5325
+    "prompt_tokens": 5095,
+    "completion_tokens": 214,
+    "total_tokens": 5309
   },
-  "generated_at": "2026-03-31T12:31:02.600136+00:00"
+  "generated_at": "2026-04-01T05:27:03.241631+00:00"
 }

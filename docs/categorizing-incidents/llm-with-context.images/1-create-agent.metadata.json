@@ -6,8 +6,15 @@
   "exercise": "categorizing-incidents",
   "extraction": {
     "ocr_text": "Create New\n\nStart building\nChoose how you’d like to begin\n\nAgentic Process\nOrchestrate end-to-end processes with AI agents, robots and people.\n\nAgent\nAI powered digital worker leveraging LLMs, context, and automation tools to accomplish its goal.\n\nRPA Workflow\nAutomate repetitive tasks using robotic process automation.\n\nApp\nCreate low-code apps for data manipulation, decision approval, and process control.",
-    "description": "This screenshot shows UiPath Studio Web with the Create New menu opened as a modal titled Start building. The modal lists available project/component types, and the Agent option is visually highlighted, indicating the lesson step to create a new agent solution from Studio Web.",
-    "step_instructions": "1. Click on the Create New button in the top-right corner of Studio Web.\n2. In the Start building dialog, click on Agent.\n3. Proceed to create a new Agent Solution from the selected Agent option."
+    "description": "This screenshot shows UiPath Studio Web with the Create New menu open in a modal titled Start building. The modal lists solution types including Agentic Process, Agent, RPA Workflow, and App, and the Agent option is highlighted as the intended selection. The Create New button in the top-right corner is also emphasized.",
+    "step_instructions": "1. Click on the Create New button in the top-right corner.\n2. In the Start building dialog, click on Agent.\n3. Proceed to create a new Agent solution."
+  },
+  "layout": {
+    "mode": "split_50",
+    "ocr_length": 409,
+    "aspect_ratio": 1.65,
+    "image_size": "1288x780",
+    "rationale": "Medium text density (409 chars)"
   },
   "model": {
     "name": "gpt-5.4",
@@ -15,9 +22,9 @@
     "api_version": "2025-04-01-preview"
   },
   "usage": {
-    "prompt_tokens": 8565,
-    "completion_tokens": 206,
-    "total_tokens": 8771
+    "prompt_tokens": 7810,
+    "completion_tokens": 220,
+    "total_tokens": 8030
   },
-  "generated_at": "2026-03-31T05:35:52.050736+00:00"
+  "generated_at": "2026-04-01T05:29:47.605457+00:00"
 }

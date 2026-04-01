@@ -5,9 +5,21 @@
   "lesson": "llm-with-context",
   "exercise": "categorizing-incidents",
   "extraction": {
-    "ocr_text": "Data manager\n\nInputs\n\nTt IncidentShortDescription\n\nTt IncidentDescription\n\nOutputs\n\n1  {\n2      \"type\": \"object\",\n3      \"properties\": {\n4          \"IncidentCategory\": {\n5              \"type\": \"string\",\n6              \"description\": \"The category of the Se[...]\n7          },\n8          \"IncidentSubcategory\": {\n9              \"type\": \"string\",\n10             \"description\": \"The subcategory of the [...]\n11         },\n12         \"AssigneeEmail\": {\n13             \"type\": \"string\",\n14             \"description\": \"The assignee email for [...]\n15         },\n16         \"ExecutionDetails\": {\n17             \"type\": \"string\",\n18             \"description\": \"Details and results of [...]\n19         }\n20     },\n21     \"title\": \"Outputs\"\n22 }\n\n</>",
-    "description": "This screenshot shows the Data Manager panel in UiPath Studio Web Agent Builder. The Inputs section lists two string input arguments, IncidentShortDescription and IncidentDescription, and the Outputs section is open in JSON editor mode. The output schema defines four output arguments: IncidentCategory, IncidentSubcategory, AssigneeEmail, and ExecutionDetails, each as string properties with descriptions.",
-    "step_instructions": "Informational screenshot — no user action required. It shows the completed Output arguments configuration in the Data Manager JSON editor, with the </> editor mode enabled and the output schema already populated."
+    "ocr_text": "Data manager\n\nInputs\n\nTt  IncidentShortDescription\n\nTt  IncidentDescription\n\nOutputs\n\n1  {\n2      \"type\": \"object\",\n3      \"properties\": {\n4          \"IncidentCategory\": {\n5              \"type\": \"string\",\n6              \"description\": \"The category of the Se[...]\n7          },\n8          \"IncidentSubcategory\": {\n9              \"type\": \"string\",\n10             \"description\": \"The subcategory of the [...]\n11         },\n12         \"AssigneeEmail\": {\n13             \"type\": \"string\",\n14             \"description\": \"The assignee email for [...]\n15         },\n16         \"ExecutionDetails\": {\n17             \"type\": \"string\",\n18             \"description\": \"Details and results of [...]\n19         }\n20     },\n21     \"title\": \"Outputs\"\n22 }\n\n[editor/format icon visible at top right of Outputs editor]",
+    "description": "This screenshot shows UiPath Studio Web's Agent Builder with the Data manager panel open. The Inputs section contains two string arguments, IncidentShortDescription and IncidentDescription, and the Outputs section is in JSON editor mode showing an object schema for the agent's output. The output schema defines IncidentCategory, IncidentSubcategory, AssigneeEmail, and ExecutionDetails properties.",
+    "step_instructions": [
+      "In the Data manager panel, expand Outputs if needed.",
+      "Switch to the JSON editor mode for Outputs using the editor toggle/icon at the top right of the Outputs section.",
+      "In the Outputs JSON editor, paste or enter the output schema defining IncidentCategory, IncidentSubcategory, AssigneeEmail, and ExecutionDetails.",
+      "Verify the JSON includes the title value \"Outputs\" and each property has type \"string\" with descriptions."
+    ]
+  },
+  "layout": {
+    "mode": "split_50",
+    "ocr_length": 798,
+    "aspect_ratio": 0.75,
+    "image_size": "756x1006",
+    "rationale": "Medium text density (798 chars)"
   },
   "model": {
     "name": "gpt-5.4",
@@ -15,9 +27,9 @@
     "api_version": "2025-04-01-preview"
   },
   "usage": {
-    "prompt_tokens": 9810,
-    "completion_tokens": 336,
-    "total_tokens": 10146
+    "prompt_tokens": 9759,
+    "completion_tokens": 411,
+    "total_tokens": 10170
   },
-  "generated_at": "2026-03-31T05:36:04.384020+00:00"
+  "generated_at": "2026-04-01T05:30:00.516502+00:00"
 }

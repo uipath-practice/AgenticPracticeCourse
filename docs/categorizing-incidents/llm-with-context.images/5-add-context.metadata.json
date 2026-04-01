@@ -6,8 +6,15 @@
   "exercise": "categorizing-incidents",
   "extraction": {
     "ocr_text": "Score: NA\n0%\nForm\nFlow\n\nTools\nAdd tool\nEnable the agent to access data and\nperform actions.\n\nContexts\nAdd context\nAdd contexts the agent can query.\n\nEscalations\nAdd escalation\nEscalate to an assigned person\nbefore the agent takes an important\naction.\n\nChoose context\n\nContexts\nCreate new\n\nSearch contexts\n\nAvailable resources\nServiceNow Incidents\nServiceNow Incidents Categorization Informa...\nServiceNow Incidents Categorization Information",
-    "description": "This screenshot shows the UiPath Agent Builder configuration interface with the Form view selected. On the left, the agent settings cards for Tools, Contexts, and Escalations are visible, and the Contexts card's Add context action is highlighted. On the right, a Choose context side panel is open, showing available context resources under a ServiceNow Incidents folder, including a selectable item named ServiceNow Incidents Categorization Information.",
-    "step_instructions": "1. Click on Add context in the Contexts section.\n2. In the Choose context panel, browse the Available resources list under ServiceNow Incidents.\n3. Select the ServiceNow Incidents Categorization Information context item."
+    "description": "This screenshot shows UiPath Studio Web Agent Builder in Form view with the agent configuration page open. The Contexts section is visible on the left, and a right-side \"Choose context\" panel is open after clicking Add context. In the available resources list, the folder \"ServiceNow Incidents\" is expanded and the context resource \"ServiceNow Incidents Categorization Information\" is visible for selection.",
+    "step_instructions": "1. Click on Add context in the Contexts section.\n2. In the Choose context panel, expand or select the ServiceNow Incidents folder under Available resources.\n3. Select ServiceNow Incidents Categorization Information from the list of available contexts."
+  },
+  "layout": {
+    "mode": "split_50",
+    "ocr_length": 441,
+    "aspect_ratio": 1.64,
+    "image_size": "1380x844",
+    "rationale": "Medium text density (441 chars)"
   },
   "model": {
     "name": "gpt-5.4",
@@ -15,9 +22,9 @@
     "api_version": "2025-04-01-preview"
   },
   "usage": {
-    "prompt_tokens": 7289,
-    "completion_tokens": 271,
-    "total_tokens": 7560
+    "prompt_tokens": 8764,
+    "completion_tokens": 269,
+    "total_tokens": 9033
   },
-  "generated_at": "2026-03-31T05:36:06.683604+00:00"
+  "generated_at": "2026-04-01T05:30:01.202711+00:00"
 }

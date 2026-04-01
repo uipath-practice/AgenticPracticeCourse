@@ -5,7 +5,62 @@ import tempfile
 from datetime import datetime, timezone
 from pathlib import Path
 
+from PIL import Image
+
 from .config import AZURE_API_VERSION, AZURE_DEPLOYMENT, METADATA_SUFFIX
+
+
+def classify_layout_mode(image_path: Path, ocr_text: str) -> dict:
+    """Classify image layout mode based on OCR text volume and aspect ratio.
+
+    Analyzes the image to determine optimal display:
+    - "full_width": Full-screen UI with detailed layout (use width="900")
+    - "split_50": Medium density, balanced split (use |50|)
+    - "split_30": Compact UI, narrow panel (use |30|)
+
+    Returns:
+        Dict with keys: mode, ocr_length, aspect_ratio, rationale.
+    """
+    try:
+        # Get image dimensions
+        img = Image.open(image_path)
+        width, height = img.size
+        aspect_ratio = width / height if height > 0 else 1.0
+
+        # Analyze OCR text
+        ocr_length = len(ocr_text.strip())
+
+        # Classification logic
+        # Full-screen UIs: either high text + wide aspect, or very high text volume
+        if (ocr_length > 600 and aspect_ratio > 1.4) or ocr_length > 1200:
+            mode = "full_width"
+            rationale = f"High density ({ocr_length} chars) + wide ({aspect_ratio:.2f}) or very high text"
+        # Medium density: substantial text content
+        elif ocr_length > 300:
+            mode = "split_50"
+            rationale = f"Medium text density ({ocr_length} chars)"
+        # Compact: little text or tall/narrow aspect
+        else:
+            mode = "split_30"
+            rationale = f"Low text density ({ocr_length} chars) or narrow layout"
+
+        return {
+            "mode": mode,
+            "ocr_length": ocr_length,
+            "aspect_ratio": round(aspect_ratio, 2),
+            "image_size": f"{width}x{height}",
+            "rationale": rationale,
+        }
+
+    except Exception as e:
+        # Fallback to split_30 if image can't be analyzed
+        return {
+            "mode": "split_30",
+            "ocr_length": len(ocr_text.strip()) if ocr_text else 0,
+            "aspect_ratio": None,
+            "image_size": None,
+            "rationale": f"Error analyzing image: {str(e)}",
+        }
 
 
 def build_metadata(
@@ -23,6 +78,10 @@ def build_metadata(
     Returns:
         Complete metadata dictionary ready to write.
     """
+    # Classify layout mode based on image and OCR
+    ocr_text = extraction.get("ocr_text", "")
+    layout_info = classify_layout_mode(image_task.image_path, ocr_text)
+
     return {
         "version": "1.0",
         "image_file": image_task.image_name,
@@ -30,10 +89,11 @@ def build_metadata(
         "lesson": image_task.lesson_slug,
         "exercise": image_task.exercise_slug,
         "extraction": {
-            "ocr_text": extraction.get("ocr_text", ""),
+            "ocr_text": ocr_text,
             "description": extraction.get("description", ""),
             "step_instructions": extraction.get("step_instructions", ""),
         },
+        "layout": layout_info,
         "model": {
             "name": "gpt-5.4",
             "deployment": AZURE_DEPLOYMENT,
