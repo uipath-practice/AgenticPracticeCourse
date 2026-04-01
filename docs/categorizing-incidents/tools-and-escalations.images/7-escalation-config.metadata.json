@@ -1,0 +1,23 @@
+{
+  "version": "1.0",
+  "image_file": "7-escalation-config.png",
+  "image_path": "docs/categorizing-incidents/tools-and-escalations.images/7-escalation-config.png",
+  "lesson": "tools-and-escalations",
+  "exercise": "categorizing-incidents",
+  "extraction": {
+    "ocr_text": "Assignment\n\nAssignment Criteria *\nUser\n\nRecipient *\nSergey User\n\nAvailable actionable notifications\nEnable actionable notifications\n\nInputs\n\nName\nType\nin_ShortDescription\nstring\nDescription\nDescribe the content of the field\n\nName\nType\nin_Description\nstring\nDescription\nDescribe the content of the field\n\nName\nType\nin_Reasoning\nstring\nDescription\nBriefly explain the steps taken up until escalation\n\nName\nType\nin_IncidentNumber\nstring\nDescription\nDescribe the content of the field\n\nOutcome behavior\n\nSubmit\nContinue\n\nStopExecution\nEnd",
+    "description": "This screenshot shows the escalation configuration panel in UiPath Agent Builder, specifically the Assignment, Inputs, and Outcome behavior sections of an escalation tool. The escalation is assigned to a user named Sergey User, and several input arguments are defined, including in_Reasoning with a custom description. The outcome behavior is configured so Submit continues execution and StopExecution ends execution.",
+    "step_instructions": "1. In the Recipient field under Assignment, select or confirm the user Sergey User.\n2. In the Inputs section, locate the in_Reasoning argument and in its Description field, enter: \"Briefly explain the steps taken up until escalation\".\n3. In the Outcome behavior section, set Submit to Continue.\n4. Set StopExecution to End."
+  },
+  "model": {
+    "name": "gpt-5.4",
+    "deployment": "gpt-5.4",
+    "api_version": "2025-04-01-preview"
+  },
+  "usage": {
+    "prompt_tokens": 10528,
+    "completion_tokens": 305,
+    "total_tokens": 10833
+  },
+  "generated_at": "2026-03-31T12:31:19.069629+00:00"
+}

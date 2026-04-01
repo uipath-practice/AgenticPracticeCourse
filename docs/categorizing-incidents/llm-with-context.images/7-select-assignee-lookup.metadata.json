@@ -1,7 +1,7 @@
 {
   "version": "1.0",
-  "image_file": "7-context-grounding.png",
-  "image_path": "docs/categorizing-incidents/llm-with-context.images/7-context-grounding.png",
+  "image_file": "7-select-assignee-lookup.png",
+  "image_path": "docs/categorizing-incidents/llm-with-context.images/7-select-assignee-lookup.png",
   "lesson": "llm-with-context",
   "exercise": "categorizing-incidents",
   "extraction": {

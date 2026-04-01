@@ -1,7 +1,7 @@
 {
   "version": "1.0",
-  "image_file": "10-evaluation-set.png",
-  "image_path": "docs/categorizing-incidents/llm-with-context.images/10-evaluation-set.png",
+  "image_file": "10-agent-test-output.png",
+  "image_path": "docs/categorizing-incidents/llm-with-context.images/10-agent-test-output.png",
   "lesson": "llm-with-context",
   "exercise": "categorizing-incidents",
   "extraction": {

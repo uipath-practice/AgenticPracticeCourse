@@ -1,0 +1,23 @@
+{
+  "version": "1.0",
+  "image_file": "2-servicenow-connection.png",
+  "image_path": "docs/categorizing-incidents/tools-and-escalations.images/2-servicenow-connection.png",
+  "lesson": "tools-and-escalations",
+  "exercise": "categorizing-incidents",
+  "extraction": {
+    "ocr_text": "Search Incidents by Incident Number\n\nName *\nSearch Incidents by Incident Number\n\nActivity\nSearch Incidents by Incident Number\n\nDescription\nSearch for incidents in ServiceNow using the\nincident number.\n\nServiceNow connection *\nShared ServiceNow Connection ×\n\nPrimary\n\nIncident ID\nThe ID of the Incident",
+    "description": "This screenshot shows the UiPath Agent Builder tool configuration panel for the ServiceNow tool named \"Search Incidents by Incident Number.\" The form displays the tool name, activity, description, and a required ServiceNow connection field. The shared ServiceNow connection is already selected, and the Primary section below shows an Incident ID input mapping.",
+    "step_instructions": "Informational screenshot — no user action required. It shows that the required ServiceNow connection has already been selected in the \"ServiceNow connection *\" field as \"Shared ServiceNow Connection.\""
+  },
+  "model": {
+    "name": "gpt-5.4",
+    "deployment": "gpt-5.4",
+    "api_version": "2025-04-01-preview"
+  },
+  "usage": {
+    "prompt_tokens": 5123,
+    "completion_tokens": 202,
+    "total_tokens": 5325
+  },
+  "generated_at": "2026-03-31T12:31:02.600136+00:00"
+}

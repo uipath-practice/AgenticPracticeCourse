@@ -1,7 +1,7 @@
 {
   "version": "1.0",
-  "image_file": "8-context-source.png",
-  "image_path": "docs/categorizing-incidents/llm-with-context.images/8-context-source.png",
+  "image_file": "8-add-rpa-tool.png",
+  "image_path": "docs/categorizing-incidents/llm-with-context.images/8-add-rpa-tool.png",
   "lesson": "llm-with-context",
   "exercise": "categorizing-incidents",
   "extraction": {

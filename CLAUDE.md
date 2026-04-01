@@ -9,8 +9,8 @@ Apply all rules below to every task involving this site — no reminders needed.
 
 A GitHub Pages–hosted MkDocs site that guides learners through hands-on UiPath agentic automation exercises. The primary audience is workshop participants who are practicing for the first time — not developers, not UiPath experts. Writing and structure should reflect that.
 
-**Live site:** https://s-shumilov.github.io/AgenticPracticeCourse/
-**Source repo:** https://github.com/s-shumilov/AgenticPracticeCourse
+**Live site:** https://uipath-practice.github.io/AgenticPracticeCourse/
+**Source repo:** https://github.com/uipath-practice/AgenticPracticeCourse
 **Theme:** MkDocs Material (`mkdocs.yml`)
 **Deploy:** GitHub Actions on every push to `main` (`.github/workflows/deploy.yml`)
 

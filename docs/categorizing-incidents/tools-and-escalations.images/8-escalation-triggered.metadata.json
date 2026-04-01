@@ -1,0 +1,23 @@
+{
+  "version": "1.0",
+  "image_file": "8-escalation-triggered.png",
+  "image_path": "docs/categorizing-incidents/tools-and-escalations.images/8-escalation-triggered.png",
+  "lesson": "tools-and-escalations",
+  "exercise": "categorizing-incidents",
+  "extraction": {
+    "ocr_text": "Stop\nContinue\nNext step\nOpen in Action Center\n\nData manager\nInputs\nTt IncidentN...\nType*\nString\nDescription\nServiceNow Incident Number\nRequired\nOutputs\nTt IncidentCategory\nTt IncidentSubcategory\nTt AssigneeEmail\nTt ExecutionDetails\n\nA new task has been created\nExecution has been suspended and is waiting for you to complete the task in Action Center\n\nForm\nFlow\nPreview\n\nTriage Escalation\nEscalation\nServiceNow Incidents M...\nContext\nTools\nServiceNow\nIncident\nCategorization\nInformation\nSNOW Assignee\nLookup\nAutomation\nSearch Incidents\nby Incident\nNumber\nUpdate\nServiceNow\nIncident\n\nExecution Trail\nHistory\n8\nEvaluations\n9\n\nExecution Trace\nAgent run - ServiceNow Incidents Managemen...\nLLM call\nTool call - Search_Incidents_by_Incident_Nu...\nLLM call\nTool call - ServiceNow_Incidents_Categorizat...\nLLM call\nTool call - escalate_triage_escalation\nPre-execution governance\nServiceNow Escalation App\nAction required\n\nServiceNow Escalation App\nAdd to evaluation set\nResult\nMetadata\nFeedback\n\nInput\nTt in_ShortDescription: I would like to talk with a manager ## Sergey\nTt in_Description: Every time I reach out to this team, the response time is really long, seriously affecting my productivity. I would like to talk with a manager please.\nTt in_Reasoning: The incident description and short description do not clearly match any of the predefined Category-Subcategory pairs in the categorization context. Escalation is required to determine the appropriate categorization.\nTt in_IncidentNumber: INC0147569\n\nAction\nAssignee\nsergey.shumilov@outlook.sg\nTask\nhttps://cloud.uipath.com/722912cc-2151-46d4-812f-dd2d575f0739/21acadf8-be81-4308-8c05-b2da9fb94498/actions/tasks/7853024",
+    "description": "This screenshot shows UiPath Agent Builder in Studio Web during a debug run of the ServiceNow incident categorization agent. The Flow canvas is visible with a Triage Escalation node, and the Execution Trail panel shows that the escalation tool was invoked and is now marked Action required. A blue banner at the top confirms that a new Action Center task has been created, and the right-side result panel displays the escalation app inputs, reasoning, incident number, assignee, and task link.",
+    "step_instructions": "1. In the agent's System Prompt and escalation configuration, ensure the escalation path is set up so the agent raises the ServiceNow Escalation App when it cannot determine a category and subcategory.\n2. Run the agent with the sample incident until the escalation is triggered.\n3. Click on Open in Action Center to open the newly created human task.\n4. In Action Center, complete the escalation task so execution can continue or end based on the configured outcome.\n5. Optionally review the Execution Trail and the ServiceNow Escalation App Result panel to confirm the in_Reasoning, incident number, assignee, and task details."
+  },
+  "model": {
+    "name": "gpt-5.4",
+    "deployment": "gpt-5.4",
+    "api_version": "2025-04-01-preview"
+  },
+  "usage": {
+    "prompt_tokens": 10211,
+    "completion_tokens": 712,
+    "total_tokens": 10923
+  },
+  "generated_at": "2026-03-31T12:31:27.103790+00:00"
+}

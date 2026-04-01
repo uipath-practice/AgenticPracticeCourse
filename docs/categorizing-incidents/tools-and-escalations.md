@@ -54,25 +54,54 @@ Escalation is not a failure — it is a design choice. Use it whenever the agent
 
     ```text
     Analyze and categorize the following ServiceNow incident:
+
     Incident Short Description: {{IncidentShortDescription}}
+
     Incident Description: {{IncidentDescription}}
+
     Incident Number: {{IncidentNumber}}
+
     Determine the appropriate category, subcategory, and assignee email for this incident based on the provided information.
     ```
 
-    ![Updated User Prompt with IncidentNumber variable](tools-and-escalations.images/4-user-prompt-updated.png){ .screenshot }
+7. Test the agent using the **Ticket Management App**. In the app:
 
-7. Update the **System Prompt** to instruct the agent how to use the tools:
+    ![Generating incidents in Ticket Management App](tools-and-escalations.images/4-generate-incidents.png){ .screenshot }
+
+    - Enter your name in the tag field (e.g., "Sergey")
+    - Enter a quantity (e.g., "3")
+    - Click **Generate** to create sample incidents
+    - Copy the **Incident Number** from the **New tickets** list
+
+8. Update the **System Prompt** to instruct the agent how to use the tools:
 
     ```text
-    Determine the Incident Category and Subcategory based on Description and Short Description from Categorization Information Context. Context contains table with only possible Category-Subcategory pairs. Do not mix Category-Subcategory pairs if specific pair is not present in the context. Pick the Category-Subcategory pair that aligns well with Incident Descriptions. If you are not sure or no category pair is a clear match, use escalation.
+    You are a ServiceNow Incidents categorization agent, an AI assistant tasked with managing newly created ServiceNow incidents. Your primary responsibility is to analyze incident details and determine the correct Category, Subcategory, and Assignee email address for each incident.
+
+    # Retrieve Incident details
+
+    - Use Search Incidents tool.
+    - Use IncidentNumber as Input.
+    - If ticket already has an Assignee, then stop processing.
+
+    # Categorize the incident
+
+    - Determine the Incident Category and Subcategory based on Description and Short Description from Categorization Information Context.
+    - Context contains table with only possible Category-Subcategory pairs. Do not mix Category-Subcategory pairs if specific pair is not present in the context. Do not generate new categories if they are not present in the context.
+    - Pick the Category-Subcategory pair that aligns well with Incident Descriptions. If you are not sure or no category pair is a clear match, use escalation.
+
+    # Once categories have been established, determine the on-duty Assignee email address who handles this type of requests by calling Assignee Lookup automation.
+
+    # If Category, Subcategory and Assignee have been successfully established, update the ticket by running UpdateServiceNowIncident tool.
+
+    # If Category, Subcategory or Assignee can not be established, do nothing.
+
+    # Summarize the actions taken.
     ```
 
-    Use the Search Incidents tool with `IncidentNumber` as input to retrieve incident details. Stop if an assignee already exists. After categorizing, determine the on-duty assignee using the Assignee Lookup automation. Update the ticket using the UpdateServiceNowIncident tool. Take no action if category, subcategory, or assignee cannot be established.
+    ![Agent test output showing all tools in use](tools-and-escalations.images/5-agent-test-output.png){ .screenshot }
 
-    ![Updated System Prompt with tool instructions](tools-and-escalations.images/5-system-prompt-updated.png){ .screenshot }
-
-8. Test the updated agent using the **Ticket Management App** with a sample incident number. Categorized incidents move to the bottom list after processing.
+    Test the agent with an incident number from the Ticket Management App. In the Execution Trace, verify that the agent calls the Search Incidents tool, retrieves categorization context, calls the Assignee Lookup tool, and finally updates the ServiceNow incident.
 
 ### Part 2: Add escalations
 
@@ -98,22 +127,47 @@ Escalation is not a failure — it is a design choice. Use it whenever the agent
 
     ![Escalation tool configuration with prompt and arguments](tools-and-escalations.images/7-escalation-config.png){ .screenshot }
 
-12. Update the **System Prompt** to add the escalation handling instructions:
+12. Update the **System Prompt** to include both tool usage and escalation handling. Replace the previous system prompt with this complete version:
 
     ```text
-    If Category and Subcategory have been selected by the user as part of escalation, look up Assignee based on selected Category and Subcategory, and then update ticket. Only use email addresses retrieved from the lookup tool, do not generate email addresses.
+    You are a ServiceNow Incidents categorization agent, an AI assistant tasked with managing newly created ServiceNow incidents. Your primary responsibility is to analyze incident details and determine the correct Category, Subcategory, and Assignee email address for each incident.
+
+    # Retrieve Incident details
+
+    - Use Search Incidents tool.
+    - Use IncidentNumber as Input.
+    - If ticket already has an Assignee, then stop processing.
+
+    # Categorize the incident
+
+    - Determine the Incident Category and Subcategory based on Description and Short Description from Categorization Information Context.
+    - Context contains table with only possible Category-Subcategory pairs. Do not mix Category-Subcategory pairs if specific pair is not present in the context. Do not generate new categories if they are not present in the context.
+    - Pick the Category-Subcategory pair that aligns well with Incident Descriptions.
+    - If you are not sure or no category pair is a clear match, use escalation.
+
+    # Once categories have been established, determine the on-duty Assignee email address who handles this type of requests by calling Assignee Lookup automation.
+
+    # If Category, Subcategory and Assignee have been successfully established, update the ticket by running UpdateServiceNowIncident tool.
+
+    # If Category, Subcategory or Assignee can not be established, use the Escalation.
+
+    # If Category and Subcategory have been selected by the user as part of escalation, look up Assignee based on selected Category and Subcategory, and then update ticket. Only use email addresses retrieved from the lookup tool, do not generate email addresses.
+
+    # Summarize the actions taken.
     ```
 
-    ![System Prompt updated with escalation instructions](tools-and-escalations.images/8-system-prompt-escalation.png){ .screenshot }
+    ![Escalation triggered for ambiguous incident](tools-and-escalations.images/8-escalation-triggered.png){ .screenshot }
 
 13. Test the escalation path with this sample incident:
 
     - **Short Description:** `I would like to talk with a manager`
     - **Description:** `Every time I reach out to this team, the response time is really long, seriously affecting my productivity. I would like to talk with a manager please.`
 
-    The agent should recognize it cannot categorize this incident and trigger the escalation, creating a task in **Action Center** for a human reviewer.
+    Run the agent with this incident number. The agent should recognize it cannot confidently categorize this incident and trigger the escalation, creating a task in **Action Center** for a human reviewer.
 
     ![Action Center task created for the escalated incident](tools-and-escalations.images/9-action-center-escalation.png){ .screenshot }
+
+    In **Action Center**, the human reviewer will see the incident details and category/subcategory options. After they select a category and submit, the agent will complete the assignment using the Assignee Lookup automation and update the ticket in ServiceNow.
 
 Your agent is now complete. It retrieves incident details from ServiceNow, categorizes them using grounded context, updates the ticket, and escalates when it cannot determine a clear category.
 

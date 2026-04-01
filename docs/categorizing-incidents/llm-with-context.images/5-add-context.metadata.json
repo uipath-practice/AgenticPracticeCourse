@@ -1,7 +1,7 @@
 {
   "version": "1.0",
-  "image_file": "5-system-prompt.png",
-  "image_path": "docs/categorizing-incidents/llm-with-context.images/5-system-prompt.png",
+  "image_file": "5-add-context.png",
+  "image_path": "docs/categorizing-incidents/llm-with-context.images/5-add-context.png",
   "lesson": "llm-with-context",
   "exercise": "categorizing-incidents",
   "extraction": {

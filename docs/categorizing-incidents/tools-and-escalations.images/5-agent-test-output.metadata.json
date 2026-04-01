@@ -1,0 +1,23 @@
+{
+  "version": "1.0",
+  "image_file": "5-agent-test-output.png",
+  "image_path": "docs/categorizing-incidents/tools-and-escalations.images/5-agent-test-output.png",
+  "lesson": "tools-and-escalations",
+  "exercise": "categorizing-incidents",
+  "extraction": {
+    "ocr_text": "Execution Trace\n\nAgent run - ServiceNow Incidents Management Agent\n  LLM call  gpt-4o-2024-11-20\n  Tool call - Search_Incidents_by_Incident_Number\n  LLM call  gpt-4o-2024-11-20\n  Tool call - ServiceNow_Incidents_Categorization_Information\n  LLM call  gpt-4o-2024-11-20\n  Tool call - SNOW_Assignee_Lookup_Automation\n  LLM call  gpt-4o-2024-11-20\n  Tool call - Update_ServiceNow_Incident\n  LLM call  gpt-4o-2024-11-20\nAgent output\n\nAgent output\n\nAdd to evaluation set\n\nResult\nMetadata\nFeedback\n\nOutput\n\nIncidentCategory: Inquiry / Help\nIncidentSubcategory: Antivirus\nAssigneeEmail: paul.martin@example.com\nExecutionDetails: The incident was categorized under 'Inquiry / Help' and 'Antiviru[...] based on the description mentioning laptop performance issues during security scans. The on-duty assignee for this category and subcategory is paul.martin@example.com, and the ticket has been updated accordingly.",
+    "description": "This screenshot shows the UiPath Agent testing or trace view with the Execution Trace panel on the left and Agent output on the right. The trace lists a completed sequence of LLM calls and tool calls for a ServiceNow Incidents Management Agent, including searching the incident, retrieving categorization information, looking up the assignee, and updating the ServiceNow incident. The Result tab is selected in the Agent output panel, displaying the final category, subcategory, assignee email, and execution summary.",
+    "step_instructions": "Informational screenshot — no user action required. It shows a completed agent run where the execution trace confirms the agent used the Search_Incidents_by_Incident_Number, ServiceNow_Incidents_Categorization_Information, SNOW_Assignee_Lookup_Automation, and Update_ServiceNow_Incident tools, and the Result tab displays the final categorization output."
+  },
+  "model": {
+    "name": "gpt-5.4",
+    "deployment": "gpt-5.4",
+    "api_version": "2025-04-01-preview"
+  },
+  "usage": {
+    "prompt_tokens": 6568,
+    "completion_tokens": 462,
+    "total_tokens": 7030
+  },
+  "generated_at": "2026-03-31T12:31:12.102629+00:00"
+}

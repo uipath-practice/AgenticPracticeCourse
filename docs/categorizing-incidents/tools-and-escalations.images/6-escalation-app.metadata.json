@@ -1,0 +1,23 @@
+{
+  "version": "1.0",
+  "image_file": "6-escalation-app.png",
+  "image_path": "docs/categorizing-incidents/tools-and-escalations.images/6-escalation-app.png",
+  "lesson": "tools-and-escalations",
+  "exercise": "categorizing-incidents",
+  "extraction": {
+    "ocr_text": "Triage Escalation\n\nForm    Flow   Preview\n\nTriage Escalation\n\nEscalation Name *\nTriage Escalation\n\nDescription *\nUse this when you can not establish category and subcategory of the Incident\nbased on Description and Short Description\n\nEscalation Type\nApp Task\n\nAction App *\nServiceNow Escalation App\n\nAgent Memory Enabled (Preview)\n\nAdditional Properties\n\nTask title\nCategorization request\n\nPriority\nMedium\n\nTriage Escalation\n\nEscalations\n\nServiceNow Incidents M...\nAutonomous Agent\n\nContext\nTools\n\nServiceNow\nIncidents\nCategorization\nInformation\n\nSNOW Assignee\nLookup\nAutomation\n\nSearch Incidents\nby Incident\nNumber\n\nUpdate\nServiceNow\nIncident",
+    "description": "This screenshot shows UiPath Agent Builder with the agent canvas on the left and the Properties panel for an escalation on the right. A \"Triage Escalation\" node is selected under the agent’s Escalations path, and its configuration is being edited. The panel shows the escalation name, description, escalation type set to App Task, the selected Action App \"ServiceNow Escalation App,\" and additional properties including task title and priority.",
+    "step_instructions": "1. Click on the escalation node under the agent’s Escalations branch to open its properties.\n2. In the Escalation Name field, enter \"Triage Escalation\".\n3. In the Description field, enter \"Use this when you can not establish category and subcategory of the Incident based on Description and Short Description\".\n4. In the Escalation Type dropdown, select \"App Task\".\n5. In the Action App field, select \"ServiceNow Escalation App\" from the ServiceNow Incidents folder.\n6. Expand Additional Properties if needed.\n7. In the Task title field, enter \"Categorization request\".\n8. Leave the Priority dropdown set to \"Medium\" unless instructed otherwise."
+  },
+  "model": {
+    "name": "gpt-5.4",
+    "deployment": "gpt-5.4",
+    "api_version": "2025-04-01-preview"
+  },
+  "usage": {
+    "prompt_tokens": 9298,
+    "completion_tokens": 449,
+    "total_tokens": 9747
+  },
+  "generated_at": "2026-03-31T12:31:13.199018+00:00"
+}

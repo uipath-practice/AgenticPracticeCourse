@@ -1,7 +1,7 @@
 {
   "version": "1.0",
-  "image_file": "2-agent-named.png",
-  "image_path": "docs/categorizing-incidents/llm-with-context.images/2-agent-named.png",
+  "image_file": "2-rename-agent.png",
+  "image_path": "docs/categorizing-incidents/llm-with-context.images/2-rename-agent.png",
   "lesson": "llm-with-context",
   "exercise": "categorizing-incidents",
   "extraction": {
