@@ -1,6 +1,6 @@
 Build a complete lesson page from screenshots for the Agentic Automation Workshop site.
 
-**Before proceeding, read:** `Master/CourseStructure.md` (lesson page section), `Master/Formatting.md`, and `Master/Language.md`.
+**Before proceeding, read:** `Master/CourseStructure.md` (lesson page section), `Master/Formatting.md`, `Master/Language.md`, and the sample lesson template `Master/Templates/1-sample-lesson.md` (demonstrates all building blocks in context).
 
 ## Collect inputs
 

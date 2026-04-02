@@ -21,6 +21,18 @@ This directory is the **single source of truth** for all rules, templates, and c
 | [Language.md](Language.md) | Voice, tone, humour, word choices, platform names, capitalisation rules | Writing or reviewing any text |
 | [HOWTO.md](HOWTO.md) | End-to-end workflows: create exercise, generate lesson, review, validate, start new repo | First time doing any of these tasks |
 
+## Templates
+
+The `Templates/` folder contains a complete sample exercise that demonstrates every building block:
+
+| File | Page type | What it demonstrates |
+|------|-----------|---------------------|
+| [Templates/index.md](Templates/index.md) | Overview | Title, headline, overview, step table, training callout |
+| [Templates/1-sample-lesson.md](Templates/1-sample-lesson.md) | Lesson | Plan tip, goal, concept sections, two-column layouts, code blocks, arguments pattern, prompt diff, gateway expressions, admonitions, wide images |
+| [Templates/you-did-it.md](Templates/you-did-it.md) | Summary | Congratulations, component table, next steps, keep iterating, learn more |
+
+These are realistic, copy-and-adapt examples — not abstract skeletons. Skills (`/new-exercise`, `/new-lesson`) use them as the reference for generated content.
+
 ---
 
 ## How these files relate to everything else
@@ -32,7 +44,11 @@ Master/                    ← Authoritative rules (you are here)
   ├── CourseStructure.md
   ├── Formatting.md
   ├── Language.md
-  └── HOWTO.md
+  ├── HOWTO.md
+  └── Templates/           ← Complete sample exercise with all building blocks
+      ├── index.md
+      ├── 1-sample-lesson.md
+      └── you-did-it.md
 
 CLAUDE.md                  ← Auto-loaded every Claude Code session; points here for details
 .claude/commands/          ← Skills that reference Master/ files

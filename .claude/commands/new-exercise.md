@@ -1,6 +1,6 @@
 Scaffold a new exercise for the Agentic Automation Workshop site.
 
-**Before proceeding, read:** `Master/Filesystem.md`, `Master/CourseStructure.md`, and `Master/Language.md`.
+**Before proceeding, read:** `Master/Filesystem.md`, `Master/CourseStructure.md`, `Master/Language.md`, and the sample templates in `Master/Templates/` (overview, lesson, summary).
 
 ## Collect inputs
 
