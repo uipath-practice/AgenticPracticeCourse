@@ -18,7 +18,7 @@ Your agent takes an Incident Number, retrieves the full ticket from **ServiceNow
 | **Search Incidents tool** | Integration Service activity that fetches live incident details from **ServiceNow** by Incident Number |
 | **Update Incident tool** | RPA workflow that writes categorization results back to the ServiceNow ticket |
 | **Escalation** | Routes unclassifiable incidents to a human reviewer in **Action Center** and resumes on their decision |
-| **Evaluations** | Regression test suite that validates all eight categorization scenarios against expected outputs |
+| **Evaluations** | Regression tests that validate multiple categorization scenarios against expected outputs |
 
 ---
 
@@ -51,6 +51,7 @@ Instead of running manually, wire your agent to a trigger so it fires whenever a
 - Watch previously confident categorizations start escalating instead.
 - Raise it and observe more aggressive auto-classification — sometimes at the cost of accuracy.
 - Finding the right balance is a key part of production agent design.
+- Refine the list of categories and descriptions to reduce ambiguity.
 
 **Improve the system prompt**
 
