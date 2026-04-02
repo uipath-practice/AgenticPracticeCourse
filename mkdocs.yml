@@ -52,6 +52,7 @@ nav:
     - Overview: categorizing-incidents/index.md
     - LLM with Context: categorizing-incidents/llm-with-context.md
     - Tools and Escalations: categorizing-incidents/tools-and-escalations.md
+    - You did it!: categorizing-incidents/you-did-it.md
   - Invoice Matching with IXP:
     - Overview: invoice-matching-ixp/index.md
     - 1. Create BPMN Process: invoice-matching-ixp/1-create-bpmn.md

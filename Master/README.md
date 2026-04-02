@@ -1,0 +1,56 @@
+# Master — Course Authoring Reference
+
+This directory is the **single source of truth** for all rules, templates, and conventions used to create, review, and maintain courses on the Agentic Automation Workshop site.
+
+---
+
+## Who is this for?
+
+- **Humans** — course authors, reviewers, and trainers who create or edit exercise content
+- **AI agents** — Claude Code skills (`/new-exercise`, `/new-lesson`, `/review-lesson`, `/review-exercise`) read these files to produce consistent output
+
+---
+
+## Files
+
+| File | What it covers | When to read |
+|------|---------------|--------------|
+| [Filesystem.md](Filesystem.md) | Project directory structure, folder naming, file naming, image folders, config files | Setting up a new exercise or repository |
+| [CourseStructure.md](CourseStructure.md) | Page types (Overview, Lesson, Summary), their structure, and full templates | Writing or reviewing any page |
+| [Formatting.md](Formatting.md) | Images, two-column layouts, code blocks, admonitions, tables, prompt diffs, argument docs | Formatting any element on a page |
+| [Language.md](Language.md) | Voice, tone, humour, word choices, platform names, capitalisation rules | Writing or reviewing any text |
+| [HOWTO.md](HOWTO.md) | End-to-end workflows: create exercise, generate lesson, review, validate, start new repo | First time doing any of these tasks |
+
+---
+
+## How these files relate to everything else
+
+```
+Master/                    ← Authoritative rules (you are here)
+  ├── README.md            ← This file — entry point
+  ├── Filesystem.md
+  ├── CourseStructure.md
+  ├── Formatting.md
+  ├── Language.md
+  └── HOWTO.md
+
+CLAUDE.md                  ← Auto-loaded every Claude Code session; points here for details
+.claude/commands/          ← Skills that reference Master/ files
+  ├── new-exercise.md
+  ├── new-lesson.md
+  ├── review-lesson.md
+  └── review-exercise.md
+```
+
+- **CLAUDE.md** contains a compact summary of critical rules and points to `Master/` for full details. It is loaded automatically into every Claude Code session.
+- **Skills** (`.claude/commands/`) reference specific Master files instead of duplicating rules.
+- **Memory** (`.claude/projects/.../memory/`) stores user preferences and project context that can't be derived from these files.
+
+---
+
+## Sanity rules
+
+1. **One source of truth.** If a rule is in a Master file, it should not be duplicated in CLAUDE.md, skills, or memory. Other files should reference Master/ instead.
+2. **Master files describe the standard.** Existing courses may deviate — that's OK. When *creating* new content, follow the standard. When *reviewing*, flag deviations but don't rewrite without confirmation.
+3. **Templates are starting points.** The structure templates in CourseStructure.md define what a page *should* contain. Human authors can adjust structure after generation — the review process checks alignment, not exact match.
+4. **Prefer examples from real courses.** When a rule has a corresponding example in the Invoice Matching with IXP exercise, that exercise is the reference implementation.
