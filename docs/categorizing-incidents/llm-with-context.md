@@ -39,15 +39,15 @@ In **Studio Web**, create a new **Agent Solution**.
     When you create an agent, Studio Web may suggest using Autopilot to auto-generate a solution using AI assistant. You can dismiss it and build manually (as we're doing here), or experiment with Autopilot later for practice.
 
 [[[
-Rename the solution new solution so that it's easier to find it later, for example:
+Rename the solution so that it's easier to find it later, for example:
 
 - **Solution Name**: 
-```
+```text
 ServiceNow Incidents Management Solution
 ```
 
 - **Agent Name**: 
-```
+```text
 ServiceNow Incidents Management Agent
 ```
 
@@ -79,29 +79,29 @@ Full description of the ServiceNow incident
 ]]]
 
 [[[
-Next, create following Outputs:
+Next, create the following Output Arguments:
 ```css hl_lines="1"
 IncidentCategory
 ```
-```
+```text
 The category of the ServiceNow incident
 ```
 ```css hl_lines="1"
 IncidentSubcategory
 ```
-```
-The subcategory of the ServiceNow incident incident
+```text
+The subcategory of the ServiceNow incident
 ```
 ```css hl_lines="1"
 AssigneeEmail
 ```
-```
+```text
 The assignee email for the ServiceNow incident
 ```
 ```css hl_lines="1"
 ExecutionDetails
 ```
-```
+```text
 Details and results of classification
 ```
 |50|
@@ -142,7 +142,7 @@ Luckily, you can import them at once by **switching to JSON editor mode** and pa
 
 ### 2. Configure the agent prompts
 
-After the input and output data is defined, let's prepare the System prompt and the User prompt. Let's understand the difference first.
+After the input and output data is defined, understand the difference between System and User prompts before writing them.
 
 **System Prompts** provide consistent guidelines that define an agent's role and capabilities, while **User Prompts** direct its attention to specific tasks and input parameters. Understanding this distinction is essential for effectively designing and implementing AI agents that can perform complex tasks while maintaining appropriate operational boundaries.
 
@@ -184,7 +184,7 @@ Incident Description:       {{IncidentDescription}}
 Determine the appropriate category, subcategory, and assignee email for this incident based on the provided information.
 ```
 
-Let's test the agent with these sample incident details to observe how it behaves without grounding. Run the agent and provide following input arguments:
+Let's test the agent with these sample incident details to observe how it behaves without grounding. Run the agent and provide the following input arguments:
 
 
 ```css title="Short Description:"
@@ -195,24 +195,24 @@ CRM software crashes on launch
 Every time I try to open the CRM software, it crashes immediately. I've already tried reinstalling it.
 ```
 
-In the output panel you will notice that Agent will send the request to the LLM and receive a response. But how would it come to the category names and the assignee email address? 
+In the output panel you'll see the agent send the request to the LLM and receive a response. But how does it determine the category names and the assignee email address?
 
-Without context grounding, the agent will return plausible-sounding category and assignee information, but these may not exist in your actual system. This is the hallucination problem — the agent sounds confident but is inventing categories. We'll fix this in the next step.
+Without context grounding, the agent may return confident but inaccurate categories and assignee information—categories that don't actually exist in your system. This is the hallucination problem.
 
-In order to "ground response" on real available categories and look up actual on-duty expert email address, let's do the following: 
+To ground responses in real categories and look up the on-duty expert's email, you'll add two things:
 
-- enable Context Grounding
-- add Assignee Lookup automation
+- Context Grounding
+- Assignee Lookup automation
 
 ### 3. Add context grounding
 
-Context Grounding provides the agent with a structured data source. The context is named **ServiceNow Incidents Categorization Information** and contains the valid Category–Subcategory pairs used in our training organization. It list list of available categories and subcategories and brief description for each:
+Context Grounding provides the agent with a structured data source. The context is named **ServiceNow Incidents Categorization Information** and contains the valid Category–Subcategory pairs used in our training organization. It lists available categories and subcategories with a brief description for each:
 
 ![What's behind the context grounding](llm-with-context.images/5-context-source.png){ .screenshot width="900" }
 
 
 [[[
-Should be enough for a smart LLM to analyze any incoming ticket. Click **Add context** in the **Contexts** section of the agent configuration. 
+This gives the agent the structured data it needs to categorize any incoming ticket. Click **Add context** in the **Contexts** section of the agent configuration. 
 
 !!! tip "If you are in Canvas mode, use the "+" button next to Contexts."
 
@@ -263,7 +263,7 @@ Use this tool to determine the email address of the current on-duty expert for a
 ```
 ]]]
 
-### 5. Update system promt 
+### 5. Update system prompt 
 
 ??? tip "Review the changes"
     Here are the changes that we need to apply in order for prompt to reflect new tools use. Review carefully:
@@ -323,9 +323,9 @@ The output should now show only valid categories and an assignee email retrieved
 
 ### 6. Test with Evaluations
 
-How about giving it a thorough testing? Evaluations is a form of regression testing, that help us with automatic validation of results for a set of predefined samples. At this stage we just want to mass-evaluate agent on multiple samples to make sure it does the job well. We will also look into Evaluations more during the next exercise - stay tuned!
+Evaluations are a form of regression testing that automatically validate results against a predefined set of inputs. For now, run the evaluation set to confirm the agent handles all eight scenarios correctly. You'll explore Evaluations further in the next step.
 
-For now, go to the Evaluation sets tab and click **Import**. 
+Go to the Evaluation sets tab and click **Import**. 
 
 ??? tip "Evaluation set"
     Paste the JSON below into the text field. After import you should see several evaluations.
@@ -460,11 +460,7 @@ For now, go to the Evaluation sets tab and click **Import**.
 
 ![Evaluation set imported and ready to run](llm-with-context.images/11-evaluation-set-W.png){ .screenshot width="900" }
 
-Click **Evaluate set** and review the results. Each test case will run your agent once, and you'll see whether the outputs match the expected values.
+Click **Evaluate set** and review the results. Each test case runs your agent once, and you'll see whether the outputs match the expected values. Evaluations help you maintain quality and catch regressions when you update your prompts or change models, ensuring that adjusting a prompt to address one issue didn't break another use case.
 
-Essentially, evaluations are test cases. Evaluations help you maintain quality and catch regressions when you update your prompts or change models.  With certain inputs, we expect certain outputs. 
-
-Evaluations are a good way to control quality of your prompt, and to have consistent results when changing or upgrading LLM models, or making sure that adjusting prompt to address one ussie didn't break some basic use case.
-
-Anyway, our Agent's "Brain" is ready, it's time to add some "Hands" - we will do it in the next lesson!
+Your agent's categorization logic is ready. In the next step, you'll connect it to ServiceNow.
 

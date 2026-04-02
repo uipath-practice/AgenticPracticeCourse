@@ -1,4 +1,4 @@
-# Documentation References — Invoice Matching with IXP
+# Documentation References — Categorizing Technical Support Incidents
 
 Add a link here for each new set of screenshots you upload to this exercise.
 The metadata extraction script (`python -m scripts.extract_metadata`) reads this file

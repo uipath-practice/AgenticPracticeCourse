@@ -127,7 +127,7 @@ def main():
     parser.add_argument(
         "--no-doc-context",
         action="store_true",
-        help="Skip loading documentation context from documentation.md.",
+        help="Skip loading documentation context from documentation.txt.",
     )
     parser.add_argument(
         "--verbose",
@@ -168,7 +168,7 @@ def main():
         exercise_slugs = {task.exercise_slug for task in tasks if task.exercise_slug}
         for slug in sorted(exercise_slugs):
             exercise_folder = DOCS_ROOT / slug
-            doc_md = exercise_folder / "documentation.md"
+            doc_md = exercise_folder / "documentation.txt"
             if doc_md.exists():
                 print(f"Updating documentation context for: {slug}")
                 chunks = update_doc_context(exercise_folder)

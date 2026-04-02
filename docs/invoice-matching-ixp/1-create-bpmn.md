@@ -1,6 +1,6 @@
 # Modeling Business Processes using BPMN canvas
 
-!!! tip "Let's start"
+!!! tip "Let's start!"
     
     **1. Review the business process that we will implement**
 

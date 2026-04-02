@@ -1,6 +1,6 @@
 """Per-exercise documentation context: fetch, embed, and cache URL content.
 
-Reads documentation.md from an exercise folder, fetches text from each URL,
+Reads documentation.txt from an exercise folder, fetches text from each URL,
 embeds the content using Azure OpenAI text-embedding-3-small, and caches
 results in documentation.cache.json. Only new URLs (not yet cached) are
 fetched and embedded on subsequent runs.
@@ -19,7 +19,7 @@ from bs4 import BeautifulSoup
 
 from .config import AZURE_EMBEDDING_DEPLOYMENT, get_openai_client
 
-DOC_FILENAME = "documentation.md"
+DOC_FILENAME = "documentation.txt"
 CACHE_FILENAME = "documentation.cache.json"
 
 # Match context_ingest.py chunking parameters
@@ -33,7 +33,7 @@ CHARS_PER_TOKEN = 4
 # ---------------------------------------------------------------------------
 
 def _extract_urls(doc_path: Path) -> list[str]:
-    """Parse documentation.md and return all URLs in order, deduplicated."""
+    """Parse documentation.txt and return all URLs in order, deduplicated."""
     if not doc_path.exists():
         return []
     text = doc_path.read_text(encoding="utf-8")
@@ -148,7 +148,7 @@ def _save_cache(cache_path: Path, cache: dict) -> None:
 def update_doc_context(exercise_folder: Path) -> list[dict]:
     """Update the documentation cache and return all embedded chunks.
 
-    Reads documentation.md from the exercise folder. For each URL not already
+    Reads documentation.txt from the exercise folder. For each URL not already
     in the cache, fetches text content, chunks it, embeds it, and saves to
     documentation.cache.json. Returns all embedded chunks (cached + new) for
     use as RAG context during image extraction.
@@ -159,7 +159,7 @@ def update_doc_context(exercise_folder: Path) -> list[dict]:
 
     Returns:
         List of chunk dicts with keys: text, source, embedding.
-        Empty list if documentation.md is missing or has no URLs.
+        Empty list if documentation.txt is missing or has no URLs.
     """
     doc_path = exercise_folder / DOC_FILENAME
     cache_path = exercise_folder / CACHE_FILENAME

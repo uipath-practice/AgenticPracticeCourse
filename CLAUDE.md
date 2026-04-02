@@ -85,10 +85,10 @@ Exercise overview pages use label: `Overview`.
 - **Audience:** First-time workshop participants. Assume no prior UiPath knowledge.
 - **Voice:** Second person, direct — "you'll configure", "your agent", "open the panel".
 - **Tense:** Present for descriptions ("the robot retrieves invoices"); future for instructions ("you'll add a connection").
-- **Register:** Professional but conversational. Not formal, not casual. No hype.
+- **Register:** Conversational and approachable. Warm and lively, with personality. Avoid stiff corporate tone and unnecessary formality, but stay clear and professional in technical explanations.
 - **Sentence length:** Short. One idea per sentence. If a sentence runs more than two lines, split it.
 - **Paragraphs:** Two to four sentences maximum.
-- **Avoid:** "In this section we will", "Please note that", "It is important to", "feel free to", "leverage" (use "use"), "utilize" (use "use"), "robust", "seamlessly".
+- **Avoid:** "In this section we will", "Please note that", "It is important to", "feel free to", "leverage" (use "use"), "utilize" (use "use"), "robust", "seamlessly". Avoid stiff passive voice when active is clearer.
 - **Platform names:** Bold on first appearance per page, plain text after. Always use exact names: **Agent Builder**, **Maestro**, **IXP**, **Action Center**, **ServiceNow**.
 - **Acronyms:** Define on first use per page: `IXP (Intelligent eXtraction & Processing)`.
 

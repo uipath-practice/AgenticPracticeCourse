@@ -2,21 +2,25 @@
 
 **Build an intelligent ServiceNow incident triage agent for ticket routing**
 
+---
+
 ## Overview
 
 **UiPath Agent Builder** is a vital tool designed to empower users in the development of intelligent automation solutions with minimal coding experience. It facilitates the creation, design, and deployment of agents that can perform various tasks, such as invoking automations, utilizing APIs, and collaborating with other systems seamlessly. 
 
 By offering a low-code environment, Agent Builder democratizes access to automation capabilities, enabling both technical and non-technical users to craft powerful, context-driven agents tailored to their unique operational needs. 
 
-In this exercise you'll use **UiPath Agent Builder** to create an agent that automatically categorizes and routes ServiceNow incidents. You'll build a complete system that analyzes technical incidents, grounds decisions in real data, and routes ambiguous cases to human reviewers.
+In this exercise you'll use **UiPath Agent Builder** to create an agent that automatically categorizes and routes ServiceNow incidents. You'll learn how to ground decisions in real data, validate performance with automated tests, and connect your agent to live systems.
 
-The progression looks like this:
+The progression unfolds in a few steps:
 
-- First, we will teach agent to categorize incidents based on static descriptions. We will play with sample inputs to better understand LLM interactions, use the **Context Grounding** to finetune the results, and give it a thorough testing using **Evaluations** feature.
+- First, you'll teach the agent to categorize incidents based on static descriptions and test it with sample inputs to observe LLM behavior.
 
-- Once categorization itself is working well - we will "grow agent's hands" by connecting it to **ServiceNow** using **Integration Service** so that it can retrieve incident details and update incident back to ServiceNow based on Agent's analysis. 
+- Then, you'll use **Context Grounding** to refine results and validate performance with **Evaluations**.
 
-- Finally, if Agent is unable to categorize the Incident, it should be able to reach out to **Humans** using **Escalations** capability.
+- Next, you'll "grow the agent's hands" by connecting it to **ServiceNow** using **Integration Service** so it can retrieve incident details and update tickets based on its analysis.
+
+- Finally, you'll configure **Escalations** so the agent can route uncertain cases to humans via **Action Center**.
 
 By the end, you'll have a fully functional, production-ready triage agent. Let's get started!
 
