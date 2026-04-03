@@ -22,7 +22,7 @@ In many cases where the Agent cannot determine the exact course of action, human
 - The agent's job is to prepare all inputs in the right format, so that when the time comes to ask for user inputs, the data is ready.
 - Once the decision is made, the process execution continues to the next steps.
 
-![Human validation step architecture](configure-human-validation.images/1-validation-arguments.png){ .screenshot width="700" }
+![Human validation step architecture](4-configure-human-validation.images/1-validation-arguments.png){ .screenshot width="700" }
 
 !!! note "Note on approvals"
     In real life, it is absolutely not ok to approve an invoice and send it for payment if the Purchase Order was for something different — in some countries it's a crime. But for this practice, assume that humans can do whatever they want when it comes to this decision, with no consequences.
@@ -35,7 +35,7 @@ To build a nice validation interface, we need a frontend that presents the probl
 
 Instead of building this from scratch, we'll reuse an existing Action App template.
 
-![Validation app interface showing invoice and PO comparison](configure-human-validation.images/2-validation-app-draft-W.png){ .screenshot width="900"}
+![Validation app interface showing invoice and PO comparison](4-configure-human-validation.images/2-validation-app-draft-W.png){ .screenshot width="900"}
 
 ## Steps
 
@@ -45,14 +45,14 @@ Instead of building this from scratch, we'll reuse an existing Action App templa
 [[[
 In your solution, click the **+** icon in the Explorer to add a project, then select **Import existing** to add a new project to the solution. Find and import the validation app template.
 |50|
-![Solution Explorer with import menu](configure-human-validation.images/3-import-action-app.png){ .screenshot }
+![Solution Explorer with import menu](4-configure-human-validation.images/3-import-action-app.png){ .screenshot }
 ]]]
 
 
 [[[
 Find the **2WM Validation App IXP Template** in the list, select it, and click **Add**.
 |30|
-![Add project dialog with validation template selected](configure-human-validation.images/4-import-template.png){ .screenshot }
+![Add project dialog with validation template selected](4-configure-human-validation.images/4-import-template.png){ .screenshot }
 ]]]
 
 After the app appears in your solution, review its structure to understand the design approach. 
@@ -66,11 +66,11 @@ After the app appears in your solution, review its structure to understand the d
 
 Open the **MainPage** in the app designer:
 
-![App designer showing the validation interface layout and components](configure-human-validation.images/5-app-structure-W.png){ .screenshot width="900" }
+![App designer showing the validation interface layout and components](4-configure-human-validation.images/5-app-structure-W.png){ .screenshot width="900" }
 
 Review the app's **input** and **output** configuration. This shows what data the Agent will send in, and what the reviewer's decision will produce.
 
-![App configuration showing inputs from Agent and output decisions](configure-human-validation.images/6-app-arguments-W.png){ .screenshot width="900" }
+![App configuration showing inputs from Agent and output decisions](4-configure-human-validation.images/6-app-arguments-W.png){ .screenshot width="900" }
 
 ### 2. Configure the human task in Maestro
 
@@ -83,7 +83,7 @@ Select the human task node on the **Failed Match** path and set its action type 
 Then select the **2WM Validation App IXP** you just imported from the Defined resources list .
 
 |30|
-![Maestro task properties with action app selection](configure-human-validation.images/7-add-action-task.png){ .screenshot }
+![Maestro task properties with action app selection](4-configure-human-validation.images/7-add-action-task.png){ .screenshot }
 ]]]
 
 
@@ -93,7 +93,7 @@ Customize the task title so it's easy to identify in **Action Center** later —
 In **Advanced Options**, assign the task to yourself so you don't have to search for it among unassigned tasks.
 
 |50|
-![Task configuration panel with title and assignee options](configure-human-validation.images/8-configure-action-task.png){ .screenshot }
+![Task configuration panel with title and assignee options](4-configure-human-validation.images/8-configure-action-task.png){ .screenshot }
 ]]]
 
 
@@ -106,7 +106,7 @@ In the Inputs section, connect `out_DocumentsHTML` and `out_SuggestedResponse` f
 Here you might again see the true value of following naming conventions!
 
 |30|
-![Input mapping showing agent outputs connected to app inputs](configure-human-validation.images/9-configure-action-arguments.png){ .screenshot }
+![Input mapping showing agent outputs connected to app inputs](4-configure-human-validation.images/9-configure-action-arguments.png){ .screenshot }
 ]]]
 
 Save the task configuration.
@@ -117,7 +117,7 @@ Now configure the downstream flow based on the validation decision.
 
 Select the **Exclusive Gateway** that routes the process after the human task.
 
-![Gateway properties showing Reject and Approve paths](configure-human-validation.images/10-configure-gateway.png){ .screenshot width="800" }
+![Gateway properties showing Reject and Approve paths](4-configure-human-validation.images/10-configure-gateway.png){ .screenshot width="800" }
 
 Set **Reject** as the default path, keeping in mind that a real business process might have a different approach.
 
@@ -133,14 +133,14 @@ vars.action=="Approve"
 ```
 
 |30|
-![Expression editor with variable insertion menu](configure-human-validation.images/11-gateway-variable.png){ .screenshot }
+![Expression editor with variable insertion menu](4-configure-human-validation.images/11-gateway-variable.png){ .screenshot }
 ]]]
 
 
 [[[
 This routes the process to the Approve path when the reviewer approves the invoice.
 |30|
-![Gateway path condition showing the expression](configure-human-validation.images/12-gateway-expression.png){ .screenshot }
+![Gateway path condition showing the expression](4-configure-human-validation.images/12-gateway-expression.png){ .screenshot }
 ]]]
 
 ### 4. Test the human validation flow
@@ -149,17 +149,17 @@ Now test the complete human validation flow. Click **Debug** and monitor the exe
 
 Click **Debug** to start the process. The execution will pause at the **Manual Review and Validation** task when a mismatch is detected.
 
-![Maestro execution view showing process paused at the human task](configure-human-validation.images/13-validation-test-run-W.png){ .screenshot width="900" }
+![Maestro execution view showing process paused at the human task](4-configure-human-validation.images/13-validation-test-run-W.png){ .screenshot width="900" }
 
 Open the action task by clicking **Open app task** in the Details panel. Review the side-by-side invoice and PO comparison, and make a decision.
 
-![Action Center task showing the invoice validation interface](configure-human-validation.images/14-validation-action-W.png){ .screenshot width="900" }
+![Action Center task showing the invoice validation interface](4-configure-human-validation.images/14-validation-action-W.png){ .screenshot width="900" }
 
 Looks like Agent did a fine job. But should this invoice be approved or rejected? Click **Approve and pay** or **Reject**. As soon as you submit your decision, Maestro continues the execution down the appropriate path.
 
 Review the end-to-end process to confirm the human validation step is correctly integrated and routes based on your decision.
 
-![Complete process diagram with the human validation step highlighted](configure-human-validation.images/15-end-to-end-flow-W.gif){ .screenshot width="900" }
+![Complete process diagram with the human validation step highlighted](4-configure-human-validation.images/15-end-to-end-flow-W.gif){ .screenshot width="900" }
 
 Run a few more tests — try both Approve and Reject — to confirm both paths route correctly.
 

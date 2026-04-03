@@ -28,7 +28,19 @@ When the exercise is ready, run `/publish-exercise <slug>` to add it to the navi
 Follow the conventions in `Master/Filesystem.md`:
 
 - `docs/<exercise-slug>/` — exercise folder
-- `docs/<exercise-slug>/<step-slug>.images/.gitkeep` — one image folder per lesson (named after the lesson file without numeric prefix)
+- `docs/<exercise-slug>/<N-step-slug>.images/.gitkeep` — one image folder per lesson, named after the lesson file without the `.md` extension (e.g., `1-create-agent.images/`)
+
+After creating the files, add the exercise to `mkdocs.local.yml` so it appears in the navigation during local preview. Use `[Unpublished]` in the section title to distinguish it from published exercises:
+
+```yaml
+  - Exercise Display Name [Unpublished]:
+    - Overview: <exercise-slug>/index.md
+    - 1. Lesson Title: <exercise-slug>/1-verb-noun.md
+    - 2. Lesson Title: <exercise-slug>/2-verb-noun.md
+    - You did it!: <exercise-slug>/you-did-it.md
+```
+
+Serve locally with: `/Users/sergey/Library/Python/3.9/bin/mkdocs serve -f mkdocs.local.yml`
 - `docs/<exercise-slug>/documentation.txt` — documentation reference file
 
 **`documentation.txt` template:**
@@ -82,9 +94,6 @@ One short paragraph: what the learner will have built or configured by the end o
 ## Steps
 
 <!-- Add step-by-step instructions with screenshots here -->
-
-!!! note "Content migration in progress"
-    Detailed steps and screenshots will be added here.
 ```
 
 Apply the language rules from `Master/Language.md` — second person, short sentences, conversational tone.
@@ -115,9 +124,9 @@ If the build passes, summarize what was created (files and image folders), then 
 Exercise is in draft mode — not visible in navigation.
 
 Local preview (requires mkdocs serve):
-  Overview:  http://127.0.0.1:8000/<exercise-slug>/
-  Lesson 1:  http://127.0.0.1:8000/<exercise-slug>/1-verb-noun/
-  Lesson 2:  http://127.0.0.1:8000/<exercise-slug>/2-verb-noun/
+  Overview:  http://127.0.0.1:8000/AgenticPracticeCourse/<exercise-slug>/
+  Lesson 1:  http://127.0.0.1:8000/AgenticPracticeCourse/<exercise-slug>/1-verb-noun/
+  Lesson 2:  http://127.0.0.1:8000/AgenticPracticeCourse/<exercise-slug>/2-verb-noun/
   ...
 
 When ready to publish: /publish-exercise <exercise-slug>

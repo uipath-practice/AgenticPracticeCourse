@@ -31,7 +31,7 @@ Read the lesson `.md` file. Also read:
 
 ## Step 3: Check the lesson's image folder
 
-List all images in the lesson's image folder (`<step-slug>.images/`). Cross-reference with image references in the markdown:
+List all images in the lesson's image folder (named after the lesson file **including** its numeric prefix, e.g., `1-create-agent.images/`, `2-configure-robot.images/`). Cross-reference with image references in the markdown:
 - Flag images referenced in markdown but missing from disk
 - Flag images on disk but not referenced in markdown (orphaned)
 

@@ -20,7 +20,7 @@ Two connections are already configured in your tenant:
 
 Your platform administrators have prepared these connections. You don't need to configure authentication.
 
-![Available connections in Integration Service](configure-api.images/1-connections-W.png){ .screenshot width="900" }
+![Available connections in Integration Service](5-configure-api.images/1-connections-W.png){ .screenshot width="900" }
 
 !!! note "Tenant check"
     Make sure you're using the correct tenant. Contact your trainer if there are issues with connections.
@@ -37,7 +37,7 @@ In your **Maestro Agentic Process**, select the task on the **Reject** path and 
 
 Use the "**Shared Gmail Connection**" and pick "**Send Email**" activity.
 |30|
-![Send rejection email task configuration](configure-api.images/2-send-rejection.png){ .screenshot }
+![Send rejection email task configuration](5-configure-api.images/2-send-rejection.png){ .screenshot }
 ]]]
 
 
@@ -46,7 +46,7 @@ Use the "**Shared Gmail Connection**" and pick "**Send Email**" activity.
 Configure the **Send Email** activity: enter your email address as the recipient address, suitable subject line, and map the email body to the reviewer's edited version, `out_ApproverResponse`.
 
 |50|
-![Gmail Send Email activity configuration](configure-api.images/3-gmail-configuration.png){ .screenshot }
+![Gmail Send Email activity configuration](5-configure-api.images/3-gmail-configuration.png){ .screenshot }
 ]]]
 
 
@@ -62,7 +62,7 @@ Configure the task to use the **Data Fabric** connector with the shared connecti
 Map the invoice data output to the **InvoiceData** input field. This passes all approved invoice information to the payments queue.
 
 |30|
-![Update Financial Systems task configuration](configure-api.images/4-update-records.png){ .screenshot }
+![Update Financial Systems task configuration](5-configure-api.images/4-update-records.png){ .screenshot }
 ]]]
 
 
@@ -73,8 +73,8 @@ Click **Debug** and let the process run. Remember that with `in_FailureProbabili
 
 Check **Data Fabric** to see approved invoices accumulating in the Payments Queue:
 
-![Approved invoices in Data Fabric Payments Queue](configure-api.images/5-payments-queue-W.png){ .screenshot width="800" }
+![Approved invoices in Data Fabric Payments Queue](5-configure-api.images/5-payments-queue-W.png){ .screenshot width="800" }
 
 Check your inbox for rejection emails from the shared Gmail account. Each email contains the discrepancies identified by the Agent and reviewed by the human validator:
 
-![Rejection email received with generated invoice comparison](configure-api.images/6-actual-email-received-W.png){ .screenshot width="600" }
+![Rejection email received with generated invoice comparison](5-configure-api.images/6-actual-email-received-W.png){ .screenshot width="600" }

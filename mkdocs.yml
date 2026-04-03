@@ -50,8 +50,8 @@ nav:
   - Home: index.md
   - Categorizing Incidents:
     - Overview: categorizing-incidents/index.md
-    - LLM with Context: categorizing-incidents/llm-with-context.md
-    - Tools and Escalations: categorizing-incidents/tools-and-escalations.md
+    - 1. LLM with Context: categorizing-incidents/1-llm-with-context.md
+    - 2. Tools and Escalations: categorizing-incidents/2-tools-and-escalations.md
     - You did it!: categorizing-incidents/you-did-it.md
   - Invoice Matching with IXP:
     - Overview: invoice-matching-ixp/index.md

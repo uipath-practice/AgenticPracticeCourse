@@ -21,7 +21,7 @@ Before making any changes, enumerate everything:
 ### Files to archive
 
 1. The lesson `.md` file: `docs/<exercise-slug>/<lesson-file>.md`
-2. The lesson's image folder and all its contents: `docs/<exercise-slug>/<step-slug>.images/`
+2. The lesson's image folder and all its contents: `docs/<exercise-slug>/<lesson-file-without-extension>.images/`
    - Count images and `.metadata.json` files separately.
    - If the image folder doesn't exist, note that.
 
@@ -49,11 +49,11 @@ Output a clearly formatted summary — make removed items easy to spot:
 LESSON TO REMOVE
 ────────────────────────────────────────────────────────────────
 Lesson:   docs/<exercise-slug>/<lesson-file>.md
-Images:   docs/<exercise-slug>/<step-slug>.images/  (<N> images, <M> metadata files)
+Images:   docs/<exercise-slug>/<lesson-file-without-extension>.images/  (<N> images, <M> metadata files)
 
 Files → Archive/<exercise-slug>/
   ✕  <lesson-file>.md
-  ✕  <step-slug>.images/  (<N> files)
+  ✕  <lesson-file-without-extension>.images/  (<N> files)
 
 Navigation (mkdocs.yml):
   ✕  "<nav label>" → <exercise-slug>/<lesson-file>.md
@@ -93,7 +93,7 @@ Do not proceed until the user responds. Any input other than `yes` (case-insensi
 
 3. Move the image folder (if it exists):
    ```bash
-   mv "docs/<exercise-slug>/<step-slug>.images" "Archive/<exercise-slug>/<step-slug>.images"
+   mv "docs/<exercise-slug>/<lesson-file-without-extension>.images" "Archive/<exercise-slug>/<lesson-file-without-extension>.images"
    ```
 
 ---

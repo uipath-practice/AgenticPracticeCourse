@@ -2,8 +2,6 @@
 
 **Connect your agent to ServiceNow and route ambiguous cases to humans**
 
----
-
 !!! tip "What you'll do"
     1. Add ServiceNow tools to retrieve incident data and update tickets with categorization results
     2. Configure escalations to route incidents the agent cannot confidently categorize to human reviewers
@@ -39,7 +37,7 @@ First tool we will need is based on Integration Service - find "Search Incidents
 
 Open your agent in **Agent Builder** and go to the **Tools** tab, or click "**+**" in canvas mode. Add the **Search Incidents by Incident Number** tool from the ServiceNow catalog:
 
-![ServiceNow tool catalog with Search Incidents tool selected](tools-and-escalations.images/1-search-incidents-tool-W.png){ .screenshot width="900" }
+![ServiceNow tool catalog with Search Incidents tool selected](2-tools-and-escalations.images/1-search-incidents-tool-W.png){ .screenshot width="900" }
 
 [[[
 We also need to specify which ServiceNow **Connection** the tool is going to use. Integration Service Connection is a saved, authorized authentication configuration that allows services in UiPath platform to securely connect to third-party applications. 
@@ -47,7 +45,7 @@ We also need to specify which ServiceNow **Connection** the tool is going to use
 Select the shared ServiceNow connection from the **ServiceNow Incidents** folder. 
 
 |50|
-![Shared ServiceNow connection selected](tools-and-escalations.images/2-servicenow-connection.png){ .screenshot }
+![Shared ServiceNow connection selected](2-tools-and-escalations.images/2-servicenow-connection.png){ .screenshot }
 ]]]
 
 ### 2. Add tool: Update ServiceNow Incident 
@@ -85,7 +83,7 @@ The Subcategory of the ServiceNow incident
 ```
 |50|
 
-![UpdateServiceNowIncident tool configured with argument descriptions](tools-and-escalations.images/3-update-tool-configured.png){ .screenshot }
+![UpdateServiceNowIncident tool configured with argument descriptions](2-tools-and-escalations.images/3-update-tool-configured.png){ .screenshot }
 ]]]
 
 !!! tip "Note!"
@@ -198,11 +196,11 @@ With this setup we should have given agent necessary instructions, related tools
 
 Open **[Ticket Management App](https://cloud.uipath.com/tpenlabs/apps_/default/run/production/ef96660c-6e95-4f8f-b8b6-b1c42f06edf1/80928442-e08c-4123-8b34-68577ed98704/ID771c3646cad34360806fde5bc13a47a3?el=VB&uts=true)**, update Tag with your name and app will show you all tickets generated with this Tag within last 2 days, if any. If you have no new tickets, feel free to generate few, but don't forget to set your name as Tag before hitting "Generate".
 
-![Generating incidents in Ticket Management App](tools-and-escalations.images/4-generate-incidents-W.png){ .screenshot width="900" }
+![Generating incidents in Ticket Management App](2-tools-and-escalations.images/4-generate-incidents-W.png){ .screenshot width="900" }
 
 You can use **Incident Number** from the **Ticket Number** column of the first list as Agent's input. After processing, categorized Incidents will move to the bottom list so that you can easily validate the results.
 
-![Agent test output showing all tools in use](tools-and-escalations.images/5-agent-test-output-W.png){ .screenshot width="900" }
+![Agent test output showing all tools in use](2-tools-and-escalations.images/5-agent-test-output-W.png){ .screenshot width="900" }
 
 In the **Execution Trace**, verify that the agent calls the Search Incidents tool, retrieves categorization context, calls the Assignee Lookup tool, and finally updates the ServiceNow incident. Every step has details for audit, and you can trace the logic of each step. And results are correct - outstanding!
 
@@ -214,7 +212,7 @@ Let's add an escalation path - we will create an Action Center task for every In
 
 Add an escalation path using the **ServiceNow Agent Escalation App** from the **ServiceNow Incidents** folder. 
 
-![Escalation app selected from ServiceNow Incidents folder](tools-and-escalations.images/6-escalation-app-W.png){ .screenshot width="900" }
+![Escalation app selected from ServiceNow Incidents folder](2-tools-and-escalations.images/6-escalation-app-W.png){ .screenshot width="900" }
 
 [[[
 Configure the escalation tool with prompt and argument settings.
@@ -241,7 +239,7 @@ Configure the escalation outcomes:
 !!! tip
     You probably noticed that we didn't touch arguments like **in_Description**. With this unambigous name and given all the context, agent will be able to figure out what to put there. Or maybe not? Our advise for production implementation: better be too "specific" than a little bit "sorry".
 |50|
-![Escalation tool configuration with prompt and arguments](tools-and-escalations.images/7-escalation-config.png){ .screenshot }
+![Escalation tool configuration with prompt and arguments](2-tools-and-escalations.images/7-escalation-config.png){ .screenshot }
 ]]]
 
 Update the **System Prompt** to include both tool usage and escalation handling. Replace the previous system prompt with this complete version:
@@ -310,12 +308,12 @@ Run the agent with this incident number if you have it, or generate few more tic
 
 
 *(Hint: If it doesn't escalate - validate your prompt once again to include escalation instructions)*
-![Escalation triggered for ambiguous incident](tools-and-escalations.images/8-escalation-triggered-W.png){ .screenshot width="900" }
+![Escalation triggered for ambiguous incident](2-tools-and-escalations.images/8-escalation-triggered-W.png){ .screenshot width="900" }
 
 
 In **Action Center**, the human reviewer will see the incident details and category/subcategory options. After they select a category and submit, the agent will complete the assignment using the Assignee Lookup automation and update the ticket in ServiceNow.
 
-![Action Center task created for the escalated incident](tools-and-escalations.images/9-action-center-escalation-W.png){ .screenshot width="900" }
+![Action Center task created for the escalated incident](2-tools-and-escalations.images/9-action-center-escalation-W.png){ .screenshot width="900" }
 
 Guess, which parameter affects Agent's confidence when assigning categories? Try to tune it and see if incidents that were successfully categorized previously can lead to Escalation. *Hint: it's the Context settings.*
 

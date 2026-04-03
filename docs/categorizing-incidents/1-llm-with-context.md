@@ -2,8 +2,6 @@
 
 **Build a context-grounded ServiceNow incident categorization agent**
 
----
-
 !!! tip "What you'll do"
     1. Create and configure a new agent with input and output arguments
     2. Write system and user prompts, then test the agent with sample incidents
@@ -32,7 +30,7 @@ Evaluations let you run a batch of test cases against your agent before deployin
 [[[
 In **Studio Web**, create a new **Agent Solution**.
 |30|
-![Creating a new Agent in Studio Web](llm-with-context.images/1-create-agent.png){ .screenshot }
+![Creating a new Agent in Studio Web](1-llm-with-context.images/1-create-agent.png){ .screenshot }
 ]]]
 
 !!! tip "Autopilot"
@@ -52,7 +50,7 @@ ServiceNow Incidents Management Agent
 ```
 
 |50|
-![Renaming the agent in Explorer](llm-with-context.images/2-rename-agent.png){ .screenshot }
+![Renaming the agent in Explorer](1-llm-with-context.images/2-rename-agent.png){ .screenshot }
 ]]]
 
 
@@ -75,7 +73,7 @@ IncidentDescription
 Full description of the ServiceNow incident
 ```
 |50|
-![Input arguments configured in Data Manager](llm-with-context.images/3-input-arguments.png){ .screenshot }
+![Input arguments configured in Data Manager](1-llm-with-context.images/3-input-arguments.png){ .screenshot }
 ]]]
 
 [[[
@@ -137,7 +135,7 @@ Luckily, you can import them at once by **switching to JSON editor mode** and pa
 ```
 |50|
 
-![Output arguments in Data Manager JSON editor](llm-with-context.images/4-output-arguments.png){ .screenshot }
+![Output arguments in Data Manager JSON editor](1-llm-with-context.images/4-output-arguments.png){ .screenshot }
 ]]]
 
 ### 2. Configure the agent prompts
@@ -208,7 +206,7 @@ To ground responses in real categories and look up the on-duty expert's email, y
 
 Context Grounding provides the agent with a structured data source. The context is named **ServiceNow Incidents Categorization Information** and contains the valid Category–Subcategory pairs used in our training organization. It lists available categories and subcategories with a brief description for each:
 
-![What's behind the context grounding](llm-with-context.images/5-context-source.png){ .screenshot width="900" }
+![What's behind the context grounding](1-llm-with-context.images/5-context-source.png){ .screenshot width="900" }
 
 
 [[[
@@ -217,7 +215,7 @@ This gives the agent the structured data it needs to categorize any incoming tic
 !!! tip "If you are in Canvas mode, use the "+" button next to Contexts."
 
 |30|
-![Selecting context source in Agent Builder](llm-with-context.images/5-add-context.png){ .screenshot }
+![Selecting context source in Agent Builder](1-llm-with-context.images/5-add-context.png){ .screenshot }
 ]]]
 
 
@@ -234,25 +232,25 @@ Now, import the **SNOW Assignee Lookup Automation** project.
 
 Click the **+** button in the Explorer and choose **Import existing** to add it into your solution.
 |50|
-![Importing existing project into solution](llm-with-context.images/6-import-project.png){ .screenshot }
+![Importing existing project into solution](1-llm-with-context.images/6-import-project.png){ .screenshot }
 ]]]
 
 
 [[[
 Search for "SNOW Assignee" and select **SNOW Assignee Lookup Automation**.
 |30|
-![Selecting SNOW Assignee Lookup Automation](llm-with-context.images/7-select-assignee-lookup.png){ .screenshot }
+![Selecting SNOW Assignee Lookup Automation](1-llm-with-context.images/7-select-assignee-lookup.png){ .screenshot }
 ]]]
 
 Add this automation as a tool to your agent. Click **Add tool** in the **Tools** section, then select **RPA workflow**.
 
-![Adding RPA tool in Agent Builder](llm-with-context.images/8-add-rpa-tool.png){ .screenshot width="800" }
+![Adding RPA tool in Agent Builder](1-llm-with-context.images/8-add-rpa-tool.png){ .screenshot width="800" }
 
 
 [[[
 Select **SNOW Assignee Lookup Automation** from the list of available workflows in your current solution.
 |50|
-![Selecting the assignee lookup tool](llm-with-context.images/9-select-tool.png){ .screenshot }
+![Selecting the assignee lookup tool](1-llm-with-context.images/9-select-tool.png){ .screenshot }
 ]]]
 
 [[[
@@ -317,7 +315,7 @@ Test the agent again with the same CRM crash sample incident. Now review the **E
 - The agent calling the Assignee Lookup tool
 - The final categorization in the Result tab
 
-![Agent test output with execution trace](llm-with-context.images/10-agent-test-output.png){ .screenshot width="900" }
+![Agent test output with execution trace](1-llm-with-context.images/10-agent-test-output.png){ .screenshot width="900" }
 
 The output should now show only valid categories and an assignee email retrieved from the lookup tool — no hallucinations. Congratulations!
 
@@ -458,7 +456,7 @@ Go to the Evaluation sets tab and click **Import**.
     }
     ```
 
-![Evaluation set imported and ready to run](llm-with-context.images/11-evaluation-set-W.png){ .screenshot width="900" }
+![Evaluation set imported and ready to run](1-llm-with-context.images/11-evaluation-set-W.png){ .screenshot width="900" }
 
 Click **Evaluate set** and review the results. Each test case runs your agent once, and you'll see whether the outputs match the expected values. Evaluations help you maintain quality and catch regressions when you update your prompts or change models, ensuring that adjusting a prompt to address one issue didn't break another use case.
 

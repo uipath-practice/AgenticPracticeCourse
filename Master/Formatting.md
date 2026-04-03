@@ -239,7 +239,7 @@ Description of what this argument contains
 ```
 ````
 
-### Real example (from tools-and-escalations.md)
+### Real example (from 2-tools-and-escalations.md)
 
 ````markdown
 ```css hl_lines="1"
@@ -322,9 +322,9 @@ The learner copies this entire block.
 - **Highlighting:** Only changed lines get `hl_lines`, not the entire block
 - **Title attribute:** Labels the code block contextually
 
-### Real example (from llm-with-context.md, step 5)
+### Real example (from 1-llm-with-context.md, step 5)
 
-See the "Update system prompt" section of `docs/categorizing-incidents/llm-with-context.md` for a complete implementation.
+See the "Update system prompt" section of `docs/categorizing-incidents/1-llm-with-context.md` for a complete implementation.
 
 ---
 

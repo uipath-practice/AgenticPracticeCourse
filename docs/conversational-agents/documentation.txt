@@ -1,0 +1,21 @@
+# Documentation References — Conversational Agents
+
+Add a link here for each new set of screenshots you upload to this exercise.
+The metadata extraction script reads this file and embeds the linked documentation
+as context for image analysis. New links are fetched and embedded automatically
+on the next run; previously embedded links are not re-fetched.
+
+## Links
+
+<!-- Add URLs below, one per line, prefixed with - -->
+- https://docs.uipath.com/agents/automation-cloud/latest/user-guide/conversational-agents
+- https://docs.uipath.com/agents/automation-cloud/latest/user-guide/conversational-agents-getting-started
+- https://docs.uipath.com/agents/automation-cloud/latest/user-guide/conversational-agents-design
+- https://docs.uipath.com/agents/automation-cloud/latest/user-guide/conversational-agents-deployment
+- https://docs.uipath.com/agents/automation-cloud/latest/user-guide/conversational-agents-observability
+- https://docs.uipath.com/agents/automation-cloud/latest/user-guide/conversational-agents-limitations
+- https://docs.uipath.com/orchestrator/automation-cloud/latest/user-guide/about-mcp-servers
+- https://docs.uipath.com/orchestrator/automation-cloud/latest/user-guide/managing-mcp-servers
+- https://docs.uipath.com/orchestrator/automation-cloud/latest/user-guide/creating-uipath-mcp-servers
+- https://docs.uipath.com/orchestrator/automation-cloud/latest/user-guide/mcp-compliance-guidelines
+- https://docs.uipath.com/orchestrator/automation-cloud/latest/user-guide/managing-indexes

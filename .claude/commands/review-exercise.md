@@ -44,7 +44,7 @@ Build a map of:
 - [ ] Overview page is named `index.md`
 - [ ] Lesson files follow `N-verb-noun.md` naming (numeric prefix, sequential, no gaps)
 - [ ] Summary page exists (`you-did-it.md` or `next-steps.md`)
-- [ ] Each lesson has a corresponding `<step-slug>.images/` folder
+- [ ] Each lesson has a corresponding `<N-lesson-slug>.images/` folder — named after the lesson file **including** its numeric prefix (e.g., `1-create-bpmn.images/`, `2-configure-robot.images/`)
 - [ ] Image files are lowercase, hyphenated, numbered
 - [ ] Wide images have `-W` suffix
 - [ ] `documentation.txt` exists in the exercise root

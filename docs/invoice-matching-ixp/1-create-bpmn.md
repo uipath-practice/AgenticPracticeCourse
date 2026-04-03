@@ -55,13 +55,13 @@ For this exercise, focus on steps 2–4. The simplified process:
 
 2. Build a BPMN diagram based on the process description above. It should look similar to this:
 
-    ![BPMN diagram for IXP invoice matching process](create-bpmn.images/1-bpmn-diagram.png){ .screenshot }
+    ![BPMN diagram for IXP invoice matching process](1-create-bpmn.images/1-bpmn-diagram.png){ .screenshot }
 
 3. Export the diagram as a `.bpmn` file. You'll import it into Maestro in the next step. Alternatively, download and use this **[sample BPMN file](dependencies/2-Way%20Matching%20Process.bpmn)**.
 
 
 [[[
-![Wise robot](create-bpmn.images/2-wise-robot.png){ .screenshot }
+![Wise robot](1-create-bpmn.images/2-wise-robot.png){ .screenshot }
 |30|
 In later steps, you'll connect each task in this diagram to UiPath platform components. When the process runs, Orchestrator will trigger robotic and agentic jobs — or route tasks to humans. Let's add some action into this diagram by **[adding a Robot](2-configure-robot.md)**!
 ]]]

@@ -69,6 +69,12 @@ Insert the exercise nav block immediately before `- Next Steps: next-steps.md`.
 
 ---
 
+## Step 5.5: Update mkdocs.local.yml
+
+If `mkdocs.local.yml` exists, search it for a nav section whose title contains the exercise slug and ends with `[Unpublished]` (e.g., `- Conversational Agents [Unpublished]:`). Remove the entire section — the title line and all its child entries. If no matching entry is found, skip this step.
+
+---
+
 ## Step 6: Update docs/index.md
 
 If no home page card exists for this exercise, add one. Match the style of existing exercise entries (numbered description with a direct link).
@@ -95,7 +101,7 @@ https://uipath-practice.github.io/AgenticPracticeCourse/<exercise-slug>/
 
 And the local preview URL (if `mkdocs serve` is running):
 ```
-http://127.0.0.1:8000/<exercise-slug>/
+http://127.0.0.1:8000/AgenticPracticeCourse/<exercise-slug>/
 ```
 
 $ARGUMENTS

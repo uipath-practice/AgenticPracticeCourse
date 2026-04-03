@@ -55,7 +55,7 @@ To check for broken links before pushing:
 Open the relevant `.md` file in any text editor, make the change, save, and push.
 
 ```
-docs/categorizing-incidents/llm-with-context.md     ← Categorizing Incidents, lesson 1
+docs/categorizing-incidents/1-llm-with-context.md   ← Categorizing Incidents, lesson 1
 docs/invoice-matching-ixp/3-configure-agent.md      ← IXP exercise, lesson 3
 docs/next-steps.md                                  ← standalone page
 ```
@@ -165,7 +165,7 @@ Images: docs/expense-report-processing/extract-data.images/
 ```
 
 **Other common requests:**
-- "Optimize the language in docs/categorizing-incidents/tools-and-escalations.md"
+- "Optimize the language in docs/categorizing-incidents/2-tools-and-escalations.md"
 - "Update the system prompt code block on page X — the new version is: [paste]"
 - "Add a 70/30 image split after step 3 on page X"
 

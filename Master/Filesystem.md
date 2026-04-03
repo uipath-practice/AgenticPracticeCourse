@@ -11,6 +11,7 @@ AgenticPracticeCourse/
 ├── CLAUDE.md                          ← Auto-loaded by Claude Code every session
 ├── README.md                          ← Human-facing repo guide
 ├── mkdocs.yml                         ← Site config: theme, nav, plugins, extensions
+├── mkdocs.local.yml                   ← Local nav with draft exercises (gitignored)
 ├── requirements.txt                   ← Python deps for MkDocs + plugins
 ├── Master/                            ← Authoritative course rules (this directory)
 │   ├── README.md
@@ -71,29 +72,29 @@ Each exercise lives under `docs/` in its own folder. The **Invoice Matching with
 
 ```
 docs/invoice-matching-ixp/
-├── index.md                           ← Overview page (ALWAYS named index.md)
-├── 1-create-bpmn.md                   ← Lesson 1
-├── 2-configure-robot.md               ← Lesson 2
-├── 3-configure-agent.md               ← Lesson 3
-├── 4-configure-human-validation.md    ← Lesson 4
-├── 5-configure-api.md                 ← Lesson 5
-├── you-did-it.md                      ← Summary/outro page (no numeric prefix)
-├── documentation.txt                  ← Links to official docs (for metadata extraction)
-├── documentation.cache.json           ← Embedded doc context cache (gitignored)
-├── dependencies/                      ← Downloadable files referenced by lessons
+├── index.md                             ← Overview page (ALWAYS named index.md)
+├── 1-create-bpmn.md                     ← Lesson 1
+├── 2-configure-robot.md                 ← Lesson 2
+├── 3-configure-agent.md                 ← Lesson 3
+├── 4-configure-human-validation.md      ← Lesson 4
+├── 5-configure-api.md                   ← Lesson 5
+├── you-did-it.md                        ← Summary/outro page (no numeric prefix)
+├── documentation.txt                    ← Links to official docs (for metadata extraction)
+├── documentation.cache.json             ← Embedded doc context cache (gitignored)
+├── dependencies/                        ← Downloadable files referenced by lessons
 │   └── 2-Way Matching Process.bpmn
-├── create-bpmn.images/                ← Images for lesson 1
+├── 1-create-bpmn.images/                ← Images for lesson 1
 │   ├── 1-bpmn-diagram.png
 │   ├── 2-wise-robot.png
 │   └── ...
-├── configure-robot.images/            ← Images for lesson 2
+├── 2-configure-robot.images/            ← Images for lesson 2
 │   ├── 1-new-agentic-process.png
 │   ├── 1-new-agentic-process.metadata.json
 │   └── ...
-├── configure-agent.images/            ← Images for lesson 3
-├── configure-human-validation.images/ ← Images for lesson 4
-├── configure-api.images/              ← Images for lesson 5
-└── you-did-it.images/                 ← Images for summary page
+├── 3-configure-agent.images/            ← Images for lesson 3
+├── 4-configure-human-validation.images/ ← Images for lesson 4
+├── 5-configure-api.images/              ← Images for lesson 5
+└── you-did-it.images/                   ← Images for summary page
 ```
 
 ---
@@ -106,7 +107,7 @@ Exercises and lessons removed with `/remove-exercise` or `/remove-lesson` are mo
 Archive/
 └── invoice-matching-ixp/      ← Archived exercise folder (same structure as docs/)
     ├── 2-configure-robot.md
-    └── configure-robot.images/
+    └── 2-configure-robot.images/
 ```
 
 The `Archive/` folder is **gitignored** — archived content is never pushed to the repository or deployed to the live site.
@@ -139,16 +140,16 @@ The `Archive/` folder is **gitignored** — archived content is never pushed to 
 
 ### Image folders (per-lesson)
 
-Each lesson gets its own image folder named after the lesson file (without the numeric prefix):
+Each lesson gets its own image folder named after the lesson file (without the `.md` extension):
 
 | Lesson file | Image folder |
 |------------|-------------|
-| `1-create-bpmn.md` | `create-bpmn.images/` |
-| `2-configure-robot.md` | `configure-robot.images/` |
+| `1-create-bpmn.md` | `1-create-bpmn.images/` |
+| `2-configure-robot.md` | `2-configure-robot.images/` |
 | `you-did-it.md` | `you-did-it.images/` |
 
 The folder name is derived from the lesson filename by:
-1. Removing the numeric prefix and dash (`1-create-bpmn.md` → `create-bpmn`)
+1. Removing the `.md` extension (`1-create-bpmn.md` → `1-create-bpmn`)
 2. Appending `.images/`
 
 This pattern keeps images organized per-lesson and is required by the metadata extraction script.
@@ -230,6 +231,11 @@ Rules:
 Preview the site locally:
 ```bash
 /Users/sergey/Library/Python/3.9/bin/mkdocs serve
+```
+
+Preview locally with draft exercises visible in the navigation:
+```bash
+/Users/sergey/Library/Python/3.9/bin/mkdocs serve -f mkdocs.local.yml
 ```
 
 Build check before committing:

@@ -25,7 +25,16 @@ Steps: 1. Upload Report — robot retrieves PDFs, 2. Extract Data — IXP reads 
 The skill creates all folders, stub pages, and image folders. It does **not** add the exercise to the nav or the home page — the exercise starts as a draft, accessible only via direct URL. This prevents learners from seeing work-in-progress content.
 
 At the end, the skill shows you the direct URLs for local preview:
-- `http://127.0.0.1:8000/<exercise-slug>/`
+- `http://127.0.0.1:8000/AgenticPracticeCourse/<exercise-slug>/`
+
+**To preview with full navigation:** add the exercise to `mkdocs.local.yml` using `[Unpublished]` in the title, then serve with `mkdocs serve -f mkdocs.local.yml`. This file is gitignored — it never affects the live site.
+
+```yaml
+  - Exercise Display Name [Unpublished]:
+    - Overview: <exercise-slug>/index.md
+    - 1. Lesson Title: <exercise-slug>/1-verb-noun.md
+    - You did it!: <exercise-slug>/you-did-it.md
+```
 
 When the exercise is ready for learners, run `/publish-exercise`.
 
@@ -85,7 +94,7 @@ This is the primary content generation workflow. You'll do this for each lesson 
    - Cross-references to other lessons or exercises
 
 At the end, the skill shows the direct URL for the lesson:
-- `http://127.0.0.1:8000/<exercise-slug>/N-verb-noun/`
+- `http://127.0.0.1:8000/AgenticPracticeCourse/<exercise-slug>/N-verb-noun/`
 
 The lesson is part of a draft exercise — it's not visible in the nav until you run `/publish-exercise`.
 
@@ -126,7 +135,7 @@ The skill:
 After you've written and edited a lesson, run the review skill to check it against all formatting and language rules.
 
 ```
-/review-lesson categorizing-incidents/llm-with-context
+/review-lesson categorizing-incidents/1-llm-with-context
 ```
 
 The skill reads the lesson page and checks it against:

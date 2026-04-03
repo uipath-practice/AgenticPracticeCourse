@@ -9,7 +9,7 @@ If any of the following are missing from the user's message, ask before proceedi
 1. **Exercise slug** — folder name of the exercise (e.g., `expense-report-processing`)
 2. **Step number** — the numeric prefix (e.g., `3`)
 3. **Step name** — display name for the step (e.g., "Configure Agent")
-4. **Images folder path** — path to the folder containing the screenshots (e.g., `docs/expense-report-processing/configure-agent.images/`)
+4. **Images folder path** — path to the folder containing the screenshots (e.g., `docs/expense-report-processing/3-configure-agent.images/`)
 5. **Context** (optional) — any additional details: platform features used, expected inputs/outputs, business logic, or special instructions
 
 ---
@@ -95,7 +95,7 @@ Then show the direct URLs for local preview:
 Lesson created in draft exercise — not visible in navigation until published.
 
 Local preview (requires mkdocs serve):
-  http://127.0.0.1:8000/<exercise-slug>/N-verb-noun/
+  http://127.0.0.1:8000/AgenticPracticeCourse/<exercise-slug>/N-verb-noun/
 
 When all lessons are ready: /publish-exercise <exercise-slug>
 ```

@@ -71,7 +71,7 @@ CLAUDE.md                  ← Auto-loaded every Claude Code session; points her
 
 Exercises go through three states:
 
-1. **Draft** — created with `/new-exercise`. Files exist in `docs/` but the exercise is not in the nav. Accessible via direct URL for testing.
+1. **Draft** — created with `/new-exercise`. Files exist in `docs/` but the exercise is not in the nav. Accessible via direct URL for testing. Add to `mkdocs.local.yml` with `[Unpublished]` in the title for full local nav preview.
 2. **Published** — promoted with `/publish-exercise`. Nav section and home page card added. Visible to learners.
 3. **Archived** — removed with `/remove-exercise` or `/remove-lesson`. Files moved to `Archive/` (gitignored). Removed from nav and home page.
 
