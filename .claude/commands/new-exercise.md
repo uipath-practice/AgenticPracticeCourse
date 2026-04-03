@@ -13,6 +13,14 @@ If any of the following are missing from the user's message, ask for them before
 
 ---
 
+## Draft mode — exercise is hidden until published
+
+New exercises are created in **draft mode**. They are accessible via direct URL but do NOT appear in the navigation menu or on the home page. This prevents learners from seeing work-in-progress content.
+
+When the exercise is ready, run `/publish-exercise <slug>` to add it to the navigation and home page.
+
+---
+
 ## What to create
 
 ### 1. Folder structure
@@ -91,34 +99,28 @@ Follow the **Summary Page** template in `Master/CourseStructure.md`.
 
 ---
 
-### 5. Update `mkdocs.yml` nav
-
-Add the exercise before `- Next Steps: next-steps.md`. Follow nav conventions from `Master/Filesystem.md`:
-
-```yaml
-- Display Name:
-  - Overview: exercise-slug/index.md
-  - 1. Step One Name: exercise-slug/1-verb-noun.md
-  - 2. Step Two Name: exercise-slug/2-verb-noun.md
-  - You did it!: exercise-slug/you-did-it.md
-```
-
----
-
-### 6. Update `docs/index.md`
-
-Add a summary card for the new exercise. Read the home page first and match the format of existing entries.
-
----
-
 ## Verify
 
-After creating all files, run `mkdocs build` to check for broken links and nav errors:
+After creating all files, run `mkdocs build` to check for errors:
 
 ```bash
 /Users/sergey/Library/Python/3.9/bin/mkdocs build
 ```
 
-Report any build errors. If the build passes, summarize what was created: files, nav entries, and index card.
+MkDocs will warn that the new pages are not in the navigation — this is expected and intentional. Report the warning text so the user knows it's normal.
+
+If the build passes, summarize what was created (files and image folders), then show the direct URLs for local preview:
+
+```
+Exercise is in draft mode — not visible in navigation.
+
+Local preview (requires mkdocs serve):
+  Overview:  http://127.0.0.1:8000/<exercise-slug>/
+  Lesson 1:  http://127.0.0.1:8000/<exercise-slug>/1-verb-noun/
+  Lesson 2:  http://127.0.0.1:8000/<exercise-slug>/2-verb-noun/
+  ...
+
+When ready to publish: /publish-exercise <exercise-slug>
+```
 
 $ARGUMENTS

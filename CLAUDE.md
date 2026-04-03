@@ -27,7 +27,7 @@ All detailed rules, templates, and formatting conventions live in `Master/`. Rea
 | `Master/CourseStructure.md` | Page types (Overview, Lesson, Summary) with full templates |
 | `Master/Formatting.md` | Images, two-column layouts, code blocks, admonitions, tables, prompt diffs, argument docs |
 | `Master/Language.md` | Voice, tone, humour, word choices, platform names |
-| `Master/HOWTO.md` | End-to-end workflows: create exercise, generate lesson, review, validate |
+| `Master/HOWTO.md` | End-to-end workflows: create exercise, generate lesson, publish, remove, review, validate |
 
 **When creating new content:** read `Master/CourseStructure.md` and `Master/Formatting.md` before writing.
 **When reviewing content:** read all Master files for the checklist (or use `/review-lesson` and `/review-exercise` skills).
@@ -72,8 +72,9 @@ These are the most critical rules — kept here so they're available without ext
 
 ### When creating new content
 - Follow templates in `Master/CourseStructure.md` exactly.
-- Always update `nav:` in `mkdocs.yml` when adding or removing pages.
-- Run `mkdocs build` to verify before committing.
+- New exercises and lessons start as **drafts** — do NOT add them to `nav:` in `mkdocs.yml` or to `docs/index.md`. Use `/publish-exercise` to promote when ready.
+- When removing pages (via `/remove-lesson` or `/remove-exercise`), move files to `Archive/` — never delete.
+- Run `mkdocs build` to verify before committing. "Page not in navigation" warnings are expected for draft exercises.
 
 ### When reviewing content
 - If the human changed structure from the template, flag it but don't rewrite without confirmation.

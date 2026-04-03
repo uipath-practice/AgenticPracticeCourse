@@ -29,6 +29,8 @@ AgenticPracticeCourse/
 │   ├── javascripts/
 │   │   └── extra.js                   ← Custom JS (external links → new tab)
 │   └── <exercise-slug>/              ← One folder per exercise (see below)
+├── Archive/                           ← Archived exercises and lessons (gitignored)
+│   └── <exercise-slug>/              ← One folder per archived exercise
 ├── hooks/
 │   └── split_cols.py                  ← MkDocs hook: two-column layout shorthand
 ├── scripts/                           ← Screenshot metadata extraction pipeline
@@ -49,6 +51,9 @@ AgenticPracticeCourse/
 │   ├── commands/                      ← Claude Code skills
 │   │   ├── new-exercise.md
 │   │   ├── new-lesson.md
+│   │   ├── publish-exercise.md
+│   │   ├── remove-lesson.md
+│   │   ├── remove-exercise.md
 │   │   ├── review-lesson.md
 │   │   └── review-exercise.md
 │   └── settings.local.json            ← Local Claude Code permissions
@@ -90,6 +95,21 @@ docs/invoice-matching-ixp/
 ├── configure-api.images/              ← Images for lesson 5
 └── you-did-it.images/                 ← Images for summary page
 ```
+
+---
+
+## Archive folder
+
+Exercises and lessons removed with `/remove-exercise` or `/remove-lesson` are moved to `Archive/` rather than deleted. The `Archive/` folder mirrors the structure of `docs/`:
+
+```
+Archive/
+└── invoice-matching-ixp/      ← Archived exercise folder (same structure as docs/)
+    ├── 2-configure-robot.md
+    └── configure-robot.images/
+```
+
+The `Archive/` folder is **gitignored** — archived content is never pushed to the repository or deployed to the live site.
 
 ---
 
@@ -163,7 +183,15 @@ This pattern keeps images organized per-lesson and is required by the metadata e
 
 ## Nav registration (mkdocs.yml)
 
-**Every page must be registered in the `nav:` section of `mkdocs.yml`.**
+### Draft vs. published exercises
+
+New exercises created with `/new-exercise` start as **drafts** — their files exist in `docs/` but they are not listed in `mkdocs.yml`. Drafts are accessible via direct URL but invisible in the navigation menu and on the home page.
+
+Run `/publish-exercise <slug>` when the exercise is ready for learners. That skill adds the nav section and home page card.
+
+### Published nav structure
+
+Once published, every page in the exercise appears in the `nav:` section:
 
 ```yaml
 nav:

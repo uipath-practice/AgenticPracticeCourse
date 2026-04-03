@@ -7,7 +7,7 @@ This directory is the **single source of truth** for all rules, templates, and c
 ## Who is this for?
 
 - **Humans** — course authors, reviewers, and trainers who create or edit exercise content
-- **AI agents** — Claude Code skills (`/new-exercise`, `/new-lesson`, `/review-lesson`, `/review-exercise`) read these files to produce consistent output
+- **AI agents** — Claude Code skills read these files to produce consistent output
 
 ---
 
@@ -15,11 +15,11 @@ This directory is the **single source of truth** for all rules, templates, and c
 
 | File | What it covers | When to read |
 |------|---------------|--------------|
-| [Filesystem.md](Filesystem.md) | Project directory structure, folder naming, file naming, image folders, config files | Setting up a new exercise or repository |
+| [Filesystem.md](Filesystem.md) | Project directory structure, folder naming, file naming, image folders, config files, Archive folder | Setting up a new exercise or repository |
 | [CourseStructure.md](CourseStructure.md) | Page types (Overview, Lesson, Summary), their structure, and full templates | Writing or reviewing any page |
 | [Formatting.md](Formatting.md) | Images, two-column layouts, code blocks, admonitions, tables, prompt diffs, argument docs | Formatting any element on a page |
 | [Language.md](Language.md) | Voice, tone, humour, word choices, platform names, capitalisation rules | Writing or reviewing any text |
-| [HOWTO.md](HOWTO.md) | End-to-end workflows: create exercise, generate lesson, review, validate, start new repo | First time doing any of these tasks |
+| [HOWTO.md](HOWTO.md) | End-to-end workflows: create exercise, generate lesson, publish, remove, review, validate | First time doing any of these tasks |
 
 ## Templates
 
@@ -52,15 +52,28 @@ Master/                    ← Authoritative rules (you are here)
 
 CLAUDE.md                  ← Auto-loaded every Claude Code session; points here for details
 .claude/commands/          ← Skills that reference Master/ files
-  ├── new-exercise.md
-  ├── new-lesson.md
-  ├── review-lesson.md
-  └── review-exercise.md
+  ├── new-exercise.md      ← Scaffold a new exercise (draft — not published to nav)
+  ├── new-lesson.md        ← Build a lesson from screenshots
+  ├── publish-exercise.md  ← Add a draft exercise to the navigation
+  ├── remove-lesson.md     ← Archive a lesson and remove it from navigation
+  ├── remove-exercise.md   ← Archive an entire exercise and remove it from navigation
+  ├── review-lesson.md     ← Check a single lesson against standards
+  └── review-exercise.md   ← Check an entire exercise for coherence
 ```
 
 - **CLAUDE.md** contains a compact summary of critical rules and points to `Master/` for full details. It is loaded automatically into every Claude Code session.
 - **Skills** (`.claude/commands/`) reference specific Master files instead of duplicating rules.
 - **Memory** (`.claude/projects/.../memory/`) stores user preferences and project context that can't be derived from these files.
+
+---
+
+## Exercise lifecycle
+
+Exercises go through three states:
+
+1. **Draft** — created with `/new-exercise`. Files exist in `docs/` but the exercise is not in the nav. Accessible via direct URL for testing.
+2. **Published** — promoted with `/publish-exercise`. Nav section and home page card added. Visible to learners.
+3. **Archived** — removed with `/remove-exercise` or `/remove-lesson`. Files moved to `Archive/` (gitignored). Removed from nav and home page.
 
 ---
 

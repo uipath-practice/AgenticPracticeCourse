@@ -22,7 +22,12 @@ Description: Automate expense report review using IXP extraction and human valid
 Steps: 1. Upload Report — robot retrieves PDFs, 2. Extract Data — IXP reads fields, 3. Review Exceptions — Action Center task
 ```
 
-The skill creates all folders, stub pages, updates `mkdocs.yml`, and adds a card to the home page. Review the generated content and adjust as needed.
+The skill creates all folders, stub pages, and image folders. It does **not** add the exercise to the nav or the home page — the exercise starts as a draft, accessible only via direct URL. This prevents learners from seeing work-in-progress content.
+
+At the end, the skill shows you the direct URLs for local preview:
+- `http://127.0.0.1:8000/<exercise-slug>/`
+
+When the exercise is ready for learners, run `/publish-exercise`.
 
 ### Manual approach
 
@@ -32,9 +37,8 @@ The skill creates all folders, stub pages, updates `mkdocs.yml`, and adds a card
 4. Write `index.md` following the overview template in [CourseStructure.md](CourseStructure.md)
 5. Write stub lesson files (`1-verb-noun.md`, `2-verb-noun.md`, etc.) following the lesson template
 6. Write `you-did-it.md` following the summary template
-7. Register all pages in `mkdocs.yml` nav section
-8. Add an exercise card to `docs/index.md`
-9. Run `mkdocs build` to verify no errors
+7. Run `mkdocs build` to verify no errors — expected warning: "page not in navigation"
+8. Register the exercise when ready: see Workflow 3 (Publish an exercise)
 
 ---
 
@@ -80,9 +84,44 @@ This is the primary content generation workflow. You'll do this for each lesson 
    - Tips and warnings from your domain expertise
    - Cross-references to other lessons or exercises
 
+At the end, the skill shows the direct URL for the lesson:
+- `http://127.0.0.1:8000/<exercise-slug>/N-verb-noun/`
+
+The lesson is part of a draft exercise — it's not visible in the nav until you run `/publish-exercise`.
+
 ---
 
-## Workflow 3: Review a lesson
+## Workflow 3: Publish an exercise
+
+Once all lessons are written, reviewed, and ready for learners, publish the exercise to make it visible.
+
+```
+/publish-exercise expense-report-processing
+```
+
+The skill:
+1. Reads the exercise folder to discover all pages
+2. Derives nav labels from each page's `# Title` heading
+3. Adds the nav section to `mkdocs.yml`
+4. Adds a home page card to `docs/index.md`
+5. Runs `mkdocs build` to verify
+6. Shows the live URL (once deployed to GitHub Pages)
+
+### Manual approach
+
+1. Add a nav section to `mkdocs.yml` before `- Next Steps: next-steps.md`:
+   ```yaml
+   - Exercise Display Name:
+     - Overview: exercise-slug/index.md
+     - 1. Lesson Title: exercise-slug/1-verb-noun.md
+     - You did it!: exercise-slug/you-did-it.md
+   ```
+2. Add an exercise card to `docs/index.md` matching the format of existing entries
+3. Run `mkdocs build` to verify
+
+---
+
+## Workflow 4: Review a lesson
 
 After you've written and edited a lesson, run the review skill to check it against all formatting and language rules.
 
@@ -104,7 +143,7 @@ Fix the must-fix items, consider the recommendations, and ignore the info items 
 
 ---
 
-## Workflow 4: Review an exercise
+## Workflow 5: Review an exercise
 
 Once all lessons are reviewed individually, run the exercise-level review for cross-lesson coherence.
 
@@ -114,7 +153,7 @@ Once all lessons are reviewed individually, run the exercise-level review for cr
 
 This checks everything the lesson review checks, plus:
 - Overview page links match actual lesson files
-- Nav registration in `mkdocs.yml` is correct and complete
+- Nav registration in `mkdocs.yml` is correct and complete (if published)
 - Consistent terminology and platform name usage across all pages
 - Step numbering is sequential with no gaps
 - Summary page component table matches the actual exercise components
@@ -124,7 +163,48 @@ This checks everything the lesson review checks, plus:
 
 ---
 
-## Workflow 5: Edit and refine existing content
+## Workflow 6: Remove a lesson
+
+Use this to retire a single lesson while keeping the rest of the exercise intact.
+
+```
+/remove-lesson invoice-matching-ixp/2-configure-robot
+```
+
+The skill scans everything that will change — the lesson file, its image folder, its nav entry, and its step table row — and shows a full summary. **You must type `yes` to confirm before any changes are made.**
+
+On confirmation:
+- Lesson `.md` file and image folder are moved to `Archive/<exercise-slug>/`
+- Nav entry is removed (if the exercise was published)
+- Step table row is removed from the exercise overview page
+- Remaining lesson labels are renumbered to close the gap
+- Build is verified
+
+Lesson filenames are not renamed — their URLs remain unchanged.
+
+---
+
+## Workflow 7: Remove an exercise
+
+Use this to retire an entire exercise — for example, when retiring a topic or resetting after a test run.
+
+```
+/remove-exercise invoice-matching-ixp
+```
+
+The skill scans the entire exercise folder, its nav section, and home page references, then shows a full summary. **You must type `yes` to confirm before any changes are made.**
+
+On confirmation:
+- The entire `docs/<exercise-slug>/` folder is moved to `Archive/<exercise-slug>/`
+- The nav section is removed from `mkdocs.yml` (if published)
+- Home page references are removed from `docs/index.md`
+- Build is verified
+
+The `Archive/` folder is gitignored — archived content is never deployed.
+
+---
+
+## Workflow 8: Edit and refine existing content
 
 When making changes to an existing page:
 
@@ -146,7 +226,7 @@ When making changes to an existing page:
 
 ---
 
-## Workflow 6: Start a new repository from scratch
+## Workflow 9: Start a new repository from scratch
 
 For setting up a completely new course site (not adding to the existing one).
 
@@ -154,7 +234,7 @@ For setting up a completely new course site (not adding to the existing one).
 
 1. **Master/** — the entire directory (your authoritative rules)
 2. **CLAUDE.md** — update the project-specific details (site URL, repo URL, tenant info)
-3. **.claude/commands/** — all skills (new-exercise, new-lesson, review-lesson, review-exercise)
+3. **.claude/commands/** — all skills (new-exercise, new-lesson, publish-exercise, remove-lesson, remove-exercise, review-lesson, review-exercise)
 4. **mkdocs.yml** — use as a starting template, update `site_name`, `site_url`, `nav`
 5. **hooks/split_cols.py** — the two-column layout hook
 6. **docs/stylesheets/extra.css** — all CSS including image styles and two-column grid
@@ -163,6 +243,7 @@ For setting up a completely new course site (not adding to the existing one).
 9. **scripts/** — the metadata extraction pipeline (if you'll use `/new-lesson`)
 10. **.github/workflows/deploy.yml** — GitHub Actions auto-deploy
 11. **requirements.txt** — MkDocs dependencies
+12. **.gitignore** — includes `Archive/` and other ignores
 
 ### What to create fresh
 
@@ -179,8 +260,9 @@ For setting up a completely new course site (not adding to the existing one).
 5. Update training environment callout text in Master/CourseStructure.md if the tenant differs
 6. Set up GitHub Pages: enable Pages on the `gh-pages` branch
 7. Set up `scripts/.env` if using the metadata extraction pipeline
-8. Run `/new-exercise` to create your first exercise
-9. Push to main — GitHub Actions deploys automatically
+8. Run `/new-exercise` to create your first exercise (in draft mode)
+9. Run `/publish-exercise` when the exercise is ready for learners
+10. Push to main — GitHub Actions deploys automatically
 
 ---
 

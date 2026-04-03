@@ -26,6 +26,7 @@ docs/*.md files
 | `.github/workflows/deploy.yml` | Auto-deploy on every push to `main` |
 | `Master/` | Authoritative course rules, templates, and formatting reference |
 | `CLAUDE.md` | Compact authoring rules Claude reads automatically; points to Master/ |
+| `Archive/` | Archived exercises and lessons — gitignored, never deployed |
 
 **Publishing is automatic.** Push to `main` → GitHub Actions runs → site updates in ~60 seconds. You never run a deploy command manually.
 
@@ -114,12 +115,12 @@ All course authoring rules live in the `Master/` directory:
 
 | File | Covers |
 |------|--------|
-| [Master/README.md](Master/README.md) | Entry point — what each file contains |
-| [Master/Filesystem.md](Master/Filesystem.md) | Directory structure, file/folder naming |
+| [Master/README.md](Master/README.md) | Entry point — what each file contains, exercise lifecycle |
+| [Master/Filesystem.md](Master/Filesystem.md) | Directory structure, file/folder naming, Archive folder |
 | [Master/CourseStructure.md](Master/CourseStructure.md) | Page templates (Overview, Lesson, Summary) |
 | [Master/Formatting.md](Master/Formatting.md) | Images, code blocks, layouts, admonitions |
 | [Master/Language.md](Master/Language.md) | Voice, tone, word choices |
-| [Master/HOWTO.md](Master/HOWTO.md) | End-to-end workflows for creating and reviewing content |
+| [Master/HOWTO.md](Master/HOWTO.md) | End-to-end workflows for creating, publishing, removing, and reviewing content |
 
 `CLAUDE.md` at the project root has a compact summary and points to Master/ for details. Claude reads it automatically every session. To add or update a rule, edit the relevant Master file and commit.
 
@@ -129,7 +130,7 @@ All course authoring rules live in the `Master/` directory:
 
 Use Claude Code for anything that touches multiple files, requires consistency, or involves restructuring.
 
-**Add a new exercise:**
+**Add a new exercise (draft — not visible to learners yet):**
 ```
 /new-exercise
 Name: Expense Report Processing
@@ -146,10 +147,21 @@ Name: Extract Data
 Images: docs/expense-report-processing/extract-data.images/
 ```
 
+**Publish an exercise when it's ready for learners:**
+```
+/publish-exercise expense-report-processing
+```
+
 **Review a lesson or exercise:**
 ```
 /review-lesson invoice-matching-ixp/3-configure-agent
 /review-exercise invoice-matching-ixp
+```
+
+**Remove a lesson or an entire exercise:**
+```
+/remove-lesson invoice-matching-ixp/2-configure-robot
+/remove-exercise invoice-matching-ixp
 ```
 
 **Other common requests:**
@@ -173,10 +185,25 @@ This repo ships with Claude Code skills that automate course authoring. Any team
 
 | Skill | What it does | When to use |
 |-------|-------------|-------------|
-| `/new-exercise` | Scaffolds a new exercise: folders, stubs, nav, home page card | Starting a new exercise from scratch |
+| `/new-exercise` | Scaffolds a new exercise: folders, stubs — **draft mode, not in nav** | Starting a new exercise from scratch |
 | `/new-lesson` | Builds a lesson page from screenshots: extracts metadata, generates content | After uploading screenshots to a lesson's images folder |
+| `/publish-exercise` | Adds a draft exercise to the navigation and home page | When the exercise is ready for learners |
 | `/review-lesson` | Reviews a single lesson against Master/ rules | After editing or finalizing a lesson |
 | `/review-exercise` | Reviews an entire exercise for per-page and cross-lesson coherence | After all lessons are reviewed individually |
+| `/remove-lesson` | Archives a lesson and removes it from navigation — prompts for confirmation | Retiring a lesson or cleaning up after a test run |
+| `/remove-exercise` | Archives an entire exercise and removes it from navigation — prompts for confirmation | Retiring an exercise or cleaning up after a test run |
+
+### Draft and publish model
+
+Exercises start in **draft mode** — files exist in `docs/` but are not visible in the navigation or on the home page. This lets you build and test content without exposing it to learners.
+
+```
+/new-exercise   →  creates files, not visible in nav
+/new-lesson     →  adds lessons, still not visible in nav
+/publish-exercise  →  adds nav entry and home page card — learners can see it
+```
+
+Archived content goes to `Archive/` at the project root. This folder is gitignored and never deployed.
 
 ### Documentation references
 
@@ -189,15 +216,16 @@ docs/<exercise-slug>/documentation.txt
 ### Typical workflow
 
 ```
-1. /new-exercise     →  provide name, description, and step list
+1. /new-exercise          →  provide name, description, and step list (draft mode)
 2. Upload screenshots to docs/<exercise-slug>/<step>.images/
 3. Add relevant docs links to docs/<exercise-slug>/documentation.txt
-4. /new-lesson       →  provide exercise slug, step number, images folder path
+4. /new-lesson            →  provide exercise slug, step number, images folder path
 5. Review generated page, edit as needed
-6. /review-lesson    →  check against Master/ rules
-7. /review-exercise  →  cross-lesson coherence check
-8. mkdocs build      →  verify no errors
-9. git push          →  site deploys automatically
+6. /review-lesson         →  check against Master/ rules
+7. /review-exercise       →  cross-lesson coherence check
+8. /publish-exercise      →  add to nav and home page
+9. mkdocs build           →  verify no errors
+10. git push              →  site deploys automatically
 ```
 
 ---

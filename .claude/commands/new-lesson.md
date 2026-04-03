@@ -89,4 +89,15 @@ After writing the file, read it back and check:
 
 Report what was created and flag any screenshots that had low-confidence metadata for manual review.
 
+Then show the direct URLs for local preview:
+
+```
+Lesson created in draft exercise — not visible in navigation until published.
+
+Local preview (requires mkdocs serve):
+  http://127.0.0.1:8000/<exercise-slug>/N-verb-noun/
+
+When all lessons are ready: /publish-exercise <exercise-slug>
+```
+
 $ARGUMENTS

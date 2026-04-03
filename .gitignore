@@ -6,3 +6,4 @@ __pycache__/
 scripts/.env
 scripts/context/vector_store.json
 docs/**/documentation.cache.json
+Archive/
