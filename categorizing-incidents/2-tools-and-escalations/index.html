@@ -12,10 +12,10 @@
         <meta name="author" content="Sergey Shumilov">
       
       
-        <link rel="canonical" href="https://uipath-practice.github.io/AgenticPracticeCourse/categorizing-incidents/tools-and-escalations/">
+        <link rel="canonical" href="https://uipath-practice.github.io/AgenticPracticeCourse/categorizing-incidents/2-tools-and-escalations/">
       
       
-        <link rel="prev" href="../llm-with-context/">
+        <link rel="prev" href="../1-llm-with-context/">
       
       
         <link rel="next" href="../you-did-it/">
@@ -29,7 +29,7 @@
     
     
       
-        <title>Tools and Escalations - Agentic Automation Workshop</title>
+        <title>2. Tools and Escalations - Agentic Automation Workshop</title>
       
     
     
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Tools and Escalations
+              2. Tools and Escalations
             
           </span>
         </div>
@@ -415,14 +415,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../llm-with-context/" class="md-nav__link">
+      <a href="../1-llm-with-context/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    LLM with Context
+    1. LLM with Context
   
 
     
@@ -459,7 +459,7 @@
   <span class="md-ellipsis">
     
   
-    Tools and Escalations
+    2. Tools and Escalations
   
 
     
@@ -477,7 +477,7 @@
   <span class="md-ellipsis">
     
   
-    Tools and Escalations
+    2. Tools and Escalations
   
 
     
@@ -941,7 +941,6 @@
 
 <h1 id="tools-and-escalations">Tools and Escalations<a class="headerlink" href="#tools-and-escalations" title="Permanent link">&para;</a></h1>
 <p><strong>Connect your agent to ServiceNow and route ambiguous cases to humans</strong></p>
-<hr />
 <div class="admonition tip">
 <p class="admonition-title">What you'll do</p>
 <ol>
@@ -971,7 +970,7 @@
 <p>There are various kinds of Tools available in UiPath platform - Integration Service activities, RPA Processes, other Agents, MCP servers..</p>
 <p>First tool we will need is based on Integration Service - find "Search Incidents by Incident Number" in ServiceNow catalog. This tool will look up complete Incident Details by Incident Number.</p>
 <p>Open your agent in <strong>Agent Builder</strong> and go to the <strong>Tools</strong> tab, or click "<strong>+</strong>" in canvas mode. Add the <strong>Search Incidents by Incident Number</strong> tool from the ServiceNow catalog:</p>
-<p><img alt="ServiceNow tool catalog with Search Incidents tool selected" class="screenshot" src="../tools-and-escalations.images/1-search-incidents-tool-W.png" width="900" /></p>
+<p><img alt="ServiceNow tool catalog with Search Incidents tool selected" class="screenshot" src="../2-tools-and-escalations.images/1-search-incidents-tool-W.png" width="900" /></p>
 <div class="img-cols img-cols-50">
 <div>
 <p>We also need to specify which ServiceNow <strong>Connection</strong> the tool is going to use. Integration Service Connection is a saved, authorized authentication configuration that allows services in UiPath platform to securely connect to third-party applications. </p>
@@ -979,7 +978,7 @@
   </p>
 </div>
 <div>
-<p><img alt="Shared ServiceNow connection selected" class="screenshot" src="../tools-and-escalations.images/2-servicenow-connection.png" />
+<p><img alt="Shared ServiceNow connection selected" class="screenshot" src="../2-tools-and-escalations.images/2-servicenow-connection.png" />
   </p>
 </div>
 </div>
@@ -1007,7 +1006,7 @@
   </p>
 </div>
 <div>
-<p><img alt="UpdateServiceNowIncident tool configured with argument descriptions" class="screenshot" src="../tools-and-escalations.images/3-update-tool-configured.png" />
+<p><img alt="UpdateServiceNowIncident tool configured with argument descriptions" class="screenshot" src="../2-tools-and-escalations.images/3-update-tool-configured.png" />
   </p>
 </div>
 </div>
@@ -1112,15 +1111,15 @@
 </code></pre></div>
 <p>With this setup we should have given agent necessary instructions, related tools, and context for analysis. Time to give it a try using some ServiceNow incidents!</p>
 <p>Open <strong><a href="https://cloud.uipath.com/tpenlabs/apps_/default/run/production/ef96660c-6e95-4f8f-b8b6-b1c42f06edf1/80928442-e08c-4123-8b34-68577ed98704/ID771c3646cad34360806fde5bc13a47a3?el=VB&amp;uts=true">Ticket Management App</a></strong>, update Tag with your name and app will show you all tickets generated with this Tag within last 2 days, if any. If you have no new tickets, feel free to generate few, but don't forget to set your name as Tag before hitting "Generate".</p>
-<p><img alt="Generating incidents in Ticket Management App" class="screenshot" src="../tools-and-escalations.images/4-generate-incidents-W.png" width="900" /></p>
+<p><img alt="Generating incidents in Ticket Management App" class="screenshot" src="../2-tools-and-escalations.images/4-generate-incidents-W.png" width="900" /></p>
 <p>You can use <strong>Incident Number</strong> from the <strong>Ticket Number</strong> column of the first list as Agent's input. After processing, categorized Incidents will move to the bottom list so that you can easily validate the results.</p>
-<p><img alt="Agent test output showing all tools in use" class="screenshot" src="../tools-and-escalations.images/5-agent-test-output-W.png" width="900" /></p>
+<p><img alt="Agent test output showing all tools in use" class="screenshot" src="../2-tools-and-escalations.images/5-agent-test-output-W.png" width="900" /></p>
 <p>In the <strong>Execution Trace</strong>, verify that the agent calls the Search Incidents tool, retrieves categorization context, calls the Assignee Lookup tool, and finally updates the ServiceNow incident. Every step has details for audit, and you can trace the logic of each step. And results are correct - outstanding!</p>
 <h3 id="4-using-escalations-to-get-help">4. Using escalations to get help<a class="headerlink" href="#4-using-escalations-to-get-help" title="Permanent link">&para;</a></h3>
 <p>There will always be cases where the agent cannot confidently categorize a ticket. Maybe the description lacks detail, or multiple categories seem equally valid. In those cases, escalate to a human reviewer.</p>
 <p>Let's add an escalation path - we will create an Action Center task for every Incident that can't be classified.</p>
 <p>Add an escalation path using the <strong>ServiceNow Agent Escalation App</strong> from the <strong>ServiceNow Incidents</strong> folder. </p>
-<p><img alt="Escalation app selected from ServiceNow Incidents folder" class="screenshot" src="../tools-and-escalations.images/6-escalation-app-W.png" width="900" /></p>
+<p><img alt="Escalation app selected from ServiceNow Incidents folder" class="screenshot" src="../2-tools-and-escalations.images/6-escalation-app-W.png" width="900" /></p>
 <div class="img-cols img-cols-50">
 <div>
 <p>Configure the escalation tool with prompt and argument settings.</p>
@@ -1143,7 +1142,7 @@
 </div>
 </div>
 <div>
-<p><img alt="Escalation tool configuration with prompt and arguments" class="screenshot" src="../tools-and-escalations.images/7-escalation-config.png" />
+<p><img alt="Escalation tool configuration with prompt and arguments" class="screenshot" src="../2-tools-and-escalations.images/7-escalation-config.png" />
   </p>
 </div>
 </div>
@@ -1208,9 +1207,9 @@ Now use any incident that Agent was unable to classify before in order to trigge
 <p>Definitely there is no way to map this text to any category, so Agent should escalate. </p>
 <p>Run the agent with this incident number if you have it, or generate few more tickets to get one. The agent should recognize it cannot confidently categorize this incident and trigger the escalation, creating a task in <strong>Action Center</strong> for a human reviewer.</p>
 <p><em>(Hint: If it doesn't escalate - validate your prompt once again to include escalation instructions)</em>
-<img alt="Escalation triggered for ambiguous incident" class="screenshot" src="../tools-and-escalations.images/8-escalation-triggered-W.png" width="900" /></p>
+<img alt="Escalation triggered for ambiguous incident" class="screenshot" src="../2-tools-and-escalations.images/8-escalation-triggered-W.png" width="900" /></p>
 <p>In <strong>Action Center</strong>, the human reviewer will see the incident details and category/subcategory options. After they select a category and submit, the agent will complete the assignment using the Assignee Lookup automation and update the ticket in ServiceNow.</p>
-<p><img alt="Action Center task created for the escalated incident" class="screenshot" src="../tools-and-escalations.images/9-action-center-escalation-W.png" width="900" /></p>
+<p><img alt="Action Center task created for the escalated incident" class="screenshot" src="../2-tools-and-escalations.images/9-action-center-escalation-W.png" width="900" /></p>
 <p>Guess, which parameter affects Agent's confidence when assigning categories? Try to tune it and see if incidents that were successfully categorized previously can lead to Escalation. <em>Hint: it's the Context settings.</em></p>
 <p>Agent is now ready to use, so you have completed your first Agent with UiPath Agent Builder! It retrieves incident details from ServiceNow, categorizes them using grounded context, updates the ticket, and escalates when it cannot determine a clear category.</p>
 <p><strong>Congratulations and well done!</strong></p>
@@ -1251,7 +1250,7 @@ Now use any incident that Agent was unable to classify before in order to trigge
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../llm-with-context/" class="md-footer__link md-footer__link--prev" aria-label="Previous: LLM with Context">
+          <a href="../1-llm-with-context/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 1. LLM with Context">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -1261,7 +1260,7 @@ Now use any incident that Agent was unable to classify before in order to trigge
                 Previous
               </span>
               <div class="md-ellipsis">
-                LLM with Context
+                1. LLM with Context
               </div>
             </div>
           </a>

@@ -12,13 +12,13 @@
         <meta name="author" content="Sergey Shumilov">
       
       
-        <link rel="canonical" href="https://uipath-practice.github.io/AgenticPracticeCourse/categorizing-incidents/llm-with-context/">
+        <link rel="canonical" href="https://uipath-practice.github.io/AgenticPracticeCourse/categorizing-incidents/1-llm-with-context/">
       
       
         <link rel="prev" href="../">
       
       
-        <link rel="next" href="../tools-and-escalations/">
+        <link rel="next" href="../2-tools-and-escalations/">
       
       
         
@@ -29,7 +29,7 @@
     
     
       
-        <title>LLM with Context - Agentic Automation Workshop</title>
+        <title>1. LLM with Context - Agentic Automation Workshop</title>
       
     
     
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              LLM with Context
+              1. LLM with Context
             
           </span>
         </div>
@@ -431,7 +431,7 @@
   <span class="md-ellipsis">
     
   
-    LLM with Context
+    1. LLM with Context
   
 
     
@@ -449,7 +449,7 @@
   <span class="md-ellipsis">
     
   
-    LLM with Context
+    1. LLM with Context
   
 
     
@@ -606,14 +606,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../tools-and-escalations/" class="md-nav__link">
+      <a href="../2-tools-and-escalations/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Tools and Escalations
+    2. Tools and Escalations
   
 
     
@@ -963,7 +963,6 @@
 
 <h1 id="llm-with-context">LLM with Context<a class="headerlink" href="#llm-with-context" title="Permanent link">&para;</a></h1>
 <p><strong>Build a context-grounded ServiceNow incident categorization agent</strong></p>
-<hr />
 <div class="admonition tip">
 <p class="admonition-title">What you'll do</p>
 <ol>
@@ -988,7 +987,7 @@
   </p>
 </div>
 <div>
-<p><img alt="Creating a new Agent in Studio Web" class="screenshot" src="../llm-with-context.images/1-create-agent.png" />
+<p><img alt="Creating a new Agent in Studio Web" class="screenshot" src="../1-llm-with-context.images/1-create-agent.png" />
   </p>
 </div>
 </div>
@@ -1014,7 +1013,7 @@
 </ul>
 </div>
 <div>
-<p><img alt="Renaming the agent in Explorer" class="screenshot" src="../llm-with-context.images/2-rename-agent.png" />
+<p><img alt="Renaming the agent in Explorer" class="screenshot" src="../1-llm-with-context.images/2-rename-agent.png" />
   </p>
 </div>
 </div>
@@ -1036,7 +1035,7 @@
   </p>
 </div>
 <div>
-<p><img alt="Input arguments configured in Data Manager" class="screenshot" src="../llm-with-context.images/3-input-arguments.png" />
+<p><img alt="Input arguments configured in Data Manager" class="screenshot" src="../1-llm-with-context.images/3-input-arguments.png" />
   </p>
 </div>
 </div>
@@ -1092,7 +1091,7 @@
   </p>
 </div>
 <div>
-<p><img alt="Output arguments in Data Manager JSON editor" class="screenshot" src="../llm-with-context.images/4-output-arguments.png" />
+<p><img alt="Output arguments in Data Manager JSON editor" class="screenshot" src="../1-llm-with-context.images/4-output-arguments.png" />
   </p>
 </div>
 </div>
@@ -1146,7 +1145,7 @@
 </ul>
 <h3 id="3-add-context-grounding">3. Add context grounding<a class="headerlink" href="#3-add-context-grounding" title="Permanent link">&para;</a></h3>
 <p>Context Grounding provides the agent with a structured data source. The context is named <strong>ServiceNow Incidents Categorization Information</strong> and contains the valid Category–Subcategory pairs used in our training organization. It lists available categories and subcategories with a brief description for each:</p>
-<p><img alt="What's behind the context grounding" class="screenshot" src="../llm-with-context.images/5-context-source.png" width="900" /></p>
+<p><img alt="What's behind the context grounding" class="screenshot" src="../1-llm-with-context.images/5-context-source.png" width="900" /></p>
 <div class="img-cols img-cols-30">
 <div>
 <p>This gives the agent the structured data it needs to categorize any incoming ticket. Click <strong>Add context</strong> in the <strong>Contexts</strong> section of the agent configuration. </p>
@@ -1155,7 +1154,7 @@
 </div>
 </div>
 <div>
-<p><img alt="Selecting context source in Agent Builder" class="screenshot" src="../llm-with-context.images/5-add-context.png" />
+<p><img alt="Selecting context source in Agent Builder" class="screenshot" src="../1-llm-with-context.images/5-add-context.png" />
   </p>
 </div>
 </div>
@@ -1170,7 +1169,7 @@
   </p>
 </div>
 <div>
-<p><img alt="Importing existing project into solution" class="screenshot" src="../llm-with-context.images/6-import-project.png" />
+<p><img alt="Importing existing project into solution" class="screenshot" src="../1-llm-with-context.images/6-import-project.png" />
   </p>
 </div>
 </div>
@@ -1180,19 +1179,19 @@
   </p>
 </div>
 <div>
-<p><img alt="Selecting SNOW Assignee Lookup Automation" class="screenshot" src="../llm-with-context.images/7-select-assignee-lookup.png" />
+<p><img alt="Selecting SNOW Assignee Lookup Automation" class="screenshot" src="../1-llm-with-context.images/7-select-assignee-lookup.png" />
   </p>
 </div>
 </div>
 <p>Add this automation as a tool to your agent. Click <strong>Add tool</strong> in the <strong>Tools</strong> section, then select <strong>RPA workflow</strong>.</p>
-<p><img alt="Adding RPA tool in Agent Builder" class="screenshot" src="../llm-with-context.images/8-add-rpa-tool.png" width="800" /></p>
+<p><img alt="Adding RPA tool in Agent Builder" class="screenshot" src="../1-llm-with-context.images/8-add-rpa-tool.png" width="800" /></p>
 <div class="img-cols img-cols-50">
 <div>
 <p>Select <strong>SNOW Assignee Lookup Automation</strong> from the list of available workflows in your current solution.
   </p>
 </div>
 <div>
-<p><img alt="Selecting the assignee lookup tool" class="screenshot" src="../llm-with-context.images/9-select-tool.png" />
+<p><img alt="Selecting the assignee lookup tool" class="screenshot" src="../1-llm-with-context.images/9-select-tool.png" />
   </p>
 </div>
 </div>
@@ -1254,7 +1253,7 @@
 <li>The agent calling the Assignee Lookup tool</li>
 <li>The final categorization in the Result tab</li>
 </ul>
-<p><img alt="Agent test output with execution trace" class="screenshot" src="../llm-with-context.images/10-agent-test-output.png" width="900" /></p>
+<p><img alt="Agent test output with execution trace" class="screenshot" src="../1-llm-with-context.images/10-agent-test-output.png" width="900" /></p>
 <p>The output should now show only valid categories and an assignee email retrieved from the lookup tool — no hallucinations. Congratulations!</p>
 <h3 id="6-test-with-evaluations">6. Test with Evaluations<a class="headerlink" href="#6-test-with-evaluations" title="Permanent link">&para;</a></h3>
 <p>Evaluations are a form of regression testing that automatically validate results against a predefined set of inputs. For now, run the evaluation set to confirm the agent handles all eight scenarios correctly. You'll explore Evaluations further in the next step.</p>
@@ -1390,7 +1389,7 @@
 <a id="__codelineno-23-126" name="__codelineno-23-126" href="#__codelineno-23-126"></a><span class="p">}</span>
 </code></pre></div></p>
 </details>
-<p><img alt="Evaluation set imported and ready to run" class="screenshot" src="../llm-with-context.images/11-evaluation-set-W.png" width="900" /></p>
+<p><img alt="Evaluation set imported and ready to run" class="screenshot" src="../1-llm-with-context.images/11-evaluation-set-W.png" width="900" /></p>
 <p>Click <strong>Evaluate set</strong> and review the results. Each test case runs your agent once, and you'll see whether the outputs match the expected values. Evaluations help you maintain quality and catch regressions when you update your prompts or change models, ensuring that adjusting a prompt to address one issue didn't break another use case.</p>
 <p>Your agent's categorization logic is ready. In the next step, you'll connect it to ServiceNow.</p>
 
@@ -1447,13 +1446,13 @@
         
         
           
-          <a href="../tools-and-escalations/" class="md-footer__link md-footer__link--next" aria-label="Next: Tools and Escalations">
+          <a href="../2-tools-and-escalations/" class="md-footer__link md-footer__link--next" aria-label="Next: 2. Tools and Escalations">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Tools and Escalations
+                2. Tools and Escalations
               </div>
             </div>
             <div class="md-footer__button md-icon">
