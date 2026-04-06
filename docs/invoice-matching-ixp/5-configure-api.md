@@ -59,10 +59,22 @@ Select the task on the **Approve** path and set the action type to **Execute Con
 
 Configure the task to use the **Data Fabric** connector with the shared connection and **Create Entity Record** activity for the **Payments Queue** object.
 
-Map the invoice data output to the **InvoiceData** input field. This passes all approved invoice information to the payments queue.
-
 |30|
-![Update Financial Systems task configuration](5-configure-api.images/4-update-records.png){ .screenshot }
+![Update Financial Systems task configuration](5-configure-api.images/4-update-financial-system.png){ .screenshot }
+]]]
+
+[[[
+Click **Manage Properties** to add the invoice data field to the Payments Queue entity. Check the **InvoiceData** field to map your invoice data.
+
+|50|
+![Select InvoiceData field](5-configure-api.images/4-update-records-fields.png){ .screenshot }
+]]]
+
+[[[
+Map the invoice JSON data from Agent's output to the **InvoiceData** input field. This passes information about every approved invoice to the payments queue for downstream processing.
+
+|50|
+![Map invoice data to InvoiceData input](5-configure-api.images/4-update-records-input.png){ .screenshot }
 ]]]
 
 
@@ -73,7 +85,7 @@ Click **Debug** and let the process run. Remember that with `in_FailureProbabili
 
 Check **Data Fabric** to see approved invoices accumulating in the Payments Queue:
 
-![Approved invoices in Data Fabric Payments Queue](5-configure-api.images/5-payments-queue-W.png){ .screenshot width="800" }
+![Approved invoices in Data Fabric Payments Queue](5-configure-api.images/5-payments-queue-W.png){ .screenshot width="900" }
 
 Check your inbox for rejection emails from the shared Gmail account. Each email contains the discrepancies identified by the Agent and reviewed by the human validator:
 

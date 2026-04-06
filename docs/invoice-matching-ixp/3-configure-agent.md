@@ -112,6 +112,10 @@ For Output arguments, copy paste below JSON into editor after switching to "**Ed
     "out_POID": {
       "type": "string",
       "description": "Purchase Order ID extracted from Invoice PDF"
+    },
+    "out_InvoiceJSON": {
+      "type": "string",
+      "description": "JSON document containing Invoice data extracted by IXP"
     }
   },
   "title": "Outputs"
@@ -188,6 +192,8 @@ out_SuggestedResponse: If match is not successful, draft the invoice rejection e
   - Include a bullet list with reasons for rejection, i.e., discrepancies that can't be matched, and a request to adjust the invoice and resend.
   - In the bullet list, do not include items if that individual item is considered a match. Only list items that do not follow the rules.
   - Maintain a professional and courteous tone throughout the email.
+
+out_InvoiceJSON: JSON document containing Invoice data extracted by IXP. Exclude confidence score, only include datapoints as they appear on the invoice. This will be uploaded to finance system for processing.
 
 Always double-check your analysis and outputs for accuracy before finalizing your response.
 ```
