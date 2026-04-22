@@ -1,0 +1,30 @@
+{
+  "version": "1.0",
+  "image_file": "Screenshot 2026-04-22 at 9.37.04 AM.png",
+  "image_path": "docs/conversational-agents/1-create-agent.images/Screenshot 2026-04-22 at 9.37.04 AM.png",
+  "lesson": "1-create-agent",
+  "exercise": "conversational-agents",
+  "extraction": {
+    "ocr_text": "Agent tool                                                                 ✓ Successful\n\nGet Approved Invoices\n\nThis workflow retrieves JSON objects of Invoices from Data Fabric entity Payments Queue, after they were\napproved by process business user and added by Accounts Payable automation.\n\nShow less  ^\n\nAgent tool                                                                 ✓ Successful\n\nGet ServiceNow Incident Notes\n\nThis workflow retrieves comments and work notes for a ServiceNow Incident. Input is Incident ID, outputs is JSON\nobject containing full incident details and string of comments.\n\nShow less  ^\n\nAgent tool                                                                 ✓ Successful\n\nGet ServiceNow Incidents\n\nThis workflow retrieves ServiceNow incidents based on Keyword (filter applied to Short Description field) and how\nmany days ago tickets were created. Response contains JSON object with list of key ticket fields.\n\nShow less  ^\n\nAgent tool\n\nPost ServiceNow Incident Note\n\nThis workflow adds a comment to ServiceNow incident. Inputs include Incident Number (not Incident ID), comment\ntext and whether comment internal or external. Output is comments after addition.\n\nShow less  ^\n\n✕ Reject    ✓ Accept",
+    "description": "This screenshot shows the UiPath Agent Builder or Studio Web agent configuration/testing interface displaying a list of available Agent tools. Several tools are expanded, with three marked as Successful, and the bottom tool, Post ServiceNow Incident Note, is awaiting approval. The Accept button is highlighted, indicating the user is expected to approve this tool/action.",
+    "step_instructions": "1. Review the expanded Agent tool details for \"Post ServiceNow Incident Note\".\n2. Click on the highlighted \"Accept\" button to approve the tool/action.\n3. If you do not want to approve it, click on \"Reject\" instead."
+  },
+  "layout": {
+    "mode": "full_width",
+    "ocr_length": 1233,
+    "aspect_ratio": 1.01,
+    "image_size": "1694x1672",
+    "rationale": "High density (1233 chars) + wide (1.01) or very high text"
+  },
+  "model": {
+    "name": "gpt-5.4",
+    "deployment": "gpt-5.4",
+    "api_version": "2025-04-01-preview"
+  },
+  "usage": {
+    "prompt_tokens": 4791,
+    "completion_tokens": 369,
+    "total_tokens": 5160
+  },
+  "generated_at": "2026-04-22T06:52:57.062370+00:00"
+}

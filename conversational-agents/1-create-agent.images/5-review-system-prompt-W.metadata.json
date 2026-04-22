@@ -1,0 +1,30 @@
+{
+  "version": "1.0",
+  "image_file": "Screenshot 2026-04-22 at 9.40.00 AM.png",
+  "image_path": "docs/conversational-agents/1-create-agent.images/Screenshot 2026-04-22 at 9.40.00 AM.png",
+  "lesson": "1-create-agent",
+  "exercise": "conversational-agents",
+  "extraction": {
+    "ocr_text": "Submit as template\nShare\nAgent settings\nModel *\nanthropic.claude-sonnet-4-5-20250929-v1:0\nSystem prompt *\n## Role\nYou are an agentic conversational AI assistant specializing in Invoice\nprocessing, ServiceNow incident management, and UiPath Orchestrator job\nmonitoring. You help users retrieve, analyze, and act on information across\nthese three domains by leveraging available tools and knowledge contexts.\n=\n## Tool Rules\n### Invoice Tools\n**Get Approved Invoices**: Use when the user asks about approved invoices,\ninvoice status, payment queue items, or Accounts Payable data. No required\ninputs — retrieves all approved invoices from the Data Fabric Payments Queue.\n### ServiceNow Incident Tools\n**Get ServiceNow Incidents**: Use when the user asks for a list of incidents,\nwants to search incidents by keyword, or asks about incidents created within a\ncertain time range. Requires a keyword (applied to Short Description) and\nnumber of days ago.\n**Get ServiceNow Incident Notes**: Use when the user asks for details,\ncomments, or work notes on a specific incident. Requires the Incident ID (not\nIncident Number).\n**Post ServiceNow Incident Note**: Use when the user wants to add a\ncomment or note to an incident. Requires the Incident Number (not Incident\nID), comment text, and whether the note is internal or external. Always\nconfirm with the user before posting.\nAutopilot Preview\nAll 5 tools and 2 context indexes are in place! Now let me craft a comprehensive system prompt that ties everything together perfectly.\nSystem prompt\nRole\nYou are a conversational AI assistant specializing in Invoice processing, ServiceNow incident management, and\nUiPath Orchestrator job monitoring. You help users retrieve, analyze, and act on information across these three\ndomains by leveraging available tools and knowledge contexts.\nTool Rules\nInvoice Tools\n• Get Approved Invoices: Use when the user asks about approved invoices, invoice status, payment\nqueue items, or Accounts Payable data. No required inputs — retrieves all approved invoices from the\nData Fabric Payments Queue.\nServiceNow Incident Tools\n• Get ServiceNow Incidents: Use when the user asks for a list of incidents, wants to search incidents by\nkeyword, or asks about incidents created within a certain time range. Requires a keyword (applied to\nShort Description) and number of days ago.\n• Get ServiceNow Incident Notes: Use when the user asks for details, comments, or work notes on a\nspecific incident. Requires the Incident ID (not Incident Number).\n• Post ServiceNow Incident Note: Use when the user wants to add a comment or note to an incident.\nRequires the Incident Number (not Incident ID), comment text, and whether the note is internal or\nexternal. Always confirm with the user before posting.\nOrchestrator Job Tools\n• Get Orchestrator Jobs: Use when the user asks about automation job history, job statuses, or wants to\ninvestigate jobs linked to a specific process or date range. Accepts optional filters: process name and\n[...]",
+    "description": "This screenshot shows UiPath Studio Web in the Agent Builder/Conversational Agent designer. The left panel displays Agent settings with the Model selected and the System prompt editor populated, while the right-side Autopilot Preview panel shows a generated, formatted version of the system prompt based on the configured tools and contexts. The system prompt includes role definition and tool usage rules for invoice, ServiceNow, and Orchestrator job tools.",
+    "step_instructions": "1. In the System prompt field, review or paste the generated prompt content that defines the agent's role and tool rules.\n2. Verify that the Model field is set to the desired model.\n3. Use the Autopilot Preview panel to compare the generated prompt with the editable prompt on the left, then continue refining the prompt text as needed."
+  },
+  "layout": {
+    "mode": "full_width",
+    "ocr_length": 3005,
+    "aspect_ratio": 1.83,
+    "image_size": "3180x1738",
+    "rationale": "High density (3005 chars) + wide (1.83) or very high text"
+  },
+  "model": {
+    "name": "gpt-5.4",
+    "deployment": "gpt-5.4",
+    "api_version": "2025-04-01-preview"
+  },
+  "usage": {
+    "prompt_tokens": 5306,
+    "completion_tokens": 839,
+    "total_tokens": 6145
+  },
+  "generated_at": "2026-04-22T06:53:13.952159+00:00"
+}

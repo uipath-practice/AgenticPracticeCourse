@@ -1,0 +1,30 @@
+{
+  "version": "1.0",
+  "image_file": "Screenshot 2026-04-22 at 2.54.16 PM.png",
+  "image_path": "docs/conversational-agents/2-review-tools.images/Screenshot 2026-04-22 at 2.54.16 PM.png",
+  "lesson": "2-review-tools",
+  "exercise": "conversational-agents",
+  "extraction": {
+    "ocr_text": "UiPath Studio\n\nCloud Workspace    Local Workspace  Preview    Templates\n\norchestrator tool\n\nProject type: All\n\nSolution\n\nOrchestrator Tools Template\n\nOrchestrator Tools Template for\nConversational Agent Exercise\n\nCreated by TPEN Labs\n\nNew solution from template\nPin",
+    "description": "This screenshot shows UiPath Studio on the start page with the Templates tab selected. The search box contains the text \"orchestrator tool,\" and the Orchestrator Tools Template solution card is visible. Its overflow menu is open, showing the option \"New solution from template,\" which is highlighted as the action to take.",
+    "step_instructions": "1. Click on the Templates tab.\n2. In the search field, enter \"orchestrator tool\".\n3. On the Orchestrator Tools Template card, open the three-dot menu.\n4. Click on \"New solution from template\"."
+  },
+  "layout": {
+    "mode": "split_30",
+    "ocr_length": 265,
+    "aspect_ratio": 1.36,
+    "image_size": "1332x980",
+    "rationale": "Low text density (265 chars) or narrow layout"
+  },
+  "model": {
+    "name": "gpt-5.4",
+    "deployment": "gpt-5.4",
+    "api_version": "2025-04-01-preview"
+  },
+  "usage": {
+    "prompt_tokens": 4950,
+    "completion_tokens": 210,
+    "total_tokens": 5160
+  },
+  "generated_at": "2026-04-22T07:13:03.221718+00:00"
+}

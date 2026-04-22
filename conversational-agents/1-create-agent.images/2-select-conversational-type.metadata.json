@@ -1,0 +1,30 @@
+{
+  "version": "1.0",
+  "image_file": "Screenshot 2026-04-22 at 9.33.53 AM.png",
+  "image_path": "docs/conversational-agents/1-create-agent.images/Screenshot 2026-04-22 at 9.33.53 AM.png",
+  "lesson": "1-create-agent",
+  "exercise": "conversational-agents",
+  "extraction": {
+    "ocr_text": "Select agent type\n\nAutonomous\nCreate an agent that acts\nindependently to complete\na given task.\n\nConversational\nCreate an assistant that\ninteracts with users\nthrough real-time dialogue.\n\nCoded\nPreview\nImport a coded agent\nproject built in your IDE into\nStudio.\n\nGet started with Autopilot\n\nWhat should your agent do?\n\nThe conversational agent that will use available tools from UiPath Orchestrator and context\ngrounding indexes to answer various questions about: Invoice processing documents, ServiceNow\nincidents and associated Orchestrator Jobs.\n\nStart fresh\nGenerate Agent",
+    "description": "This screenshot shows a modal in UiPath Studio Web for creating a new agent and selecting the agent type. The Conversational option is selected, and the Autopilot prompt area is filled with a description of the agent’s intended behavior. The dialog also shows the available alternatives Autonomous and Coded, along with the Start fresh and Generate Agent actions.",
+    "step_instructions": "1. Select the Conversational agent type.\n2. In the Autopilot description field under “What should your agent do?”, enter the agent use-case description.\n3. Click on “Generate Agent” to let Autopilot create the agent configuration, or click on “Start fresh” if you want to configure it manually."
+  },
+  "layout": {
+    "mode": "split_50",
+    "ocr_length": 575,
+    "aspect_ratio": 1.4,
+    "image_size": "1718x1228",
+    "rationale": "Medium text density (575 chars)"
+  },
+  "model": {
+    "name": "gpt-5.4",
+    "deployment": "gpt-5.4",
+    "api_version": "2025-04-01-preview"
+  },
+  "usage": {
+    "prompt_tokens": 5066,
+    "completion_tokens": 298,
+    "total_tokens": 5364
+  },
+  "generated_at": "2026-04-22T06:52:46.869962+00:00"
+}

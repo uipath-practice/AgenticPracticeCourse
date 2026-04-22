@@ -1,0 +1,30 @@
+{
+  "version": "1.0",
+  "image_file": "Screenshot 2026-04-22 at 9.41.15 AM.png",
+  "image_path": "docs/conversational-agents/1-create-agent.images/Screenshot 2026-04-22 at 9.41.15 AM.png",
+  "lesson": "1-create-agent",
+  "exercise": "conversational-agents",
+  "extraction": {
+    "ocr_text": "## Final Reminder\nAlways identify the correct domain (invoices, ServiceNow\nincidents, or Orchestrator jobs), call the right tool(s),\npresent results in a clean human-readable format, and\noffer relevant follow-up actions.\n\nCancel\nAccept",
+    "description": "This screenshot shows a modal or confirmation dialog in the UiPath Studio Web/Agent Builder context with a final reminder message about agent behavior. The dialog emphasizes choosing the correct domain, using the appropriate tools, formatting results clearly, and suggesting follow-up actions. The Accept button is highlighted with a red border, indicating the intended next action.",
+    "step_instructions": "1. Review the final reminder message in the dialog.\n2. Click on the highlighted Accept button to confirm and proceed."
+  },
+  "layout": {
+    "mode": "split_30",
+    "ocr_length": 235,
+    "aspect_ratio": 2.44,
+    "image_size": "978x400",
+    "rationale": "Low text density (235 chars) or narrow layout"
+  },
+  "model": {
+    "name": "gpt-5.4",
+    "deployment": "gpt-5.4",
+    "api_version": "2025-04-01-preview"
+  },
+  "usage": {
+    "prompt_tokens": 4532,
+    "completion_tokens": 175,
+    "total_tokens": 4707
+  },
+  "generated_at": "2026-04-22T06:53:01.304955+00:00"
+}

@@ -1,0 +1,30 @@
+{
+  "version": "1.0",
+  "image_file": "Screenshot 2026-04-22 at 9.45.42 AM.png",
+  "image_path": "docs/conversational-agents/1-create-agent.images/Screenshot 2026-04-22 at 9.45.42 AM.png",
+  "lesson": "1-create-agent",
+  "exercise": "conversational-agents",
+  "extraction": {
+    "ocr_text": "Submit as template\nShare\n\nCanvas\nForm\n\nAgent\nConversational Agent\n\nInstructions\nSystem: \"## Role You are a conversational AI assistant ...\n\nContext\nTools\n\nNew context\nIndexes - unstructured data\nIndexes\nCreate new\nsecurity\n\nAvailable resources\nConversational Agents\nUiPath Security data\nUiPath Security data\n\nServiceNow\nIncidents\nCategorization\nInformation\n\nNew context\n\nGet Approved\nInvoices\n\nGet ServiceNow\nIncident Notes",
+    "description": "This screenshot shows UiPath Studio Web's conversational Agent Builder in the canvas view. The agent node is visible with context and tools connectors, and the user has opened the right-side \"New context\" panel to add an unstructured data index. In the search box, \"security\" is entered, and the available matching resource \"UiPath Security data\" is displayed under Conversational Agents.",
+    "step_instructions": "1. Click on the plus icon under the agent's Context connector to add a new context.\n2. In the New context panel, use the Indexes search field and enter \"security\".\n3. From Available resources, click on \"UiPath Security data\" to select that index as the agent's context."
+  },
+  "layout": {
+    "mode": "split_50",
+    "ocr_length": 423,
+    "aspect_ratio": 1.75,
+    "image_size": "2208x1262",
+    "rationale": "Medium text density (423 chars)"
+  },
+  "model": {
+    "name": "gpt-5.4",
+    "deployment": "gpt-5.4",
+    "api_version": "2025-04-01-preview"
+  },
+  "usage": {
+    "prompt_tokens": 5258,
+    "completion_tokens": 274,
+    "total_tokens": 5532
+  },
+  "generated_at": "2026-04-22T06:53:07.579533+00:00"
+}

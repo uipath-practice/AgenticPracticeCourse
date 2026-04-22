@@ -1,0 +1,30 @@
+{
+  "version": "1.0",
+  "image_file": "Screenshot 2026-04-22 at 1.48.31 PM.png",
+  "image_path": "docs/conversational-agents/1-create-agent.images/Screenshot 2026-04-22 at 1.48.31 PM.png",
+  "lesson": "1-create-agent",
+  "exercise": "conversational-agents",
+  "extraction": {
+    "ocr_text": "Debug\nDebug step-by-step\nExplorer\n+\nBilling Assistent\nConversational Agent\nDefinition\nEvaluation Sets\nEvaluators",
+    "description": "This screenshot shows the Explorer panel in UiPath Studio Web for a solution named \"Billing Assistent.\" Inside the solution, a \"Conversational Agent\" component is expanded, revealing its sections: Definition, Evaluation Sets, and Evaluators. The solution name and the Conversational Agent node are visually highlighted.",
+    "step_instructions": "1. In the Explorer panel, locate the solution named \"Billing Assistent.\" 2. Expand or select the \"Conversational Agent\" node. 3. Click on \"Definition\" to continue configuring the conversational agent."
+  },
+  "layout": {
+    "mode": "split_30",
+    "ocr_length": 112,
+    "aspect_ratio": 1.4,
+    "image_size": "712x508",
+    "rationale": "Low text density (112 chars) or narrow layout"
+  },
+  "model": {
+    "name": "gpt-5.4",
+    "deployment": "gpt-5.4",
+    "api_version": "2025-04-01-preview"
+  },
+  "usage": {
+    "prompt_tokens": 4497,
+    "completion_tokens": 159,
+    "total_tokens": 4656
+  },
+  "generated_at": "2026-04-22T06:52:43.437736+00:00"
+}

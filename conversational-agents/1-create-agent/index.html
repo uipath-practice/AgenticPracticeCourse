@@ -25,7 +25,7 @@
     
     
       
-        <title>Creating a Conversational Agent - Agentic Automation Workshop</title>
+        <title>Creating a Conversational Agent with Autopilot - Agentic Automation Workshop</title>
       
     
     
@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#creating-a-conversational-agent" class="md-skip">
+        <a href="#creating-a-conversational-agent-with-autopilot" class="md-skip">
           Skip to content
         </a>
       
@@ -109,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Creating a Conversational Agent
+              Creating a Conversational Agent with Autopilot
             
           </span>
         </div>
@@ -787,19 +787,123 @@
 
 
 
-<h1 id="creating-a-conversational-agent">Creating a Conversational Agent<a class="headerlink" href="#creating-a-conversational-agent" title="Permanent link">&para;</a></h1>
+<h1 id="creating-a-conversational-agent-with-autopilot">Creating a Conversational Agent with Autopilot<a class="headerlink" href="#creating-a-conversational-agent-with-autopilot" title="Permanent link">&para;</a></h1>
 <div class="admonition tip">
 <p class="admonition-title">Here is our plan for this lesson:</p>
 <ol>
-<li>Create a new conversational agent in <strong>Agent Builder</strong></li>
-<li>Configure a system prompt scoped to UiPath Security topics</li>
-<li>Attach a UiPath Security documentation index as the context grounding source</li>
+<li>Create a new conversational agent in <strong>Studio Web</strong></li>
+<li>Let <strong>Autopilot</strong> generate a system prompt from your agent's purpose description</li>
+<li>Review the tools and context that Autopilot discovered</li>
+<li>Connect a <strong>Context Grounding index</strong> to ground the agent's responses</li>
 </ol>
 </div>
 <h2 id="goal">Goal<a class="headerlink" href="#goal" title="Permanent link">&para;</a></h2>
-<p>You'll have a working conversational agent that answers questions about UiPath Security by drawing on official documentation. The agent won't guess or go off-topic — every answer is anchored to the grounded knowledge source you configure.</p>
+<p>You'll create a working conversational agent that answers questions about invoices and <strong>Orchestrator</strong> jobs. <strong>Autopilot</strong> will analyze your description, automatically wire up available tools, and generate a system prompt that guides the agent's behavior. By the end, your agent will be grounded in real documentation, preventing hallucinated answers.</p>
+<h2 id="why-autopilot-matters">Why Autopilot Matters<a class="headerlink" href="#why-autopilot-matters" title="Permanent link">&para;</a></h2>
+<p>Configuring an agent from scratch can feel overwhelming - you need to choose the right tools, write clear instructions, and ensure everything works together. <strong>Autopilot</strong> handles the heavy lifting: it reads your natural-language description, scans your <strong>Orchestrator</strong> for available relevant tools and context sources, and generates a system prompt that brings it all together. You review the result and adjust.</p>
+<p>Context grounding is the final piece. With a indexes connected, the agent's expertise grows and it cites real documentation and stays focused on what it actually knows.</p>
 <h2 id="steps">Steps<a class="headerlink" href="#steps" title="Permanent link">&para;</a></h2>
-<!-- Add step-by-step instructions with screenshots here -->
+<h3 id="1-open-studio-web-and-create-a-new-agent">1. Open Studio Web and create a new agent<a class="headerlink" href="#1-open-studio-web-and-create-a-new-agent" title="Permanent link">&para;</a></h3>
+<div class="img-cols img-cols-30">
+<div>
+<p>It's starts with usual step - in <strong>Studio Web</strong> homes, click the blue <strong>Create New</strong> button in the top-right corner. From the dropdown menu, select <strong>Agent</strong> to create a new solution.
+  </p>
+</div>
+<div>
+<p><img alt="Studio Web Create New menu with Agent option highlighted" class="screenshot" src="../1-create-agent.images/1-create-new-menu.png" />
+  </p>
+</div>
+</div>
+<h3 id="2-select-the-conversational-agent-type">2. Select the Conversational agent type<a class="headerlink" href="#2-select-the-conversational-agent-type" title="Permanent link">&para;</a></h3>
+<p>A wizard appears asking what kind of agent you want to build. </p>
+<div class="img-cols img-cols-70">
+<div>
+<p><img alt="Agent type selection showing Conversational option with description field" class="screenshot" src="../1-create-agent.images/2-select-conversational-type.png" />
+  </p>
+</div>
+<div>
+<p>Choose <strong>Conversational</strong> — this type is designed for interactive dialogue where the agent answers user questions via continuous dialogue.</p>
+<p>In the description field, tell <strong>Autopilot</strong> what your agent should do:</p>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>The agent that will use tools and context to answer various questions about Invoice processing documents and associated Orchestrator jobs.
+</code></pre></div>
+  </p>
+</div>
+</div>
+<p>This description guides <strong>Autopilot</strong> when generating your system prompt. Be specific: mention the domain (invoices, jobs), and hint at the tools or context you expect. It's practical also to define which areas agent should not focus on and mention other constraints.</p>
+<p>Click <strong>Generate Agent</strong> to let <strong>Autopilot</strong> analyze your setup.</p>
+<h3 id="3-watch-autopilot-discover-tools-and-context">3. Watch Autopilot discover tools and context<a class="headerlink" href="#3-watch-autopilot-discover-tools-and-context" title="Permanent link">&para;</a></h3>
+<p>While <strong>Autopilot</strong> runs, it:</p>
+<ul>
+<li>Scans your <strong>Orchestrator</strong> for available tools</li>
+<li>Identifies context sources (like <strong>Context Grounding indexes</strong>)</li>
+<li>Analyzes your description to decide what's relevant</li>
+</ul>
+<p><img alt="Autopilot analysis in progress, showing successful discovery of tools and context" class="screenshot" src="../1-create-agent.images/3-autopilot-analyzing.png" width="900" /></p>
+<p><strong>Autopilot</strong> displays a list of tools it found in your <strong>Orchestrator</strong>. Review the list carefully. Each tool represents an RPA process, API, or other automation your agent can invoke. </p>
+<p><img alt="List of available tools discovered by Autopilot, with Accept button highlighted" class="screenshot" src="../1-create-agent.images/4-available-tools.png" width="900" /></p>
+<p>Click <strong>Accept</strong> to confirm these tools will be available to your agent.</p>
+<h3 id="4-review-the-generated-system-prompt">4. Review the generated system prompt<a class="headerlink" href="#4-review-the-generated-system-prompt" title="Permanent link">&para;</a></h3>
+<p><strong>Autopilot</strong> has now created a complete system prompt. This prompt defines:</p>
+<ul>
+<li><strong>Role</strong> — what the agent is (e.g., "You are an invoice and job query specialist")</li>
+<li><strong>Tool Rules</strong> — when and how to use each available tool</li>
+<li><strong>Domain constraints</strong> — what the agent should and shouldn't do</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The system prompt is the agent's functional guide and job description. A well-written prompt is the difference between helpful and hallucinating.</p>
+</div>
+<p><img alt="System prompt editor on the left, Autopilot Preview on the right showing the generated prompt" class="screenshot" src="../1-create-agent.images/5-review-system-prompt-W.png" /></p>
+<div class="img-cols img-cols-50">
+<div>
+<p>If the prompt looks good, click <strong>Accept</strong> to confirm. </p>
+<p>You will be able to edit it later.
+  </p>
+</div>
+<div>
+<p><img alt="Final confirmation dialog with agent behavior guidelines" class="screenshot" src="../1-create-agent.images/6-confirm-behavior.png" />
+  </p>
+</div>
+</div>
+<h3 id="5-add-a-context-grounding-indexes">5. Add a Context Grounding indexes<a class="headerlink" href="#5-add-a-context-grounding-indexes" title="Permanent link">&para;</a></h3>
+<p>With context, the agent cites real sources, which is very useful for a chatbot automation.</p>
+<p>On the <strong>agent canvas</strong> click the <strong>+</strong> icon under <strong>Context</strong> on the Agent node to add a knowledge source.</p>
+<p><img alt="Agent canvas showing Context connection point with the add button highlighted" class="screenshot" src="../1-create-agent.images/7-add-context.png" width="800" /></p>
+<p>A right-side panel opens showing available context sources. Search for "security" to find the <strong>UiPath Security data</strong> index containing very comprehensive documentation about UiPath platform. Few topics you could inquire about will include: <strong>data encryption, role based access controls, agentic security, data residency</strong>.</p>
+<p>If you want to keep this file, here is the download link:
+<strong><a href="/AgenticPracticeCourse/assets/UiPath Security Whitepaper.pdf">docs/assets/UiPath Security Whitepaper.pdf</a></strong>. You can find more interesting security whitepapers: <strong><a href="https://trust.uipath.com/">https://trust.uipath.com/</a></strong></p>
+<h3 id="6-configure-how-the-agent-retrieves-from-the-index">6. Configure how the agent retrieves from the index<a class="headerlink" href="#6-configure-how-the-agent-retrieves-from-the-index" title="Permanent link">&para;</a></h3>
+<div class="img-cols img-cols-50">
+<div>
+<p>After selecting the index, a configuration form appears. </p>
+<p>These settings control how the agent searches and retrieves information. </p>
+<p>In current case we will use simple semantic search and maybe increase relevance threshold to 0.3-0.5 so that it narrows down search results - it makes sense for large documents.</p>
+<p>Your agent is now fully configured.
+  </p>
+</div>
+<div>
+<p><img alt="Index configuration form showing all retrieval settings" class="screenshot" src="../1-create-agent.images/8-configure-context-W.png" width="900" />
+  </p>
+</div>
+</div>
+<h3 id="7-review-the-complete-agent-configuration">7. Review the complete agent configuration<a class="headerlink" href="#7-review-the-complete-agent-configuration" title="Permanent link">&para;</a></h3>
+<p>Your agent is now wired with tools and context, it's ready to answer questions. You can see the full picture on the canvas.</p>
+<p><img alt="Complete agent configuration showing context and tools connected to the central Agent node" class="screenshot" src="../1-create-agent.images/9-complete-agent-W.png" width="900" /></p>
+<div class="img-cols img-cols-50">
+<div>
+<p>Don't forget to give it a meaningful name, as usually:
+  </p>
+</div>
+<div>
+<p><img alt="Conversational Agent component expanded in the solution Explorer" class="screenshot" src="../1-create-agent.images/10-agent-in-explorer.png" />
+  </p>
+</div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip of the day</p>
+<p>It’s important to arrange all tools like tentacles, as shown. This allows the agent to multitask efficiently - and just like a real octopus, it can regrow any tentacle when a tool call fails. Even better, this <strong>agentic octopus</strong> can grow new tentacles over time, continuously expanding its reach. And yes, this is attention check which means you can pick any other animal to mimic it's natural benefits.</p>
+</div>
+<p>Your agent is now ready to test. In the next lesson, you'll explore the tools it can use and understand how they work.</p>
 
 
 

@@ -1,0 +1,30 @@
+{
+  "version": "1.0",
+  "image_file": "Screenshot 2026-04-22 at 3.01.29 PM.png",
+  "image_path": "docs/conversational-agents/2-review-tools.images/Screenshot 2026-04-22 at 3.01.29 PM.png",
+  "lesson": "2-review-tools",
+  "exercise": "conversational-agents",
+  "extraction": {
+    "ocr_text": "Explorer\n+\nMain.xaml\nOrchestrator Tools\nGet Approved Invoices\nMain.xaml\nGet Orchestrator Jobs\nGet ServiceNow Incident Notes\nGet ServiceNow Incidents\nPost ServiceNow Incident Note\nTRIGGER\nManual Trigger\nQuery Entity Records\nFor each Record\nfor each of the JSON objects in approved invoices list from previous step, add\nthem to the list out_Invoices.\nFor each JSON object in the approved invoices list",
+    "description": "This screenshot shows UiPath Studio Web with a workflow project open in the Explorer panel and the Main.xaml file selected under the Orchestrator Tools solution. In the workflow designer, a sequence is visible containing a Manual Trigger, a Query Entity Records activity, and a For each Record container with an annotation explaining that approved invoice JSON objects should be added to the out_Invoices list. Inside the loop, a nested step labeled “For each JSON object in the approved invoices list” is present.",
+    "step_instructions": "Informational screenshot — no user action required. It shows the Main.xaml workflow already configured with a Manual Trigger, a Query Entity Records step, and a For each Record loop for processing approved invoice JSON objects and adding them to the out_Invoices list."
+  },
+  "layout": {
+    "mode": "split_50",
+    "ocr_length": 399,
+    "aspect_ratio": 2.38,
+    "image_size": "2072x872",
+    "rationale": "Medium text density (399 chars)"
+  },
+  "model": {
+    "name": "gpt-5.4",
+    "deployment": "gpt-5.4",
+    "api_version": "2025-04-01-preview"
+  },
+  "usage": {
+    "prompt_tokens": 5608,
+    "completion_tokens": 268,
+    "total_tokens": 5876
+  },
+  "generated_at": "2026-04-22T07:13:05.439161+00:00"
+}

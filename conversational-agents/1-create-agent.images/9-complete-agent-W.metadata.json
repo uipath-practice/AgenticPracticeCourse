@@ -1,0 +1,30 @@
+{
+  "version": "1.0",
+  "image_file": "Screenshot 2026-04-22 at 9.55.45 AM.png",
+  "image_path": "docs/conversational-agents/1-create-agent.images/Screenshot 2026-04-22 at 9.55.45 AM.png",
+  "lesson": "1-create-agent",
+  "exercise": "conversational-agents",
+  "extraction": {
+    "ocr_text": "+\nEscalations\nAgent\nConversational Agent\nInstructions\nSystem: \"# Role You are a conversational AI assistant ...\nContext\nTools\n+\n+\nServiceNow\nIncidents\nCategorization\nInformation\nUiPath Security\ndata\nGet Orchestrator\nJobs\nGet ServiceNow\nIncidents\nPost ServiceNow\nIncident Note\nGet ServiceNow\nIncident Notes\nGet Approved\nInvoices",
+    "description": "This screenshot shows the UiPath Studio Web conversational Agent designer with a visual diagram of an agent and its connected contexts and tools. The central Agent card is configured as a Conversational Agent with system instructions, and branches below it separate Context and Tools. Multiple connected resources are visible, including context sources like ServiceNow Incidents Categorization Information and UiPath Security data, plus tools such as Get Orchestrator Jobs, Get ServiceNow Incidents, Post ServiceNow Incident Note, Get ServiceNow Incident Notes, and Get Approved Invoices.",
+    "step_instructions": "Informational screenshot — no user action required. It shows the overall structure of a conversational agent, with the main agent at the center, escalation above, and connected context sources and tools below."
+  },
+  "layout": {
+    "mode": "split_50",
+    "ocr_length": 327,
+    "aspect_ratio": 1.45,
+    "image_size": "2656x1832",
+    "rationale": "Medium text density (327 chars)"
+  },
+  "model": {
+    "name": "gpt-5.4",
+    "deployment": "gpt-5.4",
+    "api_version": "2025-04-01-preview"
+  },
+  "usage": {
+    "prompt_tokens": 5090,
+    "completion_tokens": 257,
+    "total_tokens": 5347
+  },
+  "generated_at": "2026-04-22T06:53:17.639794+00:00"
+}

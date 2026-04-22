@@ -1,0 +1,30 @@
+{
+  "version": "1.0",
+  "image_file": "Screenshot 2026-04-22 at 9.35.25 AM.png",
+  "image_path": "docs/conversational-agents/1-create-agent.images/Screenshot 2026-04-22 at 9.35.25 AM.png",
+  "lesson": "1-create-agent",
+  "exercise": "conversational-agents",
+  "extraction": {
+    "ocr_text": "Autopilot\nPreview\n\nHelp create an agent based on the following description: The conversational agent\nthat will use available tools from UiPath Orchestrator and context grounding indexes\nto answer various questions about: Invoice processing documents, ServiceNow\nincidents and associated Orchestrator Jobs.\n\nReasoned for 1 s\nI'll start by getting the current agent configuration and exploring the available resources in your\nsolution simultaneously!\n\nAgent configuration                                              Successful\n\nGet Solution Resources                                           Successful\n\nGet Solution Resources                                           Successful\n\nReasoned for 7 s\nExcellent findings! I can see exactly what we need. Here's my plan:\n\n• 🔧 5 tools from the \"Conversational Agents/Orchestrator Tools\" folder: Invoice retrieval, ServiceNow\nincidents (get/notes/post), and Orchestrator Jobs\n• 📚 2 context indexes for ServiceNow incidents categorization\n\nLet me wire everything up simult[...]",
+    "description": "This screenshot shows the Autopilot panel in UiPath Studio Web while creating or configuring a conversational agent. Autopilot has analyzed the user's natural-language description, retrieved the current agent configuration and solution resources, and displays successful status cards for those actions. The lower section summarizes the discovered tools and context indexes and indicates that Autopilot is about to wire them into the agent.",
+    "step_instructions": "Informational screenshot — no user action required. It shows Autopilot successfully reasoning over the agent setup, finding available tools and context indexes, and preparing a configuration plan for the conversational agent."
+  },
+  "layout": {
+    "mode": "split_50",
+    "ocr_length": 1019,
+    "aspect_ratio": 1.28,
+    "image_size": "1714x1336",
+    "rationale": "Medium text density (1019 chars)"
+  },
+  "model": {
+    "name": "gpt-5.4",
+    "deployment": "gpt-5.4",
+    "api_version": "2025-04-01-preview"
+  },
+  "usage": {
+    "prompt_tokens": 4935,
+    "completion_tokens": 337,
+    "total_tokens": 5272
+  },
+  "generated_at": "2026-04-22T06:52:53.389635+00:00"
+}

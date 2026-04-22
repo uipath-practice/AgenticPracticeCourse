@@ -1,0 +1,30 @@
+{
+  "version": "1.0",
+  "image_file": "Screenshot 2026-04-22 at 9.48.26 AM.png",
+  "image_path": "docs/conversational-agents/1-create-agent.images/Screenshot 2026-04-22 at 9.48.26 AM.png",
+  "lesson": "1-create-agent",
+  "exercise": "conversational-agents",
+  "extraction": {
+    "ocr_text": "UiPath Security data\n\nName *\nUiPath Security data\n\nDescription\nUiPath Security data containing information about UiPath\nplatform architecture and features\n\nStrategy\nSemantic\n\nSettings\n\nFolder path prefix\ne.g., /documents/project\n\nFile extension\nAll\n\nQuery *\nThe query for the Semantic strategy.\n\nRelevance score threshold\n0\n1\n\nMax results retrieved\n1\n10",
+    "description": "This screenshot shows a UiPath Studio Web conversational agent context/index retrieval configuration panel for a knowledge source named \"UiPath Security data.\" The form displays the context name, description, retrieval strategy set to Semantic, and expanded settings including folder path prefix, file extension, query, relevance score threshold, and max results retrieved. The description field, Semantic strategy value, and both sliders are visually highlighted, indicating the retrieval settings being configured.",
+    "step_instructions": "1. In the Description field, enter \"UiPath Security data containing information about UiPath platform architecture and features\".\n2. In the Strategy dropdown, select \"Semantic\".\n3. Expand the Settings section if needed.\n4. Optionally configure the Folder path prefix and File extension filters.\n5. In the Query field, provide the semantic retrieval query.\n6. Adjust the Relevance score threshold slider to the desired value.\n7. Adjust the Max results retrieved slider to the desired number of results."
+  },
+  "layout": {
+    "mode": "split_50",
+    "ocr_length": 353,
+    "aspect_ratio": 0.62,
+    "image_size": "1030x1670",
+    "rationale": "Medium text density (353 chars)"
+  },
+  "model": {
+    "name": "gpt-5.4",
+    "deployment": "gpt-5.4",
+    "api_version": "2025-04-01-preview"
+  },
+  "usage": {
+    "prompt_tokens": 5186,
+    "completion_tokens": 310,
+    "total_tokens": 5496
+  },
+  "generated_at": "2026-04-22T06:53:10.122876+00:00"
+}

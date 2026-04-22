@@ -1,0 +1,30 @@
+{
+  "version": "1.0",
+  "image_file": "Screenshot 2026-04-22 at 9.29.10 AM.png",
+  "image_path": "docs/conversational-agents/1-create-agent.images/Screenshot 2026-04-22 at 9.29.10 AM.png",
+  "lesson": "1-create-agent",
+  "exercise": "conversational-agents",
+  "extraction": {
+    "ocr_text": "Create New\n\nStart building\nChoose how you’d like to begin\n\nAgentic Process\nOrchestrate end-to-end processes with AI agents, robots and people.\n\nAgent\nAI powered digital worker leveraging LLMs, context, and automation tools to accomplish its goal.\n\nRPA Workflow\nAutomate repetitive tasks using robotic process automation.\n\nAPI Workflow\nCreate workflows that integrate with external services and APIs.\n\nApp\nCreate low-code apps for data manipulation, decision approval, and process control.",
+    "description": "This screenshot shows UiPath Studio Web with the Start building modal open after clicking Create New. The modal lists available component types to create, including Agentic Process, Agent, RPA Workflow, API Workflow, and App. The Agent option is visually highlighted, indicating the lesson step is to create a new conversational agent.",
+    "step_instructions": "1. Click on the Create New button in the top-right corner.\n2. In the Start building dialog, click on Agent."
+  },
+  "layout": {
+    "mode": "split_50",
+    "ocr_length": 488,
+    "aspect_ratio": 1.31,
+    "image_size": "1496x1144",
+    "rationale": "Medium text density (488 chars)"
+  },
+  "model": {
+    "name": "gpt-5.4",
+    "deployment": "gpt-5.4",
+    "api_version": "2025-04-01-preview"
+  },
+  "usage": {
+    "prompt_tokens": 4956,
+    "completion_tokens": 224,
+    "total_tokens": 5180
+  },
+  "generated_at": "2026-04-22T06:52:45.546401+00:00"
+}
