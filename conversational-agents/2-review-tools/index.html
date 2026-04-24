@@ -798,21 +798,25 @@
 </ol>
 </div>
 <h2 id="goal">Goal<a class="headerlink" href="#goal" title="Permanent link">&para;</a></h2>
-<p>You'll explore the tools available to your agent by examining their internal workflows. Tools are pre-built automations that your agent can invoke — understanding what they do and what data they need (inputs) and return (outputs) is essential to configuring your agent correctly.</p>
+<p>In this lesson you'll explore the tools available to your agent by examining their workflows. The tools that we have added are pre-built automations (RPA and API Workflows) that your agent can invoke — understanding what they do and what data they need (inputs) and return (outputs) is essential to configuring your agent correctly.</p>
 <h2 id="what-are-tools">What Are Tools?<a class="headerlink" href="#what-are-tools" title="Permanent link">&para;</a></h2>
-<p>Tools are reusable automations stored in <strong>Orchestrator</strong>. When your agent needs to do something — retrieve invoice data, query a database, update a ServiceNow incident — it calls a tool. The tool runs the automation and returns results.</p>
-<p>Each tool has:
-- <strong>A workflow</strong> — the automation logic inside
-- <strong>Inputs</strong> — data the tool needs to run (e.g., "Invoice ID")
-- <strong>Outputs</strong> — data the tool returns to the agent (e.g., "Invoice details JSON")</p>
-<p>By reviewing your tools before configuring your agent, you'll know exactly what your agent can do.</p>
+<p>Tools are reusable automations built in Studio Web and published to <strong>Orchestrator</strong> in <strong>Orchestrator Tools</strong> folder. When your agent needs to do something — query Data Fabric to retrieve invoice data, list ServiceNow incidents or add a note to an Incident — it finds a best matching tool based on it's description and runs it. </p>
+<p>Each tool has:</p>
+<ul>
+<li><strong>A workflow</strong> — the automation logic inside</li>
+<li><strong>Inputs</strong> — data the tool needs to run (e.g., "Invoice ID")</li>
+<li><strong>Outputs</strong> — data the tool returns to the agent (e.g., "Invoice details JSON")</li>
+</ul>
+<p>Data for Input Arguments is generated based on Argument Descriptions. The tool call creates an Orchestrator Job and waits for results when Job is completed. Agent then reviews the results and continues moving to it's goal, or achieving it and finishing it's own execution.</p>
+<p>By reviewing your tools before configuring your agent, you'll understand what your octopus agent can do.</p>
 <h2 id="steps">Steps<a class="headerlink" href="#steps" title="Permanent link">&para;</a></h2>
 <h3 id="1-find-the-orchestrator-tools-template">1. Find the Orchestrator Tools template<a class="headerlink" href="#1-find-the-orchestrator-tools-template" title="Permanent link">&para;</a></h3>
 <p>In <strong>Studio Web</strong>, click the <strong>Templates</strong> tab to browse available starting templates.</p>
 <p>Search for "orchestrator tool" to find the <strong>Orchestrator Tools Template</strong> — a pre-built solution containing common automation tools.</p>
 <div class="img-cols img-cols-30">
 <div>
-<p>Open the three-dot menu on the template card and select <strong>New solution from template</strong>.
+<p>Open the three-dot menu on the template card and select <strong>New solution from template</strong>.</p>
+<p>You don't need to publish it as tools have already been deployed in Orchestrator. We will only review the source code.
   </p>
 </div>
 <div>
@@ -820,10 +824,10 @@
   </p>
 </div>
 </div>
-<h3 id="2-open-and-examine-a-tool-workflow">2. Open and examine a tool workflow<a class="headerlink" href="#2-open-and-examine-a-tool-workflow" title="Permanent link">&para;</a></h3>
+<h3 id="2-open-and-examine-api-workflow">2. Open and examine API workflow<a class="headerlink" href="#2-open-and-examine-api-workflow" title="Permanent link">&para;</a></h3>
 <p>Once the template solution loads, expand the <strong>Orchestrator Tools</strong> folder in the Explorer panel on the left.</p>
-<p>You'll see a list of available tools. Each one is a folder containing the tool's workflow. Select any tool to explore it — for example, <strong>Get ServiceNow Incident Notes</strong>.</p>
-<div class="img-cols img-cols-30">
+<p>You'll see a list of available tools. Select API workflow called <strong>Get ServiceNow Incident Notes</strong> to start with.</p>
+<div class="img-cols img-cols-70">
 <div>
 <p><img alt="Orchestrator Tools folder expanded, showing Get ServiceNow Incident Notes workflow open" class="screenshot" src="../2-review-tools.images/2-examine-tool-workflow.png" />
   </p>
@@ -833,37 +837,23 @@
   </p>
 </div>
 </div>
-<h3 id="3-review-the-tools-implementation">3. Review the tool's implementation<a class="headerlink" href="#3-review-the-tools-implementation" title="Permanent link">&para;</a></h3>
-<p>The workflow canvas shows the tool's internal logic. This gives you insight into what the tool actually does.</p>
-<p>For example, the <strong>Get ServiceNow Incident Notes</strong> tool contains:
-- <strong>Assign</strong> — set up variables
-- <strong>Search Incidents by Incident Number</strong> — query ServiceNow
-- <strong>ServiceNow HTTP Request</strong> — fetch the data
-- <strong>Response</strong> — format and return the result</p>
-<p>Each tool is built this way: initialize, query external systems, process results, return structured data.</p>
+<h3 id="3-review-rpa-tools-implementation">3. Review RPA tool's implementation<a class="headerlink" href="#3-review-rpa-tools-implementation" title="Permanent link">&para;</a></h3>
+<p>Open <strong>Get Approved Invoices</strong> - RPA workflow that reads data from Data Fabric: </p>
 <p><img alt="Tool workflow showing Assign, Search, HTTP Request, and Response steps" class="screenshot" src="../2-review-tools.images/3-review-tool-implementation.png" /></p>
-<h3 id="4-check-tool-arguments-inputs-and-outputs">4. Check tool arguments (inputs and outputs)<a class="headerlink" href="#4-check-tool-arguments-inputs-and-outputs" title="Permanent link">&para;</a></h3>
-<p>Tool arguments define what data flows in and out. Open the <strong>Data Manager</strong> panel (usually on the right side) to see the tool's configuration.</p>
-<p><strong>Inputs</strong> are data the tool needs:</p>
-<p><div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="hll"><span class="nt">in_DaysAgo</span>
-</span></code></pre></div>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>A number specifying how many days back to filter invoices. Default value: 30.
-</code></pre></div></p>
-<p><strong>Outputs</strong> are data the tool returns:</p>
-<p><div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="hll"><span class="nt">out_Invoices</span>
-</span></code></pre></div>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Invoice JSON file containing all matching invoices.
-</code></pre></div></p>
-<p>These arguments tell you exactly what to expect when your agent calls this tool. The agent will pass data to inputs and receive data from outputs.</p>
-<p><img alt="Data Manager panel showing tool inputs and outputs" class="screenshot" src="../2-review-tools.images/4-configure-tool-arguments.png" /></p>
+<div class="img-cols img-cols-70">
+<div>
+<p>Open the <strong>Data Manager</strong> panel to see the tool's configuration.</p>
+<p>These arguments tell you exactly what to expect when your agent calls this tool. The agent will pass data to inputs and receive data from outputs.
+  </p>
+</div>
+<div>
+<p><img alt="Data Manager panel showing tool inputs and outputs" class="screenshot" src="../2-review-tools.images/4-configure-tool-arguments.png" />
+  </p>
+</div>
+</div>
 <h3 id="5-review-all-available-tools">5. Review all available tools<a class="headerlink" href="#5-review-all-available-tools" title="Permanent link">&para;</a></h3>
-<p>Spend a few minutes exploring the other tools in the Orchestrator Tools folder. Each one represents an action your agent can take. By the time you're done, you'll have a mental map of:
-- What each tool does
-- What data it needs (inputs)
-- What data it returns (outputs)
-- Which tools are relevant to your agent's domain</p>
-<p>This knowledge ensures your agent will be configured to use the right tools for the right situations. An agent without this context might invoke a tool incorrectly or pick the wrong tool for a question.</p>
-<p>Your agent is now ready to use these tools confidently. In the next lesson, you'll connect your agent to external systems via MCP servers.</p>
+<p>Spend a few minutes exploring the other tools. Each one represents an action your agent can take. Each one has description and each of arguments have description. This knowledge ensures your agent will be configured to use the right tools for the right situations. An agent without this context might invoke a tool incorrectly or pick the wrong tool, which could be dangerous.</p>
+<p>Your agent is now ready to use these tools confidently - let's give it a try!</p>
 
 
 
