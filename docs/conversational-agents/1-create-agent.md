@@ -9,13 +9,11 @@
 
 ## Goal
 
-You'll create a working conversational agent that answers questions about invoices and **Orchestrator** jobs. **Autopilot** will analyze your description, automatically wire up available tools, and generate a system prompt that guides the agent's behavior. By the end, your agent will be grounded in real documentation, preventing hallucinated answers.
+You'll create a working conversational agent that answers questions about invoices and ServiceNow tickets from previous exercises. **Autopilot** will analyze your description, automatically wire up available tools, and generate a system prompt that guides the agent's behavior. By the end, your chatbot-agent will be grounded in real data and documentation, preventing hallucinated answers.
 
 ## Why Autopilot Matters
 
-Configuring an agent from scratch can feel overwhelming - you need to choose the right tools, write clear instructions, and ensure everything works together. **Autopilot** handles the heavy lifting: it reads your natural-language description, scans your **Orchestrator** for available relevant tools and context sources, and generates a system prompt that brings it all together. You review the result and adjust.
-
-Context grounding is the final piece. With a indexes connected, the agent's expertise grows and it cites real documentation and stays focused on what it actually knows.
+Configuring an agent from scratch can feel overwhelming - you need to choose the right tools, write clear instructions, and ensure everything works together. **Autopilot** handles the heavy lifting: it reads your natural-language description of the task, scans your **Orchestrator** for available relevant tools and context sources, and generates a system prompt that brings it all together. You review the result and adjust - manually or using autopilot chat again.
 
 ## Steps
 
@@ -49,6 +47,9 @@ This description guides **Autopilot** when generating your system prompt. Be spe
 
 Click **Generate Agent** to let **Autopilot** analyze your setup.
 
+!!! tip "Best practice"
+    Delegate tasks to the most qualified entity. For prompt writing, that entity is… the thing that reads prompts all day.  
+
 ### 3. Watch Autopilot discover tools and context
 
 While **Autopilot** runs, it:
@@ -63,8 +64,7 @@ While **Autopilot** runs, it:
 
 ![List of available tools discovered by Autopilot, with Accept button highlighted](1-create-agent.images/4-available-tools.png){ .screenshot width=900}
 
-Click **Accept** to confirm these tools will be available to your agent.
-
+Click **Accept** to confirm these tools will be available to your agent. Noticed that you only can see tools that you have permissions to see based on Orchestrator's role based access controls (RBAC)? Keep in mind that when you publish and run this automation, the robot user should have permission to run these jobs, otherwise tool calls will fail.
 
 ### 4. Review the generated system prompt
 
@@ -90,7 +90,7 @@ You will be able to edit it later.
 
 ### 5. Add a Context Grounding indexes
 
-With context, the agent cites real sources, which is very useful for a chatbot automation.
+Just to make it complete, let's add data from some existing indexes. With context, conversational agents will be able to cite sources, which is very useful for a chatbot automation reading long complex documents.
 
 On the **agent canvas** click the **+** icon under **Context** on the Agent node to add a knowledge source.
 
@@ -98,8 +98,9 @@ On the **agent canvas** click the **+** icon under **Context** on the Agent node
 
 A right-side panel opens showing available context sources. Search for "security" to find the **UiPath Security data** index containing very comprehensive documentation about UiPath platform. Few topics you could inquire about will include: **data encryption, role based access controls, agentic security, data residency**.
 
-If you want to keep this file, here is the download link:
-**[docs/assets/UiPath Security Whitepaper.pdf](/AgenticPracticeCourse/assets/UiPath Security Whitepaper.pdf)**. You can find more interesting security whitepapers: **[https://trust.uipath.com/](https://trust.uipath.com/)**
+- If you want to keep this file, here is the download link:
+**[docs/assets/UiPath Security Whitepaper.pdf](/AgenticPracticeCourse/assets/UiPath Security Whitepaper.pdf)**. 
+- You can find more interesting whitepapers and learn about UiPath platform security here: **[here](https://trust.uipath.com/)** and **[here](https://www.uipath.com/legal/trust-and-security/security)**.
 
 ### 6. Configure how the agent retrieves from the index
 
@@ -130,6 +131,6 @@ Don't forget to give it a meaningful name, as usually:
 
 
 !!! tip "Tip of the day"
-    It’s important to arrange all tools like tentacles, as shown. This allows the agent to multitask efficiently - and just like a real octopus, it can regrow any tentacle when a tool call fails. Even better, this **agentic octopus** can grow new tentacles over time, continuously expanding its reach. And yes, this is attention check which means you can pick any other animal to mimic it's natural benefits.
+    It’s important to arrange all tools like tentacles, as shown. This allows the agent to multitask efficiently - and just like a real octopus, it can regrow any tentacle when a tool call fails. Even better, this **agentic octopus** can grow new tentacles over time, continuously expanding its reach. And yes, this is just an attention check which means you can pick any other animal to mimic it's natural benefits with the agent!
 
 Your agent is now ready to test. In the next lesson, you'll explore the tools it can use and understand how they work.

@@ -9,18 +9,21 @@
 
 ## Goal
 
-You'll explore the tools available to your agent by examining their internal workflows. Tools are pre-built automations that your agent can invoke — understanding what they do and what data they need (inputs) and return (outputs) is essential to configuring your agent correctly.
+In this lesson you'll explore the tools available to your agent by examining their workflows. The tools that we have added are pre-built automations (RPA and API Workflows) that your agent can invoke — understanding what they do and what data they need (inputs) and return (outputs) is essential to configuring your agent correctly.
 
 ## What Are Tools?
 
-Tools are reusable automations stored in **Orchestrator**. When your agent needs to do something — retrieve invoice data, query a database, update a ServiceNow incident — it calls a tool. The tool runs the automation and returns results.
+Tools are reusable automations built in Studio Web and published to **Orchestrator** in **Orchestrator Tools** folder. When your agent needs to do something — query Data Fabric to retrieve invoice data, list ServiceNow incidents or add a note to an Incident — it finds a best matching tool based on it's description and runs it. 
 
 Each tool has:
+
 - **A workflow** — the automation logic inside
 - **Inputs** — data the tool needs to run (e.g., "Invoice ID")
 - **Outputs** — data the tool returns to the agent (e.g., "Invoice details JSON")
 
-By reviewing your tools before configuring your agent, you'll know exactly what your agent can do.
+Data for Input Arguments is generated based on Argument Descriptions. The tool call creates an Orchestrator Job and waits for results when Job is completed. Agent then reviews the results and continues moving to it's goal, or achieving it and finishing it's own execution.
+
+By reviewing your tools before configuring your agent, you'll understand what your octopus agent can do.
 
 ## Steps
 
@@ -32,70 +35,41 @@ Search for "orchestrator tool" to find the **Orchestrator Tools Template** — a
 
 [[[
 Open the three-dot menu on the template card and select **New solution from template**.
+
+You don't need to publish it as tools have already been deployed in Orchestrator. We will only review the source code.
 |30|
 ![Studio Web Templates tab with Orchestrator Tools Template highlighted](2-review-tools.images/1-find-orchestrator-tools-template.png){ .screenshot }
 ]]]
 
-### 2. Open and examine a tool workflow
+### 2. Open and examine API workflow
 
 Once the template solution loads, expand the **Orchestrator Tools** folder in the Explorer panel on the left.
 
-You'll see a list of available tools. Each one is a folder containing the tool's workflow. Select any tool to explore it — for example, **Get ServiceNow Incident Notes**.
+You'll see a list of available tools. Select API workflow called **Get ServiceNow Incident Notes** to start with.
 
 [[[
 ![Orchestrator Tools folder expanded, showing Get ServiceNow Incident Notes workflow open](2-review-tools.images/2-examine-tool-workflow.png){ .screenshot }
-|30|
+|70|
 Select **Workflow.json** under the tool folder to see the automation steps inside.
 ]]]
 
-### 3. Review the tool's implementation
+### 3. Review RPA tool's implementation
 
-The workflow canvas shows the tool's internal logic. This gives you insight into what the tool actually does.
-
-For example, the **Get ServiceNow Incident Notes** tool contains:
-- **Assign** — set up variables
-- **Search Incidents by Incident Number** — query ServiceNow
-- **ServiceNow HTTP Request** — fetch the data
-- **Response** — format and return the result
-
-Each tool is built this way: initialize, query external systems, process results, return structured data.
+Open **Get Approved Invoices** - RPA workflow that reads data from Data Fabric: 
 
 ![Tool workflow showing Assign, Search, HTTP Request, and Response steps](2-review-tools.images/3-review-tool-implementation.png){ .screenshot }
 
-### 4. Check tool arguments (inputs and outputs)
 
-Tool arguments define what data flows in and out. Open the **Data Manager** panel (usually on the right side) to see the tool's configuration.
-
-**Inputs** are data the tool needs:
-
-```css hl_lines="1"
-in_DaysAgo
-```
-```text
-A number specifying how many days back to filter invoices. Default value: 30.
-```
-
-**Outputs** are data the tool returns:
-
-```css hl_lines="1"
-out_Invoices
-```
-```text
-Invoice JSON file containing all matching invoices.
-```
+[[[
+Open the **Data Manager** panel to see the tool's configuration.
 
 These arguments tell you exactly what to expect when your agent calls this tool. The agent will pass data to inputs and receive data from outputs.
-
+|70|
 ![Data Manager panel showing tool inputs and outputs](2-review-tools.images/4-configure-tool-arguments.png){ .screenshot }
+]]]
 
 ### 5. Review all available tools
 
-Spend a few minutes exploring the other tools in the Orchestrator Tools folder. Each one represents an action your agent can take. By the time you're done, you'll have a mental map of:
-- What each tool does
-- What data it needs (inputs)
-- What data it returns (outputs)
-- Which tools are relevant to your agent's domain
+Spend a few minutes exploring the other tools. Each one represents an action your agent can take. Each one has description and each of arguments have description. This knowledge ensures your agent will be configured to use the right tools for the right situations. An agent without this context might invoke a tool incorrectly or pick the wrong tool, which could be dangerous.
 
-This knowledge ensures your agent will be configured to use the right tools for the right situations. An agent without this context might invoke a tool incorrectly or pick the wrong tool for a question.
-
-Your agent is now ready to use these tools confidently. In the next lesson, you'll connect your agent to external systems via MCP servers.
+Your agent is now ready to use these tools confidently - let's give it a try!
