@@ -1,0 +1,30 @@
+{
+  "version": "1.0",
+  "image_file": "Screenshot 2026-04-24 at 10.17.51 AM.png",
+  "image_path": "docs/conversational-agents/3-testing-conversations.images/Screenshot 2026-04-24 at 10.17.51 AM.png",
+  "lesson": "3-testing-conversations",
+  "exercise": "conversational-agents",
+  "extraction": {
+    "ocr_text": "Invoice Summary - Last 30 Days\n\nI've analyzed 93 approved invoices from the payment queue. Here's the breakdown by currency:\n\nTotal by Currency:\n\nCurrency                    Total Amount                    Number of Invoices\n\nUSD                         127,479.71                      16 invoices\nSGD                         121,088.43                      13 invoices\nAUD                         53,490.50                       6 invoices\nRON                         93,522.34                       8 invoices\nNZD                         73,881.97                       7 invoices\nEUR                         11,126.50                       6 invoices\n\nGrand Total (in original currencies):\n\n• USD: 127,479.71\n• SGD: 121,088.43\n• AUD: 53,490.50\n• RON: 93,522.34\n• NZD: 73,881.97\n• EUR: 11,126.50\n\nKey Statistics:\n\n• Total Invoices: 93",
+    "description": "This screenshot shows a generated invoice summary report in a conversational/chat-style interface, likely the output of a UiPath conversational agent or debug chat response rather than a configuration screen. The page summarizes approved invoices from the last 30 days, with a table listing totals by currency and number of invoices, followed by grand totals and key statistics. No editable fields or configuration panels are visible; it is a read-only results view.",
+    "step_instructions": "Informational screenshot — no user action required. It shows the agent's summarized output for invoice data, including a currency breakdown table, grand totals in original currencies, and key statistics such as the total number of invoices."
+  },
+  "layout": {
+    "mode": "split_50",
+    "ocr_length": 836,
+    "aspect_ratio": 1.24,
+    "image_size": "1730x1400",
+    "rationale": "Medium text density (836 chars)"
+  },
+  "model": {
+    "name": "gpt-5.4",
+    "deployment": "gpt-5.4",
+    "api_version": "2025-04-01-preview"
+  },
+  "usage": {
+    "prompt_tokens": 5559,
+    "completion_tokens": 365,
+    "total_tokens": 5924
+  },
+  "generated_at": "2026-04-24T04:00:19.871363+00:00"
+}

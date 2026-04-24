@@ -1,0 +1,30 @@
+{
+  "version": "1.0",
+  "image_file": "Screenshot 2026-04-24 at 10.14.29 AM.png",
+  "image_path": "docs/conversational-agents/3-testing-conversations.images/Screenshot 2026-04-24 at 10.14.29 AM.png",
+  "lesson": "3-testing-conversations",
+  "exercise": "conversational-agents",
+  "extraction": {
+    "ocr_text": "Hi! I'm your friendly advisor\n\nLet me tell you all the secrets!\n\nHow much did we spend last month?\n\nWho is our largest supplier?\n\nHow many things break recently?\n\nIs UiPath platform Secure?\n\nLet's make a mess!\n\nWas Orchestrator busy?\n\nTalk with your agent...\n\nAgents can make mistakes. Please double check the responses.",
+    "description": "This screenshot shows the chat landing page of a UiPath conversational agent interface. A friendly advisor agent is presented with several suggested prompt chips and a large message input area at the bottom. The UI is in an idle state, waiting for the user to either click one of the suggested questions or type a message to start the conversation.",
+    "step_instructions": "1. Click on one of the suggested prompt chips, such as \"How much did we spend last month?\" or \"Who is our largest supplier?\", to start a predefined conversation.\n2. Alternatively, click in the \"Talk with your agent...\" input area and type your own message.\n3. Click the send arrow button to submit the message."
+  },
+  "layout": {
+    "mode": "split_50",
+    "ocr_length": 320,
+    "aspect_ratio": 1.22,
+    "image_size": "1132x930",
+    "rationale": "Medium text density (320 chars)"
+  },
+  "model": {
+    "name": "gpt-5.4",
+    "deployment": "gpt-5.4",
+    "api_version": "2025-04-01-preview"
+  },
+  "usage": {
+    "prompt_tokens": 5559,
+    "completion_tokens": 251,
+    "total_tokens": 5810
+  },
+  "generated_at": "2026-04-24T04:00:12.554054+00:00"
+}

@@ -1,0 +1,30 @@
+{
+  "version": "1.0",
+  "image_file": "Screenshot 2026-04-24 at 11.01.18 AM.png",
+  "image_path": "docs/conversational-agents/3-testing-conversations.images/Screenshot 2026-04-24 at 11.01.18 AM.png",
+  "lesson": "3-testing-conversations",
+  "exercise": "conversational-agents",
+  "extraction": {
+    "ocr_text": "Add an internal note to first ticket, say \"This is critical to address it with highest priority! Fix it asap!\". Validate that the note is\nadded because it's important!\n\nI'll add an internal note to the first ticket (INC0161608) and then validate that it was successfully added.\n\nRan 'Post ServiceNow Incident Note' for 8.86 seconds\n\nInput\n\nin_IncidentNumber:  INC0161608\nin_Comment:  This is critical to address it with highest priority! Fix it asap!\nin_isExternal:  false\n\nOutput\n\nout_Status:  2026-04-24 06:00:22 - UiPath Labs (Additional comments) This is critical to address it with highest priority! Fix it asap!\n\nGreat! The note has been added. Now let me retrieve the incident details to validate that the note is properly recorded:\n\nRan 'Get ServiceNow Incident Notes' for 7.41 seconds\n\nPerfect! ✅ Validation Successful!\n\nNote Addition Confirmed\n\nI've successfully added the internal note to incident INC0161608 and validated it. Here are the details:",
+    "description": "This screenshot shows a conversational agent execution/result view in UiPath, likely the Conversational Agents debug or chat interface. The agent has completed a ServiceNow action to post an internal incident note, expanded the first tool run to show its Input and Output, and then run a second validation action to retrieve incident notes. The conversation confirms that the note was successfully added to incident INC0161608.",
+    "step_instructions": "Informational screenshot — no user action required. It shows a completed conversational agent run where the 'Post ServiceNow Incident Note' action succeeded, the input/output details are visible, and a follow-up 'Get ServiceNow Incident Notes' validation also completed successfully."
+  },
+  "layout": {
+    "mode": "full_width",
+    "ocr_length": 959,
+    "aspect_ratio": 1.62,
+    "image_size": "1814x1120",
+    "rationale": "High density (959 chars) + wide (1.62) or very high text"
+  },
+  "model": {
+    "name": "gpt-5.4",
+    "deployment": "gpt-5.4",
+    "api_version": "2025-04-01-preview"
+  },
+  "usage": {
+    "prompt_tokens": 5834,
+    "completion_tokens": 399,
+    "total_tokens": 6233
+  },
+  "generated_at": "2026-04-24T04:00:28.318862+00:00"
+}

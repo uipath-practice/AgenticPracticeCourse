@@ -1,0 +1,38 @@
+{
+  "version": "1.0",
+  "image_file": "Screenshot 2026-04-23 at 4.42.29 PM.png",
+  "image_path": "docs/conversational-agents/2-review-tools.images/Screenshot 2026-04-23 at 4.42.29 PM.png",
+  "lesson": "2-review-tools",
+  "exercise": "conversational-agents",
+  "extraction": {
+    "ocr_text": "Explorer\n+\nOrchestrator Tools\nGet Approved Invoices\nGet Orchestrator Jobs\nWorkflow.json\nGet ServiceNow Incident Notes\nGet ServiceNow Incidents\nPost ServiceNow Incident Note\n\nWorkflow.json\nUiPath Orchestr...\nWorkflow.json\nUiPath Orchestrator GetProcessJobs\n\nWorkflow start\nAdd trigger\n\n1\nAssign Now - 30 days if no date given\n\n2\nIf no process filter\n\n3\nThen\nUiPath Orchestrator GetAllJobs\nResponse\n\n5\nElse\nUiPath Orchestrator GetProcessJobs\n\n6\nResponse\n\nUiPath Orchestrator GetProcessJobs\nUiPath Orchestrator connection\nUiPath Orchestrator\nMethod *\nGET\nBase URL\nhttps://cloud.uipath.com/722912cc-2151-46d4-812f-dd2d575f0739/ef96660c-6e95-4f8f-b8b6-b1c42f06edf1/orchestrator_\nRequest URL *\n\"/odata/Jobs?$filter=\n((ReleaseName%20eq%20'\" + $context.variables.ProcessName + \"')%20and%20(CreationTime%2\n0ge%20'\" + $context.variables.StartDate + \"'))&$24select=Id,ReleaseName,Type,ProcessType\n,StartTime,State,Info&$24top=1000\"\nHeaders\nFix\n{×} Insert variable\n{ \"X-Requested-By\": \"UiPath-ApiWorkflow\" }\nThe following headers are automatically added to the request:\nAuthorization: Bearer eyJhb******\nAccept: application/json\nContent-Type: application/json\nQuery parameters\nFix\n{×} Insert variable\n{ \"skip\": 10, \"limit\": 10 }\nOutput\nUiPath Orchestrator GetProcessJobs\nOutput\n$context.outputs.OrchProcessJobsList",
+    "description": "This screenshot shows UiPath Studio Web or Agent/Workflow designer with an API workflow named Workflow.json open. In the canvas, an If branch is configured so the Else path calls the tool/action \"UiPath Orchestrator GetProcessJobs,\" and the right properties panel displays that action's configuration. The selected action is set to use a UiPath Orchestrator connection with GET method, a Request URL filtering Orchestrator jobs by process name and start date, plus headers, query parameters, and an output variable.",
+    "step_instructions": [
+      "Select the \"UiPath Orchestrator GetProcessJobs\" activity in the Else branch to edit its settings.",
+      "In the \"UiPath Orchestrator connection\" field, confirm or select the \"UiPath Orchestrator\" connection.",
+      "Set the \"Method\" field to \"GET\".",
+      "In the \"Request URL\" field, enter or verify the OData jobs query that filters by $context.variables.ProcessName and $context.variables.StartDate.",
+      "In the \"Headers\" section, add or verify the header { \"X-Requested-By\": \"UiPath-ApiWorkflow\" }.",
+      "In the \"Query parameters\" section, add or verify the parameters { \"skip\": 10, \"limit\": 10 }.",
+      "In the \"Output\" field, map the result to \"$context.outputs.OrchProcessJobsList\"."
+    ]
+  },
+  "layout": {
+    "mode": "full_width",
+    "ocr_length": 1302,
+    "aspect_ratio": 2.18,
+    "image_size": "3286x1508",
+    "rationale": "High density (1302 chars) + wide (2.18) or very high text"
+  },
+  "model": {
+    "name": "gpt-5.4",
+    "deployment": "gpt-5.4",
+    "api_version": "2025-04-01-preview"
+  },
+  "usage": {
+    "prompt_tokens": 6611,
+    "completion_tokens": 727,
+    "total_tokens": 7338
+  },
+  "generated_at": "2026-04-24T04:00:23.840280+00:00"
+}

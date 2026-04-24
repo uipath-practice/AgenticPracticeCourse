@@ -1,0 +1,30 @@
+{
+  "version": "1.0",
+  "image_file": "3-review-tool-implementation.png",
+  "image_path": "docs/conversational-agents/2-review-tools.images/3-review-tool-implementation.png",
+  "lesson": "2-review-tools",
+  "exercise": "conversational-agents",
+  "extraction": {
+    "ocr_text": "Explorer\n+\nOrchestrator Tools\nGet Approved Invoices\nMain.xaml\nGet Orchestrator Jobs\nGet ServiceNow Incident Notes\nGet ServiceNow Incidents\nPost ServiceNow Incident Note\nMain.xaml\nTRIGGER\nManual Trigger\nQuery Entity Records\nFor each Record\nfor each of the JSON objects in approved invoices list from previous step, add\nthem to the list out_Invoices.\nFor each JSON object in the approved invoices list",
+    "description": "This screenshot shows UiPath Studio Web with the Explorer panel on the left and the Main.xaml workflow for the \"Get Approved Invoices\" tool open in the main canvas. The workflow displays a sequence consisting of a Manual Trigger, a Query Entity Records activity, and a For each Record loop with an instruction describing how approved invoice JSON objects are added to the out_Invoices list. The left navigation shows other tool workflows in the Orchestrator Tools project.",
+    "step_instructions": "Informational screenshot — no user action required. It shows the implementation of the \"Get Approved Invoices\" RPA workflow in Main.xaml, including the Manual Trigger, Query Entity Records step, and the loop that processes approved invoice JSON objects into out_Invoices."
+  },
+  "layout": {
+    "mode": "split_50",
+    "ocr_length": 399,
+    "aspect_ratio": 2.38,
+    "image_size": "2072x872",
+    "rationale": "Medium text density (399 chars)"
+  },
+  "model": {
+    "name": "gpt-5.4",
+    "deployment": "gpt-5.4",
+    "api_version": "2025-04-01-preview"
+  },
+  "usage": {
+    "prompt_tokens": 7520,
+    "completion_tokens": 263,
+    "total_tokens": 7783
+  },
+  "generated_at": "2026-04-24T04:00:07.259896+00:00"
+}

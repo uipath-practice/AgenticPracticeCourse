@@ -1,0 +1,30 @@
+{
+  "version": "1.0",
+  "image_file": "Screenshot 2026-04-24 at 10.23.26 AM.png",
+  "image_path": "docs/conversational-agents/3-testing-conversations.images/Screenshot 2026-04-24 at 10.23.26 AM.png",
+  "lesson": "3-testing-conversations",
+  "exercise": "conversational-agents",
+  "extraction": {
+    "ocr_text": "In the last 7 days, what were top 5 support incidents, who was the assignee?\n\nI'll retrieve the ServiceNow incidents from the last 7 days for you.\n\nRan 'Get ServiceNow Incidents' for 8.02 seconds\n\nInput\n\nin_Keyword:\nin_TicketAgeDays: 7\n\nOutput\n\nI found a large number of incidents from the last 7 days. However, I notice that the data returned doesn't include assignee information in the visible fields. Let me get the details for the top 5 most recent incidents to see if I can find assignee information.\n\nBased on the incidents retrieved from the last 7 days, here are the top 5 most recent support incidents:\n\n#    Incident Number    Opened Date            Short Description                          Category\n1    INC0161608         2026-04-23 16:38:24    I would like to talk with a manager##      inquiry\n2    INC0161607         2026-04-23 16:38:24    I can't send emails to external addresses## inquiry\n3    INC0161606         2026-04-23 16:38:23    Laptop slowing down##                      inquiry\n4    INC0161605         2026-04-23 16:38:23    CRM software crashes on launch##           inquiry\n5    INC0161604         2026-04-23 16:38:22    Display flickers occasionally##            inquiry",
+    "description": "This screenshot shows a UiPath conversational agent chat/testing interface displaying the result of a user query about top support incidents from the last 7 days. The agent has executed a tool call, 'Get ServiceNow Incidents', with an expanded Input section showing parameters and a collapsed Output section for the tool run. Below the tool execution trace, the agent summarizes the findings and presents a table of the top 5 most recent ServiceNow incidents, including incident number, opened date, short description, and category.",
+    "step_instructions": "Informational screenshot — no user action required. It shows a completed conversational agent response with a successful 'Get ServiceNow Incidents' tool execution, the input parameter 'in_TicketAgeDays: 7', and a results table listing the top 5 recent incidents."
+  },
+  "layout": {
+    "mode": "full_width",
+    "ocr_length": 1202,
+    "aspect_ratio": 1.37,
+    "image_size": "1826x1336",
+    "rationale": "High density (1202 chars) + wide (1.37) or very high text"
+  },
+  "model": {
+    "name": "gpt-5.4",
+    "deployment": "gpt-5.4",
+    "api_version": "2025-04-01-preview"
+  },
+  "usage": {
+    "prompt_tokens": 5690,
+    "completion_tokens": 504,
+    "total_tokens": 6194
+  },
+  "generated_at": "2026-04-24T04:00:23.343278+00:00"
+}

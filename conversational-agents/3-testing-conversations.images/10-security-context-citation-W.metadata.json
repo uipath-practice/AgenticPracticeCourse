@@ -1,0 +1,30 @@
+{
+  "version": "1.0",
+  "image_file": "Screenshot 2026-04-24 at 11.07.49 AM.png",
+  "image_path": "docs/conversational-agents/3-testing-conversations.images/Screenshot 2026-04-24 at 11.07.49 AM.png",
+  "lesson": "3-testing-conversations",
+  "exercise": "conversational-agents",
+  "extraction": {
+    "ocr_text": "What are the top features of UiPath platform when it comes to AI safety?\n\nI'll search for information about UiPath platform's AI safety features.\n\nRan 'UiPath Security data' for 3.18 seconds\n\nBased on the UiPath security documentation, here are the top AI safety features of the UiPath platform:\n\nKey AI Safety Features\n\n1.AI Trust Layer (AITL)\n\nHarmful content filtering is automatically applied on all AI models going through the AI Trust Layer, ensuring end-users are not exposed to potentially harmful AI-generated content 1 . All LLM traffic flows through AITL, enforcing strict data handling standards.\n\n2.Stateless AI Models\n\nAll models used are stateless, so any previously processed data is not accessible. This helps ensure that all users interacting with the AI model do not gain access to unauthorized information by querying the model 1.\n\nUiPath AI Trust Layer (AITL),\nGenAI, and Agentic Security\nHandbook.pdf (Page 26)\n\n3.Continuous Monito[...]\n\nRegular security and risk checks are pe[...]\nthe provided services. The performance and\nmaintenance of UiPath LLMs are regularly monitored to prevent bias and model drift 1 .\n\n4.No Third-Party Data Retention\n\nAll LLM traffic flows through the AITL, which enforces UiPath's strict data handling standards ensuring no third-party data retention,\nlogging, or model training occurs 2 .",
+    "description": "This screenshot shows a conversational agent chat/debug response in UiPath's Conversational Agents interface. The agent has answered a question about AI safety features, citing information retrieved from a context source named 'UiPath Security data'. A citation popover is open over the response, highlighting the source document 'UiPath AI Trust Layer (AITL), GenAI, and Agentic Security Handbook.pdf (Page 26)'.",
+    "step_instructions": "Click on the citation marker \"1\" in the response text to view the source reference. Review the citation popover showing the document name and page number to verify the answer is grounded in the selected context source."
+  },
+  "layout": {
+    "mode": "full_width",
+    "ocr_length": 1341,
+    "aspect_ratio": 1.41,
+    "image_size": "1782x1266",
+    "rationale": "High density (1341 chars) + wide (1.41) or very high text"
+  },
+  "model": {
+    "name": "gpt-5.4",
+    "deployment": "gpt-5.4",
+    "api_version": "2025-04-01-preview"
+  },
+  "usage": {
+    "prompt_tokens": 5748,
+    "completion_tokens": 471,
+    "total_tokens": 6219
+  },
+  "generated_at": "2026-04-24T04:00:33.164941+00:00"
+}

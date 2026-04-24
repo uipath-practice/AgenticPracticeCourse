@@ -1,0 +1,30 @@
+{
+  "version": "1.0",
+  "image_file": "2-examine-tool-workflow.png",
+  "image_path": "docs/conversational-agents/2-review-tools.images/2-examine-tool-workflow.png",
+  "lesson": "2-review-tools",
+  "exercise": "conversational-agents",
+  "extraction": {
+    "ocr_text": "Explorer\n+\n[search icon]\n\nOrchestrator Tools\n\nGet Approved Invoices\n\nGet Orchestrator Jobs\n\nGet ServiceNow Incident Notes\n  Workflow.json\n\nGet ServiceNow Incidents\n\nPost ServiceNow Incident Note\n\nApps\nAssets\n\nWorkflow.json\n\nWorkflow start\nAdd trigger\n\n1\nAssign\n\n2\nSearch Incidents by Incident Number\n\n3\nServiceNow HTTP Request\n\n4\nResponse",
+    "description": "This screenshot shows UiPath Studio Web with the Explorer panel open on the left and the Workflow.json designer canvas open on the right. In the Orchestrator Tools folder, the Get ServiceNow Incident Notes API workflow is expanded and its Workflow.json file is selected. The workflow steps visible in the canvas are Workflow start, Assign, Search Incidents by Incident Number, ServiceNow HTTP Request, and Response.",
+    "step_instructions": "1. In the Explorer panel, expand the Orchestrator Tools folder if it is not already expanded.\n2. Select the Get ServiceNow Incident Notes tool.\n3. Click on Workflow.json under Get ServiceNow Incident Notes to open and examine the workflow steps in the designer."
+  },
+  "layout": {
+    "mode": "split_50",
+    "ocr_length": 338,
+    "aspect_ratio": 1.88,
+    "image_size": "2028x1078",
+    "rationale": "Medium text density (338 chars)"
+  },
+  "model": {
+    "name": "gpt-5.4",
+    "deployment": "gpt-5.4",
+    "api_version": "2025-04-01-preview"
+  },
+  "usage": {
+    "prompt_tokens": 7713,
+    "completion_tokens": 261,
+    "total_tokens": 7974
+  },
+  "generated_at": "2026-04-24T04:00:05.446832+00:00"
+}

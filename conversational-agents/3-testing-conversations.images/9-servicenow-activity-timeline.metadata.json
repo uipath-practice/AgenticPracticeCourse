@@ -1,0 +1,30 @@
+{
+  "version": "1.0",
+  "image_file": "Screenshot 2026-04-24 at 11.04.11 AM.png",
+  "image_path": "docs/conversational-agents/3-testing-conversations.images/Screenshot 2026-04-24 at 11.04.11 AM.png",
+  "lesson": "3-testing-conversations",
+  "exercise": "conversational-agents",
+  "extraction": {
+    "ocr_text": "Activities: 4\n\ns  System\nEmail sent  •  23/04/2026 20:00:32\n\nEmail sent\nSubject:  INC0161608 has new comment(s)\nFrom:  IT Service Desk\nTo:  billie.cowley@example.com\nShow email details\n\nUL  UiPath Labs\nAdditional comments  •  23/04/2026 20:00:22\n\nThis is critical to address it with highest priority! Fix it asap!\n\nSystem\nEmail sent  •  23/04/2026 09:38:26\n\nEmail sent\nSubject:  Incident INC0161608 has been opened on your behalf\nFrom:  IT Service Desk\nTo:  billie.cowley@example.com\nShow email details",
+    "description": "The screenshot shows an activity timeline in a service/incident-style interface, likely displaying conversation or incident history related to a conversational agent exercise. Three activity cards are visible: two System-generated email notifications and one user comment from UiPath Labs. The middle activity, outlined in red, highlights an 'Additional comments' entry containing the message about highest priority and urgent fixing.",
+    "step_instructions": "Informational screenshot — no user action required. The screenshot highlights the relevant activity entry in the timeline: the 'Additional comments' message from UiPath Labs stating, 'This is critical to address it with highest priority! Fix it asap!'."
+  },
+  "layout": {
+    "mode": "split_50",
+    "ocr_length": 502,
+    "aspect_ratio": 1.99,
+    "image_size": "2478x1246",
+    "rationale": "Medium text density (502 chars)"
+  },
+  "model": {
+    "name": "gpt-5.4",
+    "deployment": "gpt-5.4",
+    "api_version": "2025-04-01-preview"
+  },
+  "usage": {
+    "prompt_tokens": 6046,
+    "completion_tokens": 321,
+    "total_tokens": 6367
+  },
+  "generated_at": "2026-04-24T04:00:27.707946+00:00"
+}

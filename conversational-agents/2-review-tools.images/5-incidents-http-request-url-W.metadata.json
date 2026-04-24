@@ -1,0 +1,30 @@
+{
+  "version": "1.0",
+  "image_file": "Screenshot 2026-04-23 at 4.39.59 PM.png",
+  "image_path": "docs/conversational-agents/2-review-tools.images/Screenshot 2026-04-23 at 4.39.59 PM.png",
+  "lesson": "2-review-tools",
+  "exercise": "conversational-agents",
+  "extraction": {
+    "ocr_text": "UiPath Studio\nOrchestrator Tools > Get ServiceNow Incidents > Workflow\nSaved recently\n\nDebug\n\nData manager\n\nInputs\n123  in_TicketAgeDays\nTt  in_Keyword\n\nOutputs\n\nVariables\n123  age\n123  quantity\nTt  keyword\n\nJS Expression editor\nServiceNow HTTP Request > Request URL\n\nFix\n{x} Insert variable\n\n1\n\"/v2/table/incident?sysparm_query=caller_id.\nnameLIKECowley^ORDERBYDESCnumber^sys_created_onRELATIVEGE@dayofweek@ago@\"+$context.variables.age.toString()\n+\"^short_descriptionCONTAINS\"+$context.variables.keyword+\"&sysparm_fields=number,sys_created_by,opened_at,\nsys_class_name,subcategory,category,description,short_description,caller_id&sysparm_limit=\"+$context.variables.\nquantity.toString()+\"&sysparm_offset=0\"",
+    "description": "This screenshot shows UiPath Studio with a workflow open under Orchestrator Tools, and the JS Expression editor is displayed for the ServiceNow HTTP Request activity's Request URL property. The left Data manager panel lists inputs and variables, while the main editor contains a JavaScript expression that builds a ServiceNow incident query URL using variables such as age, keyword, and quantity. Red callouts highlight the relevant inputs and the URL expression being configured.",
+    "step_instructions": "1. In the ServiceNow HTTP Request activity's Request URL property, open the JS Expression editor.\n2. Use the variables from the Data manager panel, especially in_TicketAgeDays and in_Keyword, along with workflow variables such as age, keyword, and quantity, to build the request URL.\n3. In the editor, enter the JavaScript expression that constructs the ServiceNow API endpoint with sysparm_query, sysparm_fields, sysparm_limit, and sysparm_offset.\n4. If needed, click on Insert variable to add the variables into the expression."
+  },
+  "layout": {
+    "mode": "full_width",
+    "ocr_length": 706,
+    "aspect_ratio": 2.9,
+    "image_size": "2504x864",
+    "rationale": "High density (706 chars) + wide (2.90) or very high text"
+  },
+  "model": {
+    "name": "gpt-5.4",
+    "deployment": "gpt-5.4",
+    "api_version": "2025-04-01-preview"
+  },
+  "usage": {
+    "prompt_tokens": 6807,
+    "completion_tokens": 435,
+    "total_tokens": 7242
+  },
+  "generated_at": "2026-04-24T04:00:15.419473+00:00"
+}

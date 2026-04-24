@@ -1,0 +1,30 @@
+{
+  "version": "1.0",
+  "image_file": "Screenshot 2026-04-24 at 10.13.29 AM.png",
+  "image_path": "docs/conversational-agents/3-testing-conversations.images/Screenshot 2026-04-24 at 10.13.29 AM.png",
+  "lesson": "3-testing-conversations",
+  "exercise": "conversational-agents",
+  "extraction": {
+    "ocr_text": "Debug configuration  Billing Assistant  >  Conversational Agent\nEntry point: /content/agent.json\n\nSolution resources    Entrypoint arguments\n\nResources in solution                                              Debug using\n\nContext\n  ServiceNow Incidents Categorization Information                   ServiceNow Incidents Categorization Information ×\n  UiPath Security data                                              UiPath Security data ×\n\nProcesses\n  Get Approved Invoices                                             Get Approved Invoices ×\n  Get Orchestrator Jobs                                             Get Orchestrator Jobs ×\n  Get ServiceNow Incident Notes                                     Get ServiceNow Incident Notes ×\n  Get ServiceNow Incidents                                          Get ServiceNow Incidents ×\n  Post ServiceNow Incident Note                                     Post ServiceNow Incident Note ×\n\nDeploy resources before debugging  i\nShow before debugging  i\n\nCancel\nSave & Debug",
+    "description": "This screenshot shows the Debug configuration dialog in UiPath Studio Web for a Conversational Agent inside the Billing Assistant solution. The Solution resources tab is open, listing available Context and Processes on the left and the selected resources to use during debugging on the right. Multiple context sources and process tools are already selected, and the bottom toggles for deploying resources before debugging and showing the dialog before debugging are enabled.",
+    "step_instructions": "1. In the Solution resources tab, review the resources listed under Context and Processes.\n2. Select the context sources and process tools to include for debugging; the chosen items appear as blue tags in the Debug using column.\n3. Leave Deploy resources before debugging and Show before debugging enabled if you want resources deployed and this dialog shown before each debug run.\n4. Click on Save & Debug to start debugging the conversational agent with the selected resources."
+  },
+  "layout": {
+    "mode": "full_width",
+    "ocr_length": 1012,
+    "aspect_ratio": 2.03,
+    "image_size": "2532x1246",
+    "rationale": "High density (1012 chars) + wide (2.03) or very high text"
+  },
+  "model": {
+    "name": "gpt-5.4",
+    "deployment": "gpt-5.4",
+    "api_version": "2025-04-01-preview"
+  },
+  "usage": {
+    "prompt_tokens": 6132,
+    "completion_tokens": 367,
+    "total_tokens": 6499
+  },
+  "generated_at": "2026-04-24T04:00:08.736906+00:00"
+}

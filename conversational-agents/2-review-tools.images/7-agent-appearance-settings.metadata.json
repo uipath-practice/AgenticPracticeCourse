@@ -1,0 +1,34 @@
+{
+  "version": "1.0",
+  "image_file": "Screenshot 2026-04-24 at 10.04.14 AM.png",
+  "image_path": "docs/conversational-agents/2-review-tools.images/Screenshot 2026-04-24 at 10.04.14 AM.png",
+  "lesson": "2-review-tools",
+  "exercise": "conversational-agents",
+  "extraction": {
+    "ocr_text": "Model settings\n\nTemperature\n\nPrecise                                    Creative\n\nMax. tokens per response\n\n0                                           64000\n\nAppearance\n\nWelcome title\n\nHi! I'm your friendly advisor\n\nWelcome description\n\nLet me tell you all the secrets!\n\nStarting prompts\n\nEdit starting prompts",
+    "description": "This screenshot shows the configuration panel for a conversational agent in UiPath Agent Builder, focused on the Appearance section. The panel includes model settings sliders for Temperature and Max. tokens per response, and text fields populated with a welcome title and welcome description. A button to edit starting prompts is also visible.",
+    "step_instructions": [
+      "In the Welcome title field, enter \"Hi! I'm your friendly advisor\".",
+      "In the Welcome description field, enter \"Let me tell you all the secrets!\".",
+      "Click on \"Edit starting prompts\" to configure the agent's starting prompts."
+    ]
+  },
+  "layout": {
+    "mode": "split_50",
+    "ocr_length": 311,
+    "aspect_ratio": 1.02,
+    "image_size": "1038x1016",
+    "rationale": "Medium text density (311 chars)"
+  },
+  "model": {
+    "name": "gpt-5.4",
+    "deployment": "gpt-5.4",
+    "api_version": "2025-04-01-preview"
+  },
+  "usage": {
+    "prompt_tokens": 5822,
+    "completion_tokens": 207,
+    "total_tokens": 6029
+  },
+  "generated_at": "2026-04-24T04:00:19.852880+00:00"
+}

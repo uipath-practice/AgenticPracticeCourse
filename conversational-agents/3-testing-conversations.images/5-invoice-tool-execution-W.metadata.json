@@ -1,0 +1,30 @@
+{
+  "version": "1.0",
+  "image_file": "Screenshot 2026-04-24 at 10.16.27 AM.png",
+  "image_path": "docs/conversational-agents/3-testing-conversations.images/Screenshot 2026-04-24 at 10.16.27 AM.png",
+  "lesson": "3-testing-conversations",
+  "exercise": "conversational-agents",
+  "extraction": {
+    "ocr_text": "Calculate total sum of all invoices during last 30 days.\n\nI'll retrieve the approved invoices from the last 30 days and calculate the total sum for you.\n\nRan 'Get Approved Invoices' for 12.97 seconds\n\nInput\n\nin_DaysAgo: 30\n\nOutput\n\nout_Invoices:  { InvoiceList : [{\"Sender Name\":\"NorthRiver Tech LLC\",\"Sender Address\":\"450 Madison Ave, New York, NY 10022 US\",\"Sender Tax ID\":\"US-88372914\",\"Sender Email\":\"Angela Brooks\",\"Sender Phone\":\"+1 (212) 555-0938\",\"Recipient Name\":\"Coral Coast Digital Pty Ltd\",\"Recipient Address\":\"45 St Georges Terrace, Perth WA 6000 Australia\",\"Recipient Tax ID\":\"AU-88442211990\",\"Invoice Number\":\"INV-21083237\",\"Invoice Date\":\"2026-04-21T00:00:00Z\",\"Due Date\":\"2026-05-21T00:00:00Z\",\"Purchase Order Number\":\"PO-08043271\",\"Subtotal\":\"5243.00 USD\",\"Tax Description\":\"VAT 8.875%\",\"Tax Amount\":\"465.32 USD\",\"Total Amount\":\"5708.32 USD\",\"Payment Terms\":\"Payment due within 30 days. Thank you for your business.\",\"Line Items\":[{\"Description\":\"Computer Desk\",\"Quantity\":\"1\",\"Unit Price\":\"150.00 USD\",\"Total\":\"150.00 USD\"},{\"Description\":\"Office Printer\",\"Quantity\":\"1\",\"Unit Price\":\"180.00 USD\",\"Total\":\"180.00 USD\"},{\"Description\":\"Silent-click Computer Mouse\",\"Quantity\":\"2\",\"Unit Price\":\"45.00 USD\",\"Total\":\"90.00 USD\"}, [...]\n\nPerfect! I've retrieved all approved invoices from the last 30 days. Now let me calculate the total sum across all invoices.",
+    "description": "This screenshot shows a UiPath conversational agent chat/debug interface where the agent is processing a user request to calculate the total sum of invoices from the last 30 days. An execution trace for the tool call 'Get Approved Invoices' is expanded, showing the input parameter in_DaysAgo set to 30 and a large JSON-like output containing invoice data. The agent has completed the retrieval step successfully and is about to continue with the total calculation.",
+    "step_instructions": "Informational screenshot — no user action required. It shows the completed execution details for the 'Get Approved Invoices' tool, including the input value and returned invoice list, before the agent proceeds to calculate the total sum."
+  },
+  "layout": {
+    "mode": "full_width",
+    "ocr_length": 1376,
+    "aspect_ratio": 1.81,
+    "image_size": "1988x1100",
+    "rationale": "High density (1376 chars) + wide (1.81) or very high text"
+  },
+  "model": {
+    "name": "gpt-5.4",
+    "deployment": "gpt-5.4",
+    "api_version": "2025-04-01-preview"
+  },
+  "usage": {
+    "prompt_tokens": 5998,
+    "completion_tokens": 545,
+    "total_tokens": 6543
+  },
+  "generated_at": "2026-04-24T04:00:19.425176+00:00"
+}

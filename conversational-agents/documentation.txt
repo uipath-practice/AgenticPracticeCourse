@@ -19,3 +19,4 @@ on the next run; previously embedded links are not re-fetched.
 - https://docs.uipath.com/orchestrator/automation-cloud/latest/user-guide/creating-uipath-mcp-servers
 - https://docs.uipath.com/orchestrator/automation-cloud/latest/user-guide/mcp-compliance-guidelines
 - https://docs.uipath.com/orchestrator/automation-cloud/latest/user-guide/managing-indexes
+- https://docs.uipath.com/agents/automation-cloud/latest/user-guide/mcp-servers

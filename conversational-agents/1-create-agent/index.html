@@ -800,12 +800,12 @@
 <h2 id="goal">Goal<a class="headerlink" href="#goal" title="Permanent link">&para;</a></h2>
 <p>You'll create a working conversational agent that answers questions about invoices and ServiceNow tickets from previous exercises. <strong>Autopilot</strong> will analyze your description, automatically wire up available tools, and generate a system prompt that guides the agent's behavior. By the end, your chatbot-agent will be grounded in real data and documentation, preventing hallucinated answers.</p>
 <h2 id="why-autopilot-matters">Why Autopilot Matters<a class="headerlink" href="#why-autopilot-matters" title="Permanent link">&para;</a></h2>
-<p>Configuring an agent from scratch can feel overwhelming - you need to choose the right tools, write clear instructions, and ensure everything works together. <strong>Autopilot</strong> handles the heavy lifting: it reads your natural-language description of the task, scans your <strong>Orchestrator</strong> for available relevant tools and context sources, and generates a system prompt that brings it all together. You review the result and adjust - manually or using autopilot chat again.</p>
+<p>Configuring an agent from scratch can feel overwhelming. You need to choose the right tools, write clear instructions, and ensure everything works together. <strong>Autopilot</strong> handles the heavy lifting: it reads your natural-language description, scans <strong>Orchestrator</strong> for available tools and context sources, and generates a system prompt that brings it all together. Review the result and adjust — manually or via the Autopilot chat.</p>
 <h2 id="steps">Steps<a class="headerlink" href="#steps" title="Permanent link">&para;</a></h2>
 <h3 id="1-open-studio-web-and-create-a-new-agent">1. Open Studio Web and create a new agent<a class="headerlink" href="#1-open-studio-web-and-create-a-new-agent" title="Permanent link">&para;</a></h3>
 <div class="img-cols img-cols-30">
 <div>
-<p>It's starts with usual step - in <strong>Studio Web</strong> homes, click the blue <strong>Create New</strong> button in the top-right corner. From the dropdown menu, select <strong>Agent</strong> to create a new solution.
+<p>In <strong>Studio Web</strong>, click the blue <strong>Create New</strong> button in the top-right corner. From the dropdown, select <strong>Agent</strong> to create a new solution.
   </p>
 </div>
 <div>
@@ -841,10 +841,10 @@
 <li>Identifies context sources (like <strong>Context Grounding indexes</strong>)</li>
 <li>Analyzes your description to decide what's relevant</li>
 </ul>
-<p><img alt="Autopilot analysis in progress, showing successful discovery of tools and context" class="screenshot" src="../1-create-agent.images/3-autopilot-analyzing.png" width="900" /></p>
-<p><strong>Autopilot</strong> displays a list of tools it found in your <strong>Orchestrator</strong>. Review the list carefully. Each tool represents an RPA process, API, or other automation your agent can invoke. </p>
-<p><img alt="List of available tools discovered by Autopilot, with Accept button highlighted" class="screenshot" src="../1-create-agent.images/4-available-tools.png" width="900" /></p>
-<p>Click <strong>Accept</strong> to confirm these tools will be available to your agent. Noticed that you only can see tools that you have permissions to see based on Orchestrator's role based access controls (RBAC)? Keep in mind that when you publish and run this automation, the robot user should have permission to run these jobs, otherwise tool calls will fail.</p>
+<p><img alt="Autopilot analysis in progress, showing successful discovery of tools and context" class="screenshot" src="../1-create-agent.images/3-autopilot-analyzing.png" width="800" /></p>
+<p><strong>Autopilot</strong> displays a list of tools it found in your <strong>Orchestrator</strong>. Review the list carefully. Each tool represents an RPA process, API, or other automation your agent can invoke.</p>
+<p><img alt="List of available tools discovered by Autopilot, with Accept button highlighted" class="screenshot" src="../1-create-agent.images/4-available-tools.png" width="800" /></p>
+<p>Click <strong>Accept</strong> to confirm these tools will be available to your agent. Notice that you can only see tools you have permission to use, based on Orchestrator's role-based access controls (RBAC). When you publish and run this automation, the robot user needs those same permissions — otherwise tool calls will fail.</p>
 <h3 id="4-review-the-generated-system-prompt">4. Review the generated system prompt<a class="headerlink" href="#4-review-the-generated-system-prompt" title="Permanent link">&para;</a></h3>
 <p><strong>Autopilot</strong> has now created a complete system prompt. This prompt defines:</p>
 <ul>
@@ -856,7 +856,7 @@
 <p class="admonition-title">Tip</p>
 <p>The system prompt is the agent's functional guide and job description. A well-written prompt is the difference between helpful and hallucinating.</p>
 </div>
-<p><img alt="System prompt editor on the left, Autopilot Preview on the right showing the generated prompt" class="screenshot" src="../1-create-agent.images/5-review-system-prompt-W.png" /></p>
+<p><img alt="System prompt editor on the left, Autopilot Preview on the right showing the generated prompt" class="screenshot" src="../1-create-agent.images/5-review-system-prompt-W.png" width="900" /></p>
 <div class="img-cols img-cols-50">
 <div>
 <p>If the prompt looks good, click <strong>Accept</strong> to confirm. </p>
@@ -868,22 +868,21 @@
   </p>
 </div>
 </div>
-<h3 id="5-add-a-context-grounding-indexes">5. Add a Context Grounding indexes<a class="headerlink" href="#5-add-a-context-grounding-indexes" title="Permanent link">&para;</a></h3>
+<h3 id="5-add-context-grounding-indexes">5. Add Context Grounding indexes<a class="headerlink" href="#5-add-context-grounding-indexes" title="Permanent link">&para;</a></h3>
 <p>Just to make it complete, let's add data from some existing indexes. With context, conversational agents will be able to cite sources, which is very useful for a chatbot automation reading long complex documents.</p>
 <p>On the <strong>agent canvas</strong> click the <strong>+</strong> icon under <strong>Context</strong> on the Agent node to add a knowledge source.</p>
 <p><img alt="Agent canvas showing Context connection point with the add button highlighted" class="screenshot" src="../1-create-agent.images/7-add-context.png" width="800" /></p>
 <p>A right-side panel opens showing available context sources. Search for "security" to find the <strong>UiPath Security data</strong> index containing very comprehensive documentation about UiPath platform. Few topics you could inquire about will include: <strong>data encryption, role based access controls, agentic security, data residency</strong>.</p>
 <ul>
-<li>If you want to keep this file, here is the download link:
-<strong><a href="/AgenticPracticeCourse/assets/UiPath Security Whitepaper.pdf">docs/assets/UiPath Security Whitepaper.pdf</a></strong>. </li>
-<li>You can find more interesting whitepapers and learn about UiPath platform security here: <strong><a href="https://trust.uipath.com/">here</a></strong> and <strong><a href="https://www.uipath.com/legal/trust-and-security/security">here</a></strong>.</li>
+<li>Download the source file if you want to keep it: <a href="../../assets/UiPath%20Security%20Whitepaper.pdf">UiPath Security Whitepaper.pdf</a></li>
+<li>Explore more interesting whitepapers and learn about UiPath platform security in <a href="https://trust.uipath.com/">UiPath Trust Portal</a> and <a href="https://www.uipath.com/legal/trust-and-security/security">UiPath Security page</a></li>
 </ul>
 <h3 id="6-configure-how-the-agent-retrieves-from-the-index">6. Configure how the agent retrieves from the index<a class="headerlink" href="#6-configure-how-the-agent-retrieves-from-the-index" title="Permanent link">&para;</a></h3>
 <div class="img-cols img-cols-50">
 <div>
 <p>After selecting the index, a configuration form appears. </p>
 <p>These settings control how the agent searches and retrieves information. </p>
-<p>In current case we will use simple semantic search and maybe increase relevance threshold to 0.3-0.5 so that it narrows down search results - it makes sense for large documents.</p>
+<p>Use simple semantic search. You can increase the relevance threshold to 0.3–0.5 to narrow down results — useful for large documents like this one.</p>
 <p>Your agent is now fully configured.
   </p>
 </div>
@@ -909,7 +908,7 @@
 <p class="admonition-title">Tip of the day</p>
 <p>It’s important to arrange all tools like tentacles, as shown. This allows the agent to multitask efficiently - and just like a real octopus, it can regrow any tentacle when a tool call fails. Even better, this <strong>agentic octopus</strong> can grow new tentacles over time, continuously expanding its reach. And yes, this is just an attention check which means you can pick any other animal to mimic it's natural benefits with the agent!</p>
 </div>
-<p>Your agent is now ready to test. In the next lesson, you'll explore the tools it can use and understand how they work.</p>
+<p>Your agent is now ready to test. But let's not rush - in the next lesson, you'll explore the tools it can use and understand how they work.</p>
 
 
 

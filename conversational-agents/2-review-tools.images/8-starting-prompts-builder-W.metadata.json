@@ -1,0 +1,30 @@
+{
+  "version": "1.0",
+  "image_file": "Screenshot 2026-04-24 at 10.11.45 AM.png",
+  "image_path": "docs/conversational-agents/3-testing-conversations.images/Screenshot 2026-04-24 at 10.11.45 AM.png",
+  "lesson": "3-testing-conversations",
+  "exercise": "conversational-agents",
+  "extraction": {
+    "ocr_text": "Starting prompts builder\nDefine starting prompts by creating pairs: a simple display prompt for users and the expanded actual prompt sent to the model.\n\nDisplay prompt *\nActual prompt\n\nHow much did we spend last month?\nCalculate total sum of all invoices during last 30 days.\n\nWho is our largest supplier?\nWhich country and company was the leader in invoice total amount?\n\nHow many things break recently?\nIn the last 7 days, what were top 5 support incidents, who was the assignee?\n\nIs UiPath platform Secure?\nWhat are the top features of UiPath platform when it comes to AI safety?\n\nLet's make a mess!\nAdd a note \"Hello World!\" to a random incident. Make sure the note is there.\n\nWas Orchestrator busy?\nHow many jobs did Orchestrator run during last 7 days? analyze key patterns.\n\nAdd starting prompt\n\nCancel\nSave",
+    "description": "This screenshot shows a modal dialog in UiPath's conversational agent configuration for the Starting prompts builder. The dialog contains a two-column table of predefined prompt pairs: a user-facing Display prompt and the corresponding expanded Actual prompt sent to the model, with delete icons for each row. Several prompt pairs are already configured, and the Save button is highlighted, indicating the setup is ready to be saved.",
+    "step_instructions": "1. In the Display prompt and Actual prompt fields, review or edit the predefined prompt pairs.\n2. Click on the trash icon next to any row you want to remove.\n3. Click on Add starting prompt to add another prompt pair if needed.\n4. Click on Save to confirm and store the configured starting prompts."
+  },
+  "layout": {
+    "mode": "full_width",
+    "ocr_length": 814,
+    "aspect_ratio": 1.67,
+    "image_size": "1822x1090",
+    "rationale": "High density (814 chars) + wide (1.67) or very high text"
+  },
+  "model": {
+    "name": "gpt-5.4",
+    "deployment": "gpt-5.4",
+    "api_version": "2025-04-01-preview"
+  },
+  "usage": {
+    "prompt_tokens": 5882,
+    "completion_tokens": 372,
+    "total_tokens": 6254
+  },
+  "generated_at": "2026-04-24T04:00:06.587213+00:00"
+}

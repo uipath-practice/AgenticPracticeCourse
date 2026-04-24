@@ -12,7 +12,7 @@
         <meta name="author" content="Sergey Shumilov">
       
       
-        <link rel="canonical" href="https://uipath-practice.github.io/AgenticPracticeCourse/conversational-agents/4-test-with-evaluations/">
+        <link rel="canonical" href="https://uipath-practice.github.io/AgenticPracticeCourse/conversational-agents/3-testing-conversations/">
       
       
       
@@ -25,7 +25,7 @@
     
     
       
-        <title>Testing with Evaluations - Agentic Automation Workshop</title>
+        <title>Giving It a Try - Agentic Automation Workshop</title>
       
     
     
@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#testing-with-evaluations" class="md-skip">
+        <a href="#giving-it-a-try" class="md-skip">
           Skip to content
         </a>
       
@@ -109,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Testing with Evaluations
+              Giving It a Try
             
           </span>
         </div>
@@ -787,19 +787,108 @@
 
 
 
-<h1 id="testing-with-evaluations">Testing with Evaluations<a class="headerlink" href="#testing-with-evaluations" title="Permanent link">&para;</a></h1>
+<h1 id="giving-it-a-try">Giving It a Try<a class="headerlink" href="#giving-it-a-try" title="Permanent link">&para;</a></h1>
 <div class="admonition tip">
 <p class="admonition-title">Here is our plan for this lesson:</p>
 <ol>
-<li>Create an evaluations dataset with representative questions and expected answers</li>
-<li>Run the evaluation against your conversational agent</li>
-<li>Review the results and understand how evaluation differs for conversational vs. autonomous agents</li>
+<li>Run the agent in debug mode and try it from several different angles</li>
+<li>Test starting prompts to make common questions easy to kick off</li>
+<li>Evaluate each response - does the agent use the right tools, cite its sources, and handle write operations correctly?</li>
 </ol>
 </div>
 <h2 id="goal">Goal<a class="headerlink" href="#goal" title="Permanent link">&para;</a></h2>
-<p>You'll build an evaluations dataset and run it against your conversational agent. By the end of this lesson, you'll understand how the evaluations framework works for conversational agents, and how it compares to testing autonomous agents — where deterministic outputs are harder to define.</p>
+<p>By the end of this lesson, you'll have run your agent through four types of conversations: a data query, an incident lookup, a post comment operation, and a knowledge question grounded in your context sources. You'll use the debug interface to watch each tool call happen in real time, and judge for yourself whether the responses are accurate and trustworthy.</p>
+<h2 id="testing-by-conversation">Testing by conversation<a class="headerlink" href="#testing-by-conversation" title="Permanent link">&para;</a></h2>
+<p>Automated testing catches regressions. Manual conversation testing catches something different: whether the agent actually <em>makes sense</em> and gives you what you want. If something is wrong - go back and review the prompt.</p>
+<p>When you run a conversation test, look at four things:</p>
+<ul>
+<li><strong>Tool usage</strong> - Did the agent call the right tool? Did it pass sensible arguments?</li>
+<li><strong>Response quality</strong> - Is the answer accurate, well-formatted, and appropriately detailed?</li>
+<li><strong>Write operations</strong> - When the agent changes data, does the change actually stick?</li>
+<li><strong>Grounding</strong> - When the answer comes from your documentation, is it properly cited?</li>
+</ul>
+<p>A few well-chosen conversations across these four categories gives you a solid read on agent quality.</p>
 <h2 id="steps">Steps<a class="headerlink" href="#steps" title="Permanent link">&para;</a></h2>
-<!-- Add step-by-step instructions with screenshots here -->
+<h3 id="1-start-a-chat-session">1. Start a chat session<a class="headerlink" href="#1-start-a-chat-session" title="Permanent link">&para;</a></h3>
+<p>Click <strong>Debug</strong> to open the debug configuration dialog. Review the resources listed under <strong>Context</strong> and <strong>Processes</strong> - these are what the agent will have access to during the session.</p>
+<p><img alt="Debug configuration showing selected context sources and process tools" class="screenshot" src="../3-testing-conversations.images/3-debug-configuration-W.png" width="900" /></p>
+<p>Make sure all the tools and context sources you want to test are ticked, then click <strong>Save &amp; Debug</strong>.</p>
+<h3 id="2-see-the-chat-interface">2. See the chat interface<a class="headerlink" href="#2-see-the-chat-interface" title="Permanent link">&para;</a></h3>
+<p>The chat loads with your starting prompt chips ready to go.</p>
+<div class="img-cols img-cols-30">
+<div>
+<p>Click one of the chips or type your own message. The agent always receives the full actual prompt - not just the short display text.
+  </p>
+</div>
+<div>
+<p><img alt="Agent chat landing page showing starting prompt chips and message input field" class="screenshot" src="../3-testing-conversations.images/4-agent-chat-landing.png" />
+  </p>
+</div>
+</div>
+<h3 id="3-test-a-data-query-invoice-spending">3. Test a data query: invoice spending<a class="headerlink" href="#3-test-a-data-query-invoice-spending" title="Permanent link">&para;</a></h3>
+<p>Click <strong>How much did we spend last month?</strong> The actual prompt sent to the agent is:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Calculate total sum of all invoices during last 30 days.
+</code></pre></div>
+<p>Watch the execution trace. The agent calls <strong>Get Approved Invoices</strong> with <code>in_DaysAgo: 30</code> and receives a full invoice list from Data Fabric in return:</p>
+<p><img alt="Get Approved Invoices tool execution showing input parameter and JSON output" class="screenshot" src="../3-testing-conversations.images/5-invoice-tool-execution-W.png" width="900" /></p>
+<p>The agent then processes the data and returns a clean summary:</p>
+<div class="img-cols img-cols-30">
+<div>
+<p>Check that the numbers and currency breakdown look reasonable for the volume of invoices you know is in the system.
+  </p>
+</div>
+<div>
+<p><img alt="Invoice summary result showing currency totals and invoice count" class="screenshot" src="../3-testing-conversations.images/6-invoice-summary-result.png" />
+  </p>
+</div>
+</div>
+<h3 id="4-test-an-incident-lookup">4. Test an incident lookup<a class="headerlink" href="#4-test-an-incident-lookup" title="Permanent link">&para;</a></h3>
+<p>Click <strong>How many things break recently?</strong> The actual prompt is:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>In the last 7 days, what were top 5 support incidents, who was the assignee?
+</code></pre></div>
+<p>The agent calls <strong>Get ServiceNow Incidents</strong> with <code>in_TicketAgeDays: 7</code> and returns a list of recent tickets, which agent analyzes and responds with top five:</p>
+<p><img alt="ServiceNow incidents result showing top 5 tickets with numbers, dates, and categories" class="screenshot" src="../3-testing-conversations.images/7-incidents-query-result-W.png" width="900" /></p>
+<p>Notice that when assignee information isn't returned in the initial result, the agent flags it rather than inventing data. That's a good sign.</p>
+<p>Now for the trickier one. Type:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Add an internal note to first ticket, say &quot;This is critical to address it with highest priority! Fix it asap!&quot;. Validate that the note is added because it&#39;s important!
+</code></pre></div>
+<p>The agent calls <strong>Post ServiceNow Incident Note</strong>, then immediately runs <strong>Get ServiceNow Incident Notes</strong> to verify the change:</p>
+<p><img alt="Post ServiceNow note execution and validation showing both tool calls completed successfully" class="screenshot" src="../3-testing-conversations.images/8-post-note-validation-W.png" width="900" /></p>
+<p>The agent doesn't just fire off the write and assume it worked - it validates. That's the right behaviour to look for.</p>
+<div class="img-cols img-cols-30">
+<div>
+<p>To be very sure, you can ask your trainer to look up the incident directly in ServiceNow and check the activity timeline. The agent made a real change in a live system - the note appears exactly as written.
+  </p>
+</div>
+<div>
+<p><img alt="ServiceNow activity timeline highlighting the added internal note from UiPath Labs" class="screenshot" src="../3-testing-conversations.images/9-servicenow-activity-timeline.png" />
+  </p>
+</div>
+</div>
+<h3 id="5-test-context-grounding">5. Test context grounding<a class="headerlink" href="#5-test-context-grounding" title="Permanent link">&para;</a></h3>
+<p>Finally, click <strong>Is UiPath platform Secure?</strong> The actual prompt asks specifically about AI safety features.</p>
+<p>The agent searches the <strong>UiPath Security data</strong> context source and returns a structured answer. Click the citation marker (<code>1</code>) to verify the source:</p>
+<p><img alt="Security question response with citation popover showing document name and page number" class="screenshot" src="../3-testing-conversations.images/10-security-context-citation-W.png" width="900" /></p>
+<p>The citation links back to the correct page in the grounded knowledge base. Whenever you click, you will be redirected to the source document/file. Answers without citations - or citations pointing to the wrong document - are a signal that the context source needs revisiting.</p>
+<h3 id="6-going-live">6. Going live<a class="headerlink" href="#6-going-live" title="Permanent link">&para;</a></h3>
+<p>Just like any other UiPath solution, agent needs to be published and deployed into a folder. </p>
+<p>To avoid too many copies, we can use this one published into Conversational Agent folder for everyone: <a href="https://cloud.uipath.com/tpenlabs/AgenticPractice/autopilotforeveryone_/conversational-agents/?agentId=418563&amp;mode=embedded">direct link</a>. It will appear in Deployed Agents list and you can monitor statistics and usage data. Feedback sent by users will be also populated here:</p>
+<p><img alt="Agent's Dashboard" class="screenshot" src="../3-testing-conversations.images/11-agent-dashboard-W.png" /></p>
+<details ontoggle="if(this.open) { this.querySelector('iframe').src = this.querySelector('iframe').getAttribute('data-src'); }">
+  <summary>You can even embed conversational agents into your applications!</summary>
+  <div class="iframe-container">
+    <iframe 
+        data-src="https://cloud.uipath.com/tpenlabs/AgenticPractice/autopilotforeveryone_/conversational-agents/?agentId=418563&mode=embedded" 
+        src="about:blank"
+        width="100%" 
+        height="500" 
+        frameborder="0"
+        allowfullscreen>
+    </iframe>
+  </div>
+</details>
+
+<p>Everything looks just nice and the exercise is complete!</p>
 
 
 

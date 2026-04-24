@@ -1,0 +1,30 @@
+{
+  "version": "1.0",
+  "image_file": "4-configure-tool-arguments.png",
+  "image_path": "docs/conversational-agents/2-review-tools.images/4-configure-tool-arguments.png",
+  "lesson": "2-review-tools",
+  "exercise": "conversational-agents",
+  "extraction": {
+    "ocr_text": "Inputs\n\nin_DaysAgo\n\nDirection*\nIn\n\nType*\nNumber\n\nDefault value\n30\n\nDescription\nFilter Invoices created in_DaysAgo or la...\n\nRequired\n\nOutputs\n\nout_Invoices\n\nDirection*\nOut\n\nType*\nText\n\nDefault value\nEnter text\n\nDescription\nInvoice JSON file",
+    "description": "This screenshot shows the Data Manager-style configuration panel in UiPath for a tool's input and output arguments. The Inputs section is expanded for the argument `in_DaysAgo`, showing it configured as an inbound Number with default value `30`, a description about filtering invoices, and the Required option enabled. The Outputs section is also expanded for `out_Invoices`, configured as an outbound Text value with the description `Invoice JSON file`.",
+    "step_instructions": "1. Click on the `in_DaysAgo` input argument under Inputs to review or edit its configuration.\n2. In the Direction field, select `In`.\n3. In the Type field, select `Number`.\n4. In the Default value field, enter `30`.\n5. In the Description field, enter a description such as `Filter Invoices created in_DaysAgo or la...`.\n6. Enable the `Required` checkbox.\n7. Click on the `out_Invoices` output argument under Outputs to review or edit its configuration.\n8. In the Direction field, select `Out`.\n9. In the Type field, select `Text`.\n10. In the Description field, enter `Invoice JSON file`."
+  },
+  "layout": {
+    "mode": "split_30",
+    "ocr_length": 240,
+    "aspect_ratio": 0.51,
+    "image_size": "646x1264",
+    "rationale": "Low text density (240 chars) or narrow layout"
+  },
+  "model": {
+    "name": "gpt-5.4",
+    "deployment": "gpt-5.4",
+    "api_version": "2025-04-01-preview"
+  },
+  "usage": {
+    "prompt_tokens": 7194,
+    "completion_tokens": 354,
+    "total_tokens": 7548
+  },
+  "generated_at": "2026-04-24T04:00:14.082760+00:00"
+}
