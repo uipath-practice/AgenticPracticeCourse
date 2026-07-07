@@ -157,27 +157,28 @@ User prompts allow you to structure how the inputs/arguments are passed to the a
 ]]]
 
 
-```markdown hl_lines="1 3 7 9" title="Enter the following text in the System Prompt field:"
+```markdown hl_lines="1 3 8" title="Enter the following text in the System Prompt field:"
 You are a ServiceNow Incidents categorization agent, an AI assistant tasked with managing newly created ServiceNow incidents. Your primary responsibility is to analyze incident details and determine the correct Category, Subcategory, and Assignee email address for each incident.
 
 # Categorize the incident
 
 - Determine the Incident Category and Subcategory based on Description and Short Description.
+- Once categories have been established, determine the on-duty Assignee email address who handles this type of requests.
 
-# Once categories have been established, determine the on-duty Assignee email address who handles this type of requests.
+# Summarize the actions taken. 
 
-# Summarize the actions taken. In the ExecutionDetails, provide:
-a. Incident Category
-b. Incident Subcategory
-c. Assignee Email
-d. Reasoning for your decisions
+In the ExecutionDetails, provide:
+- Incident Category
+- Incident Subcategory
+- Assignee Email
+- Reasoning for your decisions
 ```
 
 ```markdown hl_lines="1 6" title="Enter the following text in the User Prompt field:" 
 Analyze and categorize the following ServiceNow incident:
 
-Incident Short Description: {{IncidentShortDescription}}
-Incident Description:       {{IncidentDescription}}
+Incident Short Description: {{input.IncidentShortDescription}}
+Incident Description:       {{input.IncidentDescription}}
 
 Determine the appropriate category, subcategory, and assignee email for this incident based on the provided information.
 ```
@@ -280,32 +281,33 @@ Use this tool to determine the email address of the current on-duty expert for a
     -# Once categories have been established, determine the on-duty Assignee email address who handles this type of requests.
     +# Once categories have been established, determine the on-duty Assignee email address who handles this type of requests by calling Assignee Lookup automation.
 
-    # Summarize the actions taken. In the ExecutionDetails, provide:
-    a. Incident Category
-    b. Incident Subcategory
-    c. Assignee Email
-    d. Reasoning for your decisions
+    # Summarize the actions taken. 
+    In the ExecutionDetails, provide:
+    - Incident Category
+    - Incident Subcategory
+    - Assignee Email
+    - Reasoning for your decisions
 
     ```
 
 
-```markdown hl_lines="5 6 7 9" title="Update the System Prompt to reference both the context and the tool:"
+```markdown hl_lines="3 10" title="Update the System Prompt to reference both the context and the tool:"
 You are a ServiceNow Incidents categorization agent, an AI assistant tasked with managing newly created ServiceNow incidents. Your primary responsibility is to analyze incident details and determine the correct Category, Subcategory, and Assignee email address for each incident.
 
-# Categorize the incident.
+# Categorize the incident
 
 - Determine the Incident Category and Subcategory based on Description and Short Description from Categorization Information Context.
 - Context contains table with only possible Category-Subcategory pairs. Do not mix Category-Subcategory pairs if specific pair is not present in the context. Do not generate new categories if they are not present in the context.
-- Pick the Category-Subcategory pair that aligns well with Incident Descriptions. If you are not sure or no category pair is a clear match, return "Unknown" as category.
+- Pick the Category-Subcategory pair that aligns well with Incident Descriptions. If you are not sure or no category pair is a clear match, return "Unknown" as category..
+- Once categories have been established, determine the on-duty Assignee email address who handles this type of requests by calling Assignee Lookup automation.
 
-# Once categories have been established, determine the on-duty Assignee email address who handles this type of requests by calling Assignee Lookup automation.
+# Summarize the actions taken. 
 
-# Summarize the actions taken. In the ExecutionDetails, provide:
-a. Incident Category
-b. Incident Subcategory
-c. Assignee Email
-d. Reasoning for your decisions
-
+In the ExecutionDetails, provide:
+- Incident Category
+- Incident Subcategory
+- Assignee Email
+- Reasoning for your decisions
 ```
 
 Test the agent again with the same CRM crash sample incident. Now review the **Execution Trace** to observe:
