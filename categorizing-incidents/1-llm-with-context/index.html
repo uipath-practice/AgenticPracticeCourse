@@ -1334,19 +1334,20 @@
 <a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="hll"><span class="gh"># Categorize the incident</span>
 </span><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>
 <a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="k">-</span><span class="w"> </span>Determine the Incident Category and Subcategory based on Description and Short Description.
-<a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a>
-<a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a><span class="hll"><span class="gh"># Once categories have been established, determine the on-duty Assignee email address who handles this type of requests.</span>
-</span><a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a>
-<a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a><span class="hll"><span class="gh"># Summarize the actions taken. In the ExecutionDetails, provide:</span>
-</span><a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a>a. Incident Category
-<a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a>b. Incident Subcategory
-<a id="__codelineno-15-12" name="__codelineno-15-12" href="#__codelineno-15-12"></a>c. Assignee Email
-<a id="__codelineno-15-13" name="__codelineno-15-13" href="#__codelineno-15-13"></a>d. Reasoning for your decisions
+<a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a><span class="k">-</span><span class="w"> </span>Once categories have been established, determine the on-duty Assignee email address who handles this type of requests.
+<a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a>
+<a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a><span class="hll"><span class="gh"># Summarize the actions taken. </span>
+</span><a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a>
+<a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a>In the ExecutionDetails, provide:
+<a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a><span class="k">-</span><span class="w"> </span>Incident Category
+<a id="__codelineno-15-12" name="__codelineno-15-12" href="#__codelineno-15-12"></a><span class="k">-</span><span class="w"> </span>Incident Subcategory
+<a id="__codelineno-15-13" name="__codelineno-15-13" href="#__codelineno-15-13"></a><span class="k">-</span><span class="w"> </span>Assignee Email
+<a id="__codelineno-15-14" name="__codelineno-15-14" href="#__codelineno-15-14"></a><span class="k">-</span><span class="w"> </span>Reasoning for your decisions
 </code></pre></div>
 <div class="highlight"><span class="filename">Enter the following text in the User Prompt field:</span><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="hll">Analyze and categorize the following ServiceNow incident:
 </span><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>
-<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>Incident Short Description: {{IncidentShortDescription}}
-<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>Incident Description:       {{IncidentDescription}}
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>Incident Short Description: {{input.IncidentShortDescription}}
+<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>Incident Description:       {{input.IncidentDescription}}
 <a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>
 <a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a><span class="hll">Determine the appropriate category, subcategory, and assignee email for this incident based on the provided information.
 </span></code></pre></div>
@@ -1442,28 +1443,30 @@
 <a id="__codelineno-21-11" name="__codelineno-21-11" href="#__codelineno-21-11"></a><span class="gd">-# Once categories have been established, determine the on-duty Assignee email address who handles this type of requests.</span>
 <a id="__codelineno-21-12" name="__codelineno-21-12" href="#__codelineno-21-12"></a><span class="gi">+# Once categories have been established, determine the on-duty Assignee email address who handles this type of requests by calling Assignee Lookup automation.</span>
 <a id="__codelineno-21-13" name="__codelineno-21-13" href="#__codelineno-21-13"></a>
-<a id="__codelineno-21-14" name="__codelineno-21-14" href="#__codelineno-21-14"></a># Summarize the actions taken. In the ExecutionDetails, provide:
-<a id="__codelineno-21-15" name="__codelineno-21-15" href="#__codelineno-21-15"></a>a. Incident Category
-<a id="__codelineno-21-16" name="__codelineno-21-16" href="#__codelineno-21-16"></a>b. Incident Subcategory
-<a id="__codelineno-21-17" name="__codelineno-21-17" href="#__codelineno-21-17"></a>c. Assignee Email
-<a id="__codelineno-21-18" name="__codelineno-21-18" href="#__codelineno-21-18"></a>d. Reasoning for your decisions
+<a id="__codelineno-21-14" name="__codelineno-21-14" href="#__codelineno-21-14"></a># Summarize the actions taken. 
+<a id="__codelineno-21-15" name="__codelineno-21-15" href="#__codelineno-21-15"></a>In the ExecutionDetails, provide:
+<a id="__codelineno-21-16" name="__codelineno-21-16" href="#__codelineno-21-16"></a><span class="gd">- Incident Category</span>
+<a id="__codelineno-21-17" name="__codelineno-21-17" href="#__codelineno-21-17"></a><span class="gd">- Incident Subcategory</span>
+<a id="__codelineno-21-18" name="__codelineno-21-18" href="#__codelineno-21-18"></a><span class="gd">- Assignee Email</span>
+<a id="__codelineno-21-19" name="__codelineno-21-19" href="#__codelineno-21-19"></a><span class="gd">- Reasoning for your decisions</span>
 </code></pre></div></p>
 </details>
 <div class="highlight"><span class="filename">Update the System Prompt to reference both the context and the tool:</span><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>You are a ServiceNow Incidents categorization agent, an AI assistant tasked with managing newly created ServiceNow incidents. Your primary responsibility is to analyze incident details and determine the correct Category, Subcategory, and Assignee email address for each incident.
 <a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>
-<a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a><span class="gh"># Categorize the incident.</span>
-<a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a>
-<a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a><span class="hll"><span class="k">-</span><span class="w"> </span>Determine the Incident Category and Subcategory based on Description and Short Description from Categorization Information Context.
-</span><a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a><span class="hll"><span class="k">-</span><span class="w"> </span>Context contains table with only possible Category-Subcategory pairs. Do not mix Category-Subcategory pairs if specific pair is not present in the context. Do not generate new categories if they are not present in the context.
-</span><a id="__codelineno-22-7" name="__codelineno-22-7" href="#__codelineno-22-7"></a><span class="hll"><span class="k">-</span><span class="w"> </span>Pick the Category-Subcategory pair that aligns well with Incident Descriptions. If you are not sure or no category pair is a clear match, return &quot;Unknown&quot; as category.
-</span><a id="__codelineno-22-8" name="__codelineno-22-8" href="#__codelineno-22-8"></a>
-<a id="__codelineno-22-9" name="__codelineno-22-9" href="#__codelineno-22-9"></a><span class="hll"><span class="gh"># Once categories have been established, determine the on-duty Assignee email address who handles this type of requests by calling Assignee Lookup automation.</span>
-</span><a id="__codelineno-22-10" name="__codelineno-22-10" href="#__codelineno-22-10"></a>
-<a id="__codelineno-22-11" name="__codelineno-22-11" href="#__codelineno-22-11"></a><span class="gh"># Summarize the actions taken. In the ExecutionDetails, provide:</span>
-<a id="__codelineno-22-12" name="__codelineno-22-12" href="#__codelineno-22-12"></a>a. Incident Category
-<a id="__codelineno-22-13" name="__codelineno-22-13" href="#__codelineno-22-13"></a>b. Incident Subcategory
-<a id="__codelineno-22-14" name="__codelineno-22-14" href="#__codelineno-22-14"></a>c. Assignee Email
-<a id="__codelineno-22-15" name="__codelineno-22-15" href="#__codelineno-22-15"></a>d. Reasoning for your decisions
+<a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a><span class="hll"><span class="gh"># Categorize the incident</span>
+</span><a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a>
+<a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a><span class="k">-</span><span class="w"> </span>Determine the Incident Category and Subcategory based on Description and Short Description from Categorization Information Context.
+<a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a><span class="k">-</span><span class="w"> </span>Context contains table with only possible Category-Subcategory pairs. Do not mix Category-Subcategory pairs if specific pair is not present in the context. Do not generate new categories if they are not present in the context.
+<a id="__codelineno-22-7" name="__codelineno-22-7" href="#__codelineno-22-7"></a><span class="k">-</span><span class="w"> </span>Pick the Category-Subcategory pair that aligns well with Incident Descriptions. If you are not sure or no category pair is a clear match, return &quot;Unknown&quot; as category..
+<a id="__codelineno-22-8" name="__codelineno-22-8" href="#__codelineno-22-8"></a><span class="k">-</span><span class="w"> </span>Once categories have been established, determine the on-duty Assignee email address who handles this type of requests by calling Assignee Lookup automation.
+<a id="__codelineno-22-9" name="__codelineno-22-9" href="#__codelineno-22-9"></a>
+<a id="__codelineno-22-10" name="__codelineno-22-10" href="#__codelineno-22-10"></a><span class="hll"><span class="gh"># Summarize the actions taken. </span>
+</span><a id="__codelineno-22-11" name="__codelineno-22-11" href="#__codelineno-22-11"></a>
+<a id="__codelineno-22-12" name="__codelineno-22-12" href="#__codelineno-22-12"></a>In the ExecutionDetails, provide:
+<a id="__codelineno-22-13" name="__codelineno-22-13" href="#__codelineno-22-13"></a><span class="k">-</span><span class="w"> </span>Incident Category
+<a id="__codelineno-22-14" name="__codelineno-22-14" href="#__codelineno-22-14"></a><span class="k">-</span><span class="w"> </span>Incident Subcategory
+<a id="__codelineno-22-15" name="__codelineno-22-15" href="#__codelineno-22-15"></a><span class="k">-</span><span class="w"> </span>Assignee Email
+<a id="__codelineno-22-16" name="__codelineno-22-16" href="#__codelineno-22-16"></a><span class="k">-</span><span class="w"> </span>Reasoning for your decisions
 </code></pre></div>
 <p>Test the agent again with the same CRM crash sample incident. Now review the <strong>Execution Trace</strong> to observe:</p>
 <ul>
