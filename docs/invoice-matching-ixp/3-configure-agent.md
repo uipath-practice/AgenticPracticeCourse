@@ -203,7 +203,7 @@ Always double-check your analysis and outputs for accuracy before finalizing you
 Enter the following **User Prompt**:
 |30|
 ```
-Analyze {{in_InvoicePDF}}.
+Analyze {{input.in_InvoicePDF}}.
 ```
 ]]]
 
