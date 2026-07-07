@@ -39,7 +39,7 @@ Choose **Conversational** — this type is designed for interactive dialogue whe
 In the description field, tell **Autopilot** what your agent should do:
 
 ```text
-The agent that will use tools and context to answer various questions about Invoice processing documents and associated Orchestrator jobs.
+This conversational agent that will use available tools from UiPath Orchestrator and context grounding indexes to answer various questions about: Invoice processing documents, ServiceNow incidents and associated Orchestrator Jobs.
 ```
 ]]]
 
