@@ -167,7 +167,7 @@ Next, we need to explain to the Agent what these tools are for and when to use t
         - Reasoning for your decisions
     ```
 
-```markdown hl_lines="3 4 5 6 16 17" title="System Prompt to use Search and Update tools:"
+```markdown hl_lines="3 4 5 6 7 16 17" title="System Prompt to use Search and Update tools:"
 You are a ServiceNow Incidents categorization agent, an AI assistant tasked with managing newly created ServiceNow incidents. Your primary responsibility is to analyze incident details and determine the correct Category, Subcategory, and Assignee email address for each incident.
 
 # Retrieve Incident details
