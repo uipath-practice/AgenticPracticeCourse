@@ -20,6 +20,7 @@ This directory is the **single source of truth** for all rules, templates, and c
 | [Formatting.md](Formatting.md) | Images, two-column layouts, code blocks, admonitions, tables, prompt diffs, argument docs | Formatting any element on a page |
 | [Language.md](Language.md) | Voice, tone, humour, word choices, platform names, capitalisation rules | Writing or reviewing any text |
 | [HOWTO.md](HOWTO.md) | End-to-end workflows: create exercise, generate lesson, publish, remove, review, validate | First time doing any of these tasks |
+| [Localization.md](Localization.md) | Localized languages, translation rules, glossary, English-as-master sync workflow | Translating content or editing any published English page |
 
 ## Templates
 

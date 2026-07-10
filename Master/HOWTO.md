@@ -308,6 +308,24 @@ For setting up a completely new course site (not adding to the existing one).
 
 ---
 
+## Workflow 10: Sync translations
+
+English is the master language — translations are derived, never edited by hand. Full rules: `Localization.md`.
+
+1. Edit English content as usual.
+2. Check what's out of date:
+
+   ```bash
+   python3 scripts/translation_status.py
+   ```
+
+3. Run `/sync-translations` (optionally scoped to an exercise, page, or language). It translates missing pages, re-translates stale ones, and updates source hashes.
+4. Review the diff, then `mkdocs build` and commit.
+
+New drafts are not translated until published — `/publish-exercise` includes the translation pass.
+
+---
+
 ## Best practices for course design
 
 ### Planning an exercise

@@ -1,1 +1,4 @@
 mkdocs-material>=9.5
+mkdocs-static-i18n>=1.2
+# Chinese word segmentation for the built-in search index (zh locale)
+jieba>=0.42

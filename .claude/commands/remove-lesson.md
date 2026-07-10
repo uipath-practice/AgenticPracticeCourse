@@ -96,6 +96,11 @@ Do not proceed until the user responds. Any input other than `yes` (case-insensi
    mv "docs/<exercise-slug>/<lesson-file-without-extension>.images" "Archive/<exercise-slug>/<lesson-file-without-extension>.images"
    ```
 
+4. Move translation siblings, if any exist (`.zh.md`, `.ko.md`, … — see `Master/Localization.md`):
+   ```bash
+   mv docs/<exercise-slug>/<lesson-file-without-extension>.*.md Archive/<exercise-slug>/
+   ```
+
 ---
 
 ## Step 4: Update mkdocs.yml (if the lesson was in nav)
@@ -103,6 +108,7 @@ Do not proceed until the user responds. Any input other than `yes` (case-insensi
 If the lesson had a nav entry:
 - Remove that nav entry from `mkdocs.yml`.
 - Renumber the remaining lesson nav labels to be sequential: if lessons 1, 3, 4, 5 remain, their labels become `1.`, `2.`, `3.`, `4.`. **Do not rename the actual files.**
+- In the `i18n` plugin block, remove the deleted lesson's key from every `nav_translations` mapping, and update the keys of renumbered labels so each key matches its new English label exactly.
 
 ---
 
@@ -111,6 +117,8 @@ If the lesson had a nav entry:
 In `docs/<exercise-slug>/index.md`:
 - Remove the step table row that linked to the removed lesson.
 - Renumber the remaining rows so that step numbers are sequential again.
+
+This edit makes the overview's translations stale — run `/sync-translations <exercise-slug>` after removal (if the exercise is published).
 
 ---
 

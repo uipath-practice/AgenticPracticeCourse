@@ -83,17 +83,21 @@ Do not proceed until the user responds. Any input other than `yes` (case-insensi
    mv docs/<exercise-slug> Archive/<exercise-slug>
    ```
 
+Translation files (`.zh.md`, `.ko.md`, …) live inside the folder and move with it — nothing extra to do.
+
 ---
 
 ## Step 4: Update mkdocs.yml (if the exercise was in nav)
 
-If the exercise had a nav section, remove the entire section from `mkdocs.yml`.
+If the exercise had a nav section, remove the entire section from `mkdocs.yml`. Also remove this exercise's entries (display name and all lesson labels) from every `nav_translations` mapping in the `i18n` plugin block.
 
 ---
 
 ## Step 5: Update docs/index.md
 
 Remove any references to the exercise from the home page — links, numbered exercise descriptions, and cards. If the exercise was part of a numbered list (e.g., "Exercise 1", "Exercise 2"), renumber the remaining items to close the gap.
+
+This edit makes the home page's translations stale — run `/sync-translations docs/index.md` afterwards.
 
 ---
 

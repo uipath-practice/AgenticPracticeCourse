@@ -29,6 +29,61 @@ hooks:
 
 plugins:
   - search
+  # Localization — see Master/Localization.md. English is the master language,
+  # built at the site root. Other languages build under /<locale>/ and fall
+  # back to English for any page without a translation.
+  - i18n:
+      docs_structure: suffix
+      fallback_to_default: true
+      reconfigure_material: true
+      reconfigure_search: true
+      languages:
+        - locale: en
+          name: English
+          build: true
+          default: true
+        - locale: zh
+          name: 简体中文
+          build: true
+          nav_translations:
+            Home: 首页
+            Categorizing Incidents: 事件分类
+            Overview: 概览
+            1. LLM with Context: 1. 使用上下文的 LLM
+            2. Tools and Escalations: 2. 工具与升级
+            You did it!: 大功告成！
+            Invoice Matching with IXP: 使用 IXP 进行发票匹配
+            1. Create BPMN Process: 1. 创建 BPMN 流程
+            2. Configure a Robot: 2. 配置机器人
+            3. Configure an Agent: 3. 配置智能体
+            4. Configure Human Validation: 4. 配置人工验证
+            5. Configure API Integration: 5. 配置 API 集成
+            Conversational Agents: 对话式智能体
+            1. Create a Conversational Agent: 1. 创建对话式智能体
+            2. Understanding Available Tools: 2. 了解可用工具
+            3. Giving It a Try: 3. 动手试一试
+            Next Steps: 后续步骤
+        - locale: ko
+          name: 한국어
+          build: true
+          nav_translations:
+            Home: 홈
+            Categorizing Incidents: 인시던트 분류
+            Overview: 개요
+            1. LLM with Context: 1. 컨텍스트를 활용한 LLM
+            2. Tools and Escalations: 2. 도구와 에스컬레이션
+            You did it!: 해냈습니다!
+            Invoice Matching with IXP: IXP를 활용한 인보이스 매칭
+            1. Create BPMN Process: 1. BPMN 프로세스 만들기
+            2. Configure a Robot: 2. 로봇 구성하기
+            3. Configure an Agent: 3. 에이전트 구성하기
+            4. Configure Human Validation: 4. 휴먼 검증 구성하기
+            5. Configure API Integration: 5. API 통합 구성하기
+            Conversational Agents: 대화형 에이전트
+            1. Create a Conversational Agent: 1. 대화형 에이전트 만들기
+            2. Understanding Available Tools: 2. 사용 가능한 도구 알아보기
+            3. Giving It a Try: 3. 직접 사용해 보기
+            Next Steps: 다음 단계
 
 markdown_extensions:
   - admonition

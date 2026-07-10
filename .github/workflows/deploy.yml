@@ -25,5 +25,10 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
+      # Warn-only: missing/stale translations fall back to English on the
+      # live site. Run /sync-translations locally to update them.
+      - name: Translation status
+        run: python3 scripts/translation_status.py --quiet || true
+
       - name: Deploy
         run: mkdocs gh-deploy --force

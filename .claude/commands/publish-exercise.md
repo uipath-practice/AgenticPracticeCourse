@@ -2,7 +2,7 @@ Publish a draft exercise to the site navigation — makes it visible from the ho
 
 Exercises created with `/new-exercise` are accessible via direct URL but hidden from the navigation. Run this skill when the exercise content is ready for learners.
 
-**Before proceeding, read:** `Master/Filesystem.md` (nav registration rules) and `Master/CourseStructure.md` (overview page structure — used to derive nav labels and the home page card).
+**Before proceeding, read:** `Master/Filesystem.md` (nav registration rules), `Master/CourseStructure.md` (overview page structure — used to derive nav labels and the home page card), and `Master/Localization.md` (nav label translations and the publish-time translation pass).
 
 ## Collect inputs
 
@@ -81,6 +81,13 @@ If no home page card exists for this exercise, add one. Match the style of exist
 
 ---
 
+## Step 6.5: Localize
+
+1. In `mkdocs.yml`, add the exercise's new nav labels (display name and every lesson label) to the `nav_translations` block of **each** language under the `i18n` plugin. Use the glossary and tone rules in `Master/Localization.md`.
+2. Run `/sync-translations <exercise-slug>` to create the translated pages. Include `docs/index.md` in the sync — the new home page card made its translations stale.
+
+---
+
 ## Step 7: Verify
 
 Run `mkdocs build`:
@@ -92,6 +99,7 @@ Run `mkdocs build`:
 Report any errors. If the build passes, confirm what was done:
 - Nav section added to `mkdocs.yml`
 - Home page card added to `docs/index.md` (or was already present)
+- Nav labels translated and page translations synced
 - Build passed
 
 Then show the live URL (once deployed):
