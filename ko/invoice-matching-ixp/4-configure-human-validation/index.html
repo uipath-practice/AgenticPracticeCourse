@@ -1,0 +1,1445 @@
+
+<!doctype html>
+<html lang="ko" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Hands-on learner's handbook for the UiPath Agentic Practice Workshop">
+      
+      
+        <meta name="author" content="Sergey Shumilov">
+      
+      
+        <link rel="canonical" href="https://uipath-practice.github.io/AgenticPracticeCourse/ko/invoice-matching-ixp/4-configure-human-validation/">
+      
+      
+        <link rel="prev" href="../3-configure-agent/">
+      
+      
+        <link rel="next" href="../5-configure-api/">
+      
+      
+        
+          <link rel="alternate" href="../../../invoice-matching-ixp/4-configure-human-validation/" hreflang="en">
+        
+          <link rel="alternate" href="../../../zh/invoice-matching-ixp/4-configure-human-validation/" hreflang="zh">
+        
+          <link rel="alternate" href="./" hreflang="ko">
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>4. 휴먼 검증 구성하기 - Agentic Automation Workshop</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-orange" data-md-color-accent="orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#involving-humans-only-when-necessary" class="md-skip">
+          콘텐츠로 이동
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="상단/헤더">
+    <a href="../../" title="Agentic Automation Workshop" class="md-header__button md-logo" aria-label="Agentic Automation Workshop" data-md-component="logo">
+      
+  <img src="../../../assets/images/Partner Success Logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Agentic Automation Workshop
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              4. 휴먼 검증 구성하기
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="언어설정">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="../../../invoice-matching-ixp/4-configure-human-validation/" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../../zh/invoice-matching-ixp/4-configure-human-validation/" hreflang="zh" class="md-select__link">
+              简体中文
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="./" hreflang="ko" class="md-select__link">
+              한국어
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="검색" placeholder="검색" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="검색">
+        
+        <button type="reset" class="md-search__icon md-icon" title="지우기" aria-label="지우기" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            검색 초기화
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="탭" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../" class="md-tabs__link">
+        
+  
+  
+    
+  
+  홈
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../categorizing-incidents/" class="md-tabs__link">
+          
+  
+  
+  인시던트 분류
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  
+  IXP를 활용한 인보이스 매칭
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../conversational-agents/" class="md-tabs__link">
+          
+  
+  
+  대화형 에이전트
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../next-steps/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  다음 단계
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="네비게이션" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../" title="Agentic Automation Workshop" class="md-nav__button md-logo" aria-label="Agentic Automation Workshop" data-md-component="logo">
+      
+  <img src="../../../assets/images/Partner Success Logo.png" alt="logo">
+
+    </a>
+    Agentic Automation Workshop
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    홈
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    인시던트 분류
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    인시던트 분류
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../categorizing-incidents/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    개요
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../categorizing-incidents/1-llm-with-context/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. 컨텍스트를 활용한 LLM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../categorizing-incidents/2-tools-and-escalations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. 도구와 에스컬레이션
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../categorizing-incidents/you-did-it/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    해냈습니다!
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IXP를 활용한 인보이스 매칭
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    IXP를 활용한 인보이스 매칭
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    개요
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1-create-bpmn/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. BPMN 프로세스 만들기
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2-configure-robot/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. 로봇 구성하기
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3-configure-agent/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. 에이전트 구성하기
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. 휴먼 검증 구성하기
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. 휴먼 검증 구성하기
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="목차">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      목차
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#goal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Goal
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#humans-in-the-loop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Humans in the Loop
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Steps
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Steps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-import-the-validation-app" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Import the validation app
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-configure-the-human-task-in-maestro" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Configure the human task in Maestro
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-configure-the-gateway-decision" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Configure the gateway decision
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-test-the-human-validation-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Test the human validation flow
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5-configure-api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. API 통합 구성하기
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../you-did-it/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    해냈습니다!
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    대화형 에이전트
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    대화형 에이전트
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../conversational-agents/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    개요
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../conversational-agents/1-create-agent/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. 대화형 에이전트 만들기
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../conversational-agents/2-review-tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. 사용 가능한 도구 알아보기
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../conversational-agents/3-testing-conversations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. 직접 사용해 보기
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../conversational-agents/you-did-it/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    해냈습니다!
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../next-steps/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    다음 단계
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="involving-humans-only-when-necessary">Involving humans only when necessary<a class="headerlink" href="#involving-humans-only-when-necessary" title="Permanent link">&para;</a></h1>
+<div class="admonition tip">
+<p class="admonition-title">Here is our plan for this lesson:</p>
+<ol>
+<li>
+<p>Import validation Action App into our project.</p>
+</li>
+<li>
+<p>Configure the process flow so that if the Agent fails to match Invoice and PO, an Action Center Task is created allowing a human to make a decision.</p>
+</li>
+<li>
+<p>Based on the App Action (Approve or Reject), direct the flow further.</p>
+</li>
+<li>
+<p><em>(Optional)</em> Improve the Agent's prompt to handle some edge cases.</p>
+</li>
+</ol>
+</div>
+<h2 id="goal">Goal<a class="headerlink" href="#goal" title="Permanent link">&para;</a></h2>
+<p>Add a human validation step on the <strong>Failed Match</strong> path. When the agent flags a mismatch, a reviewer in <strong>Action Center</strong> sees a summary with both documents and chooses to approve or reject the invoice. The workflow resumes based on their decision.</p>
+<h2 id="humans-in-the-loop">Humans in the Loop<a class="headerlink" href="#humans-in-the-loop" title="Permanent link">&para;</a></h2>
+<p>In many cases where the Agent cannot determine the exact course of action, human involvement is required. Humans process tasks in <strong>Action Center</strong> using conveniently summarized inputs from Robots and Agents:</p>
+<ul>
+<li>All inputs required to make a decision should be presented on one screen — ideally we don't want business users to open applications or go back and review the execution flow.</li>
+<li>The agent's job is to prepare all inputs in the right format, so that when the time comes to ask for user inputs, the data is ready.</li>
+<li>Once the decision is made, the process execution continues to the next steps.</li>
+</ul>
+<p><img alt="Human validation step architecture" class="screenshot" src="../../../invoice-matching-ixp/4-configure-human-validation.images/1-validation-arguments.png" width="700" /></p>
+<div class="admonition note">
+<p class="admonition-title">Note on approvals</p>
+<p>In real life, it is absolutely not ok to approve an invoice and send it for payment if the Purchase Order was for something different — in some countries it's a crime. But for this practice, assume that humans can do whatever they want when it comes to this decision, with no consequences.</p>
+</div>
+<p>To build a nice validation interface, we need a frontend that presents the problem along with the necessary information to make a decision:</p>
+<ul>
+<li>The invoice and Purchase Order should be presented side by side — ideally with discrepancies highlighted in red.</li>
+<li>The problem should be described to the human in a couple of sentences.</li>
+<li>If the decision is to reject the Invoice and send an email to the Supplier, a draft email helps save time. We already have it generated by the Agent!</li>
+</ul>
+<p>Instead of building this from scratch, we'll reuse an existing Action App template.</p>
+<p><img alt="Validation app interface showing invoice and PO comparison" class="screenshot" src="../../../invoice-matching-ixp/4-configure-human-validation.images/2-validation-app-draft-W.png" width="900" /></p>
+<h2 id="steps">Steps<a class="headerlink" href="#steps" title="Permanent link">&para;</a></h2>
+<h3 id="1-import-the-validation-app">1. Import the validation app<a class="headerlink" href="#1-import-the-validation-app" title="Permanent link">&para;</a></h3>
+<div class="img-cols img-cols-50">
+<div>
+<p>In your solution, click the <strong>+</strong> icon in the Explorer to add a project, then select <strong>Import existing</strong> to add a new project to the solution. Find and import the validation app template.
+  </p>
+</div>
+<div>
+<p><img alt="Solution Explorer with import menu" class="screenshot" src="../../../invoice-matching-ixp/4-configure-human-validation.images/3-import-action-app.png" />
+  </p>
+</div>
+</div>
+<div class="img-cols img-cols-30">
+<div>
+<p>Find the <strong>2WM Validation App IXP Template</strong> in the list, select it, and click <strong>Add</strong>.
+  </p>
+</div>
+<div>
+<p><img alt="Add project dialog with validation template selected" class="screenshot" src="../../../invoice-matching-ixp/4-configure-human-validation.images/4-import-template.png" />
+  </p>
+</div>
+</div>
+<p>After the app appears in your solution, review its structure to understand the design approach. </p>
+<ul>
+<li>
+<p>Structure of the App <strong>UI elements</strong> - this is how validation task appears in front of the user.</p>
+</li>
+<li>
+<p>App Actions and <strong>Action Schema</strong> - this covers possible outcomes of the user decision or action.</p>
+</li>
+<li>
+<p>App <strong>Inputs and Outputs</strong>: where data comes from, where it is used, what comes out.</p>
+</li>
+</ul>
+<p>Open the <strong>MainPage</strong> in the app designer:</p>
+<p><img alt="App designer showing the validation interface layout and components" class="screenshot" src="../../../invoice-matching-ixp/4-configure-human-validation.images/5-app-structure-W.png" width="900" /></p>
+<p>Review the app's <strong>input</strong> and <strong>output</strong> configuration. This shows what data the Agent will send in, and what the reviewer's decision will produce.</p>
+<p><img alt="App configuration showing inputs from Agent and output decisions" class="screenshot" src="../../../invoice-matching-ixp/4-configure-human-validation.images/6-app-arguments-W.png" width="900" /></p>
+<h3 id="2-configure-the-human-task-in-maestro">2. Configure the human task in Maestro<a class="headerlink" href="#2-configure-the-human-task-in-maestro" title="Permanent link">&para;</a></h3>
+<p>Go back to your <strong>Agentic Process</strong> in Maestro and configure the validation task on the <strong>Failed Match</strong> path as an Action App Task.</p>
+<div class="img-cols img-cols-30">
+<div>
+<p>Select the human task node on the <strong>Failed Match</strong> path and set its action type to <strong>Create action app task</strong>. </p>
+<p>Then select the <strong>2WM Validation App IXP</strong> you just imported from the Defined resources list .
+  </p>
+</div>
+<div>
+<p><img alt="Maestro task properties with action app selection" class="screenshot" src="../../../invoice-matching-ixp/4-configure-human-validation.images/7-add-action-task.png" />
+  </p>
+</div>
+</div>
+<div class="img-cols img-cols-50">
+<div>
+<p>Customize the task title so it's easy to identify in <strong>Action Center</strong> later — for example: <strong>Invoice Validation (Your Name)</strong>. </p>
+<p>In <strong>Advanced Options</strong>, assign the task to yourself so you don't have to search for it among unassigned tasks.
+  </p>
+</div>
+<div>
+<p><img alt="Task configuration panel with title and assignee options" class="screenshot" src="../../../invoice-matching-ixp/4-configure-human-validation.images/8-configure-action-task.png" />
+  </p>
+</div>
+</div>
+<div class="img-cols img-cols-30">
+<div>
+<p>Map the Agent's outputs to the App's inputs, same way we did with agent.</p>
+<p>In the Inputs section, connect <code>out_DocumentsHTML</code> and <code>out_SuggestedResponse</code> from your Agent to the corresponding app input fields.</p>
+<p>Here you might again see the true value of following naming conventions!
+  </p>
+</div>
+<div>
+<p><img alt="Input mapping showing agent outputs connected to app inputs" class="screenshot" src="../../../invoice-matching-ixp/4-configure-human-validation.images/9-configure-action-arguments.png" />
+  </p>
+</div>
+</div>
+<p>Save the task configuration.</p>
+<h3 id="3-configure-the-gateway-decision">3. Configure the gateway decision<a class="headerlink" href="#3-configure-the-gateway-decision" title="Permanent link">&para;</a></h3>
+<p>Now configure the downstream flow based on the validation decision.</p>
+<p>Select the <strong>Exclusive Gateway</strong> that routes the process after the human task.</p>
+<p><img alt="Gateway properties showing Reject and Approve paths" class="screenshot" src="../../../invoice-matching-ixp/4-configure-human-validation.images/10-configure-gateway.png" width="800" /></p>
+<p>Set <strong>Reject</strong> as the default path, keeping in mind that a real business process might have a different approach.</p>
+<p>For the <strong>Approve</strong> path, click the Expression Editor button to configure the condition.</p>
+<div class="img-cols img-cols-30">
+<div>
+<p>In the Expression editor, insert the Action output variable from the human task.</p>
+<p>Enter the condition for the Approve path:</p>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">vars</span><span class="p">.</span><span class="nc">action</span><span class="o">==</span><span class="s2">&quot;Approve&quot;</span>
+</code></pre></div>
+  </p>
+</div>
+<div>
+<p><img alt="Expression editor with variable insertion menu" class="screenshot" src="../../../invoice-matching-ixp/4-configure-human-validation.images/11-gateway-variable.png" />
+  </p>
+</div>
+</div>
+<div class="img-cols img-cols-30">
+<div>
+<p>This routes the process to the Approve path when the reviewer approves the invoice.
+  </p>
+</div>
+<div>
+<p><img alt="Gateway path condition showing the expression" class="screenshot" src="../../../invoice-matching-ixp/4-configure-human-validation.images/12-gateway-expression.png" />
+  </p>
+</div>
+</div>
+<h3 id="4-test-the-human-validation-flow">4. Test the human validation flow<a class="headerlink" href="#4-test-the-human-validation-flow" title="Permanent link">&para;</a></h3>
+<p>Now test the complete human validation flow. Click <strong>Debug</strong> and monitor the execution. With <code>in_FailureProbability</code> set to a high value (like 90), the invoice will frequently fail to match, triggering the human validation task.</p>
+<p>Click <strong>Debug</strong> to start the process. The execution will pause at the <strong>Manual Review and Validation</strong> task when a mismatch is detected.</p>
+<p><img alt="Maestro execution view showing process paused at the human task" class="screenshot" src="../../../invoice-matching-ixp/4-configure-human-validation.images/13-validation-test-run-W.png" width="900" /></p>
+<p>Open the action task by clicking <strong>Open app task</strong> in the Details panel. Review the side-by-side invoice and PO comparison, and make a decision.</p>
+<p><img alt="Action Center task showing the invoice validation interface" class="screenshot" src="../../../invoice-matching-ixp/4-configure-human-validation.images/14-validation-action-W.png" width="900" /></p>
+<p>Looks like Agent did a fine job. But should this invoice be approved or rejected? Click <strong>Approve and pay</strong> or <strong>Reject</strong>. As soon as you submit your decision, Maestro continues the execution down the appropriate path.</p>
+<p>Review the end-to-end process to confirm the human validation step is correctly integrated and routes based on your decision.</p>
+<p><img alt="Complete process diagram with the human validation step highlighted" class="screenshot" src="../../../invoice-matching-ixp/4-configure-human-validation.images/15-end-to-end-flow-W.gif" width="900" /></p>
+<p>Run a few more tests — try both Approve and Reject — to confirm both paths route correctly.</p>
+<p>Let's agree that the App could use a better design, but all in all — it does the job well enough.</p>
+<p>Run a couple more tests and move on to the <strong><a href="../5-configure-api/">next lesson</a></strong>. We are almost done!</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  맨위로
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="하단/푸터" >
+        
+          
+          <a href="../3-configure-agent/" class="md-footer__link md-footer__link--prev" aria-label="이전: 3. 에이전트 구성하기">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                이전
+              </span>
+              <div class="md-ellipsis">
+                3. 에이전트 구성하기
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../5-configure-api/" class="md-footer__link md-footer__link--next" aria-label="다음: 5. API 통합 구성하기">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                다음
+              </span>
+              <div class="md-ellipsis">
+                5. API 통합 구성하기
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "navigation.footer", "toc.integrate", "search.highlight", "search.suggest", "content.code.copy", "content.tabs.link"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\ud074\ub9bd\ubcf4\ub4dc\uc5d0 \ubcf5\uc0ac\ub428", "clipboard.copy": "\ud074\ub9bd\ubcf4\ub4dc\ub85c \ubcf5\uc0ac", "search.result.more.one": "\uc774 \ubb38\uc11c\uc5d0\uc11c 1\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.more.other": "\uc774 \ubb38\uc11c\uc5d0\uc11c #\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.none": "\uac80\uc0c9\uc5b4\uc640 \uc77c\uce58\ud558\ub294 \ubb38\uc11c\uac00 \uc5c6\uc2b5\ub2c8\ub2e4", "search.result.one": "1\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.other": "#\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.placeholder": "\uac80\uc0c9\uc5b4\ub97c \uc785\ub825\ud558\uc138\uc694", "search.result.term.missing": "\ud3ec\ud568\ub418\uc9c0 \uc54a\uc740 \uac80\uc0c9\uc5b4", "select.version": "\ubc84\uc804 \uc120\ud0dd"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../../javascripts/extra.js"></script>
+      
+    
+  </body>
+</html>

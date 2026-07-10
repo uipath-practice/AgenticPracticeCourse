@@ -1,75 +1,435 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
     <url>
-         <loc>https://uipath-practice.github.io/AgenticPracticeCourse/</loc>
-         <lastmod>2026-07-07</lastmod>
+        <loc>https://uipath-practice.github.io/AgenticPracticeCourse/</loc>
+        <lastmod>2026-07-10</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://uipath-practice.github.io/AgenticPracticeCourse/"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://uipath-practice.github.io/AgenticPracticeCourse/ko/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://uipath-practice.github.io/AgenticPracticeCourse/zh/"/>
     </url>
     <url>
-         <loc>https://uipath-practice.github.io/AgenticPracticeCourse/next-steps/</loc>
-         <lastmod>2026-07-07</lastmod>
+        <loc>https://uipath-practice.github.io/AgenticPracticeCourse/next-steps/</loc>
+        <lastmod>2026-07-10</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://uipath-practice.github.io/AgenticPracticeCourse/next-steps/"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://uipath-practice.github.io/AgenticPracticeCourse/ko/next-steps/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://uipath-practice.github.io/AgenticPracticeCourse/zh/next-steps/"/>
     </url>
     <url>
-         <loc>https://uipath-practice.github.io/AgenticPracticeCourse/categorizing-incidents/</loc>
-         <lastmod>2026-07-07</lastmod>
+        <loc>https://uipath-practice.github.io/AgenticPracticeCourse/categorizing-incidents/</loc>
+        <lastmod>2026-07-10</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://uipath-practice.github.io/AgenticPracticeCourse/categorizing-incidents/"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://uipath-practice.github.io/AgenticPracticeCourse/ko/categorizing-incidents/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://uipath-practice.github.io/AgenticPracticeCourse/zh/categorizing-incidents/"/>
     </url>
     <url>
-         <loc>https://uipath-practice.github.io/AgenticPracticeCourse/categorizing-incidents/1-llm-with-context/</loc>
-         <lastmod>2026-07-07</lastmod>
+        <loc>https://uipath-practice.github.io/AgenticPracticeCourse/categorizing-incidents/1-llm-with-context/</loc>
+        <lastmod>2026-07-10</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://uipath-practice.github.io/AgenticPracticeCourse/categorizing-incidents/1-llm-with-context/"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://uipath-practice.github.io/AgenticPracticeCourse/ko/categorizing-incidents/1-llm-with-context/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://uipath-practice.github.io/AgenticPracticeCourse/zh/categorizing-incidents/1-llm-with-context/"/>
     </url>
     <url>
-         <loc>https://uipath-practice.github.io/AgenticPracticeCourse/categorizing-incidents/2-tools-and-escalations/</loc>
-         <lastmod>2026-07-07</lastmod>
+        <loc>https://uipath-practice.github.io/AgenticPracticeCourse/categorizing-incidents/2-tools-and-escalations/</loc>
+        <lastmod>2026-07-10</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://uipath-practice.github.io/AgenticPracticeCourse/categorizing-incidents/2-tools-and-escalations/"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://uipath-practice.github.io/AgenticPracticeCourse/ko/categorizing-incidents/2-tools-and-escalations/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://uipath-practice.github.io/AgenticPracticeCourse/zh/categorizing-incidents/2-tools-and-escalations/"/>
     </url>
     <url>
-         <loc>https://uipath-practice.github.io/AgenticPracticeCourse/categorizing-incidents/you-did-it/</loc>
-         <lastmod>2026-07-07</lastmod>
+        <loc>https://uipath-practice.github.io/AgenticPracticeCourse/categorizing-incidents/you-did-it/</loc>
+        <lastmod>2026-07-10</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://uipath-practice.github.io/AgenticPracticeCourse/categorizing-incidents/you-did-it/"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://uipath-practice.github.io/AgenticPracticeCourse/ko/categorizing-incidents/you-did-it/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://uipath-practice.github.io/AgenticPracticeCourse/zh/categorizing-incidents/you-did-it/"/>
     </url>
     <url>
-         <loc>https://uipath-practice.github.io/AgenticPracticeCourse/conversational-agents/</loc>
-         <lastmod>2026-07-07</lastmod>
+        <loc>https://uipath-practice.github.io/AgenticPracticeCourse/conversational-agents/</loc>
+        <lastmod>2026-07-10</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://uipath-practice.github.io/AgenticPracticeCourse/conversational-agents/"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://uipath-practice.github.io/AgenticPracticeCourse/ko/conversational-agents/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://uipath-practice.github.io/AgenticPracticeCourse/zh/conversational-agents/"/>
     </url>
     <url>
-         <loc>https://uipath-practice.github.io/AgenticPracticeCourse/conversational-agents/1-create-agent/</loc>
-         <lastmod>2026-07-07</lastmod>
+        <loc>https://uipath-practice.github.io/AgenticPracticeCourse/conversational-agents/1-create-agent/</loc>
+        <lastmod>2026-07-10</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://uipath-practice.github.io/AgenticPracticeCourse/conversational-agents/1-create-agent/"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://uipath-practice.github.io/AgenticPracticeCourse/ko/conversational-agents/1-create-agent/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://uipath-practice.github.io/AgenticPracticeCourse/zh/conversational-agents/1-create-agent/"/>
     </url>
     <url>
-         <loc>https://uipath-practice.github.io/AgenticPracticeCourse/conversational-agents/2-review-tools/</loc>
-         <lastmod>2026-07-07</lastmod>
+        <loc>https://uipath-practice.github.io/AgenticPracticeCourse/conversational-agents/2-review-tools/</loc>
+        <lastmod>2026-07-10</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://uipath-practice.github.io/AgenticPracticeCourse/conversational-agents/2-review-tools/"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://uipath-practice.github.io/AgenticPracticeCourse/ko/conversational-agents/2-review-tools/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://uipath-practice.github.io/AgenticPracticeCourse/zh/conversational-agents/2-review-tools/"/>
     </url>
     <url>
-         <loc>https://uipath-practice.github.io/AgenticPracticeCourse/conversational-agents/3-testing-conversations/</loc>
-         <lastmod>2026-07-07</lastmod>
+        <loc>https://uipath-practice.github.io/AgenticPracticeCourse/conversational-agents/3-testing-conversations/</loc>
+        <lastmod>2026-07-10</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://uipath-practice.github.io/AgenticPracticeCourse/conversational-agents/3-testing-conversations/"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://uipath-practice.github.io/AgenticPracticeCourse/ko/conversational-agents/3-testing-conversations/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://uipath-practice.github.io/AgenticPracticeCourse/zh/conversational-agents/3-testing-conversations/"/>
     </url>
     <url>
-         <loc>https://uipath-practice.github.io/AgenticPracticeCourse/conversational-agents/you-did-it/</loc>
-         <lastmod>2026-07-07</lastmod>
+        <loc>https://uipath-practice.github.io/AgenticPracticeCourse/conversational-agents/you-did-it/</loc>
+        <lastmod>2026-07-10</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://uipath-practice.github.io/AgenticPracticeCourse/conversational-agents/you-did-it/"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://uipath-practice.github.io/AgenticPracticeCourse/ko/conversational-agents/you-did-it/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://uipath-practice.github.io/AgenticPracticeCourse/zh/conversational-agents/you-did-it/"/>
     </url>
     <url>
-         <loc>https://uipath-practice.github.io/AgenticPracticeCourse/invoice-matching-ixp/</loc>
-         <lastmod>2026-07-07</lastmod>
+        <loc>https://uipath-practice.github.io/AgenticPracticeCourse/invoice-matching-ixp/</loc>
+        <lastmod>2026-07-10</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://uipath-practice.github.io/AgenticPracticeCourse/invoice-matching-ixp/"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://uipath-practice.github.io/AgenticPracticeCourse/ko/invoice-matching-ixp/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://uipath-practice.github.io/AgenticPracticeCourse/zh/invoice-matching-ixp/"/>
     </url>
     <url>
-         <loc>https://uipath-practice.github.io/AgenticPracticeCourse/invoice-matching-ixp/1-create-bpmn/</loc>
-         <lastmod>2026-07-07</lastmod>
+        <loc>https://uipath-practice.github.io/AgenticPracticeCourse/invoice-matching-ixp/1-create-bpmn/</loc>
+        <lastmod>2026-07-10</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://uipath-practice.github.io/AgenticPracticeCourse/invoice-matching-ixp/1-create-bpmn/"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://uipath-practice.github.io/AgenticPracticeCourse/ko/invoice-matching-ixp/1-create-bpmn/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://uipath-practice.github.io/AgenticPracticeCourse/zh/invoice-matching-ixp/1-create-bpmn/"/>
     </url>
     <url>
-         <loc>https://uipath-practice.github.io/AgenticPracticeCourse/invoice-matching-ixp/2-configure-robot/</loc>
-         <lastmod>2026-07-07</lastmod>
+        <loc>https://uipath-practice.github.io/AgenticPracticeCourse/invoice-matching-ixp/2-configure-robot/</loc>
+        <lastmod>2026-07-10</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://uipath-practice.github.io/AgenticPracticeCourse/invoice-matching-ixp/2-configure-robot/"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://uipath-practice.github.io/AgenticPracticeCourse/ko/invoice-matching-ixp/2-configure-robot/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://uipath-practice.github.io/AgenticPracticeCourse/zh/invoice-matching-ixp/2-configure-robot/"/>
     </url>
     <url>
-         <loc>https://uipath-practice.github.io/AgenticPracticeCourse/invoice-matching-ixp/3-configure-agent/</loc>
-         <lastmod>2026-07-07</lastmod>
+        <loc>https://uipath-practice.github.io/AgenticPracticeCourse/invoice-matching-ixp/3-configure-agent/</loc>
+        <lastmod>2026-07-10</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://uipath-practice.github.io/AgenticPracticeCourse/invoice-matching-ixp/3-configure-agent/"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://uipath-practice.github.io/AgenticPracticeCourse/ko/invoice-matching-ixp/3-configure-agent/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://uipath-practice.github.io/AgenticPracticeCourse/zh/invoice-matching-ixp/3-configure-agent/"/>
     </url>
     <url>
-         <loc>https://uipath-practice.github.io/AgenticPracticeCourse/invoice-matching-ixp/4-configure-human-validation/</loc>
-         <lastmod>2026-07-07</lastmod>
+        <loc>https://uipath-practice.github.io/AgenticPracticeCourse/invoice-matching-ixp/4-configure-human-validation/</loc>
+        <lastmod>2026-07-10</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://uipath-practice.github.io/AgenticPracticeCourse/invoice-matching-ixp/4-configure-human-validation/"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://uipath-practice.github.io/AgenticPracticeCourse/ko/invoice-matching-ixp/4-configure-human-validation/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://uipath-practice.github.io/AgenticPracticeCourse/zh/invoice-matching-ixp/4-configure-human-validation/"/>
     </url>
     <url>
-         <loc>https://uipath-practice.github.io/AgenticPracticeCourse/invoice-matching-ixp/5-configure-api/</loc>
-         <lastmod>2026-07-07</lastmod>
+        <loc>https://uipath-practice.github.io/AgenticPracticeCourse/invoice-matching-ixp/5-configure-api/</loc>
+        <lastmod>2026-07-10</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://uipath-practice.github.io/AgenticPracticeCourse/invoice-matching-ixp/5-configure-api/"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://uipath-practice.github.io/AgenticPracticeCourse/ko/invoice-matching-ixp/5-configure-api/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://uipath-practice.github.io/AgenticPracticeCourse/zh/invoice-matching-ixp/5-configure-api/"/>
     </url>
     <url>
-         <loc>https://uipath-practice.github.io/AgenticPracticeCourse/invoice-matching-ixp/you-did-it/</loc>
-         <lastmod>2026-07-07</lastmod>
+        <loc>https://uipath-practice.github.io/AgenticPracticeCourse/invoice-matching-ixp/you-did-it/</loc>
+        <lastmod>2026-07-10</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://uipath-practice.github.io/AgenticPracticeCourse/invoice-matching-ixp/you-did-it/"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://uipath-practice.github.io/AgenticPracticeCourse/ko/invoice-matching-ixp/you-did-it/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://uipath-practice.github.io/AgenticPracticeCourse/zh/invoice-matching-ixp/you-did-it/"/>
+    </url>
+    <url>
+        <loc>https://uipath-practice.github.io/AgenticPracticeCourse/zh/</loc>
+        <lastmod>2026-07-10</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://uipath-practice.github.io/AgenticPracticeCourse/zh/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://uipath-practice.github.io/AgenticPracticeCourse/"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://uipath-practice.github.io/AgenticPracticeCourse/ko/"/>
+    </url>
+    <url>
+        <loc>https://uipath-practice.github.io/AgenticPracticeCourse/zh/next-steps/</loc>
+        <lastmod>2026-07-10</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://uipath-practice.github.io/AgenticPracticeCourse/zh/next-steps/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://uipath-practice.github.io/AgenticPracticeCourse/next-steps/"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://uipath-practice.github.io/AgenticPracticeCourse/ko/next-steps/"/>
+    </url>
+    <url>
+        <loc>https://uipath-practice.github.io/AgenticPracticeCourse/zh/categorizing-incidents/</loc>
+        <lastmod>2026-07-10</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://uipath-practice.github.io/AgenticPracticeCourse/zh/categorizing-incidents/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://uipath-practice.github.io/AgenticPracticeCourse/categorizing-incidents/"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://uipath-practice.github.io/AgenticPracticeCourse/ko/categorizing-incidents/"/>
+    </url>
+    <url>
+        <loc>https://uipath-practice.github.io/AgenticPracticeCourse/zh/categorizing-incidents/1-llm-with-context/</loc>
+        <lastmod>2026-07-10</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://uipath-practice.github.io/AgenticPracticeCourse/zh/categorizing-incidents/1-llm-with-context/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://uipath-practice.github.io/AgenticPracticeCourse/categorizing-incidents/1-llm-with-context/"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://uipath-practice.github.io/AgenticPracticeCourse/ko/categorizing-incidents/1-llm-with-context/"/>
+    </url>
+    <url>
+        <loc>https://uipath-practice.github.io/AgenticPracticeCourse/zh/categorizing-incidents/2-tools-and-escalations/</loc>
+        <lastmod>2026-07-10</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://uipath-practice.github.io/AgenticPracticeCourse/zh/categorizing-incidents/2-tools-and-escalations/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://uipath-practice.github.io/AgenticPracticeCourse/categorizing-incidents/2-tools-and-escalations/"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://uipath-practice.github.io/AgenticPracticeCourse/ko/categorizing-incidents/2-tools-and-escalations/"/>
+    </url>
+    <url>
+        <loc>https://uipath-practice.github.io/AgenticPracticeCourse/zh/categorizing-incidents/you-did-it/</loc>
+        <lastmod>2026-07-10</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://uipath-practice.github.io/AgenticPracticeCourse/zh/categorizing-incidents/you-did-it/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://uipath-practice.github.io/AgenticPracticeCourse/categorizing-incidents/you-did-it/"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://uipath-practice.github.io/AgenticPracticeCourse/ko/categorizing-incidents/you-did-it/"/>
+    </url>
+    <url>
+        <loc>https://uipath-practice.github.io/AgenticPracticeCourse/zh/conversational-agents/</loc>
+        <lastmod>2026-07-10</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://uipath-practice.github.io/AgenticPracticeCourse/zh/conversational-agents/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://uipath-practice.github.io/AgenticPracticeCourse/conversational-agents/"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://uipath-practice.github.io/AgenticPracticeCourse/ko/conversational-agents/"/>
+    </url>
+    <url>
+        <loc>https://uipath-practice.github.io/AgenticPracticeCourse/zh/conversational-agents/1-create-agent/</loc>
+        <lastmod>2026-07-10</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://uipath-practice.github.io/AgenticPracticeCourse/zh/conversational-agents/1-create-agent/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://uipath-practice.github.io/AgenticPracticeCourse/conversational-agents/1-create-agent/"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://uipath-practice.github.io/AgenticPracticeCourse/ko/conversational-agents/1-create-agent/"/>
+    </url>
+    <url>
+        <loc>https://uipath-practice.github.io/AgenticPracticeCourse/zh/conversational-agents/2-review-tools/</loc>
+        <lastmod>2026-07-10</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://uipath-practice.github.io/AgenticPracticeCourse/zh/conversational-agents/2-review-tools/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://uipath-practice.github.io/AgenticPracticeCourse/conversational-agents/2-review-tools/"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://uipath-practice.github.io/AgenticPracticeCourse/ko/conversational-agents/2-review-tools/"/>
+    </url>
+    <url>
+        <loc>https://uipath-practice.github.io/AgenticPracticeCourse/zh/conversational-agents/3-testing-conversations/</loc>
+        <lastmod>2026-07-10</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://uipath-practice.github.io/AgenticPracticeCourse/zh/conversational-agents/3-testing-conversations/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://uipath-practice.github.io/AgenticPracticeCourse/conversational-agents/3-testing-conversations/"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://uipath-practice.github.io/AgenticPracticeCourse/ko/conversational-agents/3-testing-conversations/"/>
+    </url>
+    <url>
+        <loc>https://uipath-practice.github.io/AgenticPracticeCourse/zh/conversational-agents/you-did-it/</loc>
+        <lastmod>2026-07-10</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://uipath-practice.github.io/AgenticPracticeCourse/zh/conversational-agents/you-did-it/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://uipath-practice.github.io/AgenticPracticeCourse/conversational-agents/you-did-it/"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://uipath-practice.github.io/AgenticPracticeCourse/ko/conversational-agents/you-did-it/"/>
+    </url>
+    <url>
+        <loc>https://uipath-practice.github.io/AgenticPracticeCourse/zh/invoice-matching-ixp/</loc>
+        <lastmod>2026-07-10</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://uipath-practice.github.io/AgenticPracticeCourse/zh/invoice-matching-ixp/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://uipath-practice.github.io/AgenticPracticeCourse/invoice-matching-ixp/"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://uipath-practice.github.io/AgenticPracticeCourse/ko/invoice-matching-ixp/"/>
+    </url>
+    <url>
+        <loc>https://uipath-practice.github.io/AgenticPracticeCourse/zh/invoice-matching-ixp/1-create-bpmn/</loc>
+        <lastmod>2026-07-10</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://uipath-practice.github.io/AgenticPracticeCourse/zh/invoice-matching-ixp/1-create-bpmn/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://uipath-practice.github.io/AgenticPracticeCourse/invoice-matching-ixp/1-create-bpmn/"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://uipath-practice.github.io/AgenticPracticeCourse/ko/invoice-matching-ixp/1-create-bpmn/"/>
+    </url>
+    <url>
+        <loc>https://uipath-practice.github.io/AgenticPracticeCourse/zh/invoice-matching-ixp/2-configure-robot/</loc>
+        <lastmod>2026-07-10</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://uipath-practice.github.io/AgenticPracticeCourse/zh/invoice-matching-ixp/2-configure-robot/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://uipath-practice.github.io/AgenticPracticeCourse/invoice-matching-ixp/2-configure-robot/"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://uipath-practice.github.io/AgenticPracticeCourse/ko/invoice-matching-ixp/2-configure-robot/"/>
+    </url>
+    <url>
+        <loc>https://uipath-practice.github.io/AgenticPracticeCourse/zh/invoice-matching-ixp/3-configure-agent/</loc>
+        <lastmod>2026-07-10</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://uipath-practice.github.io/AgenticPracticeCourse/zh/invoice-matching-ixp/3-configure-agent/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://uipath-practice.github.io/AgenticPracticeCourse/invoice-matching-ixp/3-configure-agent/"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://uipath-practice.github.io/AgenticPracticeCourse/ko/invoice-matching-ixp/3-configure-agent/"/>
+    </url>
+    <url>
+        <loc>https://uipath-practice.github.io/AgenticPracticeCourse/zh/invoice-matching-ixp/4-configure-human-validation/</loc>
+        <lastmod>2026-07-10</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://uipath-practice.github.io/AgenticPracticeCourse/zh/invoice-matching-ixp/4-configure-human-validation/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://uipath-practice.github.io/AgenticPracticeCourse/invoice-matching-ixp/4-configure-human-validation/"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://uipath-practice.github.io/AgenticPracticeCourse/ko/invoice-matching-ixp/4-configure-human-validation/"/>
+    </url>
+    <url>
+        <loc>https://uipath-practice.github.io/AgenticPracticeCourse/zh/invoice-matching-ixp/5-configure-api/</loc>
+        <lastmod>2026-07-10</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://uipath-practice.github.io/AgenticPracticeCourse/zh/invoice-matching-ixp/5-configure-api/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://uipath-practice.github.io/AgenticPracticeCourse/invoice-matching-ixp/5-configure-api/"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://uipath-practice.github.io/AgenticPracticeCourse/ko/invoice-matching-ixp/5-configure-api/"/>
+    </url>
+    <url>
+        <loc>https://uipath-practice.github.io/AgenticPracticeCourse/zh/invoice-matching-ixp/you-did-it/</loc>
+        <lastmod>2026-07-10</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://uipath-practice.github.io/AgenticPracticeCourse/zh/invoice-matching-ixp/you-did-it/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://uipath-practice.github.io/AgenticPracticeCourse/invoice-matching-ixp/you-did-it/"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://uipath-practice.github.io/AgenticPracticeCourse/ko/invoice-matching-ixp/you-did-it/"/>
+    </url>
+    <url>
+        <loc>https://uipath-practice.github.io/AgenticPracticeCourse/ko/</loc>
+        <lastmod>2026-07-10</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://uipath-practice.github.io/AgenticPracticeCourse/ko/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://uipath-practice.github.io/AgenticPracticeCourse/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://uipath-practice.github.io/AgenticPracticeCourse/zh/"/>
+    </url>
+    <url>
+        <loc>https://uipath-practice.github.io/AgenticPracticeCourse/ko/next-steps/</loc>
+        <lastmod>2026-07-10</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://uipath-practice.github.io/AgenticPracticeCourse/ko/next-steps/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://uipath-practice.github.io/AgenticPracticeCourse/next-steps/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://uipath-practice.github.io/AgenticPracticeCourse/zh/next-steps/"/>
+    </url>
+    <url>
+        <loc>https://uipath-practice.github.io/AgenticPracticeCourse/ko/categorizing-incidents/</loc>
+        <lastmod>2026-07-10</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://uipath-practice.github.io/AgenticPracticeCourse/ko/categorizing-incidents/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://uipath-practice.github.io/AgenticPracticeCourse/categorizing-incidents/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://uipath-practice.github.io/AgenticPracticeCourse/zh/categorizing-incidents/"/>
+    </url>
+    <url>
+        <loc>https://uipath-practice.github.io/AgenticPracticeCourse/ko/categorizing-incidents/1-llm-with-context/</loc>
+        <lastmod>2026-07-10</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://uipath-practice.github.io/AgenticPracticeCourse/ko/categorizing-incidents/1-llm-with-context/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://uipath-practice.github.io/AgenticPracticeCourse/categorizing-incidents/1-llm-with-context/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://uipath-practice.github.io/AgenticPracticeCourse/zh/categorizing-incidents/1-llm-with-context/"/>
+    </url>
+    <url>
+        <loc>https://uipath-practice.github.io/AgenticPracticeCourse/ko/categorizing-incidents/2-tools-and-escalations/</loc>
+        <lastmod>2026-07-10</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://uipath-practice.github.io/AgenticPracticeCourse/ko/categorizing-incidents/2-tools-and-escalations/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://uipath-practice.github.io/AgenticPracticeCourse/categorizing-incidents/2-tools-and-escalations/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://uipath-practice.github.io/AgenticPracticeCourse/zh/categorizing-incidents/2-tools-and-escalations/"/>
+    </url>
+    <url>
+        <loc>https://uipath-practice.github.io/AgenticPracticeCourse/ko/categorizing-incidents/you-did-it/</loc>
+        <lastmod>2026-07-10</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://uipath-practice.github.io/AgenticPracticeCourse/ko/categorizing-incidents/you-did-it/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://uipath-practice.github.io/AgenticPracticeCourse/categorizing-incidents/you-did-it/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://uipath-practice.github.io/AgenticPracticeCourse/zh/categorizing-incidents/you-did-it/"/>
+    </url>
+    <url>
+        <loc>https://uipath-practice.github.io/AgenticPracticeCourse/ko/conversational-agents/</loc>
+        <lastmod>2026-07-10</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://uipath-practice.github.io/AgenticPracticeCourse/ko/conversational-agents/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://uipath-practice.github.io/AgenticPracticeCourse/conversational-agents/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://uipath-practice.github.io/AgenticPracticeCourse/zh/conversational-agents/"/>
+    </url>
+    <url>
+        <loc>https://uipath-practice.github.io/AgenticPracticeCourse/ko/conversational-agents/1-create-agent/</loc>
+        <lastmod>2026-07-10</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://uipath-practice.github.io/AgenticPracticeCourse/ko/conversational-agents/1-create-agent/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://uipath-practice.github.io/AgenticPracticeCourse/conversational-agents/1-create-agent/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://uipath-practice.github.io/AgenticPracticeCourse/zh/conversational-agents/1-create-agent/"/>
+    </url>
+    <url>
+        <loc>https://uipath-practice.github.io/AgenticPracticeCourse/ko/conversational-agents/2-review-tools/</loc>
+        <lastmod>2026-07-10</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://uipath-practice.github.io/AgenticPracticeCourse/ko/conversational-agents/2-review-tools/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://uipath-practice.github.io/AgenticPracticeCourse/conversational-agents/2-review-tools/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://uipath-practice.github.io/AgenticPracticeCourse/zh/conversational-agents/2-review-tools/"/>
+    </url>
+    <url>
+        <loc>https://uipath-practice.github.io/AgenticPracticeCourse/ko/conversational-agents/3-testing-conversations/</loc>
+        <lastmod>2026-07-10</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://uipath-practice.github.io/AgenticPracticeCourse/ko/conversational-agents/3-testing-conversations/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://uipath-practice.github.io/AgenticPracticeCourse/conversational-agents/3-testing-conversations/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://uipath-practice.github.io/AgenticPracticeCourse/zh/conversational-agents/3-testing-conversations/"/>
+    </url>
+    <url>
+        <loc>https://uipath-practice.github.io/AgenticPracticeCourse/ko/conversational-agents/you-did-it/</loc>
+        <lastmod>2026-07-10</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://uipath-practice.github.io/AgenticPracticeCourse/ko/conversational-agents/you-did-it/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://uipath-practice.github.io/AgenticPracticeCourse/conversational-agents/you-did-it/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://uipath-practice.github.io/AgenticPracticeCourse/zh/conversational-agents/you-did-it/"/>
+    </url>
+    <url>
+        <loc>https://uipath-practice.github.io/AgenticPracticeCourse/ko/invoice-matching-ixp/</loc>
+        <lastmod>2026-07-10</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://uipath-practice.github.io/AgenticPracticeCourse/ko/invoice-matching-ixp/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://uipath-practice.github.io/AgenticPracticeCourse/invoice-matching-ixp/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://uipath-practice.github.io/AgenticPracticeCourse/zh/invoice-matching-ixp/"/>
+    </url>
+    <url>
+        <loc>https://uipath-practice.github.io/AgenticPracticeCourse/ko/invoice-matching-ixp/1-create-bpmn/</loc>
+        <lastmod>2026-07-10</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://uipath-practice.github.io/AgenticPracticeCourse/ko/invoice-matching-ixp/1-create-bpmn/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://uipath-practice.github.io/AgenticPracticeCourse/invoice-matching-ixp/1-create-bpmn/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://uipath-practice.github.io/AgenticPracticeCourse/zh/invoice-matching-ixp/1-create-bpmn/"/>
+    </url>
+    <url>
+        <loc>https://uipath-practice.github.io/AgenticPracticeCourse/ko/invoice-matching-ixp/2-configure-robot/</loc>
+        <lastmod>2026-07-10</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://uipath-practice.github.io/AgenticPracticeCourse/ko/invoice-matching-ixp/2-configure-robot/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://uipath-practice.github.io/AgenticPracticeCourse/invoice-matching-ixp/2-configure-robot/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://uipath-practice.github.io/AgenticPracticeCourse/zh/invoice-matching-ixp/2-configure-robot/"/>
+    </url>
+    <url>
+        <loc>https://uipath-practice.github.io/AgenticPracticeCourse/ko/invoice-matching-ixp/3-configure-agent/</loc>
+        <lastmod>2026-07-10</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://uipath-practice.github.io/AgenticPracticeCourse/ko/invoice-matching-ixp/3-configure-agent/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://uipath-practice.github.io/AgenticPracticeCourse/invoice-matching-ixp/3-configure-agent/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://uipath-practice.github.io/AgenticPracticeCourse/zh/invoice-matching-ixp/3-configure-agent/"/>
+    </url>
+    <url>
+        <loc>https://uipath-practice.github.io/AgenticPracticeCourse/ko/invoice-matching-ixp/4-configure-human-validation/</loc>
+        <lastmod>2026-07-10</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://uipath-practice.github.io/AgenticPracticeCourse/ko/invoice-matching-ixp/4-configure-human-validation/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://uipath-practice.github.io/AgenticPracticeCourse/invoice-matching-ixp/4-configure-human-validation/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://uipath-practice.github.io/AgenticPracticeCourse/zh/invoice-matching-ixp/4-configure-human-validation/"/>
+    </url>
+    <url>
+        <loc>https://uipath-practice.github.io/AgenticPracticeCourse/ko/invoice-matching-ixp/5-configure-api/</loc>
+        <lastmod>2026-07-10</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://uipath-practice.github.io/AgenticPracticeCourse/ko/invoice-matching-ixp/5-configure-api/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://uipath-practice.github.io/AgenticPracticeCourse/invoice-matching-ixp/5-configure-api/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://uipath-practice.github.io/AgenticPracticeCourse/zh/invoice-matching-ixp/5-configure-api/"/>
+    </url>
+    <url>
+        <loc>https://uipath-practice.github.io/AgenticPracticeCourse/ko/invoice-matching-ixp/you-did-it/</loc>
+        <lastmod>2026-07-10</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://uipath-practice.github.io/AgenticPracticeCourse/ko/invoice-matching-ixp/you-did-it/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://uipath-practice.github.io/AgenticPracticeCourse/invoice-matching-ixp/you-did-it/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://uipath-practice.github.io/AgenticPracticeCourse/zh/invoice-matching-ixp/you-did-it/"/>
     </url>
 </urlset>
