@@ -86,7 +86,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#modeling-business-processes-using-bpmn-canvas" class="md-skip">
+        <a href="#bpmn" class="md-skip">
           콘텐츠로 이동
         </a>
       
@@ -704,10 +704,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#goal" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Goal
+        목표
       
     </span>
   </a>
@@ -715,22 +715,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#the-2-way-matching-process" class="md-nav__link">
+  <a href="#2-way" class="md-nav__link">
     <span class="md-ellipsis">
       
-        The 2-Way Matching Process
+        2-Way 매칭 프로세스
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="The 2-Way Matching Process">
+    <nav class="md-nav" aria-label="2-Way 매칭 프로세스">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#matching-variants" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Matching Variants
+        매칭 방식의 종류
       
     </span>
   </a>
@@ -738,10 +738,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#what-youll-build" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        What You'll Build
+        무엇을 만들게 되나요
       
     </span>
   </a>
@@ -754,10 +754,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#build-the-diagram" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Build the diagram
+        다이어그램 만들기
       
     </span>
   </a>
@@ -1163,90 +1163,90 @@
 
 
 
-<h1 id="modeling-business-processes-using-bpmn-canvas">Modeling Business Processes using BPMN canvas<a class="headerlink" href="#modeling-business-processes-using-bpmn-canvas" title="Permanent link">&para;</a></h1>
+<h1 id="bpmn">BPMN 캔버스로 비즈니스 프로세스 모델링하기<a class="headerlink" href="#bpmn" title="Permanent link">&para;</a></h1>
 <div class="admonition tip">
-<p class="admonition-title">Let's start!</p>
-<p><strong>1. Review the business process that we will implement</strong></p>
-<p><strong>2. Prepare a BPMN diagram reflecting process steps</strong></p>
+<p class="admonition-title">시작해 봅시다!</p>
+<p><strong>1. 구현할 비즈니스 프로세스 살펴보기</strong></p>
+<p><strong>2. 프로세스 단계를 반영한 BPMN 다이어그램 준비하기</strong></p>
 </div>
-<h2 id="goal">Goal<a class="headerlink" href="#goal" title="Permanent link">&para;</a></h2>
-<p>In this step, you'll design the process flow diagram for the invoice matching automation. You'll review the business process, build it in the UiPath BPMN designer, and export the file for import into Maestro.</p>
-<h2 id="the-2-way-matching-process">The 2-Way Matching Process<a class="headerlink" href="#the-2-way-matching-process" title="Permanent link">&para;</a></h2>
-<p>2-way matching is one of the most common processes in finance — validating a supplier invoice against the original Purchase Order.</p>
-<p>Here are the common steps:</p>
+<h2 id="_1">목표<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>이 단계에서는 인보이스 매칭 자동화의 프로세스 흐름 다이어그램을 설계합니다. 비즈니스 프로세스를 살펴보고, UiPath BPMN 디자이너에서 다이어그램을 만든 다음, Maestro로 가져올 수 있도록 파일을 내보냅니다.</p>
+<h2 id="2-way">2-Way 매칭 프로세스<a class="headerlink" href="#2-way" title="Permanent link">&para;</a></h2>
+<p>2-way 매칭은 재무 부서에서 가장 흔한 프로세스 중 하나입니다. 공급업체 인보이스를 원본 구매 주문(PO)과 대조해 검증하는 일입니다.</p>
+<p>일반적인 단계는 다음과 같습니다.</p>
 <ol>
-<li><strong>Purchase Order creation</strong> — the purchasing department creates a formal PO with item descriptions, quantities, unit prices, and agreed payment terms.</li>
-<li><strong>Invoice receipt and data entry</strong> — after the vendor delivers goods or services, they submit an invoice. The Accounts Payable team receives it and enters the data into the accounting system, often via automated extraction (OCR + IXP).</li>
-<li><strong>Document validation</strong> — the AP team retrieves the original PO and compares it against the invoice, checking for consistency in key fields: PO number, total amount, price, and line items.<ul>
-<li>Companies often set tolerance levels (e.g., a 5% price variance) to determine if minor differences are acceptable. If within tolerance, the invoice moves to approval; otherwise, it is flagged.</li>
-<li>A single PO may be covered by multiple invoices (partial delivery).</li>
+<li><strong>구매 주문(PO) 생성</strong> — 구매 부서가 품목 설명, 수량, 단가, 합의된 지불 조건을 담은 공식 PO를 만듭니다.</li>
+<li><strong>인보이스 수신 및 데이터 입력</strong> — 공급업체가 상품이나 서비스를 납품한 뒤 인보이스를 제출합니다. Accounts Payable(외상매입) 팀이 이를 받아 회계 시스템에 데이터를 입력하며, 이때 자동 추출(OCR + IXP)을 활용하는 경우가 많습니다.</li>
+<li><strong>문서 검증</strong> — AP 팀이 원본 PO를 찾아 인보이스와 비교하면서 핵심 필드의 일치 여부를 확인합니다: PO 번호, 총액, 가격, 라인 아이템.<ul>
+<li>사소한 차이를 허용할지 판단하기 위해 허용 오차(예: 가격 편차 5%)를 정해 두는 회사가 많습니다. 허용 범위 안이면 인보이스는 승인 단계로 넘어가고, 벗어나면 플래그가 지정됩니다.</li>
+<li>하나의 PO가 여러 인보이스로 나뉘어 청구될 수도 있습니다(부분 납품).</li>
 </ul>
 </li>
-<li><strong>Approval or exception handling</strong> — a matching invoice is approved for payment. If a discrepancy exists, the invoice is placed on hold and sent for investigation.</li>
-<li><strong>Payment processing and documentation</strong> — the approved invoice is scheduled for payment. All records are stored together for audit purposes.</li>
+<li><strong>승인 또는 예외 처리</strong> — 매칭에 성공한 인보이스는 지불이 승인됩니다. 불일치가 있으면 인보이스는 보류 상태로 전환되어 조사 대상이 됩니다.</li>
+<li><strong>지불 처리 및 문서 보관</strong> — 승인된 인보이스는 지불 일정에 등록됩니다. 모든 기록은 감사 목적으로 함께 보관됩니다.</li>
 </ol>
-<h3 id="matching-variants">Matching Variants<a class="headerlink" href="#matching-variants" title="Permanent link">&para;</a></h3>
+<h3 id="_2">매칭 방식의 종류<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
-<th>Variant</th>
-<th>Documents compared</th>
+<th>방식</th>
+<th>비교하는 문서</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><strong>2-way</strong></td>
-<td>Invoice + Purchase Order</td>
+<td>인보이스 + 구매 주문(PO)</td>
 </tr>
 <tr>
 <td><strong>3-way</strong></td>
-<td>Invoice + PO + Goods Receipt Note</td>
+<td>인보이스 + PO + 입고 확인서(Goods Receipt Note)</td>
 </tr>
 <tr>
 <td><strong>4-way</strong></td>
-<td>Invoice + PO + Goods Receipt Note + Inspection Report</td>
+<td>인보이스 + PO + 입고 확인서 + 검수 보고서(Inspection Report)</td>
 </tr>
 </tbody>
 </table>
-<p>Every company has customizations depending on their ERP and industry. This exercise focuses on 2-way matching.</p>
-<h3 id="what-youll-build">What You'll Build<a class="headerlink" href="#what-youll-build" title="Permanent link">&para;</a></h3>
-<p>For this exercise, focus on steps 2–4. The simplified process:</p>
+<p>ERP와 업종에 따라 회사마다 커스터마이징이 다릅니다. 이번 실습은 2-way 매칭에 집중합니다.</p>
+<h3 id="_3">무엇을 만들게 되나요<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>이번 실습에서는 2–4단계에 집중합니다. 단순화한 프로세스는 다음과 같습니다.</p>
 <ol>
-<li>Supplier sends an invoice containing:<ul>
-<li><strong>Header</strong> (company name, addresses, dates, Invoice ID, PO ID, Company registration ID, etc - the usual fields).</li>
-<li><strong>Line items</strong> in a table (Product, Quantity, Price)</li>
-<li><strong>Footer</strong> (Subtotals, Totals, Tax information)</li>
+<li>공급업체가 다음 내용을 담은 인보이스를 보냅니다:<ul>
+<li><strong>헤더</strong> (회사명, 주소, 날짜, Invoice ID, PO ID, 사업자 등록 번호 등 — 흔히 보는 필드들).</li>
+<li>표 형태의 <strong>라인 아이템</strong> (Product, Quantity, Price)</li>
+<li><strong>푸터</strong> (소계, 총계, 세금 정보)</li>
 </ul>
 </li>
-<li><strong>Invoice data is compared</strong> against the linked Purchase Order. Possible outcomes:<ul>
-<li><strong>Full match:</strong> names, quantities, and prices match across all line items, company details, totals, and tax information align.</li>
-<li><strong>Failed match:</strong> discrepancies found: wrong company entity, missing line items, unmatched descriptions, or nothing in common at all.</li>
+<li><strong>인보이스 데이터를</strong> 연결된 구매 주문(PO)과 <strong>비교합니다</strong>. 가능한 결과는 다음과 같습니다:<ul>
+<li><strong>완전 일치:</strong> 모든 라인 아이템의 이름, 수량, 가격이 일치하고, 회사 정보·총계·세금 정보도 맞아떨어집니다.</li>
+<li><strong>매칭 실패:</strong> 불일치가 발견됩니다: 잘못된 회사 법인, 누락된 라인 아이템, 설명이 일치하지 않는 항목, 혹은 아예 공통점이 없는 경우.</li>
 </ul>
 </li>
-<li><strong>If the invoice and PO match</strong> (or if a human reviewed and approved it): invoice details are updated in <strong>Data Fabric</strong> and sent for payment.</li>
-<li><strong>If they don't match</strong> — a validation task is created in <strong>Action Center</strong> for the Accounts Payable team to review and then approve or reject.</li>
-<li><strong>If rejected</strong> — an email is generated and sent to the supplier with reasons and a request to fix and resubmit the invoice. The resubmitted invoice is processed following the same steps.</li>
+<li><strong>인보이스와 PO가 일치하면</strong> (또는 사람이 검토해 승인했다면): 인보이스 상세 정보가 <strong>Data Fabric</strong>에 업데이트되고 지불 처리로 넘어갑니다.</li>
+<li><strong>일치하지 않으면</strong> — Accounts Payable 팀이 검토한 뒤 승인 또는 반려할 수 있도록 <strong>Action Center</strong>에 검증 작업이 생성됩니다.</li>
+<li><strong>반려되면</strong> — 반려 사유와 함께 인보이스를 수정해 다시 제출해 달라는 요청을 담은 이메일이 생성되어 공급업체에 발송됩니다. 다시 제출된 인보이스는 같은 단계를 거쳐 처리됩니다.</li>
 </ol>
-<h2 id="build-the-diagram">Build the diagram<a class="headerlink" href="#build-the-diagram" title="Permanent link">&para;</a></h2>
+<h2 id="_4">다이어그램 만들기<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <ol>
 <li>
-<p>Open <strong><a href="https://bpmn.uipath.com/">bpmn.uipath.com</a></strong> in your browser.</p>
+<p>브라우저에서 <strong><a href="https://bpmn.uipath.com/">bpmn.uipath.com</a></strong>을 엽니다.</p>
 </li>
 <li>
-<p>Build a BPMN diagram based on the process description above. It should look similar to this:</p>
-<p><img alt="BPMN diagram for IXP invoice matching process" class="screenshot" src="../../../invoice-matching-ixp/1-create-bpmn.images/1-bpmn-diagram.png" /></p>
+<p>위 프로세스 설명을 바탕으로 BPMN 다이어그램을 만듭니다. 다음과 비슷한 모습이어야 합니다:</p>
+<p><img alt="IXP 인보이스 매칭 프로세스의 BPMN 다이어그램" class="screenshot" src="../../../invoice-matching-ixp/1-create-bpmn.images/1-bpmn-diagram.png" /></p>
 </li>
 <li>
-<p>Export the diagram as a <code>.bpmn</code> file. You'll import it into Maestro in the next step. Alternatively, download and use this <strong><a href="../../../invoice-matching-ixp/dependencies/2-Way%20Matching%20Process.bpmn">sample BPMN file</a></strong>.</p>
+<p>다이어그램을 <code>.bpmn</code> 파일로 내보냅니다. 다음 단계에서 Maestro로 가져올 예정입니다. 직접 만드는 대신 이 <strong><a href="../../../invoice-matching-ixp/dependencies/2-Way%20Matching%20Process.bpmn">샘플 BPMN 파일</a></strong>을 내려받아 사용해도 됩니다.</p>
 </li>
 </ol>
 <div class="img-cols img-cols-30">
 <div>
-<p><img alt="Wise robot" class="screenshot" src="../../../invoice-matching-ixp/1-create-bpmn.images/2-wise-robot.png" />
+<p><img alt="현명한 로봇" class="screenshot" src="../../../invoice-matching-ixp/1-create-bpmn.images/2-wise-robot.png" />
   </p>
 </div>
 <div>
-<p>In later steps, you'll connect each task in this diagram to UiPath platform components. When the process runs, Orchestrator will trigger robotic and agentic jobs — or route tasks to humans. Let's add some action into this diagram by <strong><a href="../2-configure-robot/">adding a Robot</a></strong>!
+<p>이후 단계에서 이 다이어그램의 각 작업을 UiPath 플랫폼 구성 요소에 연결합니다. 프로세스가 실행되면 Orchestrator가 로봇 작업과 에이전트 작업을 트리거하거나, 작업을 사람에게 라우팅합니다. <strong><a href="../2-configure-robot/">로봇을 추가</a></strong>해서 이 다이어그램에 액션을 더해 봅시다!
   </p>
 </div>
 </div>
@@ -1256,6 +1256,9 @@
 
 
 
+
+  
+  
 
 
 

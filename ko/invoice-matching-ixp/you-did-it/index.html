@@ -86,7 +86,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#you-did-it" class="md-skip">
+        <a href="#_1" class="md-skip">
           콘텐츠로 이동
         </a>
       
@@ -844,10 +844,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#what-you-built" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        What you built
+        무엇을 만들었나요
       
     </span>
   </a>
@@ -855,22 +855,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#next-steps" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Next steps
+        다음 단계
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Next steps">
+    <nav class="md-nav" aria-label="다음 단계">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-publish-and-run-your-process-from-maestro-dashboard" class="md-nav__link">
+  <a href="#1-maestro" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. Publish and run your process from Maestro dashboard
+        1. Maestro 대시보드에서 프로세스 게시하고 실행하기
       
     </span>
   </a>
@@ -878,10 +878,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-explore-maestro-analytics" class="md-nav__link">
+  <a href="#2-maestro" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Explore Maestro analytics
+        2. Maestro 분석 살펴보기
       
     </span>
   </a>
@@ -894,10 +894,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#keep-iterating" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Keep iterating
+        계속 다듬어 보세요
       
     </span>
   </a>
@@ -905,10 +905,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#learn-more" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Learn more
+        더 알아보기
       
     </span>
   </a>
@@ -1174,103 +1174,103 @@
 
 
 
-<h1 id="you-did-it">You did it!<a class="headerlink" href="#you-did-it" title="Permanent link">&para;</a></h1>
+<h1 id="_1">해냈습니다!<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 <div class="admonition tip">
-<p class="admonition-title">Congratulations!</p>
-<p>You've built a complete agentic invoice-matching process from scratch.</p>
+<p class="admonition-title">축하합니다!</p>
+<p>완전한 에이전틱 인보이스 매칭 프로세스를 처음부터 만들어 냈습니다.</p>
 </div>
 <hr />
-<h2 id="what-you-built">What you built<a class="headerlink" href="#what-you-built" title="Permanent link">&para;</a></h2>
-<p>Everything works as planned! The process is now complete — it retrieves invoice PDFs, extracts and validates data using IXP, routes exceptions to human review, sends rejection emails, and stores approved records for payment processing. All orchestrated by Maestro.</p>
-<p>Using UiPath Platform services has never been so easy!</p>
-<p>Summary:</p>
+<h2 id="_2">무엇을 만들었나요<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>모든 것이 계획대로 동작합니다! 이제 프로세스가 완성되었습니다. 인보이스 PDF를 가져오고, IXP로 데이터를 추출·검증하고, 예외를 휴먼 검토로 라우팅하고, 반려 이메일을 보내고, 승인된 레코드를 지불 처리를 위해 저장합니다. 이 모든 것을 Maestro가 오케스트레이션합니다.</p>
+<p>UiPath Platform 서비스를 활용하는 일이 이렇게 쉬웠던 적은 없습니다!</p>
+<p>요약:</p>
 <table>
 <thead>
 <tr>
-<th>Component</th>
-<th>Role</th>
+<th>구성 요소</th>
+<th>역할</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>Robot</strong></td>
-<td>Retrieves an invoice PDF from the Storage Bucket</td>
+<td><strong>로봇</strong></td>
+<td>Storage Bucket에서 인보이스 PDF 가져오기</td>
 </tr>
 <tr>
-<td><strong>AI Agent</strong></td>
-<td>Extracts data with IXP, looks up the Purchase Order, and runs 2-way matching</td>
+<td><strong>AI 에이전트</strong></td>
+<td>IXP로 데이터를 추출하고, 구매 주문(PO)을 조회하고, 2-way 매칭 실행</td>
 </tr>
 <tr>
-<td><strong>Human task</strong></td>
-<td>Presents the mismatch summary in Action Center for review</td>
+<td><strong>휴먼 작업</strong></td>
+<td>검토를 위해 Action Center에 불일치 요약 표시</td>
 </tr>
 <tr>
-<td><strong>API connectors</strong></td>
-<td>Sends the rejection email and stores approved records in Data Fabric</td>
+<td><strong>API 커넥터</strong></td>
+<td>반려 이메일을 보내고 승인된 레코드를 Data Fabric에 저장</td>
 </tr>
 </tbody>
 </table>
-<p>This is a production-pattern process. The same design — Robot → Agent → Human → API — applies to a wide range of real-world document processing scenarios.</p>
+<p>이것은 프로덕션 패턴의 프로세스입니다. 로봇 → 에이전트 → 사람 → API로 이어지는 이 설계는 다양한 실제 문서 처리 시나리오에 그대로 적용됩니다.</p>
 <hr />
-<h2 id="next-steps">Next steps<a class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h2>
-<h3 id="1-publish-and-run-your-process-from-maestro-dashboard">1. Publish and run your process from Maestro dashboard<a class="headerlink" href="#1-publish-and-run-your-process-from-maestro-dashboard" title="Permanent link">&para;</a></h3>
-<p>Your process is now complete. Publish it to your "<strong>Personal Workspace</strong>" and run it like any other UiPath process — it triggers robotic and agentic jobs automatically, in the right sequence, involving humans only when needed.</p>
+<h2 id="_3">다음 단계<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h3 id="1-maestro">1. Maestro 대시보드에서 프로세스 게시하고 실행하기<a class="headerlink" href="#1-maestro" title="Permanent link">&para;</a></h3>
+<p>프로세스가 완성되었습니다. "<strong>Personal Workspace</strong>"(개인 워크스페이스)에 게시하고 다른 UiPath 프로세스와 똑같이 실행해 보세요. 올바른 순서로 로봇 작업과 에이전트 작업이 자동으로 트리거되고, 꼭 필요할 때만 사람이 개입합니다.</p>
 <ul>
-<li>Open your solution in <strong>Studio Web</strong></li>
-<li>Publish to your <strong>Personal Workspace</strong> </li>
-<li>Trigger a run from <strong>Orchestrator</strong> or <strong>Maestro</strong></li>
-<li>Watch the execution trace end-to-end from <strong>Maestro</strong> dashboard:</li>
+<li><strong>Studio Web</strong>에서 솔루션 열기</li>
+<li><strong>Personal Workspace</strong>에 게시하기 </li>
+<li><strong>Orchestrator</strong> 또는 <strong>Maestro</strong>에서 실행 트리거하기</li>
+<li><strong>Maestro</strong> 대시보드에서 실행 트레이스를 처음부터 끝까지 지켜보기:</li>
 </ul>
-<p><img alt="Maestro instance management view showing a BPMN process map and two running process instances" class="screenshot" src="../../../invoice-matching-ixp/you-did-it.images/maestro-instance-management.png" width="900" /></p>
-<h3 id="2-explore-maestro-analytics">2. Explore Maestro analytics<a class="headerlink" href="#2-explore-maestro-analytics" title="Permanent link">&para;</a></h3>
-<p>After a few runs, head over to <strong>Maestro</strong> to explore execution details for each transaction. Here is how the analytics view looks:</p>
+<p><img alt="BPMN 프로세스 맵과 실행 중인 두 개의 프로세스 인스턴스를 보여 주는 Maestro 인스턴스 관리 화면" class="screenshot" src="../../../invoice-matching-ixp/you-did-it.images/maestro-instance-management.png" width="900" /></p>
+<h3 id="2-maestro">2. Maestro 분석 살펴보기<a class="headerlink" href="#2-maestro" title="Permanent link">&para;</a></h3>
+<p>몇 번 실행하고 나면 <strong>Maestro</strong>에서 각 트랜잭션의 실행 상세 정보를 살펴보세요. 분석 화면은 다음과 같은 내용을 보여 줍니다:</p>
 <ul>
-<li>Transaction-level execution details</li>
-<li>End-to-end process flow visualization</li>
-<li>Exception and escalation rates</li>
+<li>트랜잭션 단위 실행 상세 정보</li>
+<li>엔드투엔드 프로세스 흐름 시각화</li>
+<li>예외 및 에스컬레이션 비율</li>
 </ul>
-<p><img alt="Maestro monitoring view with heatmap overlay showing execution counts across the invoice-matching workflow" class="screenshot" src="../../../invoice-matching-ixp/you-did-it.images/maestro-monitoring-heatmap.png" width="900" /></p>
+<p><img alt="인보이스 매칭 워크플로 전반의 실행 횟수를 히트맵 오버레이로 보여 주는 Maestro 모니터링 화면" class="screenshot" src="../../../invoice-matching-ixp/you-did-it.images/maestro-monitoring-heatmap.png" width="900" /></p>
 <hr />
-<h2 id="keep-iterating">Keep iterating<a class="headerlink" href="#keep-iterating" title="Permanent link">&para;</a></h2>
-<p><strong>Improve the agent prompt</strong></p>
+<h2 id="_4">계속 다듬어 보세요<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p><strong>에이전트 프롬프트 개선하기</strong></p>
 <ul>
-<li>The current prompt misses some edge cases — similar-but-not-identical line item descriptions, for example.</li>
-<li>Modify the system prompt and re-test with the same invoices.</li>
-<li>Measure how the matching decision changes.</li>
+<li>현재 프롬프트는 몇 가지 엣지 케이스를 놓칩니다. 예를 들어 비슷하지만 완전히 같지는 않은 라인 아이템 설명 같은 경우입니다.</li>
+<li>시스템 프롬프트를 수정하고 같은 인보이스로 다시 테스트해 보세요.</li>
+<li>매칭 결정이 어떻게 달라지는지 측정해 보세요.</li>
 </ul>
-<p><strong>Test the boundaries</strong></p>
+<p><strong>한계 시험해 보기</strong></p>
 <ul>
-<li>Set <code>in_FailureProbability</code> to different values and run multiple times.</li>
-<li>Deliberately submit an invoice with a missing PO ID and observe the escalation path.</li>
+<li><code>in_FailureProbability</code>를 여러 값으로 바꿔 가며 여러 번 실행해 보세요.</li>
+<li>PO ID가 빠진 인보이스를 일부러 제출하고 에스컬레이션 경로를 관찰해 보세요.</li>
 </ul>
-<p><strong>Expand the process</strong></p>
+<p><strong>프로세스 확장하기</strong></p>
 <ul>
-<li>Add a second document type (e.g. credit notes).</li>
-<li>Introduce a new escalation path for high-value mismatches.</li>
-<li>Connect the approval path to an additional downstream system.</li>
+<li>두 번째 문서 유형(예: 대변전표) 추가하기.</li>
+<li>고액 불일치를 위한 새로운 에스컬레이션 경로 도입하기.</li>
+<li>승인 경로를 또 다른 다운스트림 시스템에 연결하기.</li>
 </ul>
-<p>The skills you practiced here — prompt engineering, agentic orchestration, human-in-the-loop design, API integration — are the building blocks of modern enterprise automation. Keep experimenting. Change the prompts. Break things. Fix them. That's how it sticks.</p>
+<p>여기서 연습한 기술 — 프롬프트 엔지니어링, 에이전틱 오케스트레이션, 휴먼 인 더 루프 설계, API 통합 — 은 현대 엔터프라이즈 자동화의 기본 재료입니다. 계속 실험하세요. 프롬프트를 바꿔 보세요. 망가뜨려 보세요. 고쳐 보세요. 그래야 진짜 자기 것이 됩니다.</p>
 <hr />
-<h2 id="learn-more">Learn more<a class="headerlink" href="#learn-more" title="Permanent link">&para;</a></h2>
+<h2 id="_5">더 알아보기<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
-<th>Resource</th>
-<th>Description</th>
+<th>리소스</th>
+<th>설명</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>UiPath Academy</td>
-<td>Official learning paths for Agent Builder and Maestro</td>
+<td>Agent Builder와 Maestro 공식 학습 경로</td>
 </tr>
 <tr>
 <td>UiPath Documentation</td>
-<td>API references, platform guides, release notes</td>
+<td>API 레퍼런스, 플랫폼 가이드, 릴리스 노트</td>
 </tr>
 <tr>
 <td>UiPath Community</td>
-<td>Forum for questions, shared automations, and tips</td>
+<td>질문, 자동화 공유, 팁을 나누는 포럼</td>
 </tr>
 </tbody>
 </table>
@@ -1280,6 +1280,9 @@
 
 
 
+
+  
+  
 
 
 

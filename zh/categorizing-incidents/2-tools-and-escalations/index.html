@@ -86,7 +86,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#tools-and-escalations" class="md-skip">
+        <a href="#_1" class="md-skip">
           跳转至
         </a>
       
@@ -561,10 +561,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#goal" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Goal
+        目标
       
     </span>
   </a>
@@ -572,10 +572,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#how-tools-work" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        How Tools Work
+        工具如何工作
       
     </span>
   </a>
@@ -583,10 +583,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#when-to-escalate" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
-        When to Escalate
+        什么时候升级
       
     </span>
   </a>
@@ -594,22 +594,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#steps" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Steps
+        步骤
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Steps">
+    <nav class="md-nav" aria-label="步骤">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-add-tool-retrieve-incident-details" class="md-nav__link">
+  <a href="#1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. Add tool: Retrieve Incident Details
+        1. 添加工具：获取事件详情
       
     </span>
   </a>
@@ -617,10 +617,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-add-tool-update-servicenow-incident" class="md-nav__link">
+  <a href="#2-servicenow" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Add tool: Update ServiceNow Incident
+        2. 添加工具：更新 ServiceNow 事件
       
     </span>
   </a>
@@ -628,10 +628,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#3-update-system-and-user-prompts" class="md-nav__link">
+  <a href="#3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. Update system and user prompts
+        3. 更新系统提示词和用户提示词
       
     </span>
   </a>
@@ -639,10 +639,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#4-using-escalations-to-get-help" class="md-nav__link">
+  <a href="#4" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. Using escalations to get help
+        4. 使用升级寻求帮助
       
     </span>
   </a>
@@ -1196,54 +1196,54 @@
 
 
 
-<h1 id="tools-and-escalations">Tools and Escalations<a class="headerlink" href="#tools-and-escalations" title="Permanent link">&para;</a></h1>
-<p><strong>Connect your agent to ServiceNow and route ambiguous cases to humans</strong></p>
+<h1 id="_1">工具与升级<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p><strong>把智能体连接到 ServiceNow，并把含糊不清的案例转交给人工处理</strong></p>
 <div class="admonition tip">
-<p class="admonition-title">What you'll do</p>
+<p class="admonition-title">你将完成的任务</p>
 <ol>
-<li>Add ServiceNow tools to retrieve incident data and update tickets with categorization results</li>
-<li>Configure escalations to route incidents the agent cannot confidently categorize to human reviewers</li>
-<li>Test the complete workflow with sample incidents and review escalations in Action Center</li>
+<li>添加 ServiceNow 工具，用于获取事件数据，并把分类结果更新到工单</li>
+<li>配置升级，把智能体没有把握分类的事件转交给人工审核者</li>
+<li>用示例事件测试完整工作流，并在 Action Center 中查看升级任务</li>
 </ol>
 </div>
-<h2 id="goal">Goal<a class="headerlink" href="#goal" title="Permanent link">&para;</a></h2>
-<p>Add ServiceNow tools to your agent so it can retrieve and update live incident data in external applications via their APIs. Then configure an escalation path that routes cases the agent cannot confidently categorize to a human reviewer via <strong>Action Center</strong>.</p>
-<h2 id="how-tools-work">How Tools Work<a class="headerlink" href="#how-tools-work" title="Permanent link">&para;</a></h2>
-<p>Current version of Agent is good at making decisions and analyzing data. But it can't go and interact with databases and applications.. at least not yet! Tools extend what your agent can do. Instead of only analyzing text, the agent can now call external systems — querying ServiceNow for incident data and writing the categorization result back. </p>
-<p>In order for Agent to interact with external systems we will add necessary Tools:</p>
+<h2 id="_2">目标<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>为智能体添加 ServiceNow 工具，让它能通过 API 获取和更新外部应用中的实时事件数据。然后配置一条升级路径，把智能体没有把握分类的案例通过 <strong>Action Center</strong> 转交给人工审核者。</p>
+<h2 id="_3">工具如何工作<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>当前版本的智能体擅长做决策和分析数据。但它还不能自己去和数据库、应用程序打交道……至少现在还不行！工具扩展了智能体的能力。有了工具，智能体不再只能分析文本，还可以调用外部系统——从 ServiceNow 查询事件数据，并把分类结果写回去。</p>
+<p>为了让智能体与外部系统交互，我们要添加几个必要的工具：</p>
 <ul>
 <li>
-<p><strong>Retrieve Incident details</strong>: the data that we want the Agent to analyze is inside ServiceNow and we need to retrieve it.</p>
+<p><strong>获取事件详情</strong>：我们希望智能体分析的数据存放在 ServiceNow 里，需要先把它取回来。</p>
 </li>
 <li>
-<p><strong>Update Incident details</strong>: after categorization, we need to update Incident data in ServiceNow.</p>
+<p><strong>更新事件详情</strong>：分类完成后，需要把事件数据更新回 ServiceNow。</p>
 </li>
 </ul>
-<p>Each tool must have a description that tells the agent when and how to use it. Descriptions are important!</p>
-<h2 id="when-to-escalate">When to Escalate<a class="headerlink" href="#when-to-escalate" title="Permanent link">&para;</a></h2>
-<p>Escalation is not a failure — it is a design choice. Use it whenever the agent cannot establish a clear category and subcategory from the incident description. A well-configured escalation path is more valuable than an agent that guesses.</p>
-<h2 id="steps">Steps<a class="headerlink" href="#steps" title="Permanent link">&para;</a></h2>
-<h3 id="1-add-tool-retrieve-incident-details">1. Add tool: Retrieve Incident Details<a class="headerlink" href="#1-add-tool-retrieve-incident-details" title="Permanent link">&para;</a></h3>
-<p>There are various kinds of Tools available in UiPath platform - Integration Service activities, RPA Processes, other Agents, MCP servers..</p>
-<p>First tool we will need is based on Integration Service - find "Search Incidents by Incident Number" in ServiceNow catalog. This tool will look up complete Incident Details by Incident Number.</p>
-<p>Open your agent in <strong>Agent Builder</strong> and go to the <strong>Tools</strong> tab, or click "<strong>+</strong>" in canvas mode. Add the <strong>Search Incidents by Incident Number</strong> tool from the ServiceNow catalog:</p>
-<p><img alt="ServiceNow tool catalog with Search Incidents tool selected" class="screenshot" src="../../../categorizing-incidents/2-tools-and-escalations.images/1-search-incidents-tool-W.png" width="900" /></p>
+<p>每个工具都要有描述，告诉智能体什么时候用、怎么用。描述非常重要！</p>
+<h2 id="_4">什么时候升级<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p>升级不是失败，而是一种设计选择。只要智能体无法从事件描述中确定明确的类别和子类别，就应该升级。一条配置得当的升级路径，比一个靠猜的智能体更有价值。</p>
+<h2 id="_5">步骤<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<h3 id="1">1. 添加工具：获取事件详情<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
+<p>UiPath 平台提供多种类型的工具——Integration Service 活动、RPA 流程、其他智能体、MCP 服务器……</p>
+<p>我们需要的第一个工具基于 Integration Service——在 ServiceNow 目录中找到 "Search Incidents by Incident Number"。这个工具会根据 Incident Number（事件编号）查出完整的事件详情。</p>
+<p>在 <strong>Agent Builder</strong> 中打开你的智能体，进入 <strong>Tools</strong> 选项卡；如果你在 Canvas 模式下，点击 "<strong>+</strong>"。从 ServiceNow 目录中添加 <strong>Search Incidents by Incident Number</strong> 工具：</p>
+<p><img alt="在 ServiceNow 工具目录中选中 Search Incidents 工具" class="screenshot" src="../../../categorizing-incidents/2-tools-and-escalations.images/1-search-incidents-tool-W.png" width="900" /></p>
 <div class="img-cols img-cols-50">
 <div>
-<p>We also need to specify which ServiceNow <strong>Connection</strong> the tool is going to use. Integration Service Connection is a saved, authorized authentication configuration that allows services in UiPath platform to securely connect to third-party applications. </p>
-<p>Select the shared ServiceNow connection from the <strong>ServiceNow Incidents</strong> folder.
+<p>我们还需要指定这个工具使用哪个 ServiceNow <strong>Connection</strong>（连接）。Integration Service 连接是一份已保存、已授权的身份验证配置，让 UiPath 平台中的各项服务能够安全地连接第三方应用。</p>
+<p>从 <strong>ServiceNow Incidents</strong> 文件夹中选择共享的 ServiceNow 连接。
   </p>
 </div>
 <div>
-<p><img alt="Shared ServiceNow connection selected" class="screenshot" src="../../../categorizing-incidents/2-tools-and-escalations.images/2-servicenow-connection.png" />
+<p><img alt="已选择共享的 ServiceNow 连接" class="screenshot" src="../../../categorizing-incidents/2-tools-and-escalations.images/2-servicenow-connection.png" />
   </p>
 </div>
 </div>
-<h3 id="2-add-tool-update-servicenow-incident">2. Add tool: Update ServiceNow Incident<a class="headerlink" href="#2-add-tool-update-servicenow-incident" title="Permanent link">&para;</a></h3>
-<p>Add the <strong>UpdateServiceNowIncident</strong> tool same way. Note that's an existing RPA process that should be already published to Orchestrator in folder "<strong>ServiceNow Incidents</strong>". This tool is going to be used by the agent to update the ServiceNow incidents, after categorization is done.</p>
+<h3 id="2-servicenow">2. 添加工具：更新 ServiceNow 事件<a class="headerlink" href="#2-servicenow" title="Permanent link">&para;</a></h3>
+<p>用同样的方式添加 <strong>UpdateServiceNowIncident</strong> 工具。注意，这是一个现成的 RPA 流程，应该已经发布到 Orchestrator 的 "<strong>ServiceNow Incidents</strong>" 文件夹中。分类完成后，智能体会用这个工具更新 ServiceNow 事件。</p>
 <div class="img-cols img-cols-50">
 <div>
-<p>Configure its argument descriptions as follows:</p>
+<p>按如下方式配置它的参数描述：</p>
 <p><div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="hll"><span class="nt">Assignee</span><span class="w"> </span>
 </span></code></pre></div>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Assignee email address
@@ -1263,34 +1263,34 @@
   </p>
 </div>
 <div>
-<p><img alt="UpdateServiceNowIncident tool configured with argument descriptions" class="screenshot" src="../../../categorizing-incidents/2-tools-and-escalations.images/3-update-tool-configured.png" />
+<p><img alt="已配置好参数描述的 UpdateServiceNowIncident 工具" class="screenshot" src="../../../categorizing-incidents/2-tools-and-escalations.images/3-update-tool-configured.png" />
   </p>
 </div>
 </div>
 <div class="admonition tip">
-<p class="admonition-title">Note!</p>
-<p>A ServiceNow incident has two identifiers: <strong>ID</strong> (a unique string like <code>36155...53afb2</code>) and <strong>Number</strong> (a human-readable label like <code>INC0111888</code>). The update tool requires the <strong>ID</strong>, not the <strong>Number</strong>. Just like humans, LLM can confuse those and this will result in errors, which we don't want. LLM will map arguments based on <strong>names and descriptions</strong>, so description is the right place to add this clarification.</p>
+<p class="admonition-title">注意！</p>
+<p>ServiceNow 事件有两个标识符：<strong>ID</strong>（形如 <code>36155...53afb2</code> 的唯一字符串）和 <strong>Number</strong>（形如 <code>INC0111888</code> 的人类可读编号）。更新工具需要的是 <strong>ID</strong>，而不是 <strong>Number</strong>。和人一样，LLM 也可能把两者搞混，从而导致错误——这可不是我们想要的。LLM 会根据<strong>名称和描述</strong>来映射参数，所以描述正是补充这条说明的最佳位置。</p>
 </div>
-<h3 id="3-update-system-and-user-prompts">3. Update system and user prompts<a class="headerlink" href="#3-update-system-and-user-prompts" title="Permanent link">&para;</a></h3>
-<p>You'll now simplify the agent's input arguments. With the tools you've added, the agent can retrieve incident details from ServiceNow directly, so you no longer need to pass descriptions as arguments. Update the input arguments to accept only the Incident Number instead:</p>
+<h3 id="3">3. 更新系统提示词和用户提示词<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
+<p>现在来简化智能体的输入参数。有了刚添加的工具，智能体可以直接从 ServiceNow 获取事件详情，你不再需要把描述作为参数传入。把输入参数改为只接收 Incident Number：</p>
 <div class="img-cols img-cols-30">
 <div>
-<p>Name:
+<p>Name（名称）：
 <div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="hll"><span class="nt">IncidentNumber</span>
 </span></code></pre></div>
   </p>
 </div>
 <div>
-<p>Description:
+<p>Description（描述）：
 <div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>ServiceNow Incident Number
 </code></pre></div>
   </p>
 </div>
 </div>
-<p><strong>Update the User Prompt</strong> accordingly:</p>
+<p>相应地<strong>更新 User Prompt（用户提示词）</strong>：</p>
 <details class="tip">
-<summary>Review the changes</summary>
-<p>The agent now retrieves the incident from ServiceNow using the incident number. Here's what changes:
+<summary>查看改动</summary>
+<p>现在，智能体会用事件编号从 ServiceNow 获取事件。改动如下：
 <div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="gd">--- Original</span>
 <a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="gi">+++ With Search Tool</span>
 <a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>
@@ -1303,16 +1303,16 @@
 <a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a>Determine the appropriate category, subcategory, and assignee email for this incident based on the provided information.
 </code></pre></div></p>
 </details>
-<div class="highlight"><span class="filename">User Prompt that uses incident number for retrieval:</span><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>Analyze and categorize the following ServiceNow incident:
+<div class="highlight"><span class="filename">使用事件编号获取数据的 User Prompt：</span><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>Analyze and categorize the following ServiceNow incident:
 <a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>
 <a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="hll">Incident Number:  {{input.IncidentNumber}}
 </span><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>
 <a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>Determine the appropriate category, subcategory, and assignee email for this incident based on the provided information.
 </code></pre></div>
-<p>Next, we need to explain to the Agent what these tools are for and when to use them. <strong>Update System Prompt</strong>:</p>
+<p>接下来，我们要向智能体说明这些工具是做什么的、什么时候用。<strong>更新 System Prompt（系统提示词）</strong>：</p>
 <details class="tip">
-<summary>Review the changes</summary>
-<p>With the <strong>Search Incidents</strong> and <strong>UpdateServiceNowIncident</strong> tools added, the system prompt gains three new sections:
+<summary>查看改动</summary>
+<p>添加 <strong>Search Incidents</strong> 和 <strong>UpdateServiceNowIncident</strong> 工具后，系统提示词新增了三段内容：
 <div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="gd">--- Original</span>
 <a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="gi">+++ With Search and Update Tools</span>
 <a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>
@@ -1343,7 +1343,7 @@
 <a id="__codelineno-12-28" name="__codelineno-12-28" href="#__codelineno-12-28"></a><span class="w"> </span>   - Reasoning for your decisions
 </code></pre></div></p>
 </details>
-<div class="highlight"><span class="filename">System Prompt to use Search and Update tools:</span><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>You are a ServiceNow Incidents categorization agent, an AI assistant tasked with managing newly created ServiceNow incidents. Your primary responsibility is to analyze incident details and determine the correct Category, Subcategory, and Assignee email address for each incident.
+<div class="highlight"><span class="filename">使用 Search 和 Update 工具的 System Prompt：</span><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>You are a ServiceNow Incidents categorization agent, an AI assistant tasked with managing newly created ServiceNow incidents. Your primary responsibility is to analyze incident details and determine the correct Category, Subcategory, and Assignee email address for each incident.
 <a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>
 <a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="hll"><span class="gh"># Retrieve Incident details</span>
 </span><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="hll">
@@ -1369,47 +1369,47 @@
 <a id="__codelineno-13-24" name="__codelineno-13-24" href="#__codelineno-13-24"></a><span class="k">-</span><span class="w"> </span>Assignee Email
 <a id="__codelineno-13-25" name="__codelineno-13-25" href="#__codelineno-13-25"></a><span class="k">-</span><span class="w"> </span>Reasoning for your decisions
 </code></pre></div>
-<p>With this setup we should have given agent necessary instructions, related tools, and context for analysis. Time to give it a try using some ServiceNow incidents!</p>
-<p>Open <strong><a href="https://cloud.uipath.com/tpenlabs/apps_/default/run/production/ef96660c-6e95-4f8f-b8b6-b1c42f06edf1/80928442-e08c-4123-8b34-68577ed98704/ID771c3646cad34360806fde5bc13a47a3?el=VB&amp;uts=true">Ticket Management App</a></strong>, update Tag with your name and app will show you all tickets generated with this Tag within last 2 days, if any. If you have no new tickets, feel free to generate few, but don't forget to set your name as Tag before hitting "Generate".</p>
-<p><img alt="Generating incidents in Ticket Management App" class="screenshot" src="../../../categorizing-incidents/2-tools-and-escalations.images/4-generate-incidents-W.png" width="900" /></p>
-<p>You can use <strong>Incident Number</strong> from the <strong>Ticket Number</strong> column of the first list as Agent's input. After processing, categorized Incidents will move to the bottom list so that you can easily validate the results.</p>
-<p><img alt="Agent test output showing all tools in use" class="screenshot" src="../../../categorizing-incidents/2-tools-and-escalations.images/5-agent-test-output-W.png" width="900" /></p>
-<p>In the <strong>Execution Trace</strong>, verify that the agent calls the Search Incidents tool, retrieves categorization context, calls the Assignee Lookup tool, and finally updates the ServiceNow incident. Every step has details for audit, and you can trace the logic of each step. And results are correct - outstanding!</p>
-<h3 id="4-using-escalations-to-get-help">4. Using escalations to get help<a class="headerlink" href="#4-using-escalations-to-get-help" title="Permanent link">&para;</a></h3>
-<p>There will always be cases where the agent cannot confidently categorize a ticket. Maybe the description lacks detail, or multiple categories seem equally valid. In those cases, escalate to a human reviewer.</p>
-<p>Let's add an escalation path - we will create an Action Center task for every Incident that can't be classified.</p>
-<p>Add an escalation path using the <strong>ServiceNow Agent Escalation App</strong> from the <strong>ServiceNow Incidents</strong> folder. </p>
-<p><img alt="Escalation app selected from ServiceNow Incidents folder" class="screenshot" src="../../../categorizing-incidents/2-tools-and-escalations.images/6-escalation-app-W.png" width="900" /></p>
+<p>到这里，我们已经给智能体配齐了必要的指令、相关工具和用于分析的上下文。是时候拿几条 ServiceNow 事件试一试了！</p>
+<p>打开 <strong><a href="https://cloud.uipath.com/tpenlabs/apps_/default/run/production/ef96660c-6e95-4f8f-b8b6-b1c42f06edf1/80928442-e08c-4123-8b34-68577ed98704/ID771c3646cad34360806fde5bc13a47a3?el=VB&amp;uts=true">Ticket Management App</a></strong>（工单管理应用），把 Tag 更新为你的名字，应用就会显示最近 2 天内用这个 Tag 生成的所有工单（如果有的话）。如果没有新工单，尽管生成几条——但在点击 "Generate" 之前，别忘了先把 Tag 设为你的名字。</p>
+<p><img alt="在 Ticket Management App 中生成事件" class="screenshot" src="../../../categorizing-incidents/2-tools-and-escalations.images/4-generate-incidents-W.png" width="900" /></p>
+<p>你可以把第一个列表 <strong>Ticket Number</strong> 列中的 <strong>Incident Number</strong> 作为智能体的输入。处理完成后，已分类的事件会移到下方列表，方便你验证结果。</p>
+<p><img alt="智能体测试输出，显示所有工具均被调用" class="screenshot" src="../../../categorizing-incidents/2-tools-and-escalations.images/5-agent-test-output-W.png" width="900" /></p>
+<p>在 <strong>Execution Trace</strong>（执行轨迹）中确认：智能体调用了 Search Incidents 工具，检索了分类上下文，调用了 Assignee Lookup 工具，最后更新了 ServiceNow 事件。每一步都留有可供审计的详细信息，你可以追踪每一步的逻辑。而且结果全部正确——太出色了！</p>
+<h3 id="4">4. 使用升级寻求帮助<a class="headerlink" href="#4" title="Permanent link">&para;</a></h3>
+<p>总会有一些工单，智能体没有把握分类。也许描述缺少细节，也许几个类别看起来都说得通。这种情况下，就升级给人工审核者。</p>
+<p>我们来添加一条升级路径——为每个无法分类的事件创建一个 Action Center 任务。</p>
+<p>使用 <strong>ServiceNow Incidents</strong> 文件夹中的 <strong>ServiceNow Agent Escalation App</strong> 添加升级路径。</p>
+<p><img alt="已从 ServiceNow Incidents 文件夹选择升级应用" class="screenshot" src="../../../categorizing-incidents/2-tools-and-escalations.images/6-escalation-app-W.png" width="900" /></p>
 <div class="img-cols img-cols-50">
 <div>
-<p>Configure the escalation tool with prompt and argument settings.</p>
-<p>Select yourself as <strong>Recipient</strong>, so that all tickets are routed to you.</p>
-<p>Set this description prompt:</p>
+<p>为升级工具配置提示词和参数设置。</p>
+<p>在 <strong>Recipient</strong>（接收人）中选择你自己，让所有工单都转到你这里。</p>
+<p>设置以下描述提示词：</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>Use this when you cannot establish category and subcategory of the Incident based on Description and Short Description.
 </code></pre></div>
-<p>Add this description for <code>in_Reasoning</code>:</p>
+<p>为 <code>in_Reasoning</code> 添加以下描述：</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>Brief explanation of the steps taken before escalating
 </code></pre></div>
-<p>Configure the escalation outcomes:</p>
+<p>配置升级的处理结果：</p>
 <ul>
-<li><strong>Submit</strong> → <strong>Continue</strong> execution</li>
-<li><strong>Stop</strong> → <strong>End</strong> execution</li>
+<li><strong>Submit</strong> → <strong>Continue</strong>（继续执行）</li>
+<li><strong>Stop</strong> → <strong>End</strong>（结束执行）</li>
 </ul>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>You probably noticed that we didn't touch arguments like <strong>in_Description</strong>. With this unambigous name and given all the context, agent will be able to figure out what to put there. Or maybe not? Our advise for production implementation: better be too "specific" than a little bit "sorry".
+<p>你可能注意到了，我们没有动 <strong>in_Description</strong> 这类参数。名字足够明确，再加上完整的上下文，智能体自己就能想明白该往里填什么。也可能想不明白？我们对生产环境实现的建议是：宁可“具体”过头，也别事后“抱歉”。
 </p>
 </div>
 </div>
 <div>
-<p><img alt="Escalation tool configuration with prompt and arguments" class="screenshot" src="../../../categorizing-incidents/2-tools-and-escalations.images/7-escalation-config.png" />
+<p><img alt="升级工具的提示词与参数配置" class="screenshot" src="../../../categorizing-incidents/2-tools-and-escalations.images/7-escalation-config.png" />
   </p>
 </div>
 </div>
-<p>Update the <strong>System Prompt</strong> to include both tool usage and escalation handling. Replace the previous system prompt with this complete version:</p>
+<p>更新 <strong>System Prompt</strong>，让它同时涵盖工具使用和升级处理。用下面这份完整版本替换之前的系统提示词：</p>
 <details class="tip">
-<summary>Review the changes</summary>
-<p>With escalations enabled, the system prompt now routes uncertain cases to humans and handles their feedback. Here's what changes:
+<summary>查看改动</summary>
+<p>启用升级后，系统提示词会把拿不准的案例转交给人工，并处理他们的反馈。改动如下：
 <div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="gd">--- With Search and Update Tools</span>
 <a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="gi">+++ With Escalation Handling</span>
 <a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>
@@ -1432,7 +1432,7 @@
 <a id="__codelineno-16-20" name="__codelineno-16-20" href="#__codelineno-16-20"></a># Summarize the actions taken.
 </code></pre></div></p>
 </details>
-<p><div class="highlight"><span class="filename">System Prompt with escalation handling:</span><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>You are a ServiceNow Incidents categorization agent, an AI assistant tasked with managing newly created ServiceNow incidents. Your primary responsibility is to analyze incident details and determine the correct Category, Subcategory, and Assignee email address for each incident.
+<p><div class="highlight"><span class="filename">带升级处理的 System Prompt：</span><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>You are a ServiceNow Incidents categorization agent, an AI assistant tasked with managing newly created ServiceNow incidents. Your primary responsibility is to analyze incident details and determine the correct Category, Subcategory, and Assignee email address for each incident.
 <a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>
 <a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="gh"># Retrieve Incident details</span>
 <a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>
@@ -1460,26 +1460,29 @@
 <a id="__codelineno-17-26" name="__codelineno-17-26" href="#__codelineno-17-26"></a><span class="k">-</span><span class="w"> </span>Assignee Email
 <a id="__codelineno-17-27" name="__codelineno-17-27" href="#__codelineno-17-27"></a><span class="k">-</span><span class="w"> </span>Reasoning for your decisions
 </code></pre></div>
-Now use any incident that Agent was unable to classify before in order to trigger an escalation. Good example is this one:</p>
+现在，用任何一条智能体之前无法分类的事件来触发升级。下面就是个好例子：</p>
 <ul>
 <li><strong>Short Description:</strong> <code>I would like to talk with a manager</code></li>
 <li><strong>Description:</strong> <code>Every time I reach out to this team, the response time is really long, seriously affecting my productivity. I would like to talk with a manager please.</code></li>
 </ul>
-<p>Definitely there is no way to map this text to any category, so Agent should escalate. </p>
-<p>Run the agent with this incident number if you have it, or generate few more tickets to get one. The agent should recognize it cannot confidently categorize this incident and trigger the escalation, creating a task in <strong>Action Center</strong> for a human reviewer.</p>
-<p><em>(Hint: If it doesn't escalate - validate your prompt once again to include escalation instructions)</em>
-<img alt="Escalation triggered for ambiguous incident" class="screenshot" src="../../../categorizing-incidents/2-tools-and-escalations.images/8-escalation-triggered-W.png" width="900" /></p>
-<p>In <strong>Action Center</strong>, the human reviewer will see the incident details and category/subcategory options. After they select a category and submit, the agent will complete the assignment using the Assignee Lookup automation and update the ticket in ServiceNow.</p>
-<p><img alt="Action Center task created for the escalated incident" class="screenshot" src="../../../categorizing-incidents/2-tools-and-escalations.images/9-action-center-escalation-W.png" width="900" /></p>
-<p>Guess, which parameter affects Agent's confidence when assigning categories? Try to tune it and see if incidents that were successfully categorized previously can lead to Escalation. <em>Hint: it's the Context settings.</em></p>
-<p>Agent is now ready to use, so you have completed your first Agent with UiPath Agent Builder! It retrieves incident details from ServiceNow, categorizes them using grounded context, updates the ticket, and escalates when it cannot determine a clear category.</p>
-<p><strong>Congratulations and well done!</strong></p>
+<p>这段文字显然没法对应到任何类别，所以智能体应该升级。</p>
+<p>如果你手头有这样的事件编号，就用它运行智能体；没有的话，再多生成几条工单，总会碰到一条。智能体应该会意识到自己没有把握给这条事件分类，于是触发升级，在 <strong>Action Center</strong> 中为人工审核者创建一个任务。</p>
+<p><em>（提示：如果没有触发升级，请再检查一遍你的提示词，确认里面包含升级指令）</em>
+<img alt="为含糊不清的事件触发了升级" class="screenshot" src="../../../categorizing-incidents/2-tools-and-escalations.images/8-escalation-triggered-W.png" width="900" /></p>
+<p>在 <strong>Action Center</strong> 中，人工审核者会看到事件详情以及类别/子类别选项。等他们选好类别并提交，智能体就会用 Assignee Lookup 自动化完成指派，并更新 ServiceNow 中的工单。</p>
+<p><img alt="为升级的事件创建的 Action Center 任务" class="screenshot" src="../../../categorizing-incidents/2-tools-and-escalations.images/9-action-center-escalation-W.png" width="900" /></p>
+<p>猜猜看，哪个参数会影响智能体分配类别时的信心？试着调一调，看看之前能成功分类的事件会不会也走向升级。<em>提示：就在 Context 设置里。</em></p>
+<p>智能体现在可以投入使用了——你已经用 UiPath Agent Builder 完成了自己的第一个智能体！它能从 ServiceNow 获取事件详情，基于关联上下文进行分类，更新工单，并在无法确定明确类别时升级求助。</p>
+<p><strong>恭喜你，干得漂亮！</strong></p>
 
 
 
 
 
 
+
+  
+  
 
 
 

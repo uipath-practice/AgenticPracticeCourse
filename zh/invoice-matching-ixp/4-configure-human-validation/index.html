@@ -86,7 +86,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#involving-humans-only-when-necessary" class="md-skip">
+        <a href="#_1" class="md-skip">
           跳转至
         </a>
       
@@ -788,10 +788,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#goal" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Goal
+        目标
       
     </span>
   </a>
@@ -799,10 +799,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#humans-in-the-loop" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Humans in the Loop
+        人机协同
       
     </span>
   </a>
@@ -810,22 +810,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#steps" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Steps
+        步骤
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Steps">
+    <nav class="md-nav" aria-label="步骤">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-import-the-validation-app" class="md-nav__link">
+  <a href="#1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. Import the validation app
+        1. 导入验证应用
       
     </span>
   </a>
@@ -833,10 +833,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-configure-the-human-task-in-maestro" class="md-nav__link">
+  <a href="#2-maestro" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Configure the human task in Maestro
+        2. 在 Maestro 中配置人工任务
       
     </span>
   </a>
@@ -844,10 +844,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#3-configure-the-gateway-decision" class="md-nav__link">
+  <a href="#3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. Configure the gateway decision
+        3. 配置网关决策
       
     </span>
   </a>
@@ -855,10 +855,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#4-test-the-human-validation-flow" class="md-nav__link">
+  <a href="#4" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. Test the human validation flow
+        4. 测试人工验证流程
       
     </span>
   </a>
@@ -1185,168 +1185,171 @@
 
 
 
-<h1 id="involving-humans-only-when-necessary">Involving humans only when necessary<a class="headerlink" href="#involving-humans-only-when-necessary" title="Permanent link">&para;</a></h1>
+<h1 id="_1">只在必要时才让人参与<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 <div class="admonition tip">
-<p class="admonition-title">Here is our plan for this lesson:</p>
+<p class="admonition-title">本课的计划如下：</p>
 <ol>
 <li>
-<p>Import validation Action App into our project.</p>
+<p>把验证用的 Action App 导入我们的项目。</p>
 </li>
 <li>
-<p>Configure the process flow so that if the Agent fails to match Invoice and PO, an Action Center Task is created allowing a human to make a decision.</p>
+<p>配置流程走向：当智能体无法匹配发票和 PO 时，创建一个 Action Center 任务，让人来做决定。</p>
 </li>
 <li>
-<p>Based on the App Action (Approve or Reject), direct the flow further.</p>
+<p>根据 App Action（Approve 或 Reject）引导流程的后续走向。</p>
 </li>
 <li>
-<p><em>(Optional)</em> Improve the Agent's prompt to handle some edge cases.</p>
+<p><em>（可选）</em>改进智能体的提示词，处理一些边缘情况。</p>
 </li>
 </ol>
 </div>
-<h2 id="goal">Goal<a class="headerlink" href="#goal" title="Permanent link">&para;</a></h2>
-<p>Add a human validation step on the <strong>Failed Match</strong> path. When the agent flags a mismatch, a reviewer in <strong>Action Center</strong> sees a summary with both documents and chooses to approve or reject the invoice. The workflow resumes based on their decision.</p>
-<h2 id="humans-in-the-loop">Humans in the Loop<a class="headerlink" href="#humans-in-the-loop" title="Permanent link">&para;</a></h2>
-<p>In many cases where the Agent cannot determine the exact course of action, human involvement is required. Humans process tasks in <strong>Action Center</strong> using conveniently summarized inputs from Robots and Agents:</p>
+<h2 id="_2">目标<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>在 <strong>Failed Match</strong> 路径上添加一个人工验证步骤。当智能体标记出不匹配时，审核人会在 <strong>Action Center</strong> 中看到包含两份文档的摘要，并选择批准或拒绝这张发票。工作流会根据这个决定继续执行。</p>
+<h2 id="_3">人机协同<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>很多时候，智能体无法确定该怎么处理，这时就需要人的参与。人们在 <strong>Action Center</strong> 中处理任务，用的是机器人和智能体贴心汇总好的输入：</p>
 <ul>
-<li>All inputs required to make a decision should be presented on one screen — ideally we don't want business users to open applications or go back and review the execution flow.</li>
-<li>The agent's job is to prepare all inputs in the right format, so that when the time comes to ask for user inputs, the data is ready.</li>
-<li>Once the decision is made, the process execution continues to the next steps.</li>
+<li>做决定所需的全部输入都应该呈现在同一个屏幕上——理想情况下，我们不希望业务用户还要打开别的应用，或者回头翻看执行流程。</li>
+<li>智能体的职责是把所有输入准备成正确的格式，这样等到需要用户做决定时，数据已经就绪。</li>
+<li>一旦做出决定，流程就会继续执行后续步骤。</li>
 </ul>
-<p><img alt="Human validation step architecture" class="screenshot" src="../../../invoice-matching-ixp/4-configure-human-validation.images/1-validation-arguments.png" width="700" /></p>
+<p><img alt="人工验证步骤的架构" class="screenshot" src="../../../invoice-matching-ixp/4-configure-human-validation.images/1-validation-arguments.png" width="700" /></p>
 <div class="admonition note">
-<p class="admonition-title">Note on approvals</p>
-<p>In real life, it is absolutely not ok to approve an invoice and send it for payment if the Purchase Order was for something different — in some countries it's a crime. But for this practice, assume that humans can do whatever they want when it comes to this decision, with no consequences.</p>
+<p class="admonition-title">关于审批的说明</p>
+<p>现实中，如果采购订单买的是别的东西，批准这张发票并送去付款是绝对不行的——在有些国家这甚至是犯罪。但在本练习里，就当人们在这个决定上可以随心所欲，而且不用承担任何后果。</p>
 </div>
-<p>To build a nice validation interface, we need a frontend that presents the problem along with the necessary information to make a decision:</p>
+<p>要打造一个好用的验证界面，我们需要一个前端，把问题连同做决定所需的信息一起呈现出来：</p>
 <ul>
-<li>The invoice and Purchase Order should be presented side by side — ideally with discrepancies highlighted in red.</li>
-<li>The problem should be described to the human in a couple of sentences.</li>
-<li>If the decision is to reject the Invoice and send an email to the Supplier, a draft email helps save time. We already have it generated by the Agent!</li>
+<li>发票和采购订单应该并排展示——最好把差异用红色高亮出来。</li>
+<li>用一两句话向审核人说明问题所在。</li>
+<li>如果决定是拒绝发票并给供应商发邮件，一封草拟好的邮件能节省时间。这封邮件智能体已经帮我们生成好了！</li>
 </ul>
-<p>Instead of building this from scratch, we'll reuse an existing Action App template.</p>
-<p><img alt="Validation app interface showing invoice and PO comparison" class="screenshot" src="../../../invoice-matching-ixp/4-configure-human-validation.images/2-validation-app-draft-W.png" width="900" /></p>
-<h2 id="steps">Steps<a class="headerlink" href="#steps" title="Permanent link">&para;</a></h2>
-<h3 id="1-import-the-validation-app">1. Import the validation app<a class="headerlink" href="#1-import-the-validation-app" title="Permanent link">&para;</a></h3>
+<p>我们不用从零开始搭建，直接复用一个现成的 Action App 模板。</p>
+<p><img alt="验证应用界面，展示发票与 PO 的对比" class="screenshot" src="../../../invoice-matching-ixp/4-configure-human-validation.images/2-validation-app-draft-W.png" width="900" /></p>
+<h2 id="_4">步骤<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<h3 id="1">1. 导入验证应用<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
 <div class="img-cols img-cols-50">
 <div>
-<p>In your solution, click the <strong>+</strong> icon in the Explorer to add a project, then select <strong>Import existing</strong> to add a new project to the solution. Find and import the validation app template.
+<p>在你的解决方案中，点击 Explorer（资源管理器）里的 <strong>+</strong> 图标添加项目，然后选择 <strong>Import existing</strong>（导入现有项目），把新项目添加到解决方案中。找到并导入验证应用模板。
   </p>
 </div>
 <div>
-<p><img alt="Solution Explorer with import menu" class="screenshot" src="../../../invoice-matching-ixp/4-configure-human-validation.images/3-import-action-app.png" />
+<p><img alt="Solution Explorer 中的导入菜单" class="screenshot" src="../../../invoice-matching-ixp/4-configure-human-validation.images/3-import-action-app.png" />
   </p>
 </div>
 </div>
 <div class="img-cols img-cols-30">
 <div>
-<p>Find the <strong>2WM Validation App IXP Template</strong> in the list, select it, and click <strong>Add</strong>.
+<p>在列表中找到 <strong>2WM Validation App IXP Template</strong>，选中它，然后点击 <strong>Add</strong>（添加）。
   </p>
 </div>
 <div>
-<p><img alt="Add project dialog with validation template selected" class="screenshot" src="../../../invoice-matching-ixp/4-configure-human-validation.images/4-import-template.png" />
+<p><img alt="添加项目对话框中已选中验证模板" class="screenshot" src="../../../invoice-matching-ixp/4-configure-human-validation.images/4-import-template.png" />
   </p>
 </div>
 </div>
-<p>After the app appears in your solution, review its structure to understand the design approach. </p>
+<p>应用出现在你的解决方案里之后，浏览一下它的结构，理解它的设计思路。</p>
 <ul>
 <li>
-<p>Structure of the App <strong>UI elements</strong> - this is how validation task appears in front of the user.</p>
+<p>应用 <strong>UI elements</strong>（界面元素）的结构——这是验证任务呈现在用户面前的样子。</p>
 </li>
 <li>
-<p>App Actions and <strong>Action Schema</strong> - this covers possible outcomes of the user decision or action.</p>
+<p>App Actions 和 <strong>Action Schema</strong>——涵盖用户决定或操作的各种可能结果。</p>
 </li>
 <li>
-<p>App <strong>Inputs and Outputs</strong>: where data comes from, where it is used, what comes out.</p>
+<p>应用的 <strong>Inputs and Outputs</strong>（输入和输出）：数据从哪里来，用在哪里，输出什么。</p>
 </li>
 </ul>
-<p>Open the <strong>MainPage</strong> in the app designer:</p>
-<p><img alt="App designer showing the validation interface layout and components" class="screenshot" src="../../../invoice-matching-ixp/4-configure-human-validation.images/5-app-structure-W.png" width="900" /></p>
-<p>Review the app's <strong>input</strong> and <strong>output</strong> configuration. This shows what data the Agent will send in, and what the reviewer's decision will produce.</p>
-<p><img alt="App configuration showing inputs from Agent and output decisions" class="screenshot" src="../../../invoice-matching-ixp/4-configure-human-validation.images/6-app-arguments-W.png" width="900" /></p>
-<h3 id="2-configure-the-human-task-in-maestro">2. Configure the human task in Maestro<a class="headerlink" href="#2-configure-the-human-task-in-maestro" title="Permanent link">&para;</a></h3>
-<p>Go back to your <strong>Agentic Process</strong> in Maestro and configure the validation task on the <strong>Failed Match</strong> path as an Action App Task.</p>
+<p>在应用设计器中打开 <strong>MainPage</strong>：</p>
+<p><img alt="应用设计器中显示的验证界面布局和组件" class="screenshot" src="../../../invoice-matching-ixp/4-configure-human-validation.images/5-app-structure-W.png" width="900" /></p>
+<p>看看应用的 <strong>input</strong>（输入）和 <strong>output</strong>（输出）配置。它展示了智能体会送进来什么数据，审核人的决定又会产出什么。</p>
+<p><img alt="应用配置显示来自智能体的输入和输出决定" class="screenshot" src="../../../invoice-matching-ixp/4-configure-human-validation.images/6-app-arguments-W.png" width="900" /></p>
+<h3 id="2-maestro">2. 在 Maestro 中配置人工任务<a class="headerlink" href="#2-maestro" title="Permanent link">&para;</a></h3>
+<p>回到 Maestro 中你的 <strong>Agentic Process</strong>，把 <strong>Failed Match</strong> 路径上的验证任务配置为 Action App 任务。</p>
 <div class="img-cols img-cols-30">
 <div>
-<p>Select the human task node on the <strong>Failed Match</strong> path and set its action type to <strong>Create action app task</strong>. </p>
-<p>Then select the <strong>2WM Validation App IXP</strong> you just imported from the Defined resources list .
+<p>选中 <strong>Failed Match</strong> 路径上的人工任务节点，把它的操作类型设为 <strong>Create action app task</strong>（创建 Action App 任务）。</p>
+<p>然后从 Defined resources（已定义资源）列表中选中你刚导入的 <strong>2WM Validation App IXP</strong>。
   </p>
 </div>
 <div>
-<p><img alt="Maestro task properties with action app selection" class="screenshot" src="../../../invoice-matching-ixp/4-configure-human-validation.images/7-add-action-task.png" />
+<p><img alt="Maestro 任务属性中选择 Action App" class="screenshot" src="../../../invoice-matching-ixp/4-configure-human-validation.images/7-add-action-task.png" />
   </p>
 </div>
 </div>
 <div class="img-cols img-cols-50">
 <div>
-<p>Customize the task title so it's easy to identify in <strong>Action Center</strong> later — for example: <strong>Invoice Validation (Your Name)</strong>. </p>
-<p>In <strong>Advanced Options</strong>, assign the task to yourself so you don't have to search for it among unassigned tasks.
+<p>自定义任务标题，方便稍后在 <strong>Action Center</strong> 中辨认——例如：<strong>Invoice Validation (Your Name)</strong>。</p>
+<p>在 <strong>Advanced Options</strong>（高级选项）中，把任务分配给你自己，免得之后要在一堆未分配任务里翻找。
   </p>
 </div>
 <div>
-<p><img alt="Task configuration panel with title and assignee options" class="screenshot" src="../../../invoice-matching-ixp/4-configure-human-validation.images/8-configure-action-task.png" />
+<p><img alt="任务配置面板中的标题和分配人选项" class="screenshot" src="../../../invoice-matching-ixp/4-configure-human-validation.images/8-configure-action-task.png" />
   </p>
 </div>
 </div>
 <div class="img-cols img-cols-30">
 <div>
-<p>Map the Agent's outputs to the App's inputs, same way we did with agent.</p>
-<p>In the Inputs section, connect <code>out_DocumentsHTML</code> and <code>out_SuggestedResponse</code> from your Agent to the corresponding app input fields.</p>
-<p>Here you might again see the true value of following naming conventions!
+<p>把智能体的输出映射到应用的输入上，方法和之前配置智能体时一样。</p>
+<p>在 Inputs（输入）区域，把智能体的 <code>out_DocumentsHTML</code> 和 <code>out_SuggestedResponse</code> 连接到对应的应用输入字段。</p>
+<p>在这里你可能会再次体会到遵循命名约定的真正价值！
   </p>
 </div>
 <div>
-<p><img alt="Input mapping showing agent outputs connected to app inputs" class="screenshot" src="../../../invoice-matching-ixp/4-configure-human-validation.images/9-configure-action-arguments.png" />
+<p><img alt="输入映射显示智能体输出连接到应用输入" class="screenshot" src="../../../invoice-matching-ixp/4-configure-human-validation.images/9-configure-action-arguments.png" />
   </p>
 </div>
 </div>
-<p>Save the task configuration.</p>
-<h3 id="3-configure-the-gateway-decision">3. Configure the gateway decision<a class="headerlink" href="#3-configure-the-gateway-decision" title="Permanent link">&para;</a></h3>
-<p>Now configure the downstream flow based on the validation decision.</p>
-<p>Select the <strong>Exclusive Gateway</strong> that routes the process after the human task.</p>
-<p><img alt="Gateway properties showing Reject and Approve paths" class="screenshot" src="../../../invoice-matching-ixp/4-configure-human-validation.images/10-configure-gateway.png" width="800" /></p>
-<p>Set <strong>Reject</strong> as the default path, keeping in mind that a real business process might have a different approach.</p>
-<p>For the <strong>Approve</strong> path, click the Expression Editor button to configure the condition.</p>
+<p>保存任务配置。</p>
+<h3 id="3">3. 配置网关决策<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
+<p>现在来配置基于验证决定的下游流程。</p>
+<p>选中人工任务之后负责路由流程的 <strong>Exclusive Gateway</strong>（排他网关）。</p>
+<p><img alt="网关属性显示 Reject 和 Approve 路径" class="screenshot" src="../../../invoice-matching-ixp/4-configure-human-validation.images/10-configure-gateway.png" width="800" /></p>
+<p>把 <strong>Reject</strong>（拒绝）设为默认路径——记住，真实的业务流程可能会有不同的做法。</p>
+<p>对于 <strong>Approve</strong>（批准）路径，点击 Expression Editor（表达式编辑器）按钮来配置条件。</p>
 <div class="img-cols img-cols-30">
 <div>
-<p>In the Expression editor, insert the Action output variable from the human task.</p>
-<p>Enter the condition for the Approve path:</p>
+<p>在表达式编辑器中，插入来自人工任务的 Action 输出变量。</p>
+<p>为 Approve 路径输入条件：</p>
 <p><div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">vars</span><span class="p">.</span><span class="nc">action</span><span class="o">==</span><span class="s2">&quot;Approve&quot;</span>
 </code></pre></div>
   </p>
 </div>
 <div>
-<p><img alt="Expression editor with variable insertion menu" class="screenshot" src="../../../invoice-matching-ixp/4-configure-human-validation.images/11-gateway-variable.png" />
+<p><img alt="表达式编辑器中的变量插入菜单" class="screenshot" src="../../../invoice-matching-ixp/4-configure-human-validation.images/11-gateway-variable.png" />
   </p>
 </div>
 </div>
 <div class="img-cols img-cols-30">
 <div>
-<p>This routes the process to the Approve path when the reviewer approves the invoice.
+<p>这样，当审核人批准发票时，流程就会走 Approve 路径。
   </p>
 </div>
 <div>
-<p><img alt="Gateway path condition showing the expression" class="screenshot" src="../../../invoice-matching-ixp/4-configure-human-validation.images/12-gateway-expression.png" />
+<p><img alt="网关路径条件中的表达式" class="screenshot" src="../../../invoice-matching-ixp/4-configure-human-validation.images/12-gateway-expression.png" />
   </p>
 </div>
 </div>
-<h3 id="4-test-the-human-validation-flow">4. Test the human validation flow<a class="headerlink" href="#4-test-the-human-validation-flow" title="Permanent link">&para;</a></h3>
-<p>Now test the complete human validation flow. Click <strong>Debug</strong> and monitor the execution. With <code>in_FailureProbability</code> set to a high value (like 90), the invoice will frequently fail to match, triggering the human validation task.</p>
-<p>Click <strong>Debug</strong> to start the process. The execution will pause at the <strong>Manual Review and Validation</strong> task when a mismatch is detected.</p>
-<p><img alt="Maestro execution view showing process paused at the human task" class="screenshot" src="../../../invoice-matching-ixp/4-configure-human-validation.images/13-validation-test-run-W.png" width="900" /></p>
-<p>Open the action task by clicking <strong>Open app task</strong> in the Details panel. Review the side-by-side invoice and PO comparison, and make a decision.</p>
-<p><img alt="Action Center task showing the invoice validation interface" class="screenshot" src="../../../invoice-matching-ixp/4-configure-human-validation.images/14-validation-action-W.png" width="900" /></p>
-<p>Looks like Agent did a fine job. But should this invoice be approved or rejected? Click <strong>Approve and pay</strong> or <strong>Reject</strong>. As soon as you submit your decision, Maestro continues the execution down the appropriate path.</p>
-<p>Review the end-to-end process to confirm the human validation step is correctly integrated and routes based on your decision.</p>
-<p><img alt="Complete process diagram with the human validation step highlighted" class="screenshot" src="../../../invoice-matching-ixp/4-configure-human-validation.images/15-end-to-end-flow-W.gif" width="900" /></p>
-<p>Run a few more tests — try both Approve and Reject — to confirm both paths route correctly.</p>
-<p>Let's agree that the App could use a better design, but all in all — it does the job well enough.</p>
-<p>Run a couple more tests and move on to the <strong><a href="../5-configure-api/">next lesson</a></strong>. We are almost done!</p>
+<h3 id="4">4. 测试人工验证流程<a class="headerlink" href="#4" title="Permanent link">&para;</a></h3>
+<p>现在来测试完整的人工验证流程。点击 <strong>Debug</strong> 并观察执行情况。把 <code>in_FailureProbability</code> 设成较高的值（比如 90），发票就会频繁匹配失败，从而触发人工验证任务。</p>
+<p>点击 <strong>Debug</strong> 启动流程。检测到不匹配时，执行会在 <strong>Manual Review and Validation</strong> 任务处暂停。</p>
+<p><img alt="Maestro 执行视图显示流程在人工任务处暂停" class="screenshot" src="../../../invoice-matching-ixp/4-configure-human-validation.images/13-validation-test-run-W.png" width="900" /></p>
+<p>在 Details（详情）面板中点击 <strong>Open app task</strong>（打开应用任务）打开这个任务。查看发票和 PO 的并排对比，然后做出决定。</p>
+<p><img alt="Action Center 任务中的发票验证界面" class="screenshot" src="../../../invoice-matching-ixp/4-configure-human-validation.images/14-validation-action-W.png" width="900" /></p>
+<p>看起来智能体干得不错。不过这张发票该批准还是拒绝呢？点击 <strong>Approve and pay</strong>（批准并付款）或 <strong>Reject</strong>（拒绝）。你一提交决定，Maestro 就会沿着相应的路径继续执行。</p>
+<p>回顾一下端到端流程，确认人工验证步骤已正确集成，并且会根据你的决定进行路由。</p>
+<p><img alt="完整流程图中高亮显示人工验证步骤" class="screenshot" src="../../../invoice-matching-ixp/4-configure-human-validation.images/15-end-to-end-flow-W.gif" width="900" /></p>
+<p>多跑几次测试——Approve 和 Reject 都试试——确认两条路径都能正确路由。</p>
+<p>咱们承认，这个应用的设计还有提升空间，但总的来说——它足够胜任了。</p>
+<p>再多测几次，然后进入<strong><a href="../5-configure-api/">下一课</a></strong>。我们就快完成了！</p>
 
 
 
 
 
 
+
+  
+  
 
 
 

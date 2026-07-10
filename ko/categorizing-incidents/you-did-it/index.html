@@ -86,7 +86,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#you-did-it" class="md-skip">
+        <a href="#_1" class="md-skip">
           콘텐츠로 이동
         </a>
       
@@ -589,10 +589,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#what-you-built" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        What you built
+        무엇을 만들었나요
       
     </span>
   </a>
@@ -600,22 +600,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#next-steps" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Next steps
+        다음 단계
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Next steps">
+    <nav class="md-nav" aria-label="다음 단계">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-run-your-agent-on-live-incidents" class="md-nav__link">
+  <a href="#1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. Run your agent on live incidents
+        1. 실제 인시던트로 에이전트 실행하기
       
     </span>
   </a>
@@ -623,10 +623,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-connect-to-an-automated-trigger" class="md-nav__link">
+  <a href="#2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Connect to an automated trigger
+        2. 자동 트리거에 연결하기
       
     </span>
   </a>
@@ -639,10 +639,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#keep-iterating" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Keep iterating
+        계속 다듬어 보세요
       
     </span>
   </a>
@@ -650,10 +650,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#learn-more" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Learn more
+        더 알아보기
       
     </span>
   </a>
@@ -1174,125 +1174,125 @@
 
 
 
-<h1 id="you-did-it">You did it!<a class="headerlink" href="#you-did-it" title="Permanent link">&para;</a></h1>
+<h1 id="_1">해냈습니다!<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 <div class="admonition tip">
-<p class="admonition-title">Congratulations!</p>
-<p>You've built a fully functional ServiceNow incident categorization agent — grounded in real data, connected to live systems, and capable of routing ambiguous cases to humans.</p>
+<p class="admonition-title">축하합니다!</p>
+<p>실제 데이터에 근거하고, 실제 시스템에 연결되고, 모호한 케이스를 사람에게 라우팅할 수 있는 — 완전하게 동작하는 ServiceNow 인시던트 분류 에이전트를 완성했습니다.</p>
 </div>
 <hr />
-<h2 id="what-you-built">What you built<a class="headerlink" href="#what-you-built" title="Permanent link">&para;</a></h2>
-<p>Your agent takes an Incident Number, retrieves the full ticket from <strong>ServiceNow</strong>, categorizes it using a grounded context source, looks up the right assignee, and writes the result back — without a single line of code. When a ticket is too vague to classify, it escalates to a human in <strong>Action Center</strong> and resumes once the reviewer decides.</p>
+<h2 id="_2">무엇을 만들었나요<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>여러분의 에이전트는 Incident Number를 받아 <strong>ServiceNow</strong>에서 티켓 전체를 가져오고, 근거 있는 컨텍스트 소스로 분류하고, 알맞은 담당자를 조회하고, 결과를 다시 써넣습니다. 코드는 단 한 줄도 없이요. 티켓이 너무 모호해서 분류할 수 없을 때는 <strong>Action Center</strong>의 사람에게 에스컬레이션하고, 리뷰어가 결정하면 다시 이어서 진행합니다.</p>
 <table>
 <thead>
 <tr>
-<th>Component</th>
-<th>Role</th>
+<th>구성 요소</th>
+<th>역할</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>Agent</strong></td>
-<td>Analyzes incident descriptions, categorizes them using context, and orchestrates the end-to-end workflow</td>
+<td><strong>에이전트</strong></td>
+<td>인시던트 설명을 분석하고, 컨텍스트로 분류하고, 엔드투엔드 워크플로를 조율합니다</td>
 </tr>
 <tr>
 <td><strong>Context Grounding</strong></td>
-<td>Anchors category and subcategory decisions to a valid data source, eliminating hallucinations</td>
+<td>카테고리·하위 카테고리 결정을 유효한 데이터 소스에 고정해 할루시네이션을 없앱니다</td>
 </tr>
 <tr>
-<td><strong>Assignee Lookup tool</strong></td>
-<td>RPA workflow that retrieves the on-duty expert email for a given category/subcategory pair</td>
+<td><strong>Assignee Lookup 도구</strong></td>
+<td>주어진 카테고리/하위 카테고리 쌍에 대한 당직 전문가 이메일을 조회하는 RPA 워크플로</td>
 </tr>
 <tr>
-<td><strong>Search Incidents tool</strong></td>
-<td>Integration Service activity that fetches live incident details from <strong>ServiceNow</strong> by Incident Number</td>
+<td><strong>Search Incidents 도구</strong></td>
+<td>Incident Number로 <strong>ServiceNow</strong>에서 실제 인시던트 상세 정보를 가져오는 Integration Service 액티비티</td>
 </tr>
 <tr>
-<td><strong>Update Incident tool</strong></td>
-<td>RPA workflow that writes categorization results back to the ServiceNow ticket</td>
+<td><strong>Update Incident 도구</strong></td>
+<td>분류 결과를 ServiceNow 티켓에 다시 써넣는 RPA 워크플로</td>
 </tr>
 <tr>
-<td><strong>Escalation</strong></td>
-<td>Routes unclassifiable incidents to a human reviewer in <strong>Action Center</strong> and resumes on their decision</td>
+<td><strong>에스컬레이션</strong></td>
+<td>분류할 수 없는 인시던트를 <strong>Action Center</strong>의 휴먼 리뷰어에게 라우팅하고, 리뷰어의 결정에 따라 이어서 진행합니다</td>
 </tr>
 <tr>
 <td><strong>Evaluations</strong></td>
-<td>Regression tests that validate multiple categorization scenarios against expected outputs</td>
+<td>여러 분류 시나리오를 기대 출력과 비교해 검증하는 회귀 테스트</td>
 </tr>
 </tbody>
 </table>
 <hr />
-<h2 id="next-steps">Next steps<a class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h2>
-<h3 id="1-run-your-agent-on-live-incidents">1. Run your agent on live incidents<a class="headerlink" href="#1-run-your-agent-on-live-incidents" title="Permanent link">&para;</a></h3>
-<p>Your agent is ready to run on demand. Publish the solution to your <strong>Personal Workspace</strong> and trigger it from <strong>Orchestrator</strong>, passing a real Incident Number as input.</p>
+<h2 id="_3">다음 단계<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h3 id="1">1. 실제 인시던트로 에이전트 실행하기<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
+<p>에이전트는 이제 온디맨드로 실행할 준비가 되었습니다. 솔루션을 <strong>Personal Workspace</strong>에 게시하고, 실제 Incident Number를 입력으로 전달하며 <strong>Orchestrator</strong>에서 트리거하세요.</p>
 <ul>
-<li>Open the solution in <strong>Studio Web</strong></li>
-<li>Publish to your <strong>Personal Workspace</strong></li>
-<li>Trigger a run from <strong>Orchestrator</strong> and pass a live incident number</li>
-<li>Review the Execution Trace in <strong>Agent Builder</strong> to verify every step — retrieval, categorization, lookup, and update</li>
+<li><strong>Studio Web</strong>에서 솔루션을 엽니다</li>
+<li><strong>Personal Workspace</strong>에 게시합니다</li>
+<li><strong>Orchestrator</strong>에서 실행을 트리거하고 실제 인시던트 번호를 전달합니다</li>
+<li><strong>Agent Builder</strong>에서 Execution Trace를 검토해 조회, 분류, 담당자 조회, 업데이트까지 모든 단계를 확인합니다</li>
 </ul>
-<h3 id="2-connect-to-an-automated-trigger">2. Connect to an automated trigger<a class="headerlink" href="#2-connect-to-an-automated-trigger" title="Permanent link">&para;</a></h3>
-<p>Instead of running manually, wire your agent to a trigger so it fires whenever a new incident arrives.</p>
+<h3 id="2">2. 자동 트리거에 연결하기<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
+<p>수동으로 실행하는 대신, 새 인시던트가 도착할 때마다 에이전트가 실행되도록 트리거에 연결하세요.</p>
 <ul>
-<li>In <strong>Orchestrator</strong>, set up a time-based trigger or a queue</li>
-<li>Use the Incident Number as the queue item payload</li>
-<li>Watch the agent process tickets without manual input</li>
+<li><strong>Orchestrator</strong>에서 시간 기반 트리거나 큐를 설정합니다</li>
+<li>Incident Number를 큐 아이템 페이로드로 사용합니다</li>
+<li>에이전트가 수동 입력 없이 티켓을 처리하는 모습을 지켜봅니다</li>
 </ul>
 <hr />
-<h2 id="keep-iterating">Keep iterating<a class="headerlink" href="#keep-iterating" title="Permanent link">&para;</a></h2>
-<p><strong>Tune the confidence threshold</strong></p>
+<h2 id="_4">계속 다듬어 보세요<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p><strong>확신도 임곗값 조정하기</strong></p>
 <ul>
-<li>Open the Context Grounding settings and lower the confidence threshold.</li>
-<li>Watch previously confident categorizations start escalating instead.</li>
-<li>Raise it and observe more aggressive auto-classification — sometimes at the cost of accuracy.</li>
-<li>Finding the right balance is a key part of production agent design.</li>
-<li>Refine the list of categories and descriptions to reduce ambiguity.</li>
+<li>Context Grounding 설정을 열고 확신도 임곗값을 낮춰 보세요.</li>
+<li>이전에는 확신 있게 분류되던 케이스가 에스컬레이션되기 시작하는 것을 관찰하세요.</li>
+<li>임곗값을 올리면 자동 분류가 더 과감해집니다. 때로는 정확도를 대가로 치르면서요.</li>
+<li>알맞은 균형을 찾는 일은 프로덕션 에이전트 설계의 핵심입니다.</li>
+<li>카테고리 목록과 설명을 다듬어 모호함을 줄이세요.</li>
 </ul>
-<p><strong>Improve the system prompt</strong></p>
+<p><strong>시스템 프롬프트 개선하기</strong></p>
 <ul>
-<li>The current prompt escalates anything ambiguous. Try adding a fallback rule before escalation — for example, pick the closest category but flag it in <code>ExecutionDetails</code>.</li>
-<li>Add examples in the system prompt for categories that are easy to confuse (e.g., <em>Software / Email</em> vs <em>Network / DNS</em>).</li>
-<li>Re-run the Evaluation set after each change to measure the impact.</li>
+<li>현재 프롬프트는 모호한 것을 모두 에스컬레이션합니다. 에스컬레이션 전에 폴백 규칙을 추가해 보세요. 예를 들어 가장 가까운 카테고리를 고르되 <code>ExecutionDetails</code>에 표시해 두는 식입니다.</li>
+<li>혼동하기 쉬운 카테고리(예: <em>Software / Email</em> vs <em>Network / DNS</em>)에 대한 예시를 시스템 프롬프트에 추가하세요.</li>
+<li>변경할 때마다 평가 세트를 다시 실행해 영향을 측정하세요.</li>
 </ul>
-<p><strong>Expand the agent</strong></p>
+<p><strong>에이전트 확장하기</strong></p>
 <ul>
-<li>Add a second context source for a different ServiceNow table, such as Change Requests.</li>
-<li>Introduce priority routing: high-priority incidents skip normal categorization and escalate immediately.</li>
-<li>Add a post-escalation audit step that logs every human override — useful training data for future prompt improvements.</li>
+<li>Change Requests처럼 다른 ServiceNow 테이블을 위한 두 번째 컨텍스트 소스를 추가하세요.</li>
+<li>우선순위 라우팅을 도입하세요: 우선순위가 높은 인시던트는 일반 분류를 건너뛰고 즉시 에스컬레이션합니다.</li>
+<li>사람이 개입해 수정한 내용을 모두 기록하는 에스컬레이션 사후 감사 단계를 추가하세요. 향후 프롬프트 개선에 유용한 학습 데이터가 됩니다.</li>
 </ul>
-<p>The skills you practiced here — context grounding, tool integration, escalation design, prompt iteration, and regression testing with Evaluations — are the core building blocks of production-ready agentic automation. Keep experimenting. Change the prompts. Break things. Fix them.</p>
+<p>여기서 연습한 기술 — 컨텍스트 그라운딩, 도구 통합, 에스컬레이션 설계, 프롬프트 반복 개선, Evaluations를 활용한 회귀 테스트 — 은 프로덕션급 에이전틱 자동화의 핵심 빌딩 블록입니다. 계속 실험하세요. 프롬프트를 바꿔 보세요. 망가뜨려 보세요. 그리고 고치세요.</p>
 <hr />
-<h2 id="learn-more">Learn more<a class="headerlink" href="#learn-more" title="Permanent link">&para;</a></h2>
+<h2 id="_5">더 알아보기<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
-<th>Resource</th>
-<th>Description</th>
+<th>리소스</th>
+<th>설명</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><a href="https://docs.uipath.com/agents/automation-cloud/latest/user-guide/building-an-agent-in-studio-web">Building an agent in Studio Web</a></td>
-<td>Step-by-step reference for creating, configuring, and publishing agents</td>
+<td><a href="https://docs.uipath.com/agents/automation-cloud/latest/user-guide/building-an-agent-in-studio-web">Studio Web에서 에이전트 만들기</a></td>
+<td>에이전트를 만들고, 구성하고, 게시하는 단계별 레퍼런스</td>
 </tr>
 <tr>
-<td><a href="https://docs.uipath.com/agents/automation-cloud/latest/user-guide/agent-tools">Agent Tools</a></td>
-<td>How to connect Integration Service activities, RPA workflows, and other tools</td>
+<td><a href="https://docs.uipath.com/agents/automation-cloud/latest/user-guide/agent-tools">에이전트 도구</a></td>
+<td>Integration Service 액티비티, RPA 워크플로, 기타 도구를 연결하는 방법</td>
 </tr>
 <tr>
-<td><a href="https://docs.uipath.com/agents/automation-cloud/latest/user-guide/agent-contexts">Agent Contexts</a></td>
-<td>How Context Grounding works and how to configure data sources</td>
+<td><a href="https://docs.uipath.com/agents/automation-cloud/latest/user-guide/agent-contexts">에이전트 컨텍스트</a></td>
+<td>Context Grounding의 동작 방식과 데이터 소스 구성 방법</td>
 </tr>
 <tr>
-<td><a href="https://docs.uipath.com/agents/automation-cloud/latest/user-guide/agent-evaluations">Agent Evaluations</a></td>
-<td>Running regression tests to validate agent performance across scenarios</td>
+<td><a href="https://docs.uipath.com/agents/automation-cloud/latest/user-guide/agent-evaluations">에이전트 평가</a></td>
+<td>여러 시나리오에서 에이전트 성능을 검증하는 회귀 테스트 실행</td>
 </tr>
 <tr>
-<td><a href="https://docs.uipath.com/agents/automation-cloud/latest/user-guide/agent-escalations-and-agent-memory">Agent Escalations and Memory</a></td>
-<td>Configuring escalation paths and handling human-in-the-loop decisions</td>
+<td><a href="https://docs.uipath.com/agents/automation-cloud/latest/user-guide/agent-escalations-and-agent-memory">에이전트 에스컬레이션과 메모리</a></td>
+<td>에스컬레이션 경로 구성과 휴먼 인 더 루프 의사 결정 처리</td>
 </tr>
 <tr>
-<td><a href="https://docs.uipath.com/agents/automation-cloud/latest/user-guide/agent-prompts">Agent Prompts</a></td>
-<td>System and user prompt structure, best practices, and prompt variables</td>
+<td><a href="https://docs.uipath.com/agents/automation-cloud/latest/user-guide/agent-prompts">에이전트 프롬프트</a></td>
+<td>시스템·사용자 프롬프트 구조, 베스트 프랙티스, 프롬프트 변수</td>
 </tr>
 </tbody>
 </table>
@@ -1302,6 +1302,9 @@
 
 
 
+
+  
+  
 
 
 

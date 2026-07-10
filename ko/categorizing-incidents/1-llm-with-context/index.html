@@ -86,7 +86,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#llm-with-context" class="md-skip">
+        <a href="#llm" class="md-skip">
           콘텐츠로 이동
         </a>
       
@@ -533,10 +533,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#goal" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Goal
+        목표
       
     </span>
   </a>
@@ -544,10 +544,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#how-context-grounding-works" class="md-nav__link">
+  <a href="#context-grounding" class="md-nav__link">
     <span class="md-ellipsis">
       
-        How Context Grounding Works
+        Context Grounding의 동작 방식
       
     </span>
   </a>
@@ -555,10 +555,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#what-the-evaluations-step-adds" class="md-nav__link">
+  <a href="#evaluations" class="md-nav__link">
     <span class="md-ellipsis">
       
-        What the Evaluations Step Adds
+        Evaluations 단계가 더해 주는 것
       
     </span>
   </a>
@@ -566,22 +566,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#steps" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Steps
+        단계
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Steps">
+    <nav class="md-nav" aria-label="단계">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-create-and-configure-the-agent" class="md-nav__link">
+  <a href="#1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. Create and configure the agent
+        1. 에이전트 만들고 구성하기
       
     </span>
   </a>
@@ -589,10 +589,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-configure-the-agent-prompts" class="md-nav__link">
+  <a href="#2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Configure the agent prompts
+        2. 에이전트 프롬프트 구성하기
       
     </span>
   </a>
@@ -600,10 +600,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#3-add-context-grounding" class="md-nav__link">
+  <a href="#3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. Add context grounding
+        3. 컨텍스트 그라운딩 추가하기
       
     </span>
   </a>
@@ -611,10 +611,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#4-add-assignee-lookup-tool" class="md-nav__link">
+  <a href="#4" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. Add assignee lookup tool
+        4. 담당자 조회 도구 추가하기
       
     </span>
   </a>
@@ -622,10 +622,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#5-update-system-prompt" class="md-nav__link">
+  <a href="#5" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5. Update system prompt
+        5. 시스템 프롬프트 업데이트하기
       
     </span>
   </a>
@@ -633,10 +633,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#6-test-with-evaluations" class="md-nav__link">
+  <a href="#6-evaluations" class="md-nav__link">
     <span class="md-ellipsis">
       
-        6. Test with Evaluations
+        6. Evaluations로 테스트하기
       
     </span>
   </a>
@@ -1218,43 +1218,43 @@
 
 
 
-<h1 id="llm-with-context">LLM with Context<a class="headerlink" href="#llm-with-context" title="Permanent link">&para;</a></h1>
-<p><strong>Build a context-grounded ServiceNow incident categorization agent</strong></p>
+<h1 id="llm">컨텍스트를 활용한 LLM<a class="headerlink" href="#llm" title="Permanent link">&para;</a></h1>
+<p><strong>컨텍스트에 근거한 ServiceNow 인시던트 분류 에이전트 만들기</strong></p>
 <div class="admonition tip">
-<p class="admonition-title">What you'll do</p>
+<p class="admonition-title">이번 레슨에서 할 일</p>
 <ol>
-<li>Create and configure a new agent with input and output arguments</li>
-<li>Write system and user prompts, then test the agent with sample incidents</li>
-<li>Add Context Grounding to prevent hallucinations, and configure an Assignee Lookup tool</li>
-<li>Validate the agent's performance using Evaluations</li>
+<li>입력·출력 인수를 갖춘 새 에이전트를 만들고 구성합니다</li>
+<li>시스템 프롬프트와 사용자 프롬프트를 작성한 뒤, 샘플 인시던트로 에이전트를 테스트합니다</li>
+<li>할루시네이션을 막기 위해 Context Grounding(컨텍스트 그라운딩)을 추가하고, Assignee Lookup 도구를 구성합니다</li>
+<li>Evaluations(평가)로 에이전트의 성능을 검증합니다</li>
 </ol>
 </div>
-<h2 id="goal">Goal<a class="headerlink" href="#goal" title="Permanent link">&para;</a></h2>
-<p>Create a ServiceNow incident categorization agent in <strong>Agent Builder</strong>, configure its prompts, learn how to ground it in real data using <strong>Context Grounding</strong>, and build <strong>Evaluations</strong> for quality assurance and reliability testing.</p>
-<h2 id="how-context-grounding-works">How Context Grounding Works<a class="headerlink" href="#how-context-grounding-works" title="Permanent link">&para;</a></h2>
-<p>Without grounding, an LLM may produce plausible-sounding but incorrect category–subcategory pairs — combinations that don't exist in your system. Context Grounding anchors the agent to a real data source, so every decision traces back to valid entries in your context.</p>
-<p>When the agent categorizes an incident, it references actual category and subcategory combinations from your data, eliminating the risk of inventing new ones.</p>
-<h2 id="what-the-evaluations-step-adds">What the Evaluations Step Adds<a class="headerlink" href="#what-the-evaluations-step-adds" title="Permanent link">&para;</a></h2>
-<p>Evaluations let you run a batch of test cases against your agent before deploying it. You define expected outputs for a set of sample incidents, run the evaluation, and measure how well the agent performs across edge cases. This is a form of regression testing — it helps ensure that prompt changes or model upgrades don't break existing functionality.</p>
-<h2 id="steps">Steps<a class="headerlink" href="#steps" title="Permanent link">&para;</a></h2>
-<h3 id="1-create-and-configure-the-agent">1. Create and configure the agent<a class="headerlink" href="#1-create-and-configure-the-agent" title="Permanent link">&para;</a></h3>
+<h2 id="_1">목표<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p><strong>Agent Builder</strong>에서 ServiceNow 인시던트 분류 에이전트를 만들고, 프롬프트를 구성하고, <strong>Context Grounding</strong>으로 에이전트를 실제 데이터에 근거시키는 방법을 배우고, 품질 보증과 신뢰성 테스트를 위한 <strong>Evaluations</strong>를 만듭니다.</p>
+<h2 id="context-grounding">Context Grounding의 동작 방식<a class="headerlink" href="#context-grounding" title="Permanent link">&para;</a></h2>
+<p>그라운딩이 없으면 LLM은 그럴듯하게 들리지만 잘못된 카테고리–하위 카테고리 쌍, 즉 시스템에 존재하지 않는 조합을 만들어 낼 수 있습니다. Context Grounding은 에이전트를 실제 데이터 소스에 고정하므로, 모든 의사 결정이 컨텍스트의 유효한 항목으로 거슬러 올라갑니다.</p>
+<p>에이전트가 인시던트를 분류할 때 데이터에 있는 실제 카테고리·하위 카테고리 조합을 참조하므로, 새로운 조합을 지어낼 위험이 사라집니다.</p>
+<h2 id="evaluations">Evaluations 단계가 더해 주는 것<a class="headerlink" href="#evaluations" title="Permanent link">&para;</a></h2>
+<p>Evaluations를 사용하면 에이전트를 배포하기 전에 테스트 케이스 묶음을 실행해 볼 수 있습니다. 샘플 인시던트에 대한 기대 출력을 정의하고, 평가를 실행하고, 에이전트가 엣지 케이스 전반에서 얼마나 잘 동작하는지 측정합니다. 이는 일종의 회귀 테스트로, 프롬프트 변경이나 모델 업그레이드가 기존 기능을 망가뜨리지 않도록 도와줍니다.</p>
+<h2 id="_2">단계<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h3 id="1">1. 에이전트 만들고 구성하기<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
 <div class="img-cols img-cols-30">
 <div>
-<p>In <strong>Studio Web</strong>, create a new <strong>Agent Solution</strong>.
+<p><strong>Studio Web</strong>에서 새 <strong>Agent Solution</strong>을 만듭니다.
   </p>
 </div>
 <div>
-<p><img alt="Creating a new Agent in Studio Web" class="screenshot" src="../../../categorizing-incidents/1-llm-with-context.images/1-create-agent.png" />
+<p><img alt="Studio Web에서 새 에이전트 만들기" class="screenshot" src="../../../categorizing-incidents/1-llm-with-context.images/1-create-agent.png" />
   </p>
 </div>
 </div>
 <div class="admonition tip">
 <p class="admonition-title">Autopilot</p>
-<p>When you create an agent, Studio Web may suggest using Autopilot to auto-generate a solution using AI assistant. You can dismiss it and build manually (as we're doing here), or experiment with Autopilot later for practice.</p>
+<p>에이전트를 만들 때 Studio Web이 AI 어시스턴트인 Autopilot으로 솔루션을 자동 생성하자고 제안할 수 있습니다. 지금은 (여기서 하듯이) 제안을 닫고 직접 만들어도 되고, 나중에 연습 삼아 Autopilot을 실험해 봐도 좋습니다.</p>
 </div>
 <div class="img-cols img-cols-50">
 <div>
-<p>Rename the solution so that it's easier to find it later, for example:</p>
+<p>나중에 찾기 쉽도록 솔루션 이름을 바꿉니다. 예를 들면 다음과 같습니다.</p>
 <ul>
 <li>
 <p><strong>Solution Name</strong>: 
@@ -1270,17 +1270,17 @@
 </ul>
 </div>
 <div>
-<p><img alt="Renaming the agent in Explorer" class="screenshot" src="../../../categorizing-incidents/1-llm-with-context.images/2-rename-agent.png" />
+<p><img alt="Explorer에서 에이전트 이름 바꾸기" class="screenshot" src="../../../categorizing-incidents/1-llm-with-context.images/2-rename-agent.png" />
   </p>
 </div>
 </div>
 <div class="admonition tip">
-<p class="admonition-title">Arguments</p>
-<p>Agent arguments let your agent take in information about a business case and return a result, same way as any other activities or RPA processes do. This allows you to pass information from a trigger in Orchestrator or use the output of an agent to launch another automation.</p>
+<p class="admonition-title">인수</p>
+<p>에이전트 인수는 다른 액티비티나 RPA 프로세스와 마찬가지로, 에이전트가 비즈니스 케이스에 대한 정보를 받아들이고 결과를 반환할 수 있게 해 줍니다. 덕분에 Orchestrator의 트리거에서 정보를 전달하거나, 한 에이전트의 출력으로 다른 자동화를 시작할 수 있습니다.</p>
 </div>
 <div class="img-cols img-cols-50">
 <div>
-<p>Open the <strong>Data Manager</strong> panel. Add the following <strong>Input Arguments</strong>. Type should be <strong>String</strong>.
+<p><strong>Data Manager</strong> 패널을 엽니다. 다음 <strong>Input Arguments</strong>(입력 인수)를 추가합니다. 타입은 <strong>String</strong>이어야 합니다.
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="hll"><span class="nt">IncidentShortDescription</span>
 </span></code></pre></div>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Short description of the ServiceNow incident
@@ -1292,13 +1292,13 @@
   </p>
 </div>
 <div>
-<p><img alt="Input arguments configured in Data Manager" class="screenshot" src="../../../categorizing-incidents/1-llm-with-context.images/3-input-arguments.png" />
+<p><img alt="Data Manager에 구성된 입력 인수" class="screenshot" src="../../../categorizing-incidents/1-llm-with-context.images/3-input-arguments.png" />
   </p>
 </div>
 </div>
 <div class="img-cols img-cols-50">
 <div>
-<p>Next, create the following Output Arguments:
+<p>다음으로, 아래 Output Arguments(출력 인수)를 만듭니다.
 <div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="hll"><span class="nt">IncidentCategory</span>
 </span></code></pre></div>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>The category of the ServiceNow incident
@@ -1319,7 +1319,7 @@
 </div>
 <div></div>
 </div>
-<p>Luckily, you can import them at once by <strong>switching to JSON editor mode</strong> and pasting the below JSON schema:</p>
+<p>다행히 <strong>JSON 편집기 모드로 전환</strong>한 뒤 아래 JSON 스키마를 붙여넣으면 한 번에 모두 가져올 수 있습니다.</p>
 <div class="img-cols img-cols-50">
 <div>
 <p><div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="p">{</span>
@@ -1348,26 +1348,26 @@
   </p>
 </div>
 <div>
-<p><img alt="Output arguments in Data Manager JSON editor" class="screenshot" src="../../../categorizing-incidents/1-llm-with-context.images/4-output-arguments.png" />
+<p><img alt="Data Manager JSON 편집기의 출력 인수" class="screenshot" src="../../../categorizing-incidents/1-llm-with-context.images/4-output-arguments.png" />
   </p>
 </div>
 </div>
-<h3 id="2-configure-the-agent-prompts">2. Configure the agent prompts<a class="headerlink" href="#2-configure-the-agent-prompts" title="Permanent link">&para;</a></h3>
-<p>After the input and output data is defined, understand the difference between System and User prompts before writing them.</p>
-<p><strong>System Prompts</strong> provide consistent guidelines that define an agent's role and capabilities, while <strong>User Prompts</strong> direct its attention to specific tasks and input parameters. Understanding this distinction is essential for effectively designing and implementing AI agents that can perform complex tasks while maintaining appropriate operational boundaries.</p>
+<h3 id="2">2. 에이전트 프롬프트 구성하기<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
+<p>입력·출력 데이터를 정의했으니, 프롬프트를 작성하기 전에 System Prompt(시스템 프롬프트)와 User Prompt(사용자 프롬프트)의 차이부터 이해해 봅시다.</p>
+<p><strong>시스템 프롬프트</strong>는 에이전트의 역할과 능력을 정의하는 일관된 지침을 제공하고, <strong>사용자 프롬프트</strong>는 에이전트의 주의를 특정 작업과 입력 매개변수로 향하게 합니다. 이 차이를 이해하는 것은 복잡한 작업을 수행하면서도 적절한 동작 범위를 지키는 AI 에이전트를 설계하고 구현하는 데 필수적입니다.</p>
 <div class="img-cols img-cols-50">
 <div>
-<p><strong>System prompt</strong></p>
-<p>System prompt allows you to describe in natural language the agent's role, goal and constraints. You specify any rules for it to follow, and information about when it might want to use certain tools, escalations, or context.
+<p><strong>시스템 프롬프트</strong></p>
+<p>시스템 프롬프트에서는 에이전트의 역할, 목표, 제약을 자연어로 설명합니다. 에이전트가 따라야 할 규칙과, 특정 도구·에스컬레이션·컨텍스트를 언제 사용하면 좋을지에 대한 정보를 지정합니다.
   </p>
 </div>
 <div>
-<p><strong>User prompt</strong></p>
-<p>User prompts allow you to structure how the inputs/arguments are passed to the agent, and you can also show in the user prompt how we'll refer to certain inputs in the system prompt.
+<p><strong>사용자 프롬프트</strong></p>
+<p>사용자 프롬프트에서는 입력/인수를 에이전트에 전달하는 방식을 구조화합니다. 시스템 프롬프트에서 특정 입력을 어떻게 지칭할지도 사용자 프롬프트에서 보여 줄 수 있습니다.
   </p>
 </div>
 </div>
-<div class="highlight"><span class="filename">Enter the following text in the System Prompt field:</span><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="hll">You are a ServiceNow Incidents categorization agent, an AI assistant tasked with managing newly created ServiceNow incidents. Your primary responsibility is to analyze incident details and determine the correct Category, Subcategory, and Assignee email address for each incident.
+<div class="highlight"><span class="filename">System Prompt 필드에 다음 텍스트를 입력하세요:</span><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="hll">You are a ServiceNow Incidents categorization agent, an AI assistant tasked with managing newly created ServiceNow incidents. Your primary responsibility is to analyze incident details and determine the correct Category, Subcategory, and Assignee email address for each incident.
 </span><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>
 <a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="hll"><span class="gh"># Categorize the incident</span>
 </span><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>
@@ -1382,80 +1382,80 @@
 <a id="__codelineno-15-13" name="__codelineno-15-13" href="#__codelineno-15-13"></a><span class="k">-</span><span class="w"> </span>Assignee Email
 <a id="__codelineno-15-14" name="__codelineno-15-14" href="#__codelineno-15-14"></a><span class="k">-</span><span class="w"> </span>Reasoning for your decisions
 </code></pre></div>
-<div class="highlight"><span class="filename">Enter the following text in the User Prompt field:</span><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="hll">Analyze and categorize the following ServiceNow incident:
+<div class="highlight"><span class="filename">User Prompt 필드에 다음 텍스트를 입력하세요:</span><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="hll">Analyze and categorize the following ServiceNow incident:
 </span><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>
 <a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>Incident Short Description: {{input.IncidentShortDescription}}
 <a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>Incident Description:       {{input.IncidentDescription}}
 <a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>
 <a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a><span class="hll">Determine the appropriate category, subcategory, and assignee email for this incident based on the provided information.
 </span></code></pre></div>
-<p>Let's test the agent with these sample incident details to observe how it behaves without grounding. Run the agent and provide the following input arguments:</p>
+<p>그라운딩 없이 에이전트가 어떻게 동작하는지 관찰하기 위해, 아래 샘플 인시던트 정보로 테스트해 봅시다. 에이전트를 실행하고 다음 입력 인수를 제공하세요.</p>
 <div class="highlight"><span class="filename">Short Description:</span><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="nt">CRM</span><span class="w"> </span><span class="nt">software</span><span class="w"> </span><span class="nt">crashes</span><span class="w"> </span><span class="nt">on</span><span class="w"> </span><span class="nt">launch</span>
 </code></pre></div>
 <div class="highlight"><span class="filename">Description:</span><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="nt">Every</span><span class="w"> </span><span class="nt">time</span><span class="w"> </span><span class="nt">I</span><span class="w"> </span><span class="nt">try</span><span class="w"> </span><span class="nt">to</span><span class="w"> </span><span class="nt">open</span><span class="w"> </span><span class="nt">the</span><span class="w"> </span><span class="nt">CRM</span><span class="w"> </span><span class="nt">software</span><span class="o">,</span><span class="w"> </span><span class="nt">it</span><span class="w"> </span><span class="nt">crashes</span><span class="w"> </span><span class="nt">immediately</span><span class="o">.</span><span class="w"> </span><span class="nt">I</span><span class="err">&#39;</span><span class="nt">ve</span><span class="w"> </span><span class="nt">already</span><span class="w"> </span><span class="nt">tried</span><span class="w"> </span><span class="nt">reinstalling</span><span class="w"> </span><span class="nt">it</span><span class="o">.</span>
 </code></pre></div>
-<p>In the output panel you'll see the agent send the request to the LLM and receive a response. But how does it determine the category names and the assignee email address?</p>
-<p>Without context grounding, the agent may return confident but inaccurate categories and assignee information—categories that don't actually exist in your system. This is the hallucination problem.</p>
-<p>To ground responses in real categories and look up the on-duty expert's email, you'll add two things:</p>
+<p>출력 패널에서 에이전트가 LLM에 요청을 보내고 응답을 받는 모습을 볼 수 있습니다. 그런데 에이전트는 카테고리 이름과 담당자 이메일 주소를 어떻게 정하는 걸까요?</p>
+<p>컨텍스트 그라운딩이 없으면 에이전트는 자신만만하지만 부정확한 카테고리와 담당자 정보 — 시스템에 실제로 존재하지 않는 카테고리 — 를 반환할 수 있습니다. 이것이 바로 할루시네이션 문제입니다.</p>
+<p>응답을 실제 카테고리에 근거시키고 당직 전문가의 이메일을 조회하기 위해, 두 가지를 추가합니다.</p>
 <ul>
 <li>Context Grounding</li>
-<li>Assignee Lookup automation</li>
+<li>Assignee Lookup 자동화</li>
 </ul>
-<h3 id="3-add-context-grounding">3. Add context grounding<a class="headerlink" href="#3-add-context-grounding" title="Permanent link">&para;</a></h3>
-<p>Context Grounding provides the agent with a structured data source. The context is named <strong>ServiceNow Incidents Categorization Information</strong> and contains the valid Category–Subcategory pairs used in our training organization. It lists available categories and subcategories with a brief description for each:</p>
-<p><img alt="What's behind the context grounding" class="screenshot" src="../../../categorizing-incidents/1-llm-with-context.images/5-context-source.png" width="900" /></p>
+<h3 id="3">3. 컨텍스트 그라운딩 추가하기<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
+<p>Context Grounding은 에이전트에 구조화된 데이터 소스를 제공합니다. 이 컨텍스트의 이름은 <strong>ServiceNow Incidents Categorization Information</strong>이며, 우리 교육용 조직에서 사용하는 유효한 Category–Subcategory 쌍을 담고 있습니다. 사용 가능한 카테고리와 하위 카테고리를 각각의 간단한 설명과 함께 나열합니다.</p>
+<p><img alt="컨텍스트 그라운딩 뒤에 있는 데이터" class="screenshot" src="../../../categorizing-incidents/1-llm-with-context.images/5-context-source.png" width="900" /></p>
 <div class="img-cols img-cols-30">
 <div>
-<p>This gives the agent the structured data it needs to categorize any incoming ticket. Click <strong>Add context</strong> in the <strong>Contexts</strong> section of the agent configuration. </p>
+<p>이제 에이전트는 어떤 티켓이 들어와도 분류할 수 있는 구조화된 데이터를 갖게 됩니다. 에이전트 구성의 <strong>Contexts</strong> 섹션에서 <strong>Add context</strong>(컨텍스트 추가)를 클릭합니다. </p>
 <div class="admonition tip">
-<p class="admonition-title">If you are in Canvas mode, use the "+" button next to Contexts.</p>
+<p class="admonition-title">Canvas 모드라면 Contexts 옆의 "+" 버튼을 사용하세요.</p>
 </div>
 </div>
 <div>
-<p><img alt="Selecting context source in Agent Builder" class="screenshot" src="../../../categorizing-incidents/1-llm-with-context.images/5-add-context.png" />
+<p><img alt="Agent Builder에서 컨텍스트 소스 선택하기" class="screenshot" src="../../../categorizing-incidents/1-llm-with-context.images/5-add-context.png" />
   </p>
 </div>
 </div>
-<p>Select <strong>ServiceNow Incidents Categorization Information</strong> from the available resources under the <strong>ServiceNow Incidents</strong> folder and add it with following description: 
+<p><strong>ServiceNow Incidents</strong> 폴더 아래의 사용 가능한 리소스에서 <strong>ServiceNow Incidents Categorization Information</strong>을 선택하고, 다음 설명과 함께 추가합니다. 
 <div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>Use this context when you need to establish the Category and Subcategory of ServiceNow incidents
 </code></pre></div></p>
-<h3 id="4-add-assignee-lookup-tool">4. Add assignee lookup tool<a class="headerlink" href="#4-add-assignee-lookup-tool" title="Permanent link">&para;</a></h3>
+<h3 id="4">4. 담당자 조회 도구 추가하기<a class="headerlink" href="#4" title="Permanent link">&para;</a></h3>
 <div class="img-cols img-cols-50">
 <div>
-<p>Now, import the <strong>SNOW Assignee Lookup Automation</strong> project. </p>
-<p>Click the <strong>+</strong> button in the Explorer and choose <strong>Import existing</strong> to add it into your solution.
+<p>이제 <strong>SNOW Assignee Lookup Automation</strong> 프로젝트를 가져옵니다. </p>
+<p>Explorer에서 <strong>+</strong> 버튼을 클릭한 다음 <strong>Import existing</strong>(기존 항목 가져오기)을 선택해 솔루션에 추가합니다.
   </p>
 </div>
 <div>
-<p><img alt="Importing existing project into solution" class="screenshot" src="../../../categorizing-incidents/1-llm-with-context.images/6-import-project.png" />
+<p><img alt="기존 프로젝트를 솔루션으로 가져오기" class="screenshot" src="../../../categorizing-incidents/1-llm-with-context.images/6-import-project.png" />
   </p>
 </div>
 </div>
 <div class="img-cols img-cols-30">
 <div>
-<p>Search for "SNOW Assignee" and select <strong>SNOW Assignee Lookup Automation</strong>.
+<p>"SNOW Assignee"를 검색하고 <strong>SNOW Assignee Lookup Automation</strong>을 선택합니다.
   </p>
 </div>
 <div>
-<p><img alt="Selecting SNOW Assignee Lookup Automation" class="screenshot" src="../../../categorizing-incidents/1-llm-with-context.images/7-select-assignee-lookup.png" />
+<p><img alt="SNOW Assignee Lookup Automation 선택하기" class="screenshot" src="../../../categorizing-incidents/1-llm-with-context.images/7-select-assignee-lookup.png" />
   </p>
 </div>
 </div>
-<p>Add this automation as a tool to your agent. Click <strong>Add tool</strong> in the <strong>Tools</strong> section, then select <strong>RPA workflow</strong>.</p>
-<p><img alt="Adding RPA tool in Agent Builder" class="screenshot" src="../../../categorizing-incidents/1-llm-with-context.images/8-add-rpa-tool.png" width="800" /></p>
+<p>이 자동화를 에이전트의 도구로 추가합니다. <strong>Tools</strong> 섹션에서 <strong>Add tool</strong>(도구 추가)을 클릭한 다음 <strong>RPA workflow</strong>를 선택합니다.</p>
+<p><img alt="Agent Builder에서 RPA 도구 추가하기" class="screenshot" src="../../../categorizing-incidents/1-llm-with-context.images/8-add-rpa-tool.png" width="800" /></p>
 <div class="img-cols img-cols-50">
 <div>
-<p>Select <strong>SNOW Assignee Lookup Automation</strong> from the list of available workflows in your current solution.
+<p>현재 솔루션에서 사용 가능한 워크플로 목록에서 <strong>SNOW Assignee Lookup Automation</strong>을 선택합니다.
   </p>
 </div>
 <div>
-<p><img alt="Selecting the assignee lookup tool" class="screenshot" src="../../../categorizing-incidents/1-llm-with-context.images/9-select-tool.png" />
+<p><img alt="담당자 조회 도구 선택하기" class="screenshot" src="../../../categorizing-incidents/1-llm-with-context.images/9-select-tool.png" />
   </p>
 </div>
 </div>
 <div class="img-cols img-cols-30">
 <div>
-<p>Add a description for the tool so the agent knows when to use it:
+<p>에이전트가 언제 이 도구를 사용할지 알 수 있도록 설명을 추가합니다.
   </p>
 </div>
 <div>
@@ -1464,10 +1464,10 @@
   </p>
 </div>
 </div>
-<h3 id="5-update-system-prompt">5. Update system prompt<a class="headerlink" href="#5-update-system-prompt" title="Permanent link">&para;</a></h3>
+<h3 id="5">5. 시스템 프롬프트 업데이트하기<a class="headerlink" href="#5" title="Permanent link">&para;</a></h3>
 <details class="tip">
-<summary>Review the changes</summary>
-<p>Here are the changes that we need to apply in order for prompt to reflect new tools use. Review carefully:
+<summary>변경 사항 확인</summary>
+<p>새 도구 사용을 반영하기 위해 프롬프트에 적용해야 하는 변경 사항입니다. 꼼꼼히 확인하세요.
 <div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="gd">--- Original</span>
 <a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="gi">+++ With Context and tools</span>
 <a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a>
@@ -1489,7 +1489,7 @@
 <a id="__codelineno-21-19" name="__codelineno-21-19" href="#__codelineno-21-19"></a><span class="gd">- Reasoning for your decisions</span>
 </code></pre></div></p>
 </details>
-<div class="highlight"><span class="filename">Update the System Prompt to reference both the context and the tool:</span><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>You are a ServiceNow Incidents categorization agent, an AI assistant tasked with managing newly created ServiceNow incidents. Your primary responsibility is to analyze incident details and determine the correct Category, Subcategory, and Assignee email address for each incident.
+<div class="highlight"><span class="filename">컨텍스트와 도구를 모두 참조하도록 System Prompt를 업데이트하세요:</span><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>You are a ServiceNow Incidents categorization agent, an AI assistant tasked with managing newly created ServiceNow incidents. Your primary responsibility is to analyze incident details and determine the correct Category, Subcategory, and Assignee email address for each incident.
 <a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>
 <a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a><span class="hll"><span class="gh"># Categorize the incident</span>
 </span><a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a>
@@ -1506,21 +1506,21 @@
 <a id="__codelineno-22-15" name="__codelineno-22-15" href="#__codelineno-22-15"></a><span class="k">-</span><span class="w"> </span>Assignee Email
 <a id="__codelineno-22-16" name="__codelineno-22-16" href="#__codelineno-22-16"></a><span class="k">-</span><span class="w"> </span>Reasoning for your decisions
 </code></pre></div>
-<p>Test the agent again with the same CRM crash sample incident. Now review the <strong>Execution Trace</strong> to observe:</p>
+<p>같은 CRM 크래시 샘플 인시던트로 에이전트를 다시 테스트합니다. 이제 <strong>Execution Trace</strong>(실행 추적)에서 다음을 관찰하세요.</p>
 <ul>
-<li>The agent's LLM call to analyze the incident</li>
-<li>The agent querying the Context Grounding data</li>
-<li>The agent calling the Assignee Lookup tool</li>
-<li>The final categorization in the Result tab</li>
+<li>인시던트를 분석하기 위한 에이전트의 LLM 호출</li>
+<li>Context Grounding 데이터를 조회하는 에이전트</li>
+<li>Assignee Lookup 도구를 호출하는 에이전트</li>
+<li>Result 탭의 최종 분류 결과</li>
 </ul>
-<p><img alt="Agent test output with execution trace" class="screenshot" src="../../../categorizing-incidents/1-llm-with-context.images/10-agent-test-output.png" width="900" /></p>
-<p>The output should now show only valid categories and an assignee email retrieved from the lookup tool — no hallucinations. Congratulations!</p>
-<h3 id="6-test-with-evaluations">6. Test with Evaluations<a class="headerlink" href="#6-test-with-evaluations" title="Permanent link">&para;</a></h3>
-<p>Evaluations are a form of regression testing that automatically validate results against a predefined set of inputs. For now, run the evaluation set to confirm the agent handles all eight scenarios correctly. You'll explore Evaluations further in the next step.</p>
-<p>Go to the Evaluation sets tab and click <strong>Import</strong>. </p>
+<p><img alt="실행 추적이 포함된 에이전트 테스트 출력" class="screenshot" src="../../../categorizing-incidents/1-llm-with-context.images/10-agent-test-output.png" width="900" /></p>
+<p>이제 출력에는 유효한 카테고리와 조회 도구에서 가져온 담당자 이메일만 표시됩니다. 할루시네이션은 없습니다. 축하합니다!</p>
+<h3 id="6-evaluations">6. Evaluations로 테스트하기<a class="headerlink" href="#6-evaluations" title="Permanent link">&para;</a></h3>
+<p>Evaluations는 미리 정의된 입력 세트에 대해 결과를 자동으로 검증하는 일종의 회귀 테스트입니다. 지금은 평가 세트를 실행해 에이전트가 여덟 가지 시나리오를 모두 올바르게 처리하는지 확인합니다. Evaluations는 다음 단계에서 더 자세히 살펴봅니다.</p>
+<p>Evaluation sets 탭으로 이동해 <strong>Import</strong>(가져오기)를 클릭합니다. </p>
 <details class="tip">
-<summary>Evaluation set</summary>
-<p>Paste the JSON below into the text field. After import you should see several evaluations.
+<summary>평가 세트</summary>
+<p>아래 JSON을 텍스트 필드에 붙여넣으세요. 가져오기가 끝나면 여러 개의 평가가 보일 것입니다.
 <div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="p">{</span>
 <a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a><span class="w">  </span><span class="nt">&quot;fileName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;evaluation-set-1761459564848.json&quot;</span><span class="p">,</span>
 <a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a><span class="w">  </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;18c3387f-00ed-4deb-b4e8-886f1164f517&quot;</span><span class="p">,</span>
@@ -1649,15 +1649,18 @@
 <a id="__codelineno-23-126" name="__codelineno-23-126" href="#__codelineno-23-126"></a><span class="p">}</span>
 </code></pre></div></p>
 </details>
-<p><img alt="Evaluation set imported and ready to run" class="screenshot" src="../../../categorizing-incidents/1-llm-with-context.images/11-evaluation-set-W.png" width="900" /></p>
-<p>Click <strong>Evaluate set</strong> and review the results. Each test case runs your agent once, and you'll see whether the outputs match the expected values. Evaluations help you maintain quality and catch regressions when you update your prompts or change models, ensuring that adjusting a prompt to address one issue didn't break another use case.</p>
-<p>Your agent's categorization logic is ready. In the next step, you'll connect it to ServiceNow.</p>
+<p><img alt="가져와서 실행 준비가 된 평가 세트" class="screenshot" src="../../../categorizing-incidents/1-llm-with-context.images/11-evaluation-set-W.png" width="900" /></p>
+<p><strong>Evaluate set</strong>을 클릭하고 결과를 검토합니다. 각 테스트 케이스는 에이전트를 한 번씩 실행하며, 출력이 기대 값과 일치하는지 확인할 수 있습니다. Evaluations는 프롬프트를 수정하거나 모델을 바꿀 때 품질을 유지하고 회귀를 잡아내도록 도와줍니다. 한 가지 문제를 해결하려고 프롬프트를 조정했다가 다른 유스 케이스가 망가지는 일을 막아 주는 것이죠.</p>
+<p>에이전트의 분류 로직이 준비되었습니다. 다음 단계에서는 에이전트를 ServiceNow에 연결합니다.</p>
 
 
 
 
 
 
+
+  
+  
 
 
 

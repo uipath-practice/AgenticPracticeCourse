@@ -86,7 +86,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#talking-to-external-services" class="md-skip">
+        <a href="#_1" class="md-skip">
           콘텐츠로 이동
         </a>
       
@@ -816,10 +816,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#goal" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Goal
+        목표
       
     </span>
   </a>
@@ -827,10 +827,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#integration-service-and-data-fabric" class="md-nav__link">
+  <a href="#integration-service-data-fabric" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Integration Service and Data Fabric
+        Integration Service와 Data Fabric
       
     </span>
   </a>
@@ -838,22 +838,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#steps" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Steps
+        단계
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Steps">
+    <nav class="md-nav" aria-label="단계">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-configure-the-rejection-email-task" class="md-nav__link">
+  <a href="#1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. Configure the rejection email task
+        1. 반려 이메일 작업 구성하기
       
     </span>
   </a>
@@ -861,10 +861,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-configure-the-data-fabric-storage-task" class="md-nav__link">
+  <a href="#2-data-fabric" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Configure the Data Fabric storage task
+        2. Data Fabric 저장 작업 구성하기
       
     </span>
   </a>
@@ -872,10 +872,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#3-test-both-paths" class="md-nav__link">
+  <a href="#3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. Test both paths
+        3. 두 경로 모두 테스트하기
       
     </span>
   </a>
@@ -1174,98 +1174,101 @@
 
 
 
-<h1 id="talking-to-external-services">Talking to external services<a class="headerlink" href="#talking-to-external-services" title="Permanent link">&para;</a></h1>
+<h1 id="_1">외부 서비스와 대화하기<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 <div class="admonition tip">
-<p class="admonition-title">Here is our plan for this lesson:</p>
+<p class="admonition-title">이번 레슨의 계획입니다:</p>
 <ol>
-<li>Send a message to the supplier whenever an invoice is rejected, using the response text from validation step and <strong>Gmail Connector</strong>.</li>
-<li>Store approved invoice data in <strong>Data Fabric</strong> so the finance team can process payments using their own automation.</li>
+<li>인보이스가 반려될 때마다 검증 단계의 응답 텍스트와 <strong>Gmail Connector</strong>를 사용해 공급업체에 메시지를 보냅니다.</li>
+<li>승인된 인보이스 데이터를 <strong>Data Fabric</strong>에 저장해, 재무 팀이 자체 자동화로 지불을 처리할 수 있게 합니다.</li>
 </ol>
 </div>
-<h2 id="goal">Goal<a class="headerlink" href="#goal" title="Permanent link">&para;</a></h2>
-<p>Complete the end-to-end process by adding two final tasks: a rejection email connector on the <strong>Reject</strong> path, and a data storage connector on the <strong>Approve</strong> path. Both use <strong>Integration Service</strong> connectors already configured in <strong>AgenticPractice</strong> tenant.</p>
-<h2 id="integration-service-and-data-fabric">Integration Service and Data Fabric<a class="headerlink" href="#integration-service-and-data-fabric" title="Permanent link">&para;</a></h2>
-<p>UiPath <strong>Integration Service</strong> is the fastest and most convenient way to automate API-enabled applications. It handles authorization and authentication, centralizing API connection management and enabling faster SaaS platform integration.</p>
-<p>Two connections are already configured in your tenant:</p>
+<h2 id="_2">목표<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>마지막 두 작업을 추가해 엔드투엔드 프로세스를 완성합니다: <strong>Reject</strong> 경로에는 반려 이메일 커넥터를, <strong>Approve</strong> 경로에는 데이터 저장 커넥터를 추가합니다. 둘 다 <strong>AgenticPractice</strong> 테넌트에 이미 구성된 <strong>Integration Service</strong> 커넥터를 사용합니다.</p>
+<h2 id="integration-service-data-fabric">Integration Service와 Data Fabric<a class="headerlink" href="#integration-service-data-fabric" title="Permanent link">&para;</a></h2>
+<p>UiPath <strong>Integration Service</strong>는 API를 지원하는 애플리케이션을 자동화하는 가장 빠르고 편리한 방법입니다. 인가와 인증을 처리하고, API 연결 관리를 중앙화하며, SaaS 플랫폼 통합을 더 빠르게 만들어 줍니다.</p>
+<p>테넌트에는 두 개의 연결이 이미 구성되어 있습니다:</p>
 <ul>
-<li><strong>Gmail</strong> — a shared mailbox for sending automated emails</li>
-<li><strong>Data Fabric</strong> — shared data storage for structured records (tables, files, etc.)</li>
+<li><strong>Gmail</strong> — 자동화 이메일 발송용 공유 메일박스</li>
+<li><strong>Data Fabric</strong> — 구조화된 레코드(테이블, 파일 등)를 위한 공유 데이터 저장소</li>
 </ul>
-<p>Your platform administrators have prepared these connections. You don't need to configure authentication.</p>
-<p><img alt="Available connections in Integration Service" class="screenshot" src="../../../invoice-matching-ixp/5-configure-api.images/1-connections-W.png" width="900" /></p>
+<p>플랫폼 관리자가 이 연결들을 준비해 두었습니다. 인증을 직접 구성할 필요는 없습니다.</p>
+<p><img alt="Integration Service에서 사용 가능한 연결" class="screenshot" src="../../../invoice-matching-ixp/5-configure-api.images/1-connections-W.png" width="900" /></p>
 <div class="admonition note">
-<p class="admonition-title">Tenant check</p>
-<p>Make sure you're using the correct tenant. Contact your trainer if there are issues with connections.</p>
+<p class="admonition-title">테넌트 확인</p>
+<p>올바른 테넌트를 사용하고 있는지 확인하세요. 연결에 문제가 있으면 트레이너에게 문의하세요.</p>
 </div>
-<h2 id="steps">Steps<a class="headerlink" href="#steps" title="Permanent link">&para;</a></h2>
-<h3 id="1-configure-the-rejection-email-task">1. Configure the rejection email task<a class="headerlink" href="#1-configure-the-rejection-email-task" title="Permanent link">&para;</a></h3>
-<p>The process should send a rejection email when an invoice fails validation. The email uses the draft response that the Agent generated and the reviewer had a chance to edit.</p>
+<h2 id="_3">단계<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h3 id="1">1. 반려 이메일 작업 구성하기<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
+<p>인보이스가 검증을 통과하지 못하면 프로세스가 반려 이메일을 보내야 합니다. 이메일에는 에이전트가 생성하고 검토자가 수정할 기회를 가졌던 초안 응답이 사용됩니다.</p>
 <div class="img-cols img-cols-30">
 <div>
-<p>In your <strong>Maestro Agentic Process</strong>, select the task on the <strong>Reject</strong> path and set the action type to <strong>Execute Connector Activity</strong>.</p>
-<p>Use the "<strong>Shared Gmail Connection</strong>" and pick "<strong>Send Email</strong>" activity.
+<p><strong>Maestro Agentic Process</strong>에서 <strong>Reject</strong> 경로의 작업을 선택하고 액션 유형을 <strong>Execute Connector Activity</strong>로 설정합니다.</p>
+<p>"<strong>Shared Gmail Connection</strong>"을 사용하고 "<strong>Send Email</strong>" 액티비티를 선택하세요.
   </p>
 </div>
 <div>
-<p><img alt="Send rejection email task configuration" class="screenshot" src="../../../invoice-matching-ixp/5-configure-api.images/2-send-rejection.png" />
+<p><img alt="반려 이메일 발송 작업 구성" class="screenshot" src="../../../invoice-matching-ixp/5-configure-api.images/2-send-rejection.png" />
   </p>
 </div>
 </div>
 <div class="img-cols img-cols-50">
 <div>
-<p>Configure the <strong>Send Email</strong> activity: enter your email address as the recipient address, suitable subject line, and map the email body to the reviewer's edited version, <code>out_ApproverResponse</code>.
+<p><strong>Send Email</strong> 액티비티를 구성합니다: 수신자 주소에 여러분의 이메일 주소를 입력하고, 적절한 제목을 넣은 다음, 이메일 본문을 검토자가 수정한 버전인 <code>out_ApproverResponse</code>에 매핑합니다.
   </p>
 </div>
 <div>
-<p><img alt="Gmail Send Email activity configuration" class="screenshot" src="../../../invoice-matching-ixp/5-configure-api.images/3-gmail-configuration.png" />
+<p><img alt="Gmail Send Email 액티비티 구성" class="screenshot" src="../../../invoice-matching-ixp/5-configure-api.images/3-gmail-configuration.png" />
   </p>
 </div>
 </div>
-<h3 id="2-configure-the-data-fabric-storage-task">2. Configure the Data Fabric storage task<a class="headerlink" href="#2-configure-the-data-fabric-storage-task" title="Permanent link">&para;</a></h3>
-<p>Now we know what would happen with the rejected Invoices. For approved invoices, pass the invoice data to <strong>Data Fabric</strong> so the finance team's own UiPath automation can pick it up and process payments. They are using their own UiPath Automation connected to same data source, so all we need to do is to push our data there.</p>
+<h3 id="2-data-fabric">2. Data Fabric 저장 작업 구성하기<a class="headerlink" href="#2-data-fabric" title="Permanent link">&para;</a></h3>
+<p>이제 반려된 인보이스가 어떻게 되는지는 알았습니다. 승인된 인보이스는 인보이스 데이터를 <strong>Data Fabric</strong>으로 전달해서, 재무 팀의 자체 UiPath 자동화가 이를 받아 지불을 처리할 수 있게 합니다. 재무 팀은 같은 데이터 소스에 연결된 자체 UiPath 자동화를 사용하고 있으므로, 우리가 할 일은 데이터를 그곳에 밀어 넣는 것뿐입니다.</p>
 <div class="img-cols img-cols-30">
 <div>
-<p>Select the task on the <strong>Approve</strong> path and set the action type to <strong>Execute Connector Activity</strong>.</p>
-<p>Configure the task to use the <strong>Data Fabric</strong> connector with the shared connection and <strong>Create Entity Record</strong> activity for the <strong>Payments Queue</strong> object.
+<p><strong>Approve</strong> 경로의 작업을 선택하고 액션 유형을 <strong>Execute Connector Activity</strong>로 설정합니다.</p>
+<p>공유 연결과 함께 <strong>Data Fabric</strong> 커넥터를 사용하고, <strong>Payments Queue</strong> 객체에 대한 <strong>Create Entity Record</strong> 액티비티를 쓰도록 작업을 구성하세요.
   </p>
 </div>
 <div>
-<p><img alt="Update Financial Systems task configuration" class="screenshot" src="../../../invoice-matching-ixp/5-configure-api.images/4-update-financial-system.png" />
+<p><img alt="재무 시스템 업데이트 작업 구성" class="screenshot" src="../../../invoice-matching-ixp/5-configure-api.images/4-update-financial-system.png" />
   </p>
 </div>
 </div>
 <div class="img-cols img-cols-50">
 <div>
-<p>Click <strong>Manage Properties</strong> to add the invoice data field to the Payments Queue entity. Check the <strong>InvoiceData</strong> field to map your invoice data.
+<p><strong>Manage Properties</strong>를 클릭해 Payments Queue 엔티티에 인보이스 데이터 필드를 추가합니다. <strong>InvoiceData</strong> 필드에 체크해 인보이스 데이터를 매핑하세요.
   </p>
 </div>
 <div>
-<p><img alt="Select InvoiceData field" class="screenshot" src="../../../invoice-matching-ixp/5-configure-api.images/4-update-records-fields.png" />
+<p><img alt="InvoiceData 필드 선택" class="screenshot" src="../../../invoice-matching-ixp/5-configure-api.images/4-update-records-fields.png" />
   </p>
 </div>
 </div>
 <div class="img-cols img-cols-50">
 <div>
-<p>Map the invoice JSON data from Agent's output to the <strong>InvoiceData</strong> input field. This passes information about every approved invoice to the payments queue for downstream processing.
+<p>에이전트 출력의 인보이스 JSON 데이터를 <strong>InvoiceData</strong> 입력 필드에 매핑합니다. 이렇게 하면 승인된 모든 인보이스의 정보가 후속 처리를 위해 지불 큐로 전달됩니다.
   </p>
 </div>
 <div>
-<p><img alt="Map invoice data to InvoiceData input" class="screenshot" src="../../../invoice-matching-ixp/5-configure-api.images/4-update-records-input.png" />
+<p><img alt="인보이스 데이터를 InvoiceData 입력에 매핑" class="screenshot" src="../../../invoice-matching-ixp/5-configure-api.images/4-update-records-input.png" />
   </p>
 </div>
 </div>
-<h3 id="3-test-both-paths">3. Test both paths<a class="headerlink" href="#3-test-both-paths" title="Permanent link">&para;</a></h3>
-<p>Click <strong>Debug</strong> and let the process run. Remember that with <code>in_FailureProbability</code> parameter of RPA automation you can control how often you'll see rejected and approved invoices.</p>
-<p>Check <strong>Data Fabric</strong> to see approved invoices accumulating in the Payments Queue:</p>
-<p><img alt="Approved invoices in Data Fabric Payments Queue" class="screenshot" src="../../../invoice-matching-ixp/5-configure-api.images/5-payments-queue-W.png" width="900" /></p>
-<p>Check your inbox for rejection emails from the shared Gmail account. Each email contains the discrepancies identified by the Agent and reviewed by the human validator:</p>
-<p><img alt="Rejection email received with generated invoice comparison" class="screenshot" src="../../../invoice-matching-ixp/5-configure-api.images/6-actual-email-received-W.png" width="600" /></p>
+<h3 id="3">3. 두 경로 모두 테스트하기<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
+<p><strong>Debug</strong>를 클릭하고 프로세스를 실행해 보세요. RPA 자동화의 <code>in_FailureProbability</code> 매개변수로 반려 인보이스와 승인 인보이스가 얼마나 자주 나올지 조절할 수 있다는 점을 기억하세요.</p>
+<p><strong>Data Fabric</strong>에서 승인된 인보이스가 Payments Queue에 쌓이는 모습을 확인하세요:</p>
+<p><img alt="Data Fabric Payments Queue에 쌓인 승인 인보이스" class="screenshot" src="../../../invoice-matching-ixp/5-configure-api.images/5-payments-queue-W.png" width="900" /></p>
+<p>공유 Gmail 계정에서 온 반려 이메일이 있는지 받은 편지함을 확인하세요. 각 이메일에는 에이전트가 식별하고 휴먼 검증자가 검토한 불일치 내역이 담겨 있습니다:</p>
+<p><img alt="생성된 인보이스 비교가 담긴 수신 반려 이메일" class="screenshot" src="../../../invoice-matching-ixp/5-configure-api.images/6-actual-email-received-W.png" width="600" /></p>
 
 
 
 
 
 
+
+  
+  
 
 
 

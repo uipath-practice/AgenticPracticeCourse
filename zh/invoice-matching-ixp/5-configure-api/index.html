@@ -86,7 +86,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#talking-to-external-services" class="md-skip">
+        <a href="#_1" class="md-skip">
           跳转至
         </a>
       
@@ -816,10 +816,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#goal" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Goal
+        目标
       
     </span>
   </a>
@@ -827,10 +827,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#integration-service-and-data-fabric" class="md-nav__link">
+  <a href="#integration-service-data-fabric" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Integration Service and Data Fabric
+        Integration Service 与 Data Fabric
       
     </span>
   </a>
@@ -838,22 +838,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#steps" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Steps
+        步骤
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Steps">
+    <nav class="md-nav" aria-label="步骤">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-configure-the-rejection-email-task" class="md-nav__link">
+  <a href="#1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. Configure the rejection email task
+        1. 配置拒绝邮件任务
       
     </span>
   </a>
@@ -861,10 +861,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-configure-the-data-fabric-storage-task" class="md-nav__link">
+  <a href="#2-data-fabric" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Configure the Data Fabric storage task
+        2. 配置 Data Fabric 存储任务
       
     </span>
   </a>
@@ -872,10 +872,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#3-test-both-paths" class="md-nav__link">
+  <a href="#3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. Test both paths
+        3. 测试两条路径
       
     </span>
   </a>
@@ -1174,98 +1174,101 @@
 
 
 
-<h1 id="talking-to-external-services">Talking to external services<a class="headerlink" href="#talking-to-external-services" title="Permanent link">&para;</a></h1>
+<h1 id="_1">与外部服务打交道<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 <div class="admonition tip">
-<p class="admonition-title">Here is our plan for this lesson:</p>
+<p class="admonition-title">本课的计划如下：</p>
 <ol>
-<li>Send a message to the supplier whenever an invoice is rejected, using the response text from validation step and <strong>Gmail Connector</strong>.</li>
-<li>Store approved invoice data in <strong>Data Fabric</strong> so the finance team can process payments using their own automation.</li>
+<li>每当发票被拒绝时，使用验证步骤产出的回复文本和 <strong>Gmail Connector</strong>（Gmail 连接器）给供应商发送消息。</li>
+<li>把批准的发票数据存入 <strong>Data Fabric</strong>，让财务团队用他们自己的自动化来处理付款。</li>
 </ol>
 </div>
-<h2 id="goal">Goal<a class="headerlink" href="#goal" title="Permanent link">&para;</a></h2>
-<p>Complete the end-to-end process by adding two final tasks: a rejection email connector on the <strong>Reject</strong> path, and a data storage connector on the <strong>Approve</strong> path. Both use <strong>Integration Service</strong> connectors already configured in <strong>AgenticPractice</strong> tenant.</p>
-<h2 id="integration-service-and-data-fabric">Integration Service and Data Fabric<a class="headerlink" href="#integration-service-and-data-fabric" title="Permanent link">&para;</a></h2>
-<p>UiPath <strong>Integration Service</strong> is the fastest and most convenient way to automate API-enabled applications. It handles authorization and authentication, centralizing API connection management and enabling faster SaaS platform integration.</p>
-<p>Two connections are already configured in your tenant:</p>
+<h2 id="_2">目标<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>添加最后两个任务，完成端到端流程：在 <strong>Reject</strong> 路径上加一个拒绝邮件连接器，在 <strong>Approve</strong> 路径上加一个数据存储连接器。两者都使用 <strong>AgenticPractice</strong> 租户中已配置好的 <strong>Integration Service</strong> 连接器。</p>
+<h2 id="integration-service-data-fabric">Integration Service 与 Data Fabric<a class="headerlink" href="#integration-service-data-fabric" title="Permanent link">&para;</a></h2>
+<p>UiPath <strong>Integration Service</strong> 是自动化各类支持 API 的应用最快捷、最方便的方式。它负责处理授权和身份验证，集中管理 API 连接，让 SaaS 平台集成更快落地。</p>
+<p>你的租户里已经配置好了两个连接：</p>
 <ul>
-<li><strong>Gmail</strong> — a shared mailbox for sending automated emails</li>
-<li><strong>Data Fabric</strong> — shared data storage for structured records (tables, files, etc.)</li>
+<li><strong>Gmail</strong>——用于发送自动邮件的共享邮箱</li>
+<li><strong>Data Fabric</strong>——用于结构化记录（表格、文件等）的共享数据存储</li>
 </ul>
-<p>Your platform administrators have prepared these connections. You don't need to configure authentication.</p>
-<p><img alt="Available connections in Integration Service" class="screenshot" src="../../../invoice-matching-ixp/5-configure-api.images/1-connections-W.png" width="900" /></p>
+<p>平台管理员已经准备好了这些连接。你不需要配置身份验证。</p>
+<p><img alt="Integration Service 中可用的连接" class="screenshot" src="../../../invoice-matching-ixp/5-configure-api.images/1-connections-W.png" width="900" /></p>
 <div class="admonition note">
-<p class="admonition-title">Tenant check</p>
-<p>Make sure you're using the correct tenant. Contact your trainer if there are issues with connections.</p>
+<p class="admonition-title">租户检查</p>
+<p>确认你用的是正确的租户。如果连接有问题，请联系你的培训师。</p>
 </div>
-<h2 id="steps">Steps<a class="headerlink" href="#steps" title="Permanent link">&para;</a></h2>
-<h3 id="1-configure-the-rejection-email-task">1. Configure the rejection email task<a class="headerlink" href="#1-configure-the-rejection-email-task" title="Permanent link">&para;</a></h3>
-<p>The process should send a rejection email when an invoice fails validation. The email uses the draft response that the Agent generated and the reviewer had a chance to edit.</p>
+<h2 id="_3">步骤<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h3 id="1">1. 配置拒绝邮件任务<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
+<p>当发票未通过验证时，流程应该发送一封拒绝邮件。邮件内容用的是智能体生成、审核人有机会编辑过的草稿回复。</p>
 <div class="img-cols img-cols-30">
 <div>
-<p>In your <strong>Maestro Agentic Process</strong>, select the task on the <strong>Reject</strong> path and set the action type to <strong>Execute Connector Activity</strong>.</p>
-<p>Use the "<strong>Shared Gmail Connection</strong>" and pick "<strong>Send Email</strong>" activity.
+<p>在你的 <strong>Maestro Agentic Process</strong> 中，选中 <strong>Reject</strong> 路径上的任务，把操作类型设为 <strong>Execute Connector Activity</strong>（执行连接器活动）。</p>
+<p>使用“<strong>Shared Gmail Connection</strong>”连接，并选择“<strong>Send Email</strong>”活动。
   </p>
 </div>
 <div>
-<p><img alt="Send rejection email task configuration" class="screenshot" src="../../../invoice-matching-ixp/5-configure-api.images/2-send-rejection.png" />
+<p><img alt="发送拒绝邮件任务的配置" class="screenshot" src="../../../invoice-matching-ixp/5-configure-api.images/2-send-rejection.png" />
   </p>
 </div>
 </div>
 <div class="img-cols img-cols-50">
 <div>
-<p>Configure the <strong>Send Email</strong> activity: enter your email address as the recipient address, suitable subject line, and map the email body to the reviewer's edited version, <code>out_ApproverResponse</code>.
+<p>配置 <strong>Send Email</strong> 活动：把你自己的邮箱地址填为收件人地址，写一个合适的主题，然后把邮件正文映射到审核人编辑后的版本 <code>out_ApproverResponse</code>。
   </p>
 </div>
 <div>
-<p><img alt="Gmail Send Email activity configuration" class="screenshot" src="../../../invoice-matching-ixp/5-configure-api.images/3-gmail-configuration.png" />
+<p><img alt="Gmail Send Email 活动的配置" class="screenshot" src="../../../invoice-matching-ixp/5-configure-api.images/3-gmail-configuration.png" />
   </p>
 </div>
 </div>
-<h3 id="2-configure-the-data-fabric-storage-task">2. Configure the Data Fabric storage task<a class="headerlink" href="#2-configure-the-data-fabric-storage-task" title="Permanent link">&para;</a></h3>
-<p>Now we know what would happen with the rejected Invoices. For approved invoices, pass the invoice data to <strong>Data Fabric</strong> so the finance team's own UiPath automation can pick it up and process payments. They are using their own UiPath Automation connected to same data source, so all we need to do is to push our data there.</p>
+<h3 id="2-data-fabric">2. 配置 Data Fabric 存储任务<a class="headerlink" href="#2-data-fabric" title="Permanent link">&para;</a></h3>
+<p>现在我们知道被拒绝的发票会怎么处理了。对于批准的发票，把发票数据传给 <strong>Data Fabric</strong>，让财务团队自己的 UiPath 自动化接手并处理付款。他们的 UiPath 自动化连接的是同一个数据源，所以我们只需要把数据推送过去。</p>
 <div class="img-cols img-cols-30">
 <div>
-<p>Select the task on the <strong>Approve</strong> path and set the action type to <strong>Execute Connector Activity</strong>.</p>
-<p>Configure the task to use the <strong>Data Fabric</strong> connector with the shared connection and <strong>Create Entity Record</strong> activity for the <strong>Payments Queue</strong> object.
+<p>选中 <strong>Approve</strong> 路径上的任务，把操作类型设为 <strong>Execute Connector Activity</strong>。</p>
+<p>把任务配置为使用 <strong>Data Fabric</strong> 连接器和共享连接，并对 <strong>Payments Queue</strong> 对象执行 <strong>Create Entity Record</strong> 活动。
   </p>
 </div>
 <div>
-<p><img alt="Update Financial Systems task configuration" class="screenshot" src="../../../invoice-matching-ixp/5-configure-api.images/4-update-financial-system.png" />
+<p><img alt="更新财务系统任务的配置" class="screenshot" src="../../../invoice-matching-ixp/5-configure-api.images/4-update-financial-system.png" />
   </p>
 </div>
 </div>
 <div class="img-cols img-cols-50">
 <div>
-<p>Click <strong>Manage Properties</strong> to add the invoice data field to the Payments Queue entity. Check the <strong>InvoiceData</strong> field to map your invoice data.
+<p>点击 <strong>Manage Properties</strong>（管理属性），把发票数据字段添加到 Payments Queue 实体。勾选 <strong>InvoiceData</strong> 字段来映射你的发票数据。
   </p>
 </div>
 <div>
-<p><img alt="Select InvoiceData field" class="screenshot" src="../../../invoice-matching-ixp/5-configure-api.images/4-update-records-fields.png" />
+<p><img alt="选中 InvoiceData 字段" class="screenshot" src="../../../invoice-matching-ixp/5-configure-api.images/4-update-records-fields.png" />
   </p>
 </div>
 </div>
 <div class="img-cols img-cols-50">
 <div>
-<p>Map the invoice JSON data from Agent's output to the <strong>InvoiceData</strong> input field. This passes information about every approved invoice to the payments queue for downstream processing.
+<p>把智能体输出的发票 JSON 数据映射到 <strong>InvoiceData</strong> 输入字段。这样每张批准发票的信息都会进入付款队列，供下游处理。
   </p>
 </div>
 <div>
-<p><img alt="Map invoice data to InvoiceData input" class="screenshot" src="../../../invoice-matching-ixp/5-configure-api.images/4-update-records-input.png" />
+<p><img alt="把发票数据映射到 InvoiceData 输入" class="screenshot" src="../../../invoice-matching-ixp/5-configure-api.images/4-update-records-input.png" />
   </p>
 </div>
 </div>
-<h3 id="3-test-both-paths">3. Test both paths<a class="headerlink" href="#3-test-both-paths" title="Permanent link">&para;</a></h3>
-<p>Click <strong>Debug</strong> and let the process run. Remember that with <code>in_FailureProbability</code> parameter of RPA automation you can control how often you'll see rejected and approved invoices.</p>
-<p>Check <strong>Data Fabric</strong> to see approved invoices accumulating in the Payments Queue:</p>
-<p><img alt="Approved invoices in Data Fabric Payments Queue" class="screenshot" src="../../../invoice-matching-ixp/5-configure-api.images/5-payments-queue-W.png" width="900" /></p>
-<p>Check your inbox for rejection emails from the shared Gmail account. Each email contains the discrepancies identified by the Agent and reviewed by the human validator:</p>
-<p><img alt="Rejection email received with generated invoice comparison" class="screenshot" src="../../../invoice-matching-ixp/5-configure-api.images/6-actual-email-received-W.png" width="600" /></p>
+<h3 id="3">3. 测试两条路径<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
+<p>点击 <strong>Debug</strong>，让流程跑起来。记住，通过 RPA 自动化的 <code>in_FailureProbability</code> 参数，你可以控制被拒绝和被批准的发票出现的频率。</p>
+<p>查看 <strong>Data Fabric</strong>，你会看到批准的发票在 Payments Queue 里不断累积：</p>
+<p><img alt="Data Fabric 的 Payments Queue 中已批准的发票" class="screenshot" src="../../../invoice-matching-ixp/5-configure-api.images/5-payments-queue-W.png" width="900" /></p>
+<p>再看看你的收件箱，里面会有来自共享 Gmail 账号的拒绝邮件。每封邮件都包含由智能体识别、经人工验证者审核过的差异：</p>
+<p><img alt="收到的拒绝邮件，包含生成的发票对比" class="screenshot" src="../../../invoice-matching-ixp/5-configure-api.images/6-actual-email-received-W.png" width="600" /></p>
 
 
 
 
 
 
+
+  
+  
 
 
 

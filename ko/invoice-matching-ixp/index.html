@@ -86,7 +86,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#invoice-matching-with-ixp" class="md-skip">
+        <a href="#ixp" class="md-skip">
           콘텐츠로 이동
         </a>
       
@@ -676,10 +676,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#overview" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Overview
+        개요
       
     </span>
   </a>
@@ -1113,43 +1113,43 @@
 
 
 
-<h1 id="invoice-matching-with-ixp">Invoice Matching with IXP<a class="headerlink" href="#invoice-matching-with-ixp" title="Permanent link">&para;</a></h1>
-<p><strong>Build an end-to-end 2-way matching process using IXP, Robots, an AI Agent, and human review.</strong></p>
-<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
-<p><strong>UiPath Maestro</strong> enables agentic orchestration — coordinating long-running enterprise processes between humans, robots, and AI agents across different systems of record and engagement. This exercise adds <strong>IXP</strong> (Intelligent eXtraction &amp; Processing) to the mix, using it to extract structured invoice data from PDF documents.</p>
+<h1 id="ixp">IXP로 인보이스 매칭하기<a class="headerlink" href="#ixp" title="Permanent link">&para;</a></h1>
+<p><strong>IXP, 로봇, AI 에이전트, 휴먼 검토를 결합해 엔드투엔드 2-way 매칭 프로세스를 만듭니다.</strong></p>
+<h2 id="_1">개요<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p><strong>UiPath Maestro</strong>는 에이전틱 오케스트레이션을 지원합니다. 서로 다른 기록 시스템과 업무 시스템에 걸쳐 사람, 로봇, AI 에이전트 사이의 장기 실행 엔터프라이즈 프로세스를 조율하는 것입니다. 이번 실습에서는 여기에 <strong>IXP</strong>(Intelligent eXtraction &amp; Processing)를 더해, PDF 문서에서 구조화된 인보이스 데이터를 추출합니다.</p>
 <table>
 <thead>
 <tr>
-<th style="text-align: right;">Step</th>
-<th style="text-align: left;">Focus</th>
+<th style="text-align: right;">단계</th>
+<th style="text-align: left;">핵심 내용</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: right;"><a href="1-create-bpmn/"><strong>Create BPMN Process</strong></a></td>
-<td style="text-align: left;">Design the end-to-end workflow for the process</td>
+<td style="text-align: right;"><a href="1-create-bpmn/"><strong>BPMN 프로세스 만들기</strong></a></td>
+<td style="text-align: left;">프로세스의 엔드투엔드 워크플로 설계</td>
 </tr>
 <tr>
-<td style="text-align: right;"><a href="2-configure-robot/"><strong>Configure a Robot</strong></a></td>
-<td style="text-align: left;">RPA job to retrieve the invoice PDF document</td>
+<td style="text-align: right;"><a href="2-configure-robot/"><strong>로봇 구성하기</strong></a></td>
+<td style="text-align: left;">인보이스 PDF 문서를 가져오는 RPA 작업</td>
 </tr>
 <tr>
-<td style="text-align: right;"><a href="3-configure-agent/"><strong>Configure an Agent</strong></a></td>
-<td style="text-align: left;">Extract invoice data using IXP, look up the Purchase Order, and run 2-way matching</td>
+<td style="text-align: right;"><a href="3-configure-agent/"><strong>에이전트 구성하기</strong></a></td>
+<td style="text-align: left;">IXP로 인보이스 데이터를 추출하고, 구매 주문(PO)을 조회한 뒤, 2-way 매칭 실행</td>
 </tr>
 <tr>
-<td style="text-align: right;"><a href="4-configure-human-validation/"><strong>Configure Human Validation</strong></a></td>
-<td style="text-align: left;">Action App in Action Center for human review of invoice exceptions</td>
+<td style="text-align: right;"><a href="4-configure-human-validation/"><strong>휴먼 검증 구성하기</strong></a></td>
+<td style="text-align: left;">인보이스 예외를 사람이 검토하는 Action Center의 Action App</td>
 </tr>
 <tr>
-<td style="text-align: right;"><a href="5-configure-api/"><strong>Configure API Integration</strong></a></td>
-<td style="text-align: left;">Send rejection emails and store approved invoices for payment processing</td>
+<td style="text-align: right;"><a href="5-configure-api/"><strong>API 통합 구성하기</strong></a></td>
+<td style="text-align: left;">반려 이메일 발송과 결제 처리를 위한 승인 인보이스 저장</td>
 </tr>
 </tbody>
 </table>
 <div class="admonition tip">
-<p class="admonition-title">Training Environment</p>
-<p>Log in at <strong><a href="https://cloud.uipath.com/tpenlabs">cloud.uipath.com/tpenlabs</a></strong> and remember using tenant <strong>AgenticPractice</strong> for this exercise.</p>
+<p class="admonition-title">실습 환경</p>
+<p><strong><a href="https://cloud.uipath.com/tpenlabs">cloud.uipath.com/tpenlabs</a></strong>에 로그인하고, 이 실습에서는 <strong>AgenticPractice</strong> 테넌트를 사용해야 한다는 점을 기억하세요.</p>
 </div>
 
 
@@ -1157,6 +1157,9 @@
 
 
 
+
+  
+  
 
 
 
