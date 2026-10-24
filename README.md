@@ -35,7 +35,7 @@ docs/*.md files
 ## Preview Locally
 
 ```bash
-/Users/sergey/Library/Python/3.9/bin/mkdocs serve
+mkdocs serve
 ```
 
 Open `http://127.0.0.1:8000` in your browser. The site reloads live as you save files.
@@ -43,7 +43,7 @@ Open `http://127.0.0.1:8000` in your browser. The site reloads live as you save 
 To check for broken links before pushing:
 
 ```bash
-/Users/sergey/Library/Python/3.9/bin/mkdocs build
+mkdocs build
 ```
 
 ---

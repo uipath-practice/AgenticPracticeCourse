@@ -77,7 +77,7 @@ Translation is structural mirroring: same headings, same paragraph breaks, same 
 2. Build the site:
 
     ```bash
-    /Users/sergey/Library/Python/3.9/bin/mkdocs build
+    mkdocs build
     ```
 
 3. Spot-check one translated file: front-matter present, code blocks byte-identical to English, column markers and `{ .screenshot }` intact.
