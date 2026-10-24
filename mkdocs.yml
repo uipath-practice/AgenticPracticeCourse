@@ -123,6 +123,7 @@ nav:
     - 3. Giving It a Try: conversational-agents/3-testing-conversations.md
     - You did it!: conversational-agents/you-did-it.md
   - Next Steps: next-steps.md
+  - Catalog: https://uipath-practice.github.io/
 
 extra_css:
   - stylesheets/extra.css

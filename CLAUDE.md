@@ -101,10 +101,10 @@ These are the most critical rules — kept here so they're available without ext
 ## Local Preview
 
 ```bash
-/Users/sergey/Library/Python/3.9/bin/mkdocs serve
+mkdocs serve
 ```
 
 Build check before committing:
 ```bash
-/Users/sergey/Library/Python/3.9/bin/mkdocs build
+mkdocs build
 ```
